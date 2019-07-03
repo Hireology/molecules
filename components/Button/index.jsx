@@ -1,5 +1,5 @@
-const Button = require('./Button');
-const ButtonGroup = require('./ButtonGroup');
+import Button from "./Button";
+import ButtonGroup from "./ButtonGroup";
 
-module.exports = Button;
-module.exports.ButtonGroup = ButtonGroup;
+export { ButtonGroup };
+export default Button;
