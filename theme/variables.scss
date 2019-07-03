@@ -1,0 +1,62 @@
+/*
+ * IF THE COLOR YOU NEED IS NOT IN HERE, PLEASE CONSULT
+ * WITH DESIGNER BEFORE ADDING. IT MUST BE WCAG APPROVED
+ * IN ORDER TO BE ADDED!!
+ */
+
+// COLORS
+// ==============================
+
+// Accessibility Grays
+$black: #000;
+$hireology-darkest-gray: #3F4144;
+$hireology-text-gray: #677078;
+$hireology-medium-gray: #9DA3A8;
+$hireology-disabled-gray: #D6DADC;
+$hireology-light-gray: #F7F9F9;
+$hireology-border-gray: #ddd;
+$white: #fff;
+
+$hireology-lightgray-hover: $hireology-light-gray;
+
+// Accessibility Colors
+$hireology-green: #81AF32;
+$hireology-green-hover: #6a9f11;
+$hireology-light-blue: #347EA4;
+$hireology-light-blue-hover: #34738C; // pre-existing
+$hireology-dark-blue: #2a5769;
+$hireology-dark-blue-hover: #2d4853;
+$hireology-red: #d83e38;
+$hireology-red-hover: #b5332e;
+$hireology-orange: #f09c00;
+$hireology-orange-hover: #E89000;
+$hireology-yellow: #f7cf2f;
+
+// ==============================
+
+$brand-primary: #97C940;
+$brand-secondary: #ffa200;
+$text-color: #444;
+$headings-color: #999;
+$brand-success: $brand-primary;
+$btn-default-bg: #eee;
+$btn-default-border: #ccc;
+$navbar-default-bg: #fff;
+$navbar-default-link-active-bg: #f2f2f2;
+$navbar-default-border: $navbar-default-link-active-bg;
+$navbar-inverse-link-active-color: $brand-primary;
+$well-bg: #EFF9E1;
+$panel-default-text: $headings-color;
+$price-plans: flex plus premium enterprise;
+$headings-font-weight: 300;
+
+$interview-guides-low-risk-color: $brand-primary;
+$interview-guides-medium-risk-color: #F8CF11;
+$interview-guides-high-risk-color: #d9534f;
+
+$selection-manager-heading-dark-gray: #676767;
+$selection-manager-star-control-color: $interview-guides-medium-risk-color;
+
+$font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+$base-border-radius: 4px;
+$base-border: 1px solid $hireology-border-gray;
