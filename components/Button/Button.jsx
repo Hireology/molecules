@@ -1,16 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import './button.scss';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import "./button.scss";
 
-const Button = (props) => {
+const Button = props => {
   const classes = classNames(
     props.additionalClasses,
-    'hireology-button btn',
+    "hireology-button btn",
     `hireology-button--${props.size}`,
     {
-      [`hireology-button--${props.type}`]: !props.disabled && props.type,
-    },
+      [`hireology-button--${props.type}`]: !props.disabled && props.type
+    }
   );
 
   return (
@@ -22,7 +22,7 @@ const Button = (props) => {
       onMouseOut={props.onMouseOut}
       onMouseDown={props.onMouseDown}
       className={classes}
-      tabIndex={'0'}
+      tabIndex={"0"}
       data-test="button"
     >
       {props.children}
@@ -31,15 +31,15 @@ const Button = (props) => {
 };
 
 Button.defaultProps = {
-  additionalClasses: '',
+  additionalClasses: "",
   onClick: null,
   onMouseOver: null,
   onMouseOut: null,
   onMouseDown: null,
   disabled: false,
   type: null,
-  size: 'medium',
-  id: '',
+  size: "medium",
+  id: ""
 };
 
 Button.propTypes = {
@@ -51,16 +51,16 @@ Button.propTypes = {
   onMouseOut: PropTypes.func,
   onMouseOver: PropTypes.func,
   onMouseDown: PropTypes.func,
-  size: PropTypes.oneOf(['small', 'medium', 'full']),
+  size: PropTypes.oneOf(["small", "medium", "full"]),
   type: PropTypes.oneOf([
-    'danger',
-    'gray',
-    'outline',
-    'outlineWhite',
-    'primary',
-    'secondary',
-    'unselected',
-  ]),
+    "danger",
+    "gray",
+    "outline",
+    "outlineWhite",
+    "primary",
+    "secondary",
+    "unselected"
+  ])
 };
 
-module.exports = Button;
+export default Button;
