@@ -1,11 +1,10 @@
+import React from 'react';
 import { shallow } from 'enzyme';
 import ButtonGroup from './ButtonGroup';
 
 jest.disableAutomock();
 
 const getProps = (overrides) => ({
-  align: '',
-  size: '',
   extraClassNames: '',
   ...overrides,
 });
@@ -13,7 +12,11 @@ const getProps = (overrides) => ({
 describe('ButtonGroup', () => {
   it('adds the appropriate align classnames', () => {
     const props = getProps({ align: 'left' });
-    const wrapper = shallow(<ButtonGroup {...props} />);
+    const wrapper = shallow(
+      <ButtonGroup {...props}>
+        <div />
+      </ButtonGroup>,
+    );
     expect(
       wrapper
         .find('[data-test="button-group"]')
@@ -22,7 +25,11 @@ describe('ButtonGroup', () => {
   });
   it('adds the appropriate size classnames', () => {
     const props = getProps({ size: 'full' });
-    const wrapper = shallow(<ButtonGroup {...props} />);
+    const wrapper = shallow(
+      <ButtonGroup {...props}>
+        <div />
+      </ButtonGroup>,
+    );
     expect(
       wrapper
         .find('[data-test="button-group"]')
@@ -31,7 +38,11 @@ describe('ButtonGroup', () => {
   });
   it('passes through any extra classnames', () => {
     const props = getProps({ extraClassNames: 'test' });
-    const wrapper = shallow(<ButtonGroup {...props} />);
+    const wrapper = shallow(
+      <ButtonGroup {...props}>
+        <div />
+      </ButtonGroup>,
+    );
     expect(wrapper.find('[data-test="button-group"]').hasClass('test')).toBe(
       true,
     );
