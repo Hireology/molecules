@@ -1,3 +1,4 @@
+import React from 'react';
 import { shallow } from 'enzyme';
 import Button from './Button';
 
@@ -9,8 +10,6 @@ const getProps = (overrides) => ({
   onMouseOut: () => null,
   onMouseOver: () => null,
   onMouseDown: () => null,
-  size: '',
-  type: '',
   ...overrides,
 });
 

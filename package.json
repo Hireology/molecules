@@ -11,7 +11,8 @@
   "scripts": {
     "build-storybook": "build-storybook -c .storybook",
     "storybook": "start-storybook",
-    "test": "NODE_ENV=test jest"
+    "test": "NODE_ENV=test jest",
+    "test-coverage": "NODE_ENV=test jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -45,9 +46,28 @@
     "eslint-plugin-jsx-a11y": "5.1.1",
     "eslint-plugin-prettier": "3.0.1",
     "eslint-plugin-react": "7.3.0",
+    "jest-cli": "24.8.0",
     "node-sass": "4.12.0",
     "prettier": "1.16.4",
+    "react-test-renderer": "15.6.2",
     "sass-loader": "7.1.0",
     "style-loader": "0.23.1"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "json"
+    ],
+    "setupFiles": [
+      "<rootDir>/test_env.setup.js"
+    ],
+    "testRegex": "(.*)(-test).(js|jsx)$",
+    "transform": {
+      ".*": "<rootDir>/node_modules/babel-jest"
+    },
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
+    }
   }
 }
