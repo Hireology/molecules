@@ -8,31 +8,31 @@
   > *:first-child {
     margin-left: 0px;
   }
-  
+
   > *:last-child {
     margin-right: 0px;
   }
 
   // ALIGN OPTIONS
-  &--left{
+  &--left {
     justify-content: flex-start;
   }
 
-  &--right{
+  &--right {
     justify-content: flex-end;
   }
 
-  &--center{
+  &--center {
     justify-content: center;
   }
 
-  &--justified{
+  &--justified {
     justify-content: space-between;
     align-items: center;
   }
 
   // SIZE OPTIONS
-  &--small{
+  &--small {
     align-items: center;
     > * {
       border-radius: 3px;
@@ -43,14 +43,14 @@
     }
   }
 
-  &--medium{
+  &--medium {
     > * {
       font-size: 0.85em;
       padding: 0.5em 1em;
     }
   }
 
-  &--full{
+  &--full {
     > * {
       flex-grow: 1;
     }

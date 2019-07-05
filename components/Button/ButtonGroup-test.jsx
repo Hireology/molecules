@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme';
-import ButtonGroup from '../ButtonGroup';
+import ButtonGroup from './ButtonGroup';
 
 jest.disableAutomock();
 

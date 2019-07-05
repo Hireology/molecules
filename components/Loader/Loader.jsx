@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classnames from "classnames";
-import "./loader.scss";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classnames from 'classnames';
+import './loader.scss';
 
-const Loader = props => {
-  const classes = classnames("loader", { "loader--inline": props.inline });
+const Loader = (props) => {
+  const classes = classnames('loader', { 'loader--inline': props.inline });
 
   return (
     <div className={classes} data-test="loader">
@@ -20,12 +20,12 @@ const Loader = props => {
 
 Loader.defaultProps = {
   inline: false,
-  message: "Loading..."
+  message: 'Loading...',
 };
 
 Loader.propTypes = {
   message: PropTypes.string,
-  inline: PropTypes.bool
+  inline: PropTypes.bool,
 };
 
 export default Loader;

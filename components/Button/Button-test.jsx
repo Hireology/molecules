@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme';
-import Button from '../Button';
+import Button from './Button';
 
 const getProps = (overrides) => ({
   additionalClasses: '',

@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme';
-import Loader from '../Loader';
+import Loader from './Loader';
 
 jest.disableAutomock();
 
