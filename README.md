@@ -7,10 +7,19 @@
 </div>
 
 # molecules
+Hireology's component library
 
-Hireology's Component Library
+## Storybook
+Production URL: https://hireology-storybook.netlify.com/  
+Run storybook locally: `npm run storybook`  
+#### CICD:
+Each commit to `dev` will automatically deploy storybook.  
+You can view a preview of the deploy in your PR by clicking the details button in this build step:
 
-## storybook
+<div align="center">
+  <img src="media/deployPreview.png" alt="deploy step">
+</div>
 
-Every component in molecules is documented via storybook.
-To view these components as they exist today, check them out [here](https://hireology-storybook.netlify.com/)
+## Testing
+Run tests locally: `npm run test`  
+Run test coverage: `npm run test-coverage`  
