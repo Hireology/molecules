@@ -1,3 +1,1 @@
-const Loader = require('./Loader');
-
-export default Loader;
+export { default } from './Loader';
