@@ -23,3 +23,14 @@ You can view a preview of the deploy in your PR by clicking the details button i
 ## Testing
 Run tests locally: `npm run test`  
 Run test coverage: `npm run test-coverage`  
+
+## Expected Component Directory Structure
+When you add a new component, it should follow the below directory structure:
+```
+/NewComponent
+  index.jsx                - export default from NewComponent.jsx
+  NewComponent.jsx         - component code
+  NewComponent-test.jsx    - test file
+  newComponent.scss        - stylesheet
+  newComponent.stories.jsx - storybook configuration
+```
