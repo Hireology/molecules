@@ -5,18 +5,25 @@
   "homepage": "https://github.com/Hireology/molecules#readme",
   "author": "Hireology Frontend Engineers",
   "license": "MIT",
+  "main": "dist/molecules.js",
+  "module": "dist/molecules.esm.js",
+  "style": "dist/molecules.css",
+  "files": [
+    "dist"
+  ],
   "bugs": {
     "url": "https://github.com/Hireology/molecules/issues"
-  },
-  "scripts": {
-    "build-storybook": "build-storybook -c .storybook",
-    "storybook": "start-storybook",
-    "test": "NODE_ENV=test jest",
-    "test-coverage": "NODE_ENV=test jest --coverage"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Hireology/molecules.git"
+  },
+  "scripts": {
+    "build": "NODE_ENV=production rm -rf dist && rollup -c",
+    "build-storybook": "build-storybook -c .storybook",
+    "storybook": "start-storybook",
+    "test": "NODE_ENV=test jest",
+    "test-coverage": "NODE_ENV=test jest --coverage"
   },
   "dependencies": {
     "classnames": "2.2.5",
@@ -24,8 +31,15 @@
     "react": "15.6.2",
     "react-dom": "15.6.2"
   },
+  "peerDependencies": {
+    "react": "15.6.2",
+    "react-dom": "15.6.2",
+    "prop-types": "^15.7.2",
+    "classnames": "2.2.5"
+  },
   "devDependencies": {
     "@babel/core": "^7.5.0",
+    "@babel/plugin-external-helpers": "^7.2.0",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/plugin-proposal-export-default-from": "^7.2.0",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
@@ -33,6 +47,7 @@
     "@babel/preset-react": "^7.0.0",
     "@storybook/addon-notes": "5.1.9",
     "@storybook/react": "5.1.8",
+    "autoprefixer": "^9.6.1",
     "babel-eslint": "^8.2.6",
     "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.6",
@@ -50,6 +65,12 @@
     "node-sass": "4.12.0",
     "prettier": "1.16.4",
     "react-test-renderer": "15.6.2",
+    "rollup": "^1.16.7",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.0.1",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-postcss": "^2.0.3",
+    "rollup-plugin-replace": "^2.2.0",
     "sass-loader": "7.1.0",
     "style-loader": "0.23.1"
   },
