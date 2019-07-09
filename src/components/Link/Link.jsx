@@ -41,7 +41,7 @@ Link.propTypes = {
   disabled: PropTypes.bool,
   id: PropTypes.string,
   onClick: PropTypes.func,
-  type: PropTypes.oneOf(['warning', 'danger', 'gray', 'secondary']),
+  type: PropTypes.oneOf(['warning', 'danger', 'secondary']),
 };
 
 export default Link;

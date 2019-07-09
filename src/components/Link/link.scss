@@ -55,6 +55,9 @@
     &:active {
       color: $hireology-dark-blue-hover;
     }
+    &:focus {
+      outline-color: $hireology-dark-blue-hover;
+    }
   }
 
   // WARNING LINK
@@ -64,6 +67,9 @@
     &:hover,
     &:active {
       color: $hireology-orange-hover;
+    }
+    &:focus {
+      outline-color: $hireology-orange-hover;
     }
   }
 
@@ -75,15 +81,8 @@
     &:active {
       color: $hireology-red-hover;
     }
-  }
-
-  // GRAY LINK
-  &--gray {
-    color: $hireology-text-gray;
-
-    &:hover,
-    &:active {
-      color: $hireology-darkest-gray;
+    &:focus {
+      outline-color: $hireology-red-hover;
     }
   }
 }

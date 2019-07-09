@@ -3,7 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Link from './Link';
 
-const types = "'secondary', 'warning', 'danger', 'gray'";
+const types = "'secondary', 'warning', 'danger'";
 
 const notes = {
   notes: {
@@ -39,9 +39,6 @@ storiesOf('Link', module)
         <div style={{ padding: '5px 20px', display: 'block' }}>
           <Link type="danger">Danger Link</Link>
         </div>
-        <div style={{ padding: '5px 20px', display: 'block' }}>
-          <Link type="gray">Gray Link</Link>
-        </div>
       </div>
     ),
     notes,
@@ -66,11 +63,6 @@ storiesOf('Link', module)
         <div style={{ padding: '5px 20px', display: 'block' }}>
           <Link type="danger" disabled>
             Danger Link
-          </Link>
-        </div>
-        <div style={{ padding: '5px 20px', display: 'block' }}>
-          <Link type="gray" disabled>
-            Gray Link
           </Link>
         </div>
       </div>
