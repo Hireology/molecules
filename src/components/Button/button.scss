@@ -69,13 +69,21 @@
   &--danger {
     background-color: $hireology-red;
     border: 1px solid $hireology-red;
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $hireology-red-hover;
+      color: $white;
+    }
   }
 
+  // GRAY BUTTON
   &--gray {
     background-color: $hireology-light-gray;
     color: $hireology-text-gray;
     &:hover,
-    &:focus {
+    &:focus,
+    &:active {
       background-color: $hireology-dark-blue;
       color: $white;
     }
