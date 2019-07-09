@@ -12,11 +12,11 @@ const notes = {
       ## Props
       | prop name       | prop type     | required | default value      | description |
       | --------------- | ------------- | -------- | ------------------ | ----------- |
-      | checked         | Boolean       | false    | false              | Wether radio button is checked or not |
+      | checked         | Boolean       | false    | false              | Whether radio button is checked or not |
       | extraClassNames | String        | false    | ""                 | Extra classnames to add to wrapper |
-      | disabled        | Boolean       | false    | false              | Wether radio button is disabled or not |
+      | disabled        | Boolean       | false    | false              | Whether radio button is disabled or not |
       | id              | String        | false    | ""                 | Radio button id |
-      | inline          | Boolean       | false    | false              | Wether to make radio button inline or not |
+      | inline          | Boolean       | false    | false              | Whether to make radio button inline or not |
       | label           | String        | true     | -                  | Radio button label |
       | name            | String        | false    | "radioButtonGroup" | Input group name |
       | onChange        | Function      | true     | -                  | Function to call on radio button change |
