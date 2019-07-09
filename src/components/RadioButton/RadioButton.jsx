@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import './radioButton.scss';
 
 const RadioButton = (props) => {
-  const classes = classNames('hireology-radio-button', props.extraClassNames, {
+  const classes = classNames('hireology-radio-button', {
     'hireology-radio-button--inline': props.inline,
   });
   return (
@@ -30,7 +30,6 @@ const RadioButton = (props) => {
 
 RadioButton.defaultProps = {
   checked: false,
-  extraClassNames: '',
   disabled: false,
   id: '',
   inline: false,
@@ -39,7 +38,6 @@ RadioButton.defaultProps = {
 
 RadioButton.propTypes = {
   checked: PropTypes.bool,
-  extraClassNames: PropTypes.string,
   disabled: PropTypes.bool,
   id: PropTypes.string,
   inline: PropTypes.bool,

@@ -13,7 +13,6 @@ const notes = {
       | prop name       | prop type     | required | default value      | description |
       | --------------- | ------------- | -------- | ------------------ | ----------- |
       | checked         | Boolean       | false    | false              | Whether radio button is checked or not |
-      | extraClassNames | String        | false    | ""                 | Extra classnames to add to wrapper |
       | disabled        | Boolean       | false    | false              | Whether radio button is disabled or not |
       | id              | String        | false    | ""                 | Radio button id |
       | inline          | Boolean       | false    | false              | Whether to make radio button inline or not |
