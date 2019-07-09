@@ -1,0 +1,225 @@
+/*
+ * IF THE COLOR YOU NEED IS NOT IN HERE, PLEASE CONSULT
+ * WITH DESIGNER BEFORE ADDING. IT MUST BE WCAG APPROVED
+ * IN ORDER TO BE ADDED!!
+ */
+.hireology-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  -spec-appearance: none;
+  background-color: #677078;
+  border-radius: 4px;
+  border: none;
+  color: #fff;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1em;
+  line-height: normal;
+  outline: none;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  transition: all 0.4s ease-in-out;
+  position: relative;
+  min-width: 33px; }
+  .hireology-button:focus {
+    outline-style: auto;
+    outline-width: 2px;
+    outline-color: #81af32; }
+  .hireology-button:disabled {
+    background-color: #d6dadc;
+    border: 1px solid #d6dadc;
+    color: #9da3a8;
+    cursor: not-allowed; }
+  .hireology-button--primary {
+    background-color: #81af32;
+    border: 1px solid #81af32; }
+    .hireology-button--primary:hover, .hireology-button--primary:focus, .hireology-button--primary:active {
+      background-color: #6a9f11;
+      border: 1px solid #6a9f11; }
+  .hireology-button--secondary {
+    background-color: #2a5769;
+    border: 1px solid #2a5769; }
+    .hireology-button--secondary:hover, .hireology-button--secondary:focus, .hireology-button--secondary:active {
+      background-color: #2d4853;
+      border: 1px solid #2d4853; }
+  .hireology-button--danger {
+    background-color: #d83e38;
+    border: 1px solid #d83e38; }
+  .hireology-button--gray {
+    background-color: #f7f9f9;
+    color: #677078; }
+    .hireology-button--gray:hover, .hireology-button--gray:focus {
+      background-color: #2a5769;
+      color: #fff; }
+  .hireology-button--outline {
+    background: none;
+    border: 1px solid #2a5769;
+    color: #2a5769; }
+    .hireology-button--outline:hover, .hireology-button--outline:focus, .hireology-button--outline:active {
+      background: #2a5769;
+      border: 1px solid #2d4853;
+      color: #fff; }
+  .hireology-button--outlineWhite {
+    border: 1px solid #fff;
+    color: #fff;
+    background: none; }
+    .hireology-button--outlineWhite:hover {
+      background-color: #fff;
+      color: #2a5769; }
+  .hireology-button--unselected {
+    background: #fff;
+    border: 1px solid #ddd;
+    color: #677078; }
+    .hireology-button--unselected:hover {
+      background: #2a5769;
+      border: 1px solid #ddd;
+      color: #fff; }
+  .hireology-button--full {
+    width: 100%;
+    display: block; }
+  .hireology-button--small {
+    border-radius: 3px;
+    font-size: 0.875rem;
+    min-width: 35px;
+    padding: 0.5em; }
+
+.hireology-button-group {
+  display: flex; }
+  .hireology-button-group > * {
+    margin: 0 3px; }
+  .hireology-button-group > *:first-child {
+    margin-left: 0px; }
+  .hireology-button-group > *:last-child {
+    margin-right: 0px; }
+  .hireology-button-group--left {
+    justify-content: flex-start; }
+  .hireology-button-group--right {
+    justify-content: flex-end; }
+  .hireology-button-group--center {
+    justify-content: center; }
+  .hireology-button-group--justified {
+    justify-content: space-between;
+    align-items: center; }
+  .hireology-button-group--small {
+    align-items: center; }
+    .hireology-button-group--small > * {
+      border-radius: 3px;
+      font-size: 0.8rem;
+      min-width: 35px;
+      padding: 0.2rem 0.4rem;
+      margin: 2px 2px; }
+  .hireology-button-group--medium > * {
+    font-size: 0.85em;
+    padding: 0.5em 1em; }
+  .hireology-button-group--full > * {
+    flex-grow: 1; }
+
+/*
+ * IF THE COLOR YOU NEED IS NOT IN HERE, PLEASE CONSULT
+ * WITH DESIGNER BEFORE ADDING. IT MUST BE WCAG APPROVED
+ * IN ORDER TO BE ADDED!!
+ */
+.loader {
+  /* Styles for old versions of IE */
+  /* :not(:required) hides this rule from IE9 and below */ }
+  .loader--inline {
+    position: static;
+    width: 100%; }
+    .loader--inline .loader__dots-container {
+      position: relative !important; }
+  .loader .loader__dots-container {
+    position: fixed;
+    z-index: 500;
+    width: 100%;
+    height: 100%;
+    min-height: 100px;
+    background: rgba(255, 255, 255, 0.6);
+    top: 0px;
+    left: 0px;
+    text-align: center; }
+
+@-webkit-keyframes loader__dots {
+  0% {
+    box-shadow: white 0 0 15px 0, #81af32 -14px -14px 0 7px, #81af32 14px -14px 0 7px, #81af32 14px 14px 0 7px, #81af32 -14px 14px 0 7px; }
+  8.33% {
+    box-shadow: white 0 0 15px 0, #81af32 14px -14px 0 7px, #81af32 14px -14px 0 7px, #81af32 14px 14px 0 7px, #81af32 -14px 14px 0 7px; }
+  16.67% {
+    box-shadow: white 0 0 15px 0, #81af32 14px 14px 0 7px, #81af32 14px 14px 0 7px, #81af32 14px 14px 0 7px, #81af32 -14px 14px 0 7px; }
+  25% {
+    box-shadow: white 0 0 15px 0, #81af32 -14px 14px 0 7px, #81af32 -14px 14px 0 7px, #81af32 -14px 14px 0 7px, #81af32 -14px 14px 0 7px; }
+  33.33% {
+    box-shadow: white 0 0 15px 0, #81af32 -14px -14px 0 7px, #81af32 -14px 14px 0 7px, #81af32 -14px -14px 0 7px, #81af32 -14px -14px 0 7px; }
+  41.67% {
+    box-shadow: white 0 0 15px 0, #81af32 14px -14px 0 7px, #81af32 -14px 14px 0 7px, #81af32 -14px -14px 0 7px, #81af32 14px -14px 0 7px; }
+  50% {
+    box-shadow: white 0 0 15px 0, #81af32 14px 14px 0 7px, #81af32 -14px 14px 0 7px, #81af32 -14px -14px 0 7px, #81af32 14px -14px 0 7px; }
+  58.33% {
+    box-shadow: white 0 0 15px 0, #81af32 -14px 14px 0 7px, #81af32 -14px 14px 0 7px, #81af32 -14px -14px 0 7px, #81af32 14px -14px 0 7px; }
+  66.67% {
+    box-shadow: white 0 0 15px 0, #81af32 -14px -14px 0 7px, #81af32 -14px -14px 0 7px, #81af32 -14px -14px 0 7px, #81af32 14px -14px 0 7px; }
+  75% {
+    box-shadow: white 0 0 15px 0, #81af32 14px -14px 0 7px, #81af32 14px -14px 0 7px, #81af32 14px -14px 0 7px, #81af32 14px -14px 0 7px; }
+  83.33% {
+    box-shadow: white 0 0 15px 0, #81af32 14px 14px 0 7px, #81af32 14px -14px 0 7px, #81af32 14px 14px 0 7px, #81af32 14px 14px 0 7px; }
+  91.67% {
+    box-shadow: white 0 0 15px 0, #81af32 -14px 14px 0 7px, #81af32 14px -14px 0 7px, #81af32 14px 14px 0 7px, #81af32 -14px 14px 0 7px; }
+  100% {
+    box-shadow: white 0 0 15px 0, #81af32 -14px -14px 0 7px, #81af32 14px -14px 0 7px, #81af32 14px 14px 0 7px, #81af32 -14px 14px 0 7px; } }
+
+@keyframes loader__dots {
+  0% {
+    box-shadow: white 0 0 15px 0, #81af32 -14px -14px 0 7px, #81af32 14px -14px 0 7px, #81af32 14px 14px 0 7px, #81af32 -14px 14px 0 7px; }
+  8.33% {
+    box-shadow: white 0 0 15px 0, #81af32 14px -14px 0 7px, #81af32 14px -14px 0 7px, #81af32 14px 14px 0 7px, #81af32 -14px 14px 0 7px; }
+  16.67% {
+    box-shadow: white 0 0 15px 0, #81af32 14px 14px 0 7px, #81af32 14px 14px 0 7px, #81af32 14px 14px 0 7px, #81af32 -14px 14px 0 7px; }
+  25% {
+    box-shadow: white 0 0 15px 0, #81af32 -14px 14px 0 7px, #81af32 -14px 14px 0 7px, #81af32 -14px 14px 0 7px, #81af32 -14px 14px 0 7px; }
+  33.33% {
+    box-shadow: white 0 0 15px 0, #81af32 -14px -14px 0 7px, #81af32 -14px 14px 0 7px, #81af32 -14px -14px 0 7px, #81af32 -14px -14px 0 7px; }
+  41.67% {
+    box-shadow: white 0 0 15px 0, #81af32 14px -14px 0 7px, #81af32 -14px 14px 0 7px, #81af32 -14px -14px 0 7px, #81af32 14px -14px 0 7px; }
+  50% {
+    box-shadow: white 0 0 15px 0, #81af32 14px 14px 0 7px, #81af32 -14px 14px 0 7px, #81af32 -14px -14px 0 7px, #81af32 14px -14px 0 7px; }
+  58.33% {
+    box-shadow: white 0 0 15px 0, #81af32 -14px 14px 0 7px, #81af32 -14px 14px 0 7px, #81af32 -14px -14px 0 7px, #81af32 14px -14px 0 7px; }
+  66.67% {
+    box-shadow: white 0 0 15px 0, #81af32 -14px -14px 0 7px, #81af32 -14px -14px 0 7px, #81af32 -14px -14px 0 7px, #81af32 14px -14px 0 7px; }
+  75% {
+    box-shadow: white 0 0 15px 0, #81af32 14px -14px 0 7px, #81af32 14px -14px 0 7px, #81af32 14px -14px 0 7px, #81af32 14px -14px 0 7px; }
+  83.33% {
+    box-shadow: white 0 0 15px 0, #81af32 14px 14px 0 7px, #81af32 14px -14px 0 7px, #81af32 14px 14px 0 7px, #81af32 14px 14px 0 7px; }
+  91.67% {
+    box-shadow: white 0 0 15px 0, #81af32 -14px 14px 0 7px, #81af32 14px -14px 0 7px, #81af32 14px 14px 0 7px, #81af32 -14px 14px 0 7px; }
+  100% {
+    box-shadow: white 0 0 15px 0, #81af32 -14px -14px 0 7px, #81af32 14px -14px 0 7px, #81af32 14px 14px 0 7px, #81af32 -14px 14px 0 7px; } }
+  .loader .loader__dots {
+    font-family: sans-serif;
+    font-weight: normal;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    bottom: 0; }
+  .loader .loader__dots:not(:required) {
+    overflow: hidden;
+    text-indent: -9999px;
+    display: inline-block;
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    border-radius: 100%;
+    box-shadow: #81af32 -14px -14px 0 7px, #81af32 14px -14px 0 7px, #81af32 14px 14px 0 7px, #81af32 -14px 14px 0 7px;
+    -webkit-animation: loader__dots 5s infinite ease-in-out;
+    animation: loader__dots 5s infinite ease-in-out; }
