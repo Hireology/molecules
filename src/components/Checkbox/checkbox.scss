@@ -1,0 +1,57 @@
+@import '../../theme/variables.scss';
+@import '../../theme/FontAwesome/scss/fontawesome.scss';
+@import '../../theme/FontAwesome/scss/solid.scss';
+@import '../../theme/FontAwesome/scss/brands.scss';
+
+.hireology-checkbox {
+  position: relative;
+  font-weight: normal;
+
+  // Default browser checkbox
+  input {
+    position: absolute;
+    left: -9999px;
+  }
+
+  // Hireology checkbox
+  input[type='checkbox'] + label:before {
+    border-radius: 3px;
+    position: absolute;
+    left: 0px;
+    top: 2px;
+    width: 14px;
+    height: 14px;
+    content: '';
+    border: 1px solid $hireology-disabled-gray;
+    background: $white;
+  }
+
+  // Hireology checkbox checked
+  input[type='checkbox']:checked + label:after {
+    font-family: 'Font Awesome\ 5 Free';
+    content: fa-content($fa-var-check);
+    color: $hireology-green;
+    position: absolute;
+    font-size: 20px;
+    top: -1px;
+    left: 0px;
+  }
+
+  // Hireology checkbox focused
+  input[type='checkbox']:focus + label:before {
+    border-color: $hireology-green;
+  }
+
+  // Checkbox label
+  .hireology-checkbox__label {
+    font-family: $font-family;
+    font-size: 1em;
+    color: $hireology-text-gray;
+    display: inline;
+    vertical-align: top;
+    cursor: pointer;
+    line-height: 1.3em;
+    padding-left: 25px;
+    position: relative;
+  }
+}
