@@ -8,7 +8,7 @@ const RadioButton = (props) => {
     'hireology-radio-button--inline': props.inline,
   });
   return (
-    <div className={classes}>
+    <div className={classes} data-test="wrapper">
       <input
         id={props.id}
         checked={props.checked}
@@ -19,8 +19,13 @@ const RadioButton = (props) => {
         type="radio"
         value={props.value}
         tabIndex={0}
+        data-test="radio-button"
       />
-      <label className="hireology-radio-button__label" htmlFor={props.id}>
+      <label
+        className="hireology-radio-button__label"
+        htmlFor={props.id}
+        data-test="label"
+      >
         <div className="hireology-radio-button__indicator" />
         {props.label}
       </label>
