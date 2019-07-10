@@ -13,8 +13,6 @@ const getProps = (overrides) => ({
   ...overrides,
 });
 
-jest.disableAutomock();
-
 describe('button', () => {
   it('renders', () => {
     const wrapper = shallow(<Button {...getProps()}>Button</Button>);
