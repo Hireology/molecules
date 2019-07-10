@@ -1,0 +1,88 @@
+@import '../../theme/variables.scss';
+
+.hireology-link {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  -spec-appearance: none;
+  border-radius: $base-border-radius;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  line-height: normal;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  transition: all 0.4s ease-in-out;
+  position: relative;
+  background: transparent;
+  padding: 0;
+  color: $hireology-green;
+  font-size: 1rem;
+  font-weight: normal;
+  text-transform: none;
+
+  &:hover {
+    background: transparent;
+    color: $hireology-green-hover;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+
+  &:disabled {
+    background: transparent;
+    color: $hireology-medium-gray !important;
+    cursor: not-allowed;
+    border: none;
+  }
+
+  &:focus {
+    outline-style: auto;
+    outline-color: $hireology-green;
+  }
+
+  // SECONDARY LINK
+  &--secondary {
+    color: $hireology-dark-blue;
+
+    &:hover,
+    &:active {
+      color: $hireology-dark-blue-hover;
+    }
+    &:focus {
+      outline-color: $hireology-dark-blue-hover;
+    }
+  }
+
+  // WARNING LINK
+  &--warning {
+    color: $hireology-orange;
+
+    &:hover,
+    &:active {
+      color: $hireology-orange-hover;
+    }
+    &:focus {
+      outline-color: $hireology-orange-hover;
+    }
+  }
+
+  // DANGER LINK
+  &--danger {
+    color: $hireology-red;
+
+    &:hover,
+    &:active {
+      color: $hireology-red-hover;
+    }
+    &:focus {
+      outline-color: $hireology-red-hover;
+    }
+  }
+}
