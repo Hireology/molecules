@@ -2,8 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Loader from './Loader';
 
-jest.disableAutomock();
-
 describe('loader', () => {
   it('renders', () => {
     const wrapper = shallow(<Loader />);
