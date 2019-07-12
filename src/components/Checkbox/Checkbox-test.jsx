@@ -21,6 +21,16 @@ describe('checkbox', () => {
     const wrapper = shallow(<Checkbox {...props} />);
     expect(wrapper.find('[data-test="checkbox"]').props().checked).toBe(false);
   });
+  it('should be disabled if props.disabled is true', () => {
+    const props = getProps({ disabled: true });
+    const wrapper = shallow(<Checkbox {...props} />);
+    expect(wrapper.find('[data-test="checkbox"]').props().disabled).toBe(true);
+  });
+  it('should not be disabled if props.disabled is false', () => {
+    const props = getProps({ disabled: false });
+    const wrapper = shallow(<Checkbox {...props} />);
+    expect(wrapper.find('[data-test="checkbox"]').props().disabled).toBe(false);
+  });
   it('should call props.onChange when the checkbox is changed', () => {
     const onChangeSpy = jest.fn();
     const props = getProps({ onChange: onChangeSpy });
