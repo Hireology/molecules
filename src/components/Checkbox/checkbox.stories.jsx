@@ -11,7 +11,8 @@ const notes = {
       | ----------- | ---------    | -------- | ------------- | ----------- |
       | id          | String       | true     | -             | Checkbox Id |
       | label       | String       | true     | -             | Label text |
-      | checked     | Bool         | false    | false         | Whether or not box should be checked |
+      | checked     | Boolean      | false    | false         | Whether or not box should be checked |
+      | disabled    | Boolean      | false    | false         | Whether or not box should be disabled |
       | onChange    | Function     | false    | null          | Function to call on change |
     `,
   },
@@ -57,10 +58,20 @@ class StorybookCheckboxes extends React.Component {
   }
 }
 
-storiesOf('Checkbox', module).add(
-  'default',
-  () => {
-    return <StorybookCheckboxes />;
-  },
-  notes,
-);
+storiesOf('Checkbox', module)
+  .add('default', () => {
+    return (
+      <div>
+        <Checkbox id="1" label="Selected" checked />
+        <Checkbox id="2" label="Unselected" />
+        <Checkbox id="3" label="Disabled" disabled />
+      </div>
+    );
+  })
+  .add(
+    'interactive',
+    () => {
+      return <StorybookCheckboxes />;
+    },
+    notes,
+  );

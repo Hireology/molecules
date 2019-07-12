@@ -18,7 +18,7 @@ describe('ButtonGroup', () => {
     expect(
       wrapper
         .find('[data-test="button-group"]')
-        .hasClass('hireology-button-group--left'),
+        .hasClass('molecules-button-group--left'),
     ).toBe(true);
   });
   it('adds the appropriate size classnames', () => {
@@ -31,7 +31,7 @@ describe('ButtonGroup', () => {
     expect(
       wrapper
         .find('[data-test="button-group"]')
-        .hasClass('hireology-button-group--full'),
+        .hasClass('molecules-button-group--full'),
     ).toBe(true);
   });
   it('passes through any extra classnames', () => {

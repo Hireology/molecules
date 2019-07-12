@@ -18,7 +18,7 @@ describe('Link', () => {
       </Link>,
     );
     expect(
-      wrapper.find('[data-test="link"]').hasClass('hireology-link--danger'),
+      wrapper.find('[data-test="link"]').hasClass('molecules-link--danger'),
     ).toBe(true);
   });
   it('passes through any extra classnames', () => {

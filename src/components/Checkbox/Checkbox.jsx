@@ -4,16 +4,17 @@ import './checkbox.scss';
 
 const Checkbox = (props) => {
   return (
-    <div className="hireology-checkbox">
+    <div className="molecules-checkbox">
       <input
         type="checkbox"
         id={props.id}
         checked={props.checked}
         onChange={props.onChange}
         data-test="checkbox"
+        disabled={props.disabled}
       />
       <label htmlFor={props.id}>
-        <span className="hireology-checkbox__label" data-test="label">
+        <span className="molecules-checkbox__label" data-test="label">
           {props.label}
         </span>
       </label>
@@ -23,13 +24,15 @@ const Checkbox = (props) => {
 
 Checkbox.propTypes = {
   id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
   checked: PropTypes.bool,
+  disabled: PropTypes.bool,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
   onChange: PropTypes.func,
 };
 
 Checkbox.defaultProps = {
   checked: false,
+  disabled: false,
   onChange: null,
 };
 

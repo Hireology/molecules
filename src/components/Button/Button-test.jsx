@@ -29,7 +29,7 @@ describe('button', () => {
     const props = getProps({ type: 'danger' });
     const wrapper = shallow(<Button {...props}>Button</Button>);
     expect(
-      wrapper.find('[data-test="button"]').hasClass('hireology-button--danger'),
+      wrapper.find('[data-test="button"]').hasClass('molecules-button--danger'),
     ).toBe(true);
   });
 
@@ -37,7 +37,7 @@ describe('button', () => {
     const props = getProps({ type: 'danger', disabled: true });
     const wrapper = shallow(<Button {...props}>Button</Button>);
     expect(
-      wrapper.find('[data-test="button"]').hasClass('hireology-button--danger'),
+      wrapper.find('[data-test="button"]').hasClass('molecules-button--danger'),
     ).toBe(false);
   });
 
@@ -45,7 +45,7 @@ describe('button', () => {
     const props = getProps({ size: 'small', disabled: true });
     const wrapper = shallow(<Button {...props}>Button</Button>);
     expect(
-      wrapper.find('[data-test="button"]').hasClass('hireology-button--small'),
+      wrapper.find('[data-test="button"]').hasClass('molecules-button--small'),
     ).toBe(true);
   });
 

@@ -4,14 +4,9 @@ import classNames from 'classnames';
 import './link.scss';
 
 const Link = (props) => {
-  const classes = classNames(
-    'btn-link',
-    'hireology-link',
-    props.additionalClasses,
-    {
-      [`hireology-link--${props.type}`]: props.type,
-    },
-  );
+  const classes = classNames('molecules-link', props.additionalClasses, {
+    [`molecules-link--${props.type}`]: props.type,
+  });
 
   return (
     <button

@@ -4,9 +4,9 @@ import classNames from 'classnames';
 import './buttonGroup.scss';
 
 const ButtonGroup = (props) => {
-  const classes = classNames('hireology-button-group', props.extraClassNames, {
-    [`hireology-button-group--${props.align}`]: props.align,
-    [`hireology-button-group--${props.size}`]: props.size,
+  const classes = classNames('molecules-button-group', props.extraClassNames, {
+    [`molecules-button-group--${props.align}`]: props.align,
+    [`molecules-button-group--${props.size}`]: props.size,
   });
   return (
     <div className={classes} data-test="button-group">

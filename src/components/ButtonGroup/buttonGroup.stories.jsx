@@ -27,56 +27,44 @@ storiesOf('ButtonGroup', module)
     'align',
     () => (
       <div>
-        Left:
         <div
           style={{
-            marginBottom: 20,
-            padding: '20px 0px',
-            border: '1px solid black',
+            marginBottom: 40,
           }}
         >
           <ButtonGroup align="left">
-            <Button type="outline">Cancel</Button>
-            <Button type="primary">Save</Button>
+            <Button type="outline">Aligned</Button>
+            <Button type="primary">Left</Button>
           </ButtonGroup>
         </div>
-        Right:
         <div
           style={{
-            marginBottom: 20,
-            padding: '20px 0px',
-            border: '1px solid black',
+            marginBottom: 40,
           }}
         >
           <ButtonGroup align="right">
-            <Button type="outline">Cancel</Button>
-            <Button type="primary">Save</Button>
+            <Button type="outline">Aligned</Button>
+            <Button type="primary">Right</Button>
           </ButtonGroup>
         </div>
-        Center:
         <div
           style={{
-            marginBottom: 20,
-            padding: '20px 0px',
-            border: '1px solid black',
+            marginBottom: 40,
           }}
         >
           <ButtonGroup align="center">
-            <Button type="outline">Cancel</Button>
-            <Button type="primary">Save</Button>
+            <Button type="outline">Aligned</Button>
+            <Button type="primary">Center</Button>
           </ButtonGroup>
         </div>
-        Justified:
         <div
           style={{
-            marginBottom: 20,
-            padding: '20px 0px',
-            border: '1px solid black',
+            marginBottom: 40,
           }}
         >
           <ButtonGroup align="justified">
-            <Button type="outline">Cancel</Button>
-            <Button type="primary">Save</Button>
+            <Button type="outline">Aligned</Button>
+            <Button type="primary">Justified</Button>
           </ButtonGroup>
         </div>
       </div>

@@ -90,6 +90,13 @@ storiesOf('RadioButton', module)
           onChange={() => null}
           value={4}
         />
+        <RadioButton
+          inline
+          error
+          label="Error option"
+          onChange={() => null}
+          value={4}
+        />
       </div>
     ),
     notes,
@@ -115,6 +122,13 @@ storiesOf('RadioButton', module)
           inline
           disabled
           label="Disabled option"
+          onChange={() => null}
+          value={4}
+        />
+        <RadioButton
+          inline
+          error
+          label="Error option"
           onChange={() => null}
           value={4}
         />

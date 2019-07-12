@@ -4,12 +4,14 @@ import classnames from 'classnames';
 import './loader.scss';
 
 const Loader = (props) => {
-  const classes = classnames('loader', { 'loader--inline': props.inline });
+  const classes = classnames('molecules-loader', {
+    'molecules-loader--inline': props.inline,
+  });
 
   return (
     <div className={classes} data-test="loader">
-      <div className="loader__dots-container">
-        <div className="loader__dots" data-test="message">
+      <div className="molecules-loader__dots-container">
+        <div className="molecules-loader__dots" data-test="message">
           {/* This text is only seen by screen readers */}
           {props.message}
         </div>

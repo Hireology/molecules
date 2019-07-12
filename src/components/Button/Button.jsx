@@ -6,10 +6,10 @@ import './button.scss';
 const Button = (props) => {
   const classes = classNames(
     props.additionalClasses,
-    'hireology-button btn',
-    `hireology-button--${props.size}`,
+    'molecules-button btn',
+    `molecules-button--${props.size}`,
     {
-      [`hireology-button--${props.type}`]: !props.disabled && props.type,
+      [`molecules-button--${props.type}`]: !props.disabled && props.type,
     },
   );
 
