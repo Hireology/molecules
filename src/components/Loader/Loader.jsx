@@ -11,7 +11,7 @@ const Loader = (props) => {
   return (
     <div className={classes} data-test="loader">
       <div className="molecules-loader__dots-container">
-        <div className="molecules-oader__dots" data-test="message">
+        <div className="molecules-loader__dots" data-test="message">
           {/* This text is only seen by screen readers */}
           {props.message}
         </div>
