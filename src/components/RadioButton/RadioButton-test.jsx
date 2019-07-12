@@ -23,7 +23,7 @@ describe('RadioButton', () => {
     expect(
       wrapper
         .find('[data-test="wrapper"]')
-        .hasClass('hireology-radio-button--inline'),
+        .hasClass('molecules-radio-button--inline'),
     ).toBe(true);
   });
   it('is checked if props.checked is true', () => {
