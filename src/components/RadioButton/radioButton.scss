@@ -59,4 +59,8 @@
       border-color: $hireology-border-gray;
     }
   }
+
+  &--error .molecules-radio-button__indicator:after {
+    border-color: $hireology-red;
+  }
 }

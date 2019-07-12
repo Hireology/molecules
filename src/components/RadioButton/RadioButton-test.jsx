@@ -7,6 +7,7 @@ jest.disableAutomock();
 const getProps = (overrides) => ({
   checked: false,
   disabled: false,
+  error: false,
   id: 'id',
   inline: false,
   label: 'label',
@@ -24,6 +25,15 @@ describe('RadioButton', () => {
       wrapper
         .find('[data-test="wrapper"]')
         .hasClass('molecules-radio-button--inline'),
+    ).toBe(true);
+  });
+  it('adds the appropriate inline classname if props.error is true', () => {
+    const props = getProps({ error: true });
+    const wrapper = shallow(<RadioButton {...props} />);
+    expect(
+      wrapper
+        .find('[data-test="wrapper"]')
+        .hasClass('molecules-radio-button--error'),
     ).toBe(true);
   });
   it('is checked if props.checked is true', () => {

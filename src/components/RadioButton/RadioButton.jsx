@@ -6,6 +6,7 @@ import './radioButton.scss';
 const RadioButton = (props) => {
   const classes = classNames('molecules-radio-button', {
     'molecules-radio-button--inline': props.inline,
+    'molecules-radio-button--error': props.error,
   });
   return (
     <div className={classes} data-test="wrapper">
@@ -36,6 +37,7 @@ const RadioButton = (props) => {
 RadioButton.defaultProps = {
   checked: false,
   disabled: false,
+  error: false,
   id: '',
   inline: false,
   name: 'radioButtonGroup',
@@ -44,6 +46,7 @@ RadioButton.defaultProps = {
 RadioButton.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
+  error: PropTypes.bool,
   id: PropTypes.string,
   inline: PropTypes.bool,
   label: PropTypes.string.isRequired,
