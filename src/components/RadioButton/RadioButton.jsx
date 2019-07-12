@@ -4,15 +4,15 @@ import classNames from 'classnames';
 import './radioButton.scss';
 
 const RadioButton = (props) => {
-  const classes = classNames('hireology-radio-button', {
-    'hireology-radio-button--inline': props.inline,
+  const classes = classNames('molecules-radio-button', {
+    'molecules-radio-button--inline': props.inline,
   });
   return (
     <div className={classes} data-test="wrapper">
       <input
         id={props.id}
         checked={props.checked}
-        className="hireology-radio-button__input"
+        className="molecules-radio-button__input"
         disabled={props.disabled}
         name={props.name}
         onChange={props.onChange}
@@ -22,11 +22,11 @@ const RadioButton = (props) => {
         data-test="radio-button"
       />
       <label
-        className="hireology-radio-button__label"
+        className="molecules-radio-button__label"
         htmlFor={props.id}
         data-test="label"
       >
-        <div className="hireology-radio-button__indicator" />
+        <div className="molecules-radio-button__indicator" />
         {props.label}
       </label>
     </div>

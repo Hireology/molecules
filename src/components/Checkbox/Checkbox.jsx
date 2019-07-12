@@ -4,7 +4,7 @@ import './checkbox.scss';
 
 const Checkbox = (props) => {
   return (
-    <div className="hireology-checkbox">
+    <div className="molecules-checkbox">
       <input
         type="checkbox"
         id={props.id}
@@ -13,7 +13,7 @@ const Checkbox = (props) => {
         data-test="checkbox"
       />
       <label htmlFor={props.id}>
-        <span className="hireology-checkbox__label" data-test="label">
+        <span className="molecules-checkbox__label" data-test="label">
           {props.label}
         </span>
       </label>

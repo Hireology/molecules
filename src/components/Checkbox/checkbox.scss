@@ -3,7 +3,7 @@
 @import '../../theme/FontAwesome/scss/solid.scss';
 @import '../../theme/FontAwesome/scss/brands.scss';
 
-.hireology-checkbox {
+.molecules-checkbox {
   position: relative;
   font-weight: normal;
   margin-bottom: 0.25rem;
@@ -44,7 +44,7 @@
   }
 
   // Checkbox label
-  .hireology-checkbox__label {
+  .molecules-checkbox__label {
     font-family: $font-family;
     font-size: 1em;
     color: $hireology-text-gray;

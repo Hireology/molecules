@@ -1,6 +1,6 @@
 @import '../../theme/variables.scss';
 
-.hireology-radio-button {
+.molecules-radio-button {
   font-family: $font-family;
   color: $hireology-text-gray;
   font-size: 1em;
@@ -44,7 +44,7 @@
 
   // Selected radio buttons
   &__input[type='radio']:checked {
-    + .hireology-radio-button__label > .hireology-radio-button__indicator {
+    + .molecules-radio-button__label > .molecules-radio-button__indicator {
       background: $hireology-green;
       &:after {
         border-color: $hireology-green;
@@ -54,8 +54,8 @@
 
   // Disabled radio buttons
   &__input[type='radio']:disabled {
-    + .hireology-radio-button__label
-      > .hireology-radio-button__indicator:after {
+    + .molecules-radio-button__label
+      > .molecules-radio-button__indicator:after {
       border-color: $hireology-border-gray;
     }
   }

@@ -1,16 +1,16 @@
 @import '../../theme/variables.scss';
 
 // Loading
-.loader {
+.molecules-loader {
   &--inline {
     position: static;
     width: 100%;
-    .loader__dots-container {
+    .molecules-loader__dots-container {
       position: relative !important;
     }
   }
 
-  .loader__dots-container {
+  .molecules-loader__dots-container {
     position: fixed;
     z-index: 500;
     width: 100%;
@@ -22,7 +22,7 @@
     text-align: center;
   }
 
-  @-webkit-keyframes loader__dots {
+  @-webkit-keyframes molecules-loader__dots {
     0% {
       -webkit-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
         $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
@@ -496,7 +496,7 @@
     }
   }
 
-  @keyframes loader__dots {
+  @keyframes molecules-loader__dots {
     0% {
       -webkit-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
         $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
@@ -655,7 +655,7 @@
   }
 
   /* Styles for old versions of IE */
-  .loader__dots {
+  .molecules-loader__dots {
     font-family: sans-serif;
     font-weight: normal;
     margin: auto;
@@ -667,7 +667,7 @@
   }
 
   /* :not(:required) hides this rule from IE9 and below */
-  .loader__dots:not(:required) {
+  .molecules-loader__dots:not(:required) {
     overflow: hidden;
     text-indent: -9999px;
     display: inline-block;
@@ -684,10 +684,10 @@
     box-shadow: $hireology-green -14px -14px 0 7px,
       $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
       $hireology-green -14px 14px 0 7px;
-    -webkit-animation: loader__dots 5s infinite ease-in-out;
-    -moz-animation: loader__dots 5s infinite ease-in-out;
-    -ms-animation: loader__dots 5s infinite ease-in-out;
-    -o-animation: loader__dots 5s infinite ease-in-out;
-    animation: loader__dots 5s infinite ease-in-out;
+    -webkit-animation: molecules-loader__dots 5s infinite ease-in-out;
+    -moz-animation: molecules-loader__dots 5s infinite ease-in-out;
+    -ms-animation: molecules-loader__dots 5s infinite ease-in-out;
+    -o-animation: molecules-loader__dots 5s infinite ease-in-out;
+    animation: molecules-loader__dots 5s infinite ease-in-out;
   }
 }
