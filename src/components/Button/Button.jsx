@@ -7,10 +7,10 @@ class Button extends PureComponent {
   render() {
     const classes = classNames(
       this.props.additionalClasses,
-      'hireology-button btn',
-      `hireology-button--${this.props.size}`,
+      'molecules-button btn',
+      `molecules-button--${this.props.size}`,
       {
-        [`hireology-button--${this.props.type}`]:
+        [`molecules-button--${this.props.type}`]:
           !this.props.disabled && this.props.type,
       },
     );

@@ -6,11 +6,11 @@ import './buttonGroup.scss';
 class ButtonGroup extends PureComponent {
   render() {
     const classes = classNames(
-      'hireology-button-group',
+      'molecules-button-group',
       this.props.extraClassNames,
       {
-        [`hireology-button-group--${this.props.align}`]: this.props.align,
-        [`hireology-button-group--${this.props.size}`]: this.props.size,
+        [`molecules-button-group--${this.props.align}`]: this.props.align,
+        [`molecules-button-group--${this.props.size}`]: this.props.size,
       },
     );
     return (

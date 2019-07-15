@@ -5,14 +5,14 @@ import './loader.scss';
 
 class Loader extends PureComponent {
   render() {
-    const classes = classnames('loader', {
-      'loader--inline': this.props.inline,
+    const classes = classnames('molecules-loader', {
+      'molecules-loader--inline': this.props.inline,
     });
 
     return (
       <div className={classes} data-test="loader">
-        <div className="loader__dots-container">
-          <div className="loader__dots" data-test="message">
+        <div className="molecules-loader__dots-container">
+          <div className="molecules-loader__dots" data-test="message">
             {/* This text is only seen by screen readers */}
             {this.props.message}
           </div>

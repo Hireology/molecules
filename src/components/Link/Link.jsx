@@ -5,14 +5,9 @@ import './link.scss';
 
 class Link extends PureComponent {
   render() {
-    const classes = classNames(
-      'btn-link',
-      'hireology-link',
-      this.props.additionalClasses,
-      {
-        [`hireology-link--${this.props.type}`]: this.props.type,
-      },
-    );
+    const classes = classNames('molecules-link', this.props.additionalClasses, {
+      [`molecules-link--${this.props.type}`]: this.props.type,
+    });
 
     return (
       <button

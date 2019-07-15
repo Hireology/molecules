@@ -5,15 +5,16 @@ import './radioButton.scss';
 
 class RadioButton extends PureComponent {
   render() {
-    const classes = classNames('hireology-radio-button', {
-      'hireology-radio-button--inline': this.props.inline,
+    const classes = classNames('molecules-radio-button', {
+      'molecules-radio-button--inline': this.props.inline,
+      'molecules-radio-button--error': this.props.error,
     });
     return (
       <div className={classes} data-test="wrapper">
         <input
           id={this.props.id}
           checked={this.props.checked}
-          className="hireology-radio-button__input"
+          className="molecules-radio-button__input"
           disabled={this.props.disabled}
           name={this.props.name}
           onChange={this.props.onChange}
@@ -23,11 +24,11 @@ class RadioButton extends PureComponent {
           data-test="radio-button"
         />
         <label
-          className="hireology-radio-button__label"
+          className="molecules-radio-button__label"
           htmlFor={this.props.id}
           data-test="label"
         >
-          <div className="hireology-radio-button__indicator" />
+          <div className="molecules-radio-button__indicator" />
           {this.props.label}
         </label>
       </div>
@@ -38,6 +39,7 @@ class RadioButton extends PureComponent {
 RadioButton.defaultProps = {
   checked: false,
   disabled: false,
+  error: false,
   id: '',
   inline: false,
   name: 'radioButtonGroup',
@@ -46,6 +48,7 @@ RadioButton.defaultProps = {
 RadioButton.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
+  error: PropTypes.bool,
   id: PropTypes.string,
   inline: PropTypes.bool,
   label: PropTypes.string.isRequired,

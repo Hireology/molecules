@@ -5,16 +5,17 @@ import './checkbox.scss';
 class Checkbox extends PureComponent {
   render() {
     return (
-      <div className="hireology-checkbox">
+      <div className="molecules-checkbox">
         <input
           type="checkbox"
           id={this.props.id}
           checked={this.props.checked}
           onChange={this.props.onChange}
           data-test="checkbox"
+          disabled={this.props.disabled}
         />
         <label htmlFor={this.props.id}>
-          <span className="hireology-checkbox__label" data-test="label">
+          <span className="molecules-checkbox__label" data-test="label">
             {this.props.label}
           </span>
         </label>
@@ -25,13 +26,15 @@ class Checkbox extends PureComponent {
 
 Checkbox.propTypes = {
   id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
   checked: PropTypes.bool,
+  disabled: PropTypes.bool,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
   onChange: PropTypes.func,
 };
 
 Checkbox.defaultProps = {
   checked: false,
+  disabled: false,
   onChange: null,
 };
 
