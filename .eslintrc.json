@@ -23,6 +23,10 @@
         "allowArrowFunctions": true
       }
     ],
+    "react/prefer-stateless-function": [
+      "error",
+      { "ignorePureComponents": true }
+    ],
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "prettier/prettier": "error"
   }
