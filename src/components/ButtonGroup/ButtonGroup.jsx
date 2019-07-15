@@ -1,19 +1,25 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import './buttonGroup.scss';
 
-const ButtonGroup = (props) => {
-  const classes = classNames('hireology-button-group', props.extraClassNames, {
-    [`hireology-button-group--${props.align}`]: props.align,
-    [`hireology-button-group--${props.size}`]: props.size,
-  });
-  return (
-    <div className={classes} data-test="button-group">
-      {props.children}
-    </div>
-  );
-};
+class ButtonGroup extends PureComponent {
+  render() {
+    const classes = classNames(
+      'hireology-button-group',
+      this.props.extraClassNames,
+      {
+        [`hireology-button-group--${this.props.align}`]: this.props.align,
+        [`hireology-button-group--${this.props.size}`]: this.props.size,
+      },
+    );
+    return (
+      <div className={classes} data-test="button-group">
+        {this.props.children}
+      </div>
+    );
+  }
+}
 
 ButtonGroup.propTypes = {
   children: PropTypes.node.isRequired,

@@ -1,25 +1,27 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import './checkbox.scss';
 
-const Checkbox = (props) => {
-  return (
-    <div className="hireology-checkbox">
-      <input
-        type="checkbox"
-        id={props.id}
-        checked={props.checked}
-        onChange={props.onChange}
-        data-test="checkbox"
-      />
-      <label htmlFor={props.id}>
-        <span className="hireology-checkbox__label" data-test="label">
-          {props.label}
-        </span>
-      </label>
-    </div>
-  );
-};
+class Checkbox extends PureComponent {
+  render() {
+    return (
+      <div className="hireology-checkbox">
+        <input
+          type="checkbox"
+          id={this.props.id}
+          checked={this.props.checked}
+          onChange={this.props.onChange}
+          data-test="checkbox"
+        />
+        <label htmlFor={this.props.id}>
+          <span className="hireology-checkbox__label" data-test="label">
+            {this.props.label}
+          </span>
+        </label>
+      </div>
+    );
+  }
+}
 
 Checkbox.propTypes = {
   id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,

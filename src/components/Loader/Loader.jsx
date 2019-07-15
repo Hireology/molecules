@@ -1,22 +1,26 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import './loader.scss';
 
-const Loader = (props) => {
-  const classes = classnames('loader', { 'loader--inline': props.inline });
+class Loader extends PureComponent {
+  render() {
+    const classes = classnames('loader', {
+      'loader--inline': this.props.inline,
+    });
 
-  return (
-    <div className={classes} data-test="loader">
-      <div className="loader__dots-container">
-        <div className="loader__dots" data-test="message">
-          {/* This text is only seen by screen readers */}
-          {props.message}
+    return (
+      <div className={classes} data-test="loader">
+        <div className="loader__dots-container">
+          <div className="loader__dots" data-test="message">
+            {/* This text is only seen by screen readers */}
+            {this.props.message}
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 Loader.defaultProps = {
   inline: false,
