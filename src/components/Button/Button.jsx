@@ -1,34 +1,37 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import './button.scss';
 
-const Button = (props) => {
-  const classes = classNames(
-    props.additionalClasses,
-    'molecules-button btn',
-    `molecules-button--${props.size}`,
-    {
-      [`molecules-button--${props.type}`]: !props.disabled && props.type,
-    },
-  );
+class Button extends PureComponent {
+  render() {
+    const classes = classNames(
+      this.props.additionalClasses,
+      'molecules-button btn',
+      `molecules-button--${this.props.size}`,
+      {
+        [`molecules-button--${this.props.type}`]:
+          !this.props.disabled && this.props.type,
+      },
+    );
 
-  return (
-    <button
-      id={props.id}
-      disabled={props.disabled}
-      onClick={props.onClick}
-      onMouseOver={props.onMouseOver}
-      onMouseOut={props.onMouseOut}
-      onMouseDown={props.onMouseDown}
-      className={classes}
-      tabIndex={'0'}
-      data-test="button"
-    >
-      {props.children}
-    </button>
-  );
-};
+    return (
+      <button
+        id={this.props.id}
+        disabled={this.props.disabled}
+        onClick={this.props.onClick}
+        onMouseOver={this.props.onMouseOver}
+        onMouseOut={this.props.onMouseOut}
+        onMouseDown={this.props.onMouseDown}
+        className={classes}
+        tabIndex={'0'}
+        data-test="button"
+      >
+        {this.props.children}
+      </button>
+    );
+  }
+}
 
 Button.defaultProps = {
   additionalClasses: '',
