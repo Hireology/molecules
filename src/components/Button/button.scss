@@ -1,0 +1,144 @@
+@import '../../theme/variables.scss';
+
+.molecules-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  -spec-appearance: none;
+  background-color: $hireology-text-gray;
+  border-radius: $base-border-radius;
+  border: none;
+  color: $white;
+  font-family: $font-family;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1em;
+  line-height: normal;
+  outline: none;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  transition: all 0.4s ease-in-out;
+  position: relative;
+  min-width: 33px;
+
+  &:focus {
+    outline-style: auto;
+    outline-width: 2px;
+    outline-color: $hireology-green;
+  }
+
+  &:disabled {
+    background-color: $hireology-disabled-gray;
+    border: 1px solid $hireology-disabled-gray;
+    color: $hireology-medium-gray;
+    cursor: not-allowed;
+  }
+
+  // PRIMARY BUTTON
+  &--primary {
+    background-color: $hireology-green;
+    border: 1px solid $hireology-green;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $hireology-green-hover;
+      border: 1px solid $hireology-green-hover;
+    }
+  }
+
+  // SECONDARY BUTTON
+  &--secondary {
+    background-color: $hireology-dark-blue;
+    border: 1px solid $hireology-dark-blue;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $hireology-dark-blue-hover;
+      border: 1px solid $hireology-dark-blue-hover;
+    }
+  }
+
+  // DANGER BUTTON
+  &--danger {
+    background-color: $hireology-red;
+    border: 1px solid $hireology-red;
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $hireology-red-hover;
+      color: $white;
+    }
+  }
+
+  // GRAY BUTTON
+  &--gray {
+    background-color: $hireology-light-gray;
+    color: $hireology-text-gray;
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $hireology-dark-blue;
+      color: $white;
+    }
+  }
+
+  // OUTLINE BUTTON
+  &--outline {
+    background: none;
+    border: 1px solid $hireology-dark-blue;
+    color: $hireology-dark-blue;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: $hireology-dark-blue;
+      border: 1px solid $hireology-dark-blue-hover;
+      color: $white;
+    }
+  }
+
+  // OUTLINE WHITE BUTTON
+  &--outlineWhite {
+    border: 1px solid $white;
+    color: $white;
+    background: none;
+
+    &:hover {
+      background-color: $white;
+      color: $hireology-dark-blue;
+    }
+  }
+
+  // UNSELECTED BUTTON
+  &--unselected {
+    background: $white;
+    border: $base-border;
+    color: $hireology-text-gray;
+
+    &:hover {
+      background: $hireology-dark-blue;
+      border: $base-border;
+      color: $white;
+    }
+  }
+
+  // BUTTON SIZES
+  &--full {
+    width: 100%;
+    display: block;
+  }
+
+  &--small {
+    border-radius: 3px;
+    font-size: 0.875rem;
+    min-width: 35px;
+    padding: 0.5em;
+  }
+}

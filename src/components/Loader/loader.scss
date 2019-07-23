@@ -1,0 +1,693 @@
+@import '../../theme/variables.scss';
+
+// Loading
+.molecules-loader {
+  &--inline {
+    position: static;
+    width: 100%;
+    .molecules-loader__dots-container {
+      position: relative !important;
+    }
+  }
+
+  .molecules-loader__dots-container {
+    position: fixed;
+    z-index: 500;
+    width: 100%;
+    height: 100%;
+    min-height: 100px;
+    background: rgba(255, 255, 255, 0.6);
+    top: 0px;
+    left: 0px;
+    text-align: center;
+  }
+
+  @-webkit-keyframes molecules-loader__dots {
+    0% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+    }
+
+    8.33% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+    }
+
+    16.67% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px 14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px 14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px 14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+    }
+
+    25% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+    }
+
+    33.33% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px -14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px -14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px -14px 0 7px;
+    }
+
+    41.67% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+    }
+
+    50% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+    }
+
+    58.33% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+    }
+
+    66.67% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px -14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px -14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px -14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+    }
+
+    75% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+    }
+
+    83.33% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px 14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px 14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px 14px 0 7px;
+    }
+
+    91.67% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+    }
+
+    100% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+    }
+  }
+
+  @-moz-keyframes molecules-loader__dots {
+    0% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+    }
+
+    8.33% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+    }
+
+    16.67% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px 14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px 14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px 14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+    }
+
+    25% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+    }
+
+    33.33% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px -14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px -14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px -14px 0 7px;
+    }
+
+    41.67% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+    }
+
+    50% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+    }
+
+    58.33% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+    }
+
+    66.67% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px -14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px -14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px -14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+    }
+
+    75% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+    }
+
+    83.33% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px 14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px 14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px 14px 0 7px;
+    }
+
+    91.67% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+    }
+
+    100% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+    }
+  }
+
+  @-o-keyframes molecules-loader__dots {
+    0% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+    }
+
+    8.33% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+    }
+
+    16.67% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px 14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px 14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px 14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+    }
+
+    25% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+    }
+
+    33.33% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px -14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px -14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px -14px 0 7px;
+    }
+
+    41.67% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+    }
+
+    50% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+    }
+
+    58.33% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+    }
+
+    66.67% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px -14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px -14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px -14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+    }
+
+    75% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+    }
+
+    83.33% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px 14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px 14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px 14px 0 7px;
+    }
+
+    91.67% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+    }
+
+    100% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+    }
+  }
+
+  @keyframes molecules-loader__dots {
+    0% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+    }
+
+    8.33% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+    }
+
+    16.67% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px 14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px 14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px 14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+    }
+
+    25% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+    }
+
+    33.33% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px -14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px -14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px -14px 0 7px;
+    }
+
+    41.67% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+    }
+
+    50% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+    }
+
+    58.33% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+    }
+
+    66.67% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px -14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px -14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green -14px -14px 0 7px, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+    }
+
+    75% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px;
+    }
+
+    83.33% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px 14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px 14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green 14px 14px 0 7px;
+    }
+
+    91.67% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green -14px 14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+    }
+
+    100% {
+      -webkit-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      -moz-box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+      box-shadow: white 0 0 15px 0, $hireology-green -14px -14px 0 7px,
+        $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+        $hireology-green -14px 14px 0 7px;
+    }
+  }
+
+  /* Styles for old versions of IE */
+  .molecules-loader__dots {
+    font-family: sans-serif;
+    font-weight: normal;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    bottom: 0;
+  }
+
+  /* :not(:required) hides this rule from IE9 and below */
+  .molecules-loader__dots:not(:required) {
+    overflow: hidden;
+    text-indent: -9999px;
+    display: inline-block;
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    border-radius: 100%;
+    -webkit-box-shadow: $hireology-green -14px -14px 0 7px,
+      $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+      $hireology-green -14px 14px 0 7px;
+    -moz-box-shadow: $hireology-green -14px -14px 0 7px,
+      $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+      $hireology-green -14px 14px 0 7px;
+    box-shadow: $hireology-green -14px -14px 0 7px,
+      $hireology-green 14px -14px 0 7px, $hireology-green 14px 14px 0 7px,
+      $hireology-green -14px 14px 0 7px;
+    -webkit-animation: molecules-loader__dots 5s infinite ease-in-out;
+    -moz-animation: molecules-loader__dots 5s infinite ease-in-out;
+    -ms-animation: molecules-loader__dots 5s infinite ease-in-out;
+    -o-animation: molecules-loader__dots 5s infinite ease-in-out;
+    animation: molecules-loader__dots 5s infinite ease-in-out;
+  }
+}

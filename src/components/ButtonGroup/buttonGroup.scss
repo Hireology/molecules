@@ -1,0 +1,58 @@
+.molecules-button-group {
+  display: flex;
+
+  > * {
+    margin: 0 3px;
+  }
+
+  > *:first-child {
+    margin-left: 0px;
+  }
+
+  > *:last-child {
+    margin-right: 0px;
+  }
+
+  // ALIGN OPTIONS
+  &--left {
+    justify-content: flex-start;
+  }
+
+  &--right {
+    justify-content: flex-end;
+  }
+
+  &--center {
+    justify-content: center;
+  }
+
+  &--justified {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  // SIZE OPTIONS
+  &--small {
+    align-items: center;
+    > * {
+      border-radius: 3px;
+      font-size: 0.8rem;
+      min-width: 35px;
+      padding: 0.2rem 0.4rem;
+      margin: 2px 2px;
+    }
+  }
+
+  &--medium {
+    > * {
+      font-size: 0.85em;
+      padding: 0.5em 1em;
+    }
+  }
+
+  &--full {
+    > * {
+      flex-grow: 1;
+    }
+  }
+}

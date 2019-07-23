@@ -1,0 +1,66 @@
+@import '../../theme/variables.scss';
+
+.molecules-radio-button {
+  font-family: $font-family;
+  color: $hireology-text-gray;
+  font-size: 1em;
+
+  &--inline {
+    display: inline-block;
+    margin-right: 1.6em;
+  }
+
+  &__label {
+    display: inline-block;
+    line-height: 1.6em;
+    font-size: 1em;
+  }
+
+  // Default radio buttons
+  &__input[type='radio'] {
+    width: 2em;
+    opacity: 0;
+  }
+
+  // Hireology radio buttons
+  &__indicator {
+    border-radius: 100%;
+    display: inline-block;
+    height: 0.8em;
+    margin: 0.1em 0.6em 0 -2em;
+    width: 0.8em;
+    &:after {
+      border-radius: 100%;
+      border: 1px solid $hireology-text-gray;
+      content: '';
+      display: block;
+      height: calc(0.8em + 4px);
+      left: -3px;
+      position: relative;
+      top: -3px;
+      width: calc(0.8em + 4px);
+    }
+  }
+
+  // Selected radio buttons
+  &__input[type='radio']:checked {
+    + .molecules-radio-button__label > .molecules-radio-button__indicator {
+      background: $hireology-green;
+      &:after {
+        border-color: $hireology-green;
+      }
+    }
+  }
+
+  // Disabled radio buttons
+  &__input[type='radio']:disabled {
+    + .molecules-radio-button__label
+      > .molecules-radio-button__indicator:after {
+      border-color: $hireology-border-gray;
+    }
+  }
+
+  &--error .molecules-radio-button__indicator:after {
+    border-color: $hireology-red;
+  }
+}

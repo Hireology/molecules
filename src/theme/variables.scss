@@ -1,0 +1,37 @@
+/*
+ * IF THE COLOR YOU NEED IS NOT IN HERE, PLEASE CONSULT
+ * WITH DESIGNER BEFORE ADDING. IT MUST BE WCAG APPROVED
+ * IN ORDER TO BE ADDED!!
+ */
+
+// COLORS
+// ==============================
+
+// Accessibility Grays
+$black: #000;
+$hireology-darkest-gray: #3f4144;
+$hireology-text-gray: #677078;
+$hireology-medium-gray: #9da3a8;
+$hireology-disabled-gray: #d6dadc;
+$hireology-light-gray: #f7f9f9;
+$hireology-border-gray: #ddd;
+$white: #fff;
+
+$hireology-lightgray-hover: $hireology-light-gray;
+
+// Accessibility Colors
+$hireology-green: #81af32;
+$hireology-green-hover: #6a9f11;
+$hireology-light-blue: #347ea4;
+$hireology-light-blue-hover: #34738c; // pre-existing
+$hireology-dark-blue: #2a5769;
+$hireology-dark-blue-hover: #2d4853;
+$hireology-red: #d83e38;
+$hireology-red-hover: #b5332e;
+$hireology-orange: #f09c00;
+$hireology-orange-hover: #e89000;
+$hireology-yellow: #f7cf2f;
+
+$font-family: 'Lato', 'Helvetica Neue', 'Helvetica', sans-serif;
+$base-border-radius: 4px;
+$base-border: 1px solid $hireology-border-gray;
