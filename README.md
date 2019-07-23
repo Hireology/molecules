@@ -31,6 +31,8 @@ import '@hireology/molecules/dist/molecules.css';
 ReactDOM.render(<Button>Button</Button>, mountNode);
 ```
 
+NOTE: molecules assumes you already have Font Awesome available in your project
+
 ### Documentation
 
 To view the components and their, visit our [storybook][storybook-prod].
