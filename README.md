@@ -4,6 +4,8 @@
   </a>
 </p>
 
+[![Build Status](https://travis-ci.org/Hireology/molecules.svg?branch=dev)](https://travis-ci.org/Hireology/molecules)
+
 # Molecules
 
 Hireology's component library
