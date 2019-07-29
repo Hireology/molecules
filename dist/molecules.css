@@ -277,7 +277,7 @@
     font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
     font-size: 16px;
     color: #677078;
-    display: inline;
+    display: inline-block;
     vertical-align: top;
     cursor: pointer;
     line-height: 1.3em;
