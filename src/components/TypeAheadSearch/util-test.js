@@ -11,7 +11,7 @@ describe('util', () => {
         { value: 'anythingelse' },
       ];
 
-      const filteredData = filterData(fakeData, 'foo');
+      const filteredData = filterData(fakeData, ' foo ');
 
       const expectedData = [
         { value: 'foo bar' },
@@ -35,7 +35,7 @@ describe('util', () => {
         { value: 'bar Foo' },
       ];
 
-      const sortedData = sortFilteredData(fakeData, 'Foo');
+      const sortedData = sortFilteredData(fakeData, ' Foo ');
 
       const expectedData = [
         { value: 'Foo abc' },

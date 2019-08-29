@@ -13,7 +13,8 @@ import pullAll from 'lodash.pullall';
  * @param {Array of {value: string} ]} data : array of objects to be filtered on property 'value'
  * @param {String} filter : string to filter data with
  */
-export const filterData = (data, filter) => {
+export const filterData = (data, untrimmedFilter) => {
+  const filter = untrimmedFilter.trim();
   return data.filter((dataItem) => {
     let suggestionSection = null;
     for (let wordIteration = 0; suggestionSection !== ''; wordIteration += 1) {
@@ -41,7 +42,9 @@ export const filterData = (data, filter) => {
  * @param {Array of {value: string} ]} data : array of filtered objects to be sorted
  * @param {String} filter : string data was filtered with
  */
-export const sortFilteredData = (data, filter) => {
+export const sortFilteredData = (data, untrimmedFilter) => {
+  const filter = untrimmedFilter.trim();
+
   // Remove any data items that have the same value
   const temp = [];
   const unsortedData = data.filter((dataItem) => {

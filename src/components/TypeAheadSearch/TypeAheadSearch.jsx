@@ -18,7 +18,7 @@ class TypeAheadSearch extends React.Component {
 
   onInputChange = (e) => {
     const filter = e.target.value;
-    if (filter.length > 1) {
+    if (filter.trim().length > 1) {
       return this.updateSuggestions(filter);
     } else {
       this.setState({
@@ -50,7 +50,7 @@ class TypeAheadSearch extends React.Component {
       if (
         startsWith(
           suggestionSection.toLowerCase(),
-          this.state.filter.toLowerCase(),
+          this.state.filter.trim().toLowerCase(),
         )
       ) {
         const preBoldText = suggestion
@@ -81,10 +81,11 @@ class TypeAheadSearch extends React.Component {
   updateSuggestions = (filter) => {
     const filteredOptions = filterData(this.props.data, filter);
     const sortedOptions = sortFilteredData(filteredOptions, filter);
+
     const suggestions = sortedOptions.slice(0, 5);
 
     const suggestionIsFilter =
-      sortedOptions.length === 1 && sortedOptions[0].value === filter;
+      sortedOptions.length === 1 && sortedOptions[0].value === filter.trim();
     const activeIsTooLarge =
       this.state.activeSuggestionIndex > suggestions.length - 1;
     this.setState({

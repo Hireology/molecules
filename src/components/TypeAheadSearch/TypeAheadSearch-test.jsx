@@ -200,7 +200,7 @@ describe('TypeAheadSearch', () => {
     });
     it('does not set suggestions if the only filtered response is what has already been typed', () => {
       const wrapper = shallow(<TypeAheadSearch {...getProps()} />);
-      wrapper.setState(getState());
+      wrapper.setState(getState({ filter: ' test  ' }));
       sortFilteredData.mockReturnValue([{ value: 'test', id: 0 }]);
 
       const input = wrapper.find('[data-test="search-input"]');
