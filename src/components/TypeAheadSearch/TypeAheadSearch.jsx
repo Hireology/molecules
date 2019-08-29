@@ -135,6 +135,7 @@ class TypeAheadSearch extends React.Component {
           onClick={() => this.onSubmit(this.state.filter)}
           className="fa fa-search fa-fw molecules-type-ahead-search__magnifying-glass"
           data-test="magnifying-glass"
+          aria-label="search"
         />
         <input
           type="text"
@@ -144,6 +145,8 @@ class TypeAheadSearch extends React.Component {
           value={this.state.filter}
           onChange={this.onInputChange}
           onKeyDown={this.handleKeyDown}
+          aria-label="filter"
+          aria-describedBy={this.props.placeholder}
         />
         {this.state.suggestions.length > 0 && (
           <div
@@ -163,6 +166,7 @@ class TypeAheadSearch extends React.Component {
                       this.state.activeSuggestionIndex === index,
                   },
                 )}
+                id={index}
               >
                 {this.getSuggestionText(suggestion.value)}
               </p>
