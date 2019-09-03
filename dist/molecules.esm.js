@@ -1099,7 +1099,7 @@ function (_React$Component) {
       onChange: this.onInputChange,
       onKeyDown: this.handleKeyDown,
       "aria-label": "filter",
-      "aria-describedBy": this.props.placeholder
+      "aria-describedby": this.props.placeholder
     }), this.state.suggestions.length > 0 && React.createElement("div", {
       className: "molecules-type-ahead-search__type-ahead",
       "data-test": "type-ahead-dropdown"

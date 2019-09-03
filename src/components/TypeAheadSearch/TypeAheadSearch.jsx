@@ -146,7 +146,7 @@ class TypeAheadSearch extends React.Component {
           onChange={this.onInputChange}
           onKeyDown={this.handleKeyDown}
           aria-label="filter"
-          aria-describedBy={this.props.placeholder}
+          aria-describedby={this.props.placeholder}
         />
         {this.state.suggestions.length > 0 && (
           <div
