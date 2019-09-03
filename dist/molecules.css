@@ -394,3 +394,64 @@
       color: #b5332e; }
     .molecules-link--danger:focus {
       outline-color: #b5332e; }
+
+/*
+ * IF THE COLOR YOU NEED IS NOT IN HERE, PLEASE CONSULT
+ * WITH DESIGNER BEFORE ADDING. IT MUST BE WCAG APPROVED
+ * IN ORDER TO BE ADDED!!
+ */
+.molecules-type-ahead-search {
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+  font-size: 16px;
+  color: #677078;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  position: relative; }
+  .molecules-type-ahead-search__search {
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    font-size: 16px;
+    color: #677078;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px 5px 10px 35px; }
+    .molecules-type-ahead-search__search:focus {
+      outline: none;
+      border-color: #81af32; }
+    .molecules-type-ahead-search__search::-webkit-input-placeholder {
+      color: #9da3a8; }
+    .molecules-type-ahead-search__search::-moz-placeholder {
+      color: #9da3a8; }
+    .molecules-type-ahead-search__search:-ms-input-placeholder {
+      color: #9da3a8; }
+    .molecules-type-ahead-search__search::-ms-input-placeholder {
+      color: #9da3a8; }
+    .molecules-type-ahead-search__search::placeholder {
+      color: #9da3a8; }
+  .molecules-type-ahead-search__type-ahead {
+    cursor: default;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    position: absolute;
+    top: 41px;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background-color: #fff; }
+  .molecules-type-ahead-search__suggestion {
+    padding: 10px;
+    margin: 0px; }
+    .molecules-type-ahead-search__suggestion:hover {
+      background-color: #f7f9f9; }
+    .molecules-type-ahead-search__suggestion--active {
+      color: #81af32; }
+  .molecules-type-ahead-search__magnifying-glass {
+    position: absolute;
+    top: 13px;
+    left: 10px; }
+    .molecules-type-ahead-search__magnifying-glass:focus {
+      outline-style: auto;
+      outline-width: 2px;
+      outline-color: #81af32; }
