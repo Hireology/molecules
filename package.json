@@ -1,6 +1,6 @@
 {
   "name": "@hireology/molecules",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Hireology's Component Library",
   "homepage": "https://github.com/Hireology/molecules#readme",
   "author": "Hireology Frontend Engineers",
@@ -27,6 +27,8 @@
   },
   "dependencies": {
     "classnames": "2.2.5",
+    "lodash.startswith": "^4.2.1",
+    "lodash.pullall": "^4.2.0",
     "prop-types": "^15.7.2",
     "react": "15.6.2",
     "react-dom": "15.6.2"
