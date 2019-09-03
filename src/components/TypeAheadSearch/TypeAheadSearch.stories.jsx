@@ -28,6 +28,7 @@ const DATA = [
   { name: 'John Adam Robinson', job: 'Medical Assistant', id: 25 },
   { name: 'adam smith', job: 'Medical Assistant', id: 23 },
   { name: 'sara adams', job: 'Medical Assistant', id: 24 },
+  { name: 'john adam robinson', job: 'Medical Assistant', id: 24 },
 ];
 
 class StorybookTypeAheadSearch extends React.Component {
