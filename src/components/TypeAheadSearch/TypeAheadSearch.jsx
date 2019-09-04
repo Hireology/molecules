@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import startsWith from 'lodash.startswith';
+import isEqual from 'lodash.isequal';
 import classNames from 'classnames';
 import { filterData, sortFilteredData } from './util';
 import './typeAheadSearch.scss';
@@ -14,6 +15,12 @@ class TypeAheadSearch extends React.Component {
       suggestions: [],
       activeSuggestionIndex: -1,
     };
+  }
+
+  componentDidUpdate(oldProps) {
+    if (!isEqual(oldProps.data, this.props.data)) {
+      this.onSubmit(this.state.filter);
+    }
   }
 
   onInputChange = (e) => {
