@@ -13,6 +13,7 @@ const getProps = (overrides) => ({
 });
 
 const getState = (overrides) => ({
+  lastAppliedFilter: '',
   filter: 'some',
   suggestions: [{ value: 'some suggestion', id: 0 }],
   activeSuggestionIndex: 0,
@@ -119,6 +120,7 @@ describe('TypeAheadSearch', () => {
       input.simulate('change', { target: { value: 't' } });
 
       const expectedState = {
+        lastAppliedFilter: '',
         filter: 't',
         suggestions: [],
         activeSuggestionIndex: -1,
@@ -359,6 +361,42 @@ describe('TypeAheadSearch', () => {
       input.simulate('keydown', { keyCode: 12 });
 
       expect(wrapper.state()).toEqual(getState());
+    });
+  });
+
+  describe('componentDidUpdate', () => {
+    it('if data has changed it filters it the last applied filter', () => {
+      filterData.mockReturnValue([]);
+      const wrapper = shallow(<TypeAheadSearch {...getProps()} />);
+      wrapper.setState({ lastAppliedFilter: 'test' });
+      wrapper.setProps({ data: [{ value: 'foo', id: 1 }] });
+      expect(filterData.mock.calls[0][1]).toBe('test');
+    });
+    it('if data has changed it calls props onSubmit with the response from filterData', () => {
+      const onSubmitSpy = jest.fn();
+      filterData.mockReturnValue([{ foo: 'bar' }]);
+      const wrapper = shallow(<TypeAheadSearch {...getProps()} />);
+      wrapper.setProps({
+        data: [{ value: 'foo', id: 1 }],
+        onSubmit: onSubmitSpy,
+      });
+      expect(onSubmitSpy.mock.calls[0][0]).toEqual([{ foo: 'bar' }]);
+    });
+    it('if data has not changed it doesnt filter it', () => {
+      const props = getProps({ data: [{ value: 'foo', id: 1 }] });
+      const wrapper = shallow(<TypeAheadSearch {...props} />);
+      wrapper.setProps({ data: [{ value: 'foo', id: 1 }] });
+      expect(filterData.mock.calls.length).toBe(0);
+    });
+    it('if data has changed it calls props onSubmit with the response from filterData', () => {
+      const onSubmitSpy = jest.fn();
+      const props = getProps({
+        data: [{ value: 'foo', id: 1 }],
+        onSubmit: onSubmitSpy,
+      });
+      const wrapper = shallow(<TypeAheadSearch {...props} />);
+      wrapper.setProps({ data: [{ value: 'foo', id: 1 }] });
+      expect(onSubmitSpy.mock.calls.length).toBe(0);
     });
   });
 

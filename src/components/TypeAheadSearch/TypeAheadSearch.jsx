@@ -11,6 +11,7 @@ class TypeAheadSearch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      lastAppliedFilter: '',
       filter: '',
       suggestions: [],
       activeSuggestionIndex: -1,
@@ -19,7 +20,7 @@ class TypeAheadSearch extends React.Component {
 
   componentDidUpdate(oldProps) {
     if (!isEqual(oldProps.data, this.props.data)) {
-      this.onSubmit(this.state.filter);
+      this.onSubmit(this.state.lastAppliedFilter);
     }
   }
 
@@ -38,6 +39,7 @@ class TypeAheadSearch extends React.Component {
 
   onSubmit = (filter) => {
     this.setState({
+      lastAppliedFilter: filter,
       filter,
       suggestions: [],
       activeSuggestionIndex: -1,
