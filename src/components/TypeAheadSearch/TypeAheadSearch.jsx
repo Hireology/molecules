@@ -20,7 +20,11 @@ class TypeAheadSearch extends React.Component {
 
   componentDidUpdate(oldProps) {
     if (!isEqual(oldProps.data, this.props.data)) {
-      this.onSubmit(this.state.lastAppliedFilter);
+      const filteredOptions = filterData(
+        this.props.data,
+        this.state.lastAppliedFilter,
+      );
+      this.props.onSubmit(filteredOptions);
     }
   }
 
