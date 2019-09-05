@@ -7,6 +7,22 @@ import { filterData, sortFilteredData } from './util';
 import './typeAheadSearch.scss';
 
 class TypeAheadSearch extends React.Component {
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+    data: PropTypes.arrayOf(
+      PropTypes.shape({
+        value: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
+      }),
+    ).isRequired,
+    initialFilter: PropTypes.string,
+    placeholder: PropTypes.string,
+  };
+  static defaultProps = {
+    initialFilter: '',
+    placeholder: '',
+  };
+
   state = {
     filter: this.props.initialFilter,
     suggestions: [],
@@ -174,22 +190,5 @@ class TypeAheadSearch extends React.Component {
     );
   }
 }
-
-TypeAheadSearch.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      value: PropTypes.string.isRequired,
-      id: PropTypes.number.isRequired,
-    }),
-  ).isRequired,
-  initialFilter: PropTypes.string,
-  placeholder: PropTypes.string,
-};
-
-TypeAheadSearch.defaultProps = {
-  initialFilter: '',
-  placeholder: '',
-};
 
 export default TypeAheadSearch;

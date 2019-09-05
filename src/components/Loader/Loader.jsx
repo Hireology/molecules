@@ -4,6 +4,15 @@ import classnames from 'classnames';
 import './loader.scss';
 
 class Loader extends PureComponent {
+  static propTypes = {
+    message: PropTypes.string,
+    inline: PropTypes.bool,
+  };
+  static defaultProps = {
+    inline: false,
+    message: 'Loading...',
+  };
+
   render() {
     const classes = classnames('molecules-loader', {
       'molecules-loader--inline': this.props.inline,
@@ -21,15 +30,5 @@ class Loader extends PureComponent {
     );
   }
 }
-
-Loader.defaultProps = {
-  inline: false,
-  message: 'Loading...',
-};
-
-Loader.propTypes = {
-  message: PropTypes.string,
-  inline: PropTypes.bool,
-};
 
 export default Loader;

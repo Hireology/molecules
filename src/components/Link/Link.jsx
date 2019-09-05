@@ -4,6 +4,22 @@ import classNames from 'classnames';
 import './link.scss';
 
 class Link extends PureComponent {
+  static propTypes = {
+    additionalClasses: PropTypes.string,
+    children: PropTypes.node.isRequired,
+    disabled: PropTypes.bool,
+    id: PropTypes.string,
+    onClick: PropTypes.func,
+    type: PropTypes.oneOf(['warning', 'danger', 'secondary']),
+  };
+  static defaultProps = {
+    onClick: null,
+    disabled: false,
+    type: null,
+    additionalClasses: null,
+    id: null,
+  };
+
   render() {
     const classes = classNames('molecules-link', this.props.additionalClasses, {
       [`molecules-link--${this.props.type}`]: this.props.type,
@@ -23,22 +39,5 @@ class Link extends PureComponent {
     );
   }
 }
-
-Link.defaultProps = {
-  onClick: null,
-  disabled: false,
-  type: null,
-  additionalClasses: null,
-  id: null,
-};
-
-Link.propTypes = {
-  additionalClasses: PropTypes.string,
-  children: PropTypes.node.isRequired,
-  disabled: PropTypes.bool,
-  id: PropTypes.string,
-  onClick: PropTypes.func,
-  type: PropTypes.oneOf(['warning', 'danger', 'secondary']),
-};
 
 export default Link;
