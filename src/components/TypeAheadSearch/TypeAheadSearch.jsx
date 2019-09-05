@@ -7,14 +7,11 @@ import { filterData, sortFilteredData } from './util';
 import './typeAheadSearch.scss';
 
 class TypeAheadSearch extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      filter: props.initialFilter,
-      suggestions: [],
-      activeSuggestionIndex: -1,
-    };
-  }
+  state = {
+    filter: this.props.initialFilter,
+    suggestions: [],
+    activeSuggestionIndex: -1,
+  };
 
   onInputChange = (e) => {
     const filter = e.target.value;
