@@ -9,6 +9,7 @@ const getProps = (overrides) => ({
   onSubmit: () => null,
   data: [],
   placeholder: '',
+  initialFilter: '',
   ...overrides,
 });
 
@@ -32,6 +33,20 @@ describe('TypeAheadSearch', () => {
   it('renders a search input', () => {
     const wrapper = shallow(<TypeAheadSearch {...getProps()} />);
     expect(wrapper.find('[data-test="search-input"]').length).toBe(1);
+  });
+  it('passes through the placeholder', () => {
+    const props = getProps({ placeholder: 'placeholder' });
+    const wrapper = shallow(<TypeAheadSearch {...props} />);
+    expect(wrapper.find('[data-test="search-input"]').props().placeholder).toBe(
+      'placeholder',
+    );
+  });
+  it('sets the value to the initialFilter if it is defined', () => {
+    const props = getProps({ initialFilter: 'initialFilter' });
+    const wrapper = shallow(<TypeAheadSearch {...props} />);
+    expect(wrapper.find('[data-test="search-input"]').props().value).toBe(
+      'initialFilter',
+    );
   });
   it('does not render the dropdown initially', () => {
     const wrapper = shallow(<TypeAheadSearch {...getProps()} />);
@@ -336,17 +351,19 @@ describe('TypeAheadSearch', () => {
 
         expect(filterData.mock.calls[0][1]).toBe('meow');
       });
-      it('calls props.onSubmit with the filtered data', () => {
+      it('calls props.onSubmit with the filtered data and selected filter', () => {
         const onSubmitSpy = jest.fn();
         const props = getProps({ onSubmit: onSubmitSpy });
         filterData.mockReturnValue([{ value: 'test', id: 42 }]);
         const wrapper = shallow(<TypeAheadSearch {...props} />);
+        wrapper.setState({ filter: 'te' });
 
         const input = wrapper.find('[data-test="search-input"]');
         input.simulate('keydown', { keyCode: 13 });
 
-        expect(onSubmitSpy.mock.calls[0][0]).toEqual([
-          { value: 'test', id: 42 },
+        expect(onSubmitSpy.mock.calls[0]).toEqual([
+          [{ value: 'test', id: 42 }],
+          'te',
         ]);
       });
     });
@@ -372,16 +389,20 @@ describe('TypeAheadSearch', () => {
 
       expect(filterData.mock.calls[0][1]).toEqual('bark');
     });
-    it('calls props.onSubmit with the filtered data', () => {
+    it('calls props.onSubmit with the filtered data and filter', () => {
       const onSubmitSpy = jest.fn();
       const props = getProps({ onSubmit: onSubmitSpy });
       filterData.mockReturnValue([{ value: 'test', id: 42 }]);
       const wrapper = shallow(<TypeAheadSearch {...props} />);
+      wrapper.setState({ filter: 'te' });
 
       const magnifyingGlass = wrapper.find('[data-test="magnifying-glass"]');
       magnifyingGlass.simulate('click');
 
-      expect(onSubmitSpy.mock.calls[0][0]).toEqual([{ value: 'test', id: 42 }]);
+      expect(onSubmitSpy.mock.calls[0]).toEqual([
+        [{ value: 'test', id: 42 }],
+        'te',
+      ]);
     });
   });
 

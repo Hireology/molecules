@@ -10,7 +10,7 @@ class TypeAheadSearch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      filter: '',
+      filter: props.initialFilter,
       suggestions: [],
       activeSuggestionIndex: -1,
     };
@@ -37,7 +37,7 @@ class TypeAheadSearch extends React.Component {
     });
     const filteredOptions = filterData(this.props.data, filter);
 
-    this.props.onSubmit(filteredOptions);
+    this.props.onSubmit(filteredOptions, filter);
   };
 
   getSuggestionText = (suggestion) => {
@@ -186,10 +186,12 @@ TypeAheadSearch.propTypes = {
       id: PropTypes.number.isRequired,
     }),
   ).isRequired,
+  initialFilter: PropTypes.string,
   placeholder: PropTypes.string,
 };
 
 TypeAheadSearch.defaultProps = {
+  initialFilter: '',
   placeholder: '',
 };
 
