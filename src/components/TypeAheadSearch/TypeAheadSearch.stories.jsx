@@ -86,11 +86,12 @@ const notes = {
     markdown: `
       #TypeAheadSearch
       ## Props
-      | prop name   | prop type        | required | default value | description |
-      | ----------- | ---------------- | -------- | ------------- | ----------- |
-      | onSubmit    | Function         | true     | -             | Function to be called when filter is submitted, the array of items to be displayed is passed as a prop |
-      | data        | Array of objects | true     | -             | The data to be filtered, each item in array should be formatted { value: string, id: number } |
-      | placeholder | String           | false    | ''            | Placeholder text to be displayed before input is changed |
+      | prop name     | prop type        | required | default value | description |
+      | ------------- | ---------------- | -------- | ------------- | ----------- |
+      | onSubmit      | Function         | true     | -             | Function to be called when filter is submitted, the array of items to be displayed, and the selected filter is passed as props |
+      | data          | Array of objects | true     | -             | The data to be filtered, each item in array should be formatted { value: string, id: number } |
+      | initialFilter | String           | false    | ''            | An initial filter to be displayed in the input |
+      | placeholder   | String           | false    | ''            | Placeholder text to be displayed before input is changed |
       `,
   },
 };

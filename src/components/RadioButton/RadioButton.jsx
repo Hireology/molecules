@@ -4,6 +4,30 @@ import classNames from 'classnames';
 import './radioButton.scss';
 
 class RadioButton extends PureComponent {
+  static propTypes = {
+    checked: PropTypes.bool,
+    disabled: PropTypes.bool,
+    error: PropTypes.bool,
+    id: PropTypes.string,
+    inline: PropTypes.bool,
+    label: PropTypes.string.isRequired,
+    name: PropTypes.string,
+    onChange: PropTypes.func.isRequired,
+    value: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.bool,
+    ]).isRequired,
+  };
+  static defaultProps = {
+    checked: false,
+    disabled: false,
+    error: false,
+    id: '',
+    inline: false,
+    name: 'radioButtonGroup',
+  };
+
   render() {
     const classes = classNames('molecules-radio-button', {
       'molecules-radio-button--inline': this.props.inline,
@@ -35,30 +59,5 @@ class RadioButton extends PureComponent {
     );
   }
 }
-
-RadioButton.defaultProps = {
-  checked: false,
-  disabled: false,
-  error: false,
-  id: '',
-  inline: false,
-  name: 'radioButtonGroup',
-};
-
-RadioButton.propTypes = {
-  checked: PropTypes.bool,
-  disabled: PropTypes.bool,
-  error: PropTypes.bool,
-  id: PropTypes.string,
-  inline: PropTypes.bool,
-  label: PropTypes.string.isRequired,
-  name: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.bool,
-  ]).isRequired,
-};
 
 export default RadioButton;

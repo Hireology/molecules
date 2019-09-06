@@ -7,15 +7,32 @@ import { filterData, sortFilteredData } from './util';
 import './typeAheadSearch.scss';
 
 class TypeAheadSearch extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      filter: '',
-      suggestions: [],
-      activeSuggestionIndex: -1,
-    };
-  }
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+    data: PropTypes.arrayOf(
+      PropTypes.shape({
+        value: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
+      }),
+    ).isRequired,
+    initialFilter: PropTypes.string,
+    placeholder: PropTypes.string,
+  };
+  static defaultProps = {
+    initialFilter: '',
+    placeholder: '',
+  };
 
+  state = {
+    filter: this.props.initialFilter,
+    suggestions: [],
+    activeSuggestionIndex: -1,
+  };
+
+  /**
+   * Input change handler
+   * @param {object} e - event on input change
+   */
   onInputChange = (e) => {
     const filter = e.target.value;
     if (filter.trim().length > 1) {
@@ -29,6 +46,10 @@ class TypeAheadSearch extends React.Component {
     }
   };
 
+  /**
+   * On submit handler
+   * @param {string} filter - The string to filter data with
+   */
   onSubmit = (filter) => {
     this.setState({
       filter,
@@ -37,9 +58,14 @@ class TypeAheadSearch extends React.Component {
     });
     const filteredOptions = filterData(this.props.data, filter);
 
-    this.props.onSubmit(filteredOptions);
+    this.props.onSubmit(filteredOptions, filter);
   };
 
+  /**
+   * Finds and emphasizes text in suggestion that matches filter
+   * @param {string[]} suggestion - The suggestion text broken into array by word
+   * @returns {jsx} - The jsx element to be displayed as suggestion text
+   */
   getSuggestionText = (suggestion) => {
     let suggestionSection = null;
     for (let wordIteration = 0; suggestionSection !== ''; wordIteration += 1) {
@@ -78,6 +104,10 @@ class TypeAheadSearch extends React.Component {
     }
   };
 
+  /**
+   * Updates the list of suggestions to match new filter
+   * @param {string} filter - filter to be used to find suggestions
+   */
   updateSuggestions = (filter) => {
     const filteredOptions = filterData(this.props.data, filter);
     const sortedOptions = sortFilteredData(filteredOptions, filter);
@@ -97,12 +127,13 @@ class TypeAheadSearch extends React.Component {
     });
   };
 
+  /**
+   * 38: up arrow - move to the previous suggestion
+   * 40: down arrow - move to the next suggestion
+   * 13: enter - submit
+   * @param {object} e - event on key down
+   */
   handleKeyDown = (e) => {
-    /*
-      38: up arrow - move to the previous suggestion
-      40: down arrow - move to the next suggestion
-      13: enter - submit
-    */
     if (this.state.suggestions.length !== 0 && e.keyCode === 38) {
       this.setState({
         activeSuggestionIndex:
@@ -177,20 +208,5 @@ class TypeAheadSearch extends React.Component {
     );
   }
 }
-
-TypeAheadSearch.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      value: PropTypes.string.isRequired,
-      id: PropTypes.number.isRequired,
-    }),
-  ).isRequired,
-  placeholder: PropTypes.string,
-};
-
-TypeAheadSearch.defaultProps = {
-  placeholder: '',
-};
 
 export default TypeAheadSearch;

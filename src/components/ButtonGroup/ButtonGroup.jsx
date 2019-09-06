@@ -4,6 +4,18 @@ import classNames from 'classnames';
 import './buttonGroup.scss';
 
 class ButtonGroup extends PureComponent {
+  static propTypes = {
+    children: PropTypes.node.isRequired,
+    align: PropTypes.oneOf(['left', 'right', 'center', 'justified']),
+    size: PropTypes.oneOf(['medium', 'small', 'full']),
+    extraClassNames: PropTypes.string,
+  };
+  static defaultProps = {
+    align: null,
+    size: null,
+    extraClassNames: '',
+  };
+
   render() {
     const classes = classNames(
       'molecules-button-group',
@@ -20,18 +32,5 @@ class ButtonGroup extends PureComponent {
     );
   }
 }
-
-ButtonGroup.propTypes = {
-  children: PropTypes.node.isRequired,
-  align: PropTypes.oneOf(['left', 'right', 'center', 'justified']),
-  size: PropTypes.oneOf(['medium', 'small', 'full']),
-  extraClassNames: PropTypes.string,
-};
-
-ButtonGroup.defaultProps = {
-  align: null,
-  size: null,
-  extraClassNames: '',
-};
 
 export default ButtonGroup;
