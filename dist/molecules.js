@@ -68,7 +68,7 @@
     return Button;
   }(React.PureComponent);
 
-  Button.defaultProps = {
+  _defineProperty(Button, "defaultProps", {
     additionalClasses: '',
     onClick: null,
     onMouseOver: null,
@@ -78,8 +78,9 @@
     type: null,
     size: 'medium',
     id: ''
-  };
-  Button.propTypes = {
+  });
+
+  _defineProperty(Button, "propTypes", {
     additionalClasses: PropTypes.string,
     children: PropTypes.node.isRequired,
     disabled: PropTypes.bool,
@@ -90,7 +91,7 @@
     onMouseDown: PropTypes.func,
     size: PropTypes.oneOf(['small', 'medium', 'full']),
     type: PropTypes.oneOf(['danger', 'gray', 'outline', 'outlineWhite', 'primary', 'secondary', 'unselected'])
-  };
+  });
 
   var ButtonGroup =
   /*#__PURE__*/
@@ -116,17 +117,18 @@
     return ButtonGroup;
   }(React.PureComponent);
 
-  ButtonGroup.propTypes = {
+  _defineProperty(ButtonGroup, "propTypes", {
     children: PropTypes.node.isRequired,
     align: PropTypes.oneOf(['left', 'right', 'center', 'justified']),
     size: PropTypes.oneOf(['medium', 'small', 'full']),
     extraClassNames: PropTypes.string
-  };
-  ButtonGroup.defaultProps = {
+  });
+
+  _defineProperty(ButtonGroup, "defaultProps", {
     align: null,
     size: null,
     extraClassNames: ''
-  };
+  });
 
   var Loader =
   /*#__PURE__*/
@@ -157,14 +159,15 @@
     return Loader;
   }(React.PureComponent);
 
-  Loader.defaultProps = {
-    inline: false,
-    message: 'Loading...'
-  };
-  Loader.propTypes = {
+  _defineProperty(Loader, "propTypes", {
     message: PropTypes.string,
     inline: PropTypes.bool
-  };
+  });
+
+  _defineProperty(Loader, "defaultProps", {
+    inline: false,
+    message: 'Loading...'
+  });
 
   var Checkbox =
   /*#__PURE__*/
@@ -198,18 +201,19 @@
     return Checkbox;
   }(React.PureComponent);
 
-  Checkbox.propTypes = {
+  _defineProperty(Checkbox, "propTypes", {
     id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
     label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
     onChange: PropTypes.func
-  };
-  Checkbox.defaultProps = {
+  });
+
+  _defineProperty(Checkbox, "defaultProps", {
     checked: false,
     disabled: false,
     onChange: null
-  };
+  });
 
   var RadioButton =
   /*#__PURE__*/
@@ -253,15 +257,7 @@
     return RadioButton;
   }(React.PureComponent);
 
-  RadioButton.defaultProps = {
-    checked: false,
-    disabled: false,
-    error: false,
-    id: '',
-    inline: false,
-    name: 'radioButtonGroup'
-  };
-  RadioButton.propTypes = {
+  _defineProperty(RadioButton, "propTypes", {
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
     error: PropTypes.bool,
@@ -271,7 +267,16 @@
     name: PropTypes.string,
     onChange: PropTypes.func.isRequired,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]).isRequired
-  };
+  });
+
+  _defineProperty(RadioButton, "defaultProps", {
+    checked: false,
+    disabled: false,
+    error: false,
+    id: '',
+    inline: false,
+    name: 'radioButtonGroup'
+  });
 
   var Link =
   /*#__PURE__*/
@@ -301,21 +306,22 @@
     return Link;
   }(React.PureComponent);
 
-  Link.defaultProps = {
-    onClick: null,
-    disabled: false,
-    type: null,
-    additionalClasses: null,
-    id: null
-  };
-  Link.propTypes = {
+  _defineProperty(Link, "propTypes", {
     additionalClasses: PropTypes.string,
     children: PropTypes.node.isRequired,
     disabled: PropTypes.bool,
     id: PropTypes.string,
     onClick: PropTypes.func,
     type: PropTypes.oneOf(['warning', 'danger', 'secondary'])
-  };
+  });
+
+  _defineProperty(Link, "defaultProps", {
+    onClick: null,
+    disabled: false,
+    type: null,
+    additionalClasses: null,
+    id: null
+  });
 
   var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
@@ -989,10 +995,20 @@
   function (_React$Component) {
     _inheritsLoose(TypeAheadSearch, _React$Component);
 
-    function TypeAheadSearch(props) {
+    function TypeAheadSearch() {
       var _this;
 
-      _this = _React$Component.call(this, props) || this;
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+
+      _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
+
+      _defineProperty(_assertThisInitialized(_this), "state", {
+        filter: _this.props.initialFilter,
+        suggestions: [],
+        activeSuggestionIndex: -1
+      });
 
       _defineProperty(_assertThisInitialized(_this), "onInputChange", function (e) {
         var filter = e.target.value;
@@ -1017,7 +1033,7 @@
 
         var filteredOptions = filterData(_this.props.data, filter);
 
-        _this.props.onSubmit(filteredOptions);
+        _this.props.onSubmit(filteredOptions, filter);
       });
 
       _defineProperty(_assertThisInitialized(_this), "getSuggestionText", function (suggestion) {
@@ -1052,11 +1068,6 @@
       });
 
       _defineProperty(_assertThisInitialized(_this), "handleKeyDown", function (e) {
-        /*
-          38: up arrow - move to the previous suggestion
-          40: down arrow - move to the next suggestion
-          13: enter - submit
-        */
         if (_this.state.suggestions.length !== 0 && e.keyCode === 38) {
           _this.setState({
             activeSuggestionIndex: _this.state.activeSuggestionIndex !== -1 ? _this.state.activeSuggestionIndex - 1 : -1
@@ -1072,11 +1083,6 @@
         }
       });
 
-      _this.state = {
-        filter: '',
-        suggestions: [],
-        activeSuggestionIndex: -1
-      };
       return _this;
     }
 
@@ -1128,17 +1134,20 @@
     return TypeAheadSearch;
   }(React__default.Component);
 
-  TypeAheadSearch.propTypes = {
+  _defineProperty(TypeAheadSearch, "propTypes", {
     onSubmit: PropTypes.func.isRequired,
     data: PropTypes.arrayOf(PropTypes.shape({
       value: PropTypes.string.isRequired,
       id: PropTypes.number.isRequired
     })).isRequired,
+    initialFilter: PropTypes.string,
     placeholder: PropTypes.string
-  };
-  TypeAheadSearch.defaultProps = {
+  });
+
+  _defineProperty(TypeAheadSearch, "defaultProps", {
+    initialFilter: '',
     placeholder: ''
-  };
+  });
 
   exports.Button = Button;
   exports.ButtonGroup = ButtonGroup;
