@@ -22,9 +22,7 @@ describe('Tabs', () => {
     const props = getProps({ tabs: ['one'] });
     const wrapper = shallow(<Tabs {...props} />);
     expect(
-      wrapper
-        .find('[data-unit-test="tab"]')
-        .hasClass('molecules__tab--primary'),
+      wrapper.find('[data-unit-test="tab"]').hasClass('molecules-tab--primary'),
     ).toBe(true);
   });
   it('does not include the secondary class if the type is primary', () => {
@@ -33,7 +31,7 @@ describe('Tabs', () => {
     expect(
       wrapper
         .find('[data-unit-test="tab"]')
-        .hasClass('molecules__tab--secondary'),
+        .hasClass('molecules-tab--secondary'),
     ).toBe(false);
   });
   it('includes the secondary class if the type is secondary', () => {
@@ -42,16 +40,14 @@ describe('Tabs', () => {
     expect(
       wrapper
         .find('[data-unit-test="tab"]')
-        .hasClass('molecules__tab--secondary'),
+        .hasClass('molecules-tab--secondary'),
     ).toBe(true);
   });
   it('does not include the primary class if the type is secondary', () => {
     const props = getProps({ tabs: ['one'], type: 'secondary' });
     const wrapper = shallow(<Tabs {...props} />);
     expect(
-      wrapper
-        .find('[data-unit-test="tab"]')
-        .hasClass('molecules__tab--primary'),
+      wrapper.find('[data-unit-test="tab"]').hasClass('molecules-tab--primary'),
     ).toBe(false);
   });
   it('includes the active class if on the active index', () => {
@@ -61,7 +57,7 @@ describe('Tabs', () => {
       wrapper
         .find('[data-unit-test="tab"]')
         .at(1)
-        .hasClass('molecules__tab--active'),
+        .hasClass('molecules-tab--active'),
     ).toBe(true);
   });
   it('does not include the active class if not on the active index', () => {
@@ -71,7 +67,17 @@ describe('Tabs', () => {
       wrapper
         .find('[data-unit-test="tab"]')
         .at(0)
-        .hasClass('molecules__tab--active'),
+        .hasClass('molecules-tab--active'),
     ).toBe(false);
+  });
+  it('calls props.onClick with the selected index on tab click', () => {
+    const onClickSpy = jest.fn();
+    const props = getProps({ onClick: onClickSpy, tabs: ['a', 'b', 'c'] });
+    const wrapper = shallow(<Tabs {...props} />);
+    wrapper
+      .find('[data-unit-test="tab"]')
+      .at(1)
+      .simulate('click');
+    expect(onClickSpy.mock.calls[0][0]).toBe(1);
   });
 });
