@@ -32,6 +32,7 @@
   &--secondary {
     border-bottom: 4px solid transparent;
     &.molecules-tab--active {
+      color: $hireology-dark-blue;
       border-bottom-color: $hireology-dark-blue;
     }
   }
