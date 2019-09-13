@@ -18,6 +18,10 @@
     outline: none;
   }
 
+  &--active {
+    padding: 12px 20px;
+  }
+
   &--primary {
     border-bottom: 8px solid transparent;
     &.molecules-tab--active {
