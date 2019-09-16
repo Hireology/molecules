@@ -455,3 +455,35 @@
       outline-style: auto;
       outline-width: 2px;
       outline-color: #81af32; }
+
+/*
+ * IF THE COLOR YOU NEED IS NOT IN HERE, PLEASE CONSULT
+ * WITH DESIGNER BEFORE ADDING. IT MUST BE WCAG APPROVED
+ * IN ORDER TO BE ADDED!!
+ */
+.molecules-tab {
+  border: none;
+  display: inline-block;
+  padding: 12px 12px;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+  font-size: 1em;
+  color: #677078;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  text-align: center;
+  overflow: visible;
+  background-color: transparent; }
+  .molecules-tab:focus, .molecules-tab:hover {
+    color: #3f4144;
+    outline: none; }
+  .molecules-tab--active {
+    padding: 12px 20px; }
+  .molecules-tab--primary {
+    border-bottom: 8px solid transparent; }
+    .molecules-tab--primary.molecules-tab--active {
+      border-bottom-color: #81af32; }
+  .molecules-tab--secondary {
+    border-bottom: 4px solid transparent; }
+    .molecules-tab--secondary.molecules-tab--active {
+      color: #2a5769;
+      border-bottom-color: #2a5769; }

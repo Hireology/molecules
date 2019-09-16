@@ -1143,5 +1143,51 @@ _defineProperty(TypeAheadSearch, "defaultProps", {
   placeholder: ''
 });
 
-export { Button, ButtonGroup, Checkbox, Link, Loader, RadioButton, TypeAheadSearch };
+var Tabs =
+/*#__PURE__*/
+function (_PureComponent) {
+  _inheritsLoose(Tabs, _PureComponent);
+
+  function Tabs() {
+    return _PureComponent.apply(this, arguments) || this;
+  }
+
+  var _proto = Tabs.prototype;
+
+  _proto.render = function render() {
+    var _this = this;
+
+    return React.createElement(ButtonGroup, null, this.props.tabs.map(function (tab, index) {
+      var className = classNames('molecules-tab', {
+        'molecules-tab--primary': _this.props.type === 'primary',
+        'molecules-tab--secondary': _this.props.type === 'secondary',
+        'molecules-tab--active': _this.props.activeIndex === index
+      });
+      return React.createElement("button", {
+        className: className,
+        onClick: function onClick() {
+          return _this.props.onClick(index);
+        },
+        "data-unit-test": "tab",
+        "data-test": "tab-" + index,
+        key: tab
+      }, tab);
+    }));
+  };
+
+  return Tabs;
+}(PureComponent);
+
+_defineProperty(Tabs, "propTypes", {
+  activeIndex: PropTypes.number.isRequired,
+  onClick: PropTypes.func.isRequired,
+  tabs: PropTypes.arrayOf(PropTypes.string).isRequired,
+  type: PropTypes.oneOf(['primary', 'secondary'])
+});
+
+_defineProperty(Tabs, "defaultProps", {
+  type: 'primary'
+});
+
+export { Button, ButtonGroup, Checkbox, Link, Loader, RadioButton, Tabs, TypeAheadSearch };
 //# sourceMappingURL=molecules.esm.js.map
