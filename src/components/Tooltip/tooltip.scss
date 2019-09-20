@@ -1,0 +1,122 @@
+@import '../../theme/variables.scss';
+
+.molecules-tooltip-wrapper {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  vertical-align: top;
+  margin: 0 4px;
+
+  &__icon {
+    color: $hireology-green;
+    font-size: 1.1em;
+    width: 16px;
+  }
+
+  &__hover:hover,
+  &__hover:focus {
+    outline: none;
+    + .molecules-tooltip,
+    + .molecules-tooltip:before {
+      pointer-events: auto; // Re-enable pointers so you can scroll over tooltip
+      display: block;
+    }
+  }
+}
+
+.molecules-tooltip {
+  font-size: 16px;
+  font-family: $font-family;
+  color: $hireology-text-gray;
+  background: $white;
+  border: 1px solid $hireology-disabled-gray;
+  border-radius: 3px;
+  padding: 10px 16px;
+  position: absolute;
+  z-index: 999;
+  pointer-events: none;
+
+  &--hover {
+    display: none;
+  }
+
+  &:hover {
+    display: block;
+    pointer-events: auto;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-right: 1px solid $hireology-disabled-gray;
+    border-bottom: 1px solid $hireology-disabled-gray;
+    margin-left: -5px;
+    margin-top: -5px;
+    background: white;
+  }
+
+  // SIZE STYLING
+  &--small {
+    width: 7em;
+  }
+  &--medium {
+    width: 14em;
+  }
+  &--large {
+    width: 21em;
+  }
+
+  // ALIGNMENT STYLING
+  &--top {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, calc(-100% - 10px));
+    &:before {
+      top: 100%;
+      left: 50%;
+      transform: rotate(45deg);
+    }
+  }
+  &--right {
+    right: 0;
+    transform: translateX(calc(100% + 10px));
+    &:before {
+      top: 50%;
+      left: 0%;
+      margin-left: -6px;
+      transform: rotate(135deg);
+    }
+  }
+  &--bottom {
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, calc(100% + 10px));
+    &:before {
+      top: 0%;
+      left: 50%;
+      margin-top: -6px;
+      transform: rotate(-135deg);
+    }
+  }
+  &--left {
+    transform: translateX(calc(-100% - 10px));
+    &:before {
+      top: 50%;
+      left: 100%;
+      transform: rotate(-45deg);
+    }
+  }
+
+  // TEXT ALIGN STYLING
+  &--align-left {
+    text-align: start;
+  }
+  &--align-right {
+    text-align: end;
+  }
+  &--align-center {
+    text-align: center;
+  }
+}
