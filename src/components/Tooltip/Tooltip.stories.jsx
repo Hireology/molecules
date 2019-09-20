@@ -174,79 +174,132 @@ class ShowOnClickTooltip extends React.Component {
   }
 }
 
+/*
+children: PropTypes.node,
+    hide: PropTypes.bool,
+    hover: PropTypes.bool,
+    position: PropTypes.oneOf(['top', 'left', 'bottom', 'right']),
+    textAlign: PropTypes.oneOf(['right', 'left', 'center']),
+    tooltipContent: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
+      .isRequired,
+    width(props, propName) {
+      */
+const widthProps = "'small', 'medium', 'large' or width value in em/px";
+const notes = {
+  notes: {
+    markdown: `
+      #TypeAheadSearch
+      ## Props
+      | prop name      | prop type      | required | default value | description |
+      | -------------- | -------------- | -------- | ------------- | ----------- |
+      | children       | node           | false    | -             | The jsx our tooltip points to, if no children are passed we display an icon  |
+      | hide           | Boolean        | false    | false         | Wether to hide the tooltip or not, if hover is false this fully determines when the tooltip is shown |
+      | hover          | Boolean        | false    | true          | If true, the tooltip will be shown on hover as long as hide is also false |
+      | position       | String         | false    | 'top'         | What direction the tooltip should be in relation to the icon/children |
+      | textAlign      | String         | false    | 'left'        | How the text should align inside the tooltip |
+      | tooltipContent | String or node | true     | -             | Either the text, or jsx to display inside the  tooltip |
+      | width          | ${widthProps}  | false    | 'medium'      | Tooltip width |
+      `,
+  },
+};
+
 storiesOf('Tooltip', module)
-  .add('position', () => (
-    <div
-      style={{
-        padding: '100px 20px',
-        display: 'flex',
-        justifyContent: 'space-between',
-      }}
-    >
-      <div>
-        Positioned right
-        <Tooltip tooltipContent={tooltipText} position="right" />
+  .add(
+    'position',
+    () => (
+      <div
+        style={{
+          padding: '100px 20px',
+          display: 'flex',
+          justifyContent: 'space-between',
+        }}
+      >
+        <div>
+          Positioned right
+          <Tooltip tooltipContent={tooltipText} position="right" />
+        </div>
+        <div>
+          Positioned top
+          <Tooltip tooltipContent={tooltipText} />
+        </div>
+        <div>
+          Positioned bottom
+          <Tooltip tooltipContent={tooltipText} position="bottom" />
+        </div>
+        <div>
+          Positioned left
+          <Tooltip tooltipContent={tooltipText} position="left" />
+        </div>
       </div>
-      <div>
-        Positioned top
-        <Tooltip tooltipContent={tooltipText} />
+    ),
+    notes,
+  )
+  .add(
+    'tooltip size',
+    () => (
+      <div style={{ padding: '30px 20px' }}>
+        <div style={{ padding: '10px 0px' }}>
+          Large tooltip
+          <Tooltip
+            tooltipContent={tooltipText}
+            position="right"
+            width="large"
+          />
+        </div>
+        <div style={{ padding: '10px 0px' }}>
+          Medium tooltip
+          <Tooltip
+            tooltipContent={tooltipText}
+            position="right"
+            width="medium"
+          />
+        </div>
+        <div style={{ padding: '10px 0px' }}>
+          Small tooltip
+          <Tooltip
+            tooltipContent={tooltipText}
+            position="right"
+            width="small"
+          />
+        </div>
+        <div style={{ padding: '10px 0px' }}>
+          <CustomSizeTooltip />
+        </div>
       </div>
-      <div>
-        Positioned bottom
-        <Tooltip tooltipContent={tooltipText} position="bottom" />
+    ),
+    notes,
+  )
+  .add(
+    'text align',
+    () => (
+      <div style={{ padding: '30px 20px' }}>
+        <div style={{ padding: '10px 0px' }}>
+          Text align right
+          <Tooltip
+            tooltipContent={tooltipText}
+            position="right"
+            textAlign="right"
+          />
+        </div>
+        <div style={{ padding: '10px 0px' }}>
+          Text align center
+          <Tooltip
+            tooltipContent={tooltipText}
+            position="right"
+            textAlign="center"
+          />
+        </div>
+        <div style={{ padding: '10px 0px' }}>
+          Text align left
+          <Tooltip
+            tooltipContent={tooltipText}
+            position="right"
+            textAlign="left"
+          />
+        </div>
       </div>
-      <div>
-        Positioned left
-        <Tooltip tooltipContent={tooltipText} position="left" />
-      </div>
-    </div>
-  ))
-  .add('tooltip size', () => (
-    <div style={{ padding: '30px 20px' }}>
-      <div style={{ padding: '10px 0px' }}>
-        Large tooltip
-        <Tooltip tooltipContent={tooltipText} position="right" width="large" />
-      </div>
-      <div style={{ padding: '10px 0px' }}>
-        Medium tooltip
-        <Tooltip tooltipContent={tooltipText} position="right" width="medium" />
-      </div>
-      <div style={{ padding: '10px 0px' }}>
-        Small tooltip
-        <Tooltip tooltipContent={tooltipText} position="right" width="small" />
-      </div>
-      <div style={{ padding: '10px 0px' }}>
-        <CustomSizeTooltip />
-      </div>
-    </div>
-  ))
-  .add('text align', () => (
-    <div style={{ padding: '30px 20px' }}>
-      <div style={{ padding: '10px 0px' }}>
-        Text align right
-        <Tooltip
-          tooltipContent={tooltipText}
-          position="right"
-          textAlign="right"
-        />
-      </div>
-      <div style={{ padding: '10px 0px' }}>
-        Text align center
-        <Tooltip
-          tooltipContent={tooltipText}
-          position="right"
-          textAlign="center"
-        />
-      </div>
-      <div style={{ padding: '10px 0px' }}>
-        Text align left
-        <Tooltip
-          tooltipContent={tooltipText}
-          position="right"
-          textAlign="left"
-        />
-      </div>
-    </div>
-  ))
-  .add('children size', () => <CustomSizeChildren />)
-  .add('custom show/hide', () => <ShowOnClickTooltip />);
+    ),
+    notes,
+  )
+  .add('children size', () => <CustomSizeChildren />, notes)
+  .add('custom show/hide', () => <ShowOnClickTooltip />, notes);

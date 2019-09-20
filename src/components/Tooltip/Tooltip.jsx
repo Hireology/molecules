@@ -6,9 +6,9 @@ import './tooltip.scss';
 class Tooltip extends PureComponent {
   static propTypes = {
     children: PropTypes.node,
-    position: PropTypes.oneOf(['top', 'left', 'bottom', 'right']),
     hide: PropTypes.bool,
     hover: PropTypes.bool,
+    position: PropTypes.oneOf(['top', 'left', 'bottom', 'right']),
     textAlign: PropTypes.oneOf(['right', 'left', 'center']),
     tooltipContent: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
       .isRequired,
@@ -26,10 +26,10 @@ class Tooltip extends PureComponent {
   };
 
   static defaultProps = {
-    position: 'top',
     children: null,
     hide: false,
     hover: true,
+    position: 'top',
     textAlign: 'left',
     width: 'medium',
   };
