@@ -174,16 +174,6 @@ class ShowOnClickTooltip extends React.Component {
   }
 }
 
-/*
-children: PropTypes.node,
-    hide: PropTypes.bool,
-    hover: PropTypes.bool,
-    position: PropTypes.oneOf(['top', 'left', 'bottom', 'right']),
-    textAlign: PropTypes.oneOf(['right', 'left', 'center']),
-    tooltipContent: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
-      .isRequired,
-    width(props, propName) {
-      */
 const widthProps = "'small', 'medium', 'large' or width value in em/px";
 const notes = {
   notes: {
