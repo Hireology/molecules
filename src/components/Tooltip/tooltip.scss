@@ -7,6 +7,14 @@
   vertical-align: top;
   margin: 0 4px;
 
+  &--parent-width {
+    margin: 0;
+    width: 100%;
+    .molecules-tooltip-wrapper__hover {
+      width: 100%;
+    }
+  }
+
   &__icon {
     color: $hireology-green;
     font-size: 1.1em;

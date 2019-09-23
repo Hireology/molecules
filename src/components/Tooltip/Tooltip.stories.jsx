@@ -185,6 +185,7 @@ const notes = {
       | children       | node           | false    | -             | The jsx our tooltip points to, if no children are passed we display an icon  |
       | hide           | Boolean        | false    | false         | Wether to hide the tooltip or not, if hover is false this fully determines when the tooltip is shown |
       | hover          | Boolean        | false    | true          | If true, the tooltip will be shown on hover as long as hide is also false |
+      | fitContent     | Boolean        | false    | true          | If true, the tooltip wrapper will only be as wide as its content, if false, the tooltip wrapper will be as wide as its parent. |
       | position       | String         | false    | 'top'         | What direction the tooltip should be in relation to the icon/children |
       | textAlign      | String         | false    | 'left'        | How the text should align inside the tooltip |
       | tooltipContent | String or node | true     | -             | Either the text, or jsx to display inside the  tooltip |

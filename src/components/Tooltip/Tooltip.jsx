@@ -8,6 +8,7 @@ class Tooltip extends PureComponent {
     children: PropTypes.node,
     hide: PropTypes.bool,
     hover: PropTypes.bool,
+    fitContent: PropTypes.bool,
     position: PropTypes.oneOf(['top', 'left', 'bottom', 'right']),
     textAlign: PropTypes.oneOf(['right', 'left', 'center']),
     tooltipContent: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
@@ -29,6 +30,7 @@ class Tooltip extends PureComponent {
     children: null,
     hide: false,
     hover: true,
+    fitContent: true,
     position: 'top',
     textAlign: 'left',
     width: 'medium',
@@ -58,6 +60,9 @@ class Tooltip extends PureComponent {
         'molecules-tooltip--hover': this.props.hover,
       },
     );
+    const tooltipWrapperStyles = classNames('molecules-tooltip-wrapper', {
+      'molecules-tooltip-wrapper--parent-width': !this.props.fitContent,
+    });
     const tooltipHoverStyle = classNames({
       'molecules-tooltip-wrapper__hover': this.props.hover,
     });
@@ -65,7 +70,7 @@ class Tooltip extends PureComponent {
       ? { width: this.props.width }
       : null;
     return (
-      <div className="molecules-tooltip-wrapper">
+      <div className={tooltipWrapperStyles}>
         {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
         <span className={tooltipHoverStyle} tabIndex={0}>
           {this.props.children || (
