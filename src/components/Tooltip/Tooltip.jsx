@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -71,8 +72,10 @@ class Tooltip extends PureComponent {
       : null;
     return (
       <div className={tooltipWrapperStyles}>
-        {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
-        <span className={tooltipHoverStyle} tabIndex={0}>
+        <span
+          className={tooltipHoverStyle}
+          tabIndex={this.props.hover ? 0 : -1}
+        >
           {this.props.children || (
             <i
               className="fa fa-fw fa-question-circle molecules-tooltip-wrapper__icon"
