@@ -1195,6 +1195,91 @@
     type: 'primary'
   });
 
+  var Tooltip =
+  /*#__PURE__*/
+  function (_PureComponent) {
+    _inheritsLoose(Tooltip, _PureComponent);
+
+    function Tooltip() {
+      var _this;
+
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+
+      _this = _PureComponent.call.apply(_PureComponent, [this].concat(args)) || this;
+
+      _defineProperty(_assertThisInitialized(_this), "useWidthPreset", function () {
+        return /^(small|medium|large)/.test(_this.props.width);
+      });
+
+      _defineProperty(_assertThisInitialized(_this), "useWidthValue", function () {
+        return /^\d+(em|px)/.test(_this.props.width);
+      });
+
+      return _this;
+    }
+
+    var _proto = Tooltip.prototype;
+
+    _proto.render = function render() {
+      var _classNames;
+
+      var tooltipClasses = classNames("molecules-tooltip molecules-tooltip--" + this.props.position + " molecules-tooltip--align-" + this.props.textAlign, (_classNames = {}, _classNames["molecules-tooltip--" + this.props.width] = this.useWidthPreset(), _classNames['molecules-tooltip--hover'] = this.props.hover, _classNames));
+      var tooltipWrapperStyles = classNames('molecules-tooltip-wrapper', {
+        'molecules-tooltip-wrapper--parent-width': !this.props.fitContent
+      });
+      var tooltipHoverStyle = classNames({
+        'molecules-tooltip-wrapper__hover': this.props.hover
+      });
+      var tooltipStyle = this.useWidthValue() ? {
+        width: this.props.width
+      } : null;
+      return React__default.createElement("div", {
+        className: tooltipWrapperStyles
+      }, React__default.createElement("span", {
+        className: tooltipHoverStyle,
+        tabIndex: this.props.hover ? 0 : -1
+      }, this.props.children || React__default.createElement("i", {
+        className: "fa fa-fw fa-question-circle molecules-tooltip-wrapper__icon",
+        "data-test": "tooltip-icon"
+      })), !this.props.hide && React__default.createElement("div", {
+        className: tooltipClasses,
+        style: tooltipStyle,
+        "data-test": "tooltip"
+      }, this.props.tooltipContent));
+    };
+
+    return Tooltip;
+  }(React.PureComponent);
+
+  _defineProperty(Tooltip, "propTypes", {
+    children: PropTypes.node,
+    hide: PropTypes.bool,
+    hover: PropTypes.bool,
+    fitContent: PropTypes.bool,
+    position: PropTypes.oneOf(['top', 'left', 'bottom', 'right']),
+    textAlign: PropTypes.oneOf(['right', 'left', 'center']),
+    tooltipContent: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
+    width: function width(props, propName) {
+      if (props[propName] && !/^(small|medium|large)|\d+(em|px)/.test(props[propName])) {
+        return new Error("Invalid prop " + propName + " supplied to Tooltip. Please supply 'small', 'medium', 'large', or a width measured in em or px.");
+      }
+
+      return null;
+    }
+  });
+
+  _defineProperty(Tooltip, "defaultProps", {
+    children: null,
+    hide: false,
+    hover: true,
+    fitContent: true,
+    position: 'top',
+    textAlign: 'left',
+    width: 'medium'
+  });
+
   exports.Button = Button;
   exports.ButtonGroup = ButtonGroup;
   exports.Checkbox = Checkbox;
@@ -1202,6 +1287,7 @@
   exports.Loader = Loader;
   exports.RadioButton = RadioButton;
   exports.Tabs = Tabs;
+  exports.Tooltip = Tooltip;
   exports.TypeAheadSearch = TypeAheadSearch;
 
   Object.defineProperty(exports, '__esModule', { value: true });

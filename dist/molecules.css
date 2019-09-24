@@ -487,3 +487,111 @@
     .molecules-tab--secondary.molecules-tab--active {
       color: #2a5769;
       border-bottom-color: #2a5769; }
+
+/*
+ * IF THE COLOR YOU NEED IS NOT IN HERE, PLEASE CONSULT
+ * WITH DESIGNER BEFORE ADDING. IT MUST BE WCAG APPROVED
+ * IN ORDER TO BE ADDED!!
+ */
+.molecules-tooltip-wrapper {
+  display: -webkit-inline-box;
+  display: inline-flex;
+  -webkit-box-align: center;
+          align-items: center;
+  position: relative;
+  vertical-align: top;
+  margin: 0 4px; }
+  .molecules-tooltip-wrapper--parent-width {
+    margin: 0;
+    width: 100%; }
+    .molecules-tooltip-wrapper--parent-width .molecules-tooltip-wrapper__hover {
+      width: 100%; }
+  .molecules-tooltip-wrapper__icon {
+    color: #81af32;
+    font-size: 18px;
+    width: 16px; }
+  .molecules-tooltip-wrapper__hover:hover, .molecules-tooltip-wrapper__hover:focus {
+    outline: none; }
+    .molecules-tooltip-wrapper__hover:hover + .molecules-tooltip,
+    .molecules-tooltip-wrapper__hover:hover + .molecules-tooltip:before, .molecules-tooltip-wrapper__hover:focus + .molecules-tooltip,
+    .molecules-tooltip-wrapper__hover:focus + .molecules-tooltip:before {
+      pointer-events: auto;
+      display: block; }
+
+.molecules-tooltip {
+  font-size: 14px;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+  color: #677078;
+  background: #fff;
+  border: 1px solid #d6dadc;
+  border-radius: 3px;
+  padding: 10px 16px;
+  position: absolute;
+  z-index: 999;
+  pointer-events: none; }
+  .molecules-tooltip--hover {
+    display: none; }
+  .molecules-tooltip:hover {
+    display: block;
+    pointer-events: auto; }
+  .molecules-tooltip:before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-right: 1px solid #d6dadc;
+    border-bottom: 1px solid #d6dadc;
+    margin-left: -5px;
+    margin-top: -5px;
+    background: white; }
+  .molecules-tooltip--small {
+    width: 7em; }
+  .molecules-tooltip--medium {
+    width: 14em; }
+  .molecules-tooltip--large {
+    width: 21em; }
+  .molecules-tooltip--top {
+    top: 0;
+    left: 50%;
+    -webkit-transform: translate(-50%, calc(-100% - 10px));
+            transform: translate(-50%, calc(-100% - 10px)); }
+    .molecules-tooltip--top:before {
+      top: 100%;
+      left: 50%;
+      -webkit-transform: rotate(45deg);
+              transform: rotate(45deg); }
+  .molecules-tooltip--right {
+    right: 0;
+    -webkit-transform: translateX(calc(100% + 10px));
+            transform: translateX(calc(100% + 10px)); }
+    .molecules-tooltip--right:before {
+      top: 50%;
+      left: 0%;
+      margin-left: -6px;
+      -webkit-transform: rotate(135deg);
+              transform: rotate(135deg); }
+  .molecules-tooltip--bottom {
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translate(-50%, calc(100% + 10px));
+            transform: translate(-50%, calc(100% + 10px)); }
+    .molecules-tooltip--bottom:before {
+      top: 0%;
+      left: 50%;
+      margin-top: -6px;
+      -webkit-transform: rotate(-135deg);
+              transform: rotate(-135deg); }
+  .molecules-tooltip--left {
+    -webkit-transform: translateX(calc(-100% - 10px));
+            transform: translateX(calc(-100% - 10px)); }
+    .molecules-tooltip--left:before {
+      top: 50%;
+      left: 100%;
+      -webkit-transform: rotate(-45deg);
+              transform: rotate(-45deg); }
+  .molecules-tooltip--align-left {
+    text-align: start; }
+  .molecules-tooltip--align-right {
+    text-align: end; }
+  .molecules-tooltip--align-center {
+    text-align: center; }
