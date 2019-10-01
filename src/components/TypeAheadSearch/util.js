@@ -1,5 +1,6 @@
 import startsWith from 'lodash.startswith';
 import pullAll from 'lodash.pullall';
+import PropTypes from 'prop-types';
 
 /**
  * Filters the passed in array based on the passed in filter.
@@ -108,4 +109,73 @@ export const sortFilteredData = (data, untrimmedFilter) => {
     );
   }
   return sortedData;
+};
+
+/**
+ * Custom prop-type validation for this.props.data and this.props.suggestions
+ * Fails validation if:
+ *   - this.props.useCustomFilter is false, and data is undefined
+ *   - data is not an array
+ *   - objects in data array are not formatted: {value: string, id: number}
+ */
+export const customDataValidator = (props, propName, componentName) => {
+  if (!props.useCustomFilter) {
+    PropTypes.checkPropTypes(
+      {
+        [propName]: PropTypes.arrayOf(
+          PropTypes.shape({
+            value: PropTypes.string.isRequired,
+            id: PropTypes.number.isRequired,
+          }),
+        ).isRequired,
+      },
+      props,
+      propName,
+      componentName,
+    );
+  }
+};
+
+/**
+ * Custom prop-type validation for this.props.onChange
+ * Fails validation if:
+ *   - this.props.useCustomFilter is true, and onChange is undefined
+ *   - onChange is not a function
+ */
+export const customOnChangeValidator = (props, propName, componentName) => {
+  if (props.useCustomFilter) {
+    PropTypes.checkPropTypes(
+      {
+        [propName]: PropTypes.func.isRequired,
+      },
+      props,
+      propName,
+      componentName,
+    );
+  }
+};
+
+/**
+ * Custom prop-type validation for this.props.data and this.props.suggestions
+ * Fails validation if:
+ *   - this.props.useCustomFilter is false, and data is undefined
+ *   - data is not an array
+ *   - objects in data array are not formatted: {value: string, id: number}
+ */
+export const customSuggestionsValidator = (props, propName, componentName) => {
+  if (props.useCustomFilter) {
+    PropTypes.checkPropTypes(
+      {
+        [propName]: PropTypes.arrayOf(
+          PropTypes.shape({
+            value: PropTypes.string.isRequired,
+            id: PropTypes.number.isRequired,
+          }),
+        ).isRequired,
+      },
+      props,
+      propName,
+      componentName,
+    );
+  }
 };

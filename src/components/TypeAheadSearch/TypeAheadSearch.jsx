@@ -2,25 +2,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import startsWith from 'lodash.startswith';
+import debounce from 'lodash.debounce';
 import classNames from 'classnames';
-import { filterData, sortFilteredData } from './util';
+import * as util from './util';
 import './typeAheadSearch.scss';
 
 class TypeAheadSearch extends React.Component {
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
-    data: PropTypes.arrayOf(
-      PropTypes.shape({
-        value: PropTypes.string.isRequired,
-        id: PropTypes.number.isRequired,
-      }),
-    ).isRequired,
     initialFilter: PropTypes.string,
     placeholder: PropTypes.string,
+    useCustomFilter: PropTypes.bool,
+    // Array of objects required if useCustomFilter is false
+    data: util.customDataValidator,
+    // Function required if useCustomFilter is true
+    onChange: util.customOnChangeValidator,
+    // Array of objects required if useCustomFilter is true
+    suggestions: util.customSuggestionsValidator,
   };
   static defaultProps = {
+    useCustomFilter: false,
+    data: null,
+    suggestions: null,
     initialFilter: '',
     placeholder: '',
+    onChange: () => null,
   };
 
   state = {
@@ -32,39 +38,52 @@ class TypeAheadSearch extends React.Component {
   /**
    * Input change handler
    * @param {object} e - event on input change
+   * If we are handling filtering, update the suggestions
+   * If we are not handling filtering, callback to parent component
    */
   onInputChange = (e) => {
     const filter = e.target.value;
-    if (filter.trim().length > 1) {
-      return this.updateSuggestions(filter);
-    } else {
-      this.setState({
-        filter,
-        suggestions: [],
-        activeSuggestionIndex: -1,
-      });
+    this.setState({ filter });
+    if (!this.props.useCustomFilter) {
+      if (filter.trim().length > 1) {
+        return this.updateSuggestions(filter);
+      } else {
+        this.setState({
+          suggestions: [],
+          activeSuggestionIndex: -1,
+        });
+      }
+    } else if (filter.trim().length > 1) {
+      this.delayedOnChange(filter);
     }
   };
 
   /**
    * On submit handler
    * @param {string} filter - The string to filter data with
+   * If we are handling filtering, callback with the filtered data and filter string,
+   * If we are not handling filtering, callback with the filter string
    */
   onSubmit = (filter) => {
-    this.setState({
-      filter,
-      suggestions: [],
-      activeSuggestionIndex: -1,
-    });
-    const filteredOptions = filterData(this.props.data, filter);
+    this.setState({ filter, activeSuggestionIndex: -1 });
+    if (!this.props.useCustomFilter) {
+      this.setState({
+        suggestions: [],
+      });
+      const filteredOptions = util.filterData(this.props.data, filter);
 
-    this.props.onSubmit(filteredOptions, filter);
+      this.props.onSubmit(filteredOptions, filter);
+    } else {
+      this.props.onSubmit(filter);
+    }
   };
 
   /**
    * Finds and emphasizes text in suggestion that matches filter
    * @param {string[]} suggestion - The suggestion text broken into array by word
    * @returns {jsx} - The jsx element to be displayed as suggestion text
+   * If no match is found, just return the string. This should only be true if the parent
+   * component is passing suggestions and hasn't caught up to the input yet
    */
   getSuggestionText = (suggestion) => {
     let suggestionSection = null;
@@ -102,15 +121,18 @@ class TypeAheadSearch extends React.Component {
         );
       }
     }
+    return <span data-test="suggestion-text">{suggestion}</span>;
   };
+
+  delayedOnChange = debounce(this.props.onChange, 1000);
 
   /**
    * Updates the list of suggestions to match new filter
    * @param {string} filter - filter to be used to find suggestions
    */
   updateSuggestions = (filter) => {
-    const filteredOptions = filterData(this.props.data, filter);
-    const sortedOptions = sortFilteredData(filteredOptions, filter);
+    const filteredOptions = util.filterData(this.props.data, filter);
+    const sortedOptions = util.sortFilteredData(filteredOptions, filter);
 
     const suggestions = sortedOptions.slice(0, 5);
 
@@ -119,7 +141,6 @@ class TypeAheadSearch extends React.Component {
     const activeIsTooLarge =
       this.state.activeSuggestionIndex > suggestions.length - 1;
     this.setState({
-      filter,
       suggestions: suggestionIsFilter ? [] : [...suggestions],
       activeSuggestionIndex: activeIsTooLarge
         ? suggestions.length - 1
@@ -134,30 +155,36 @@ class TypeAheadSearch extends React.Component {
    * @param {object} e - event on key down
    */
   handleKeyDown = (e) => {
-    if (this.state.suggestions.length !== 0 && e.keyCode === 38) {
+    const suggestions = this.props.useCustomFilter
+      ? this.props.suggestions
+      : this.state.suggestions;
+    if (suggestions.length !== 0 && e.keyCode === 38) {
       this.setState({
         activeSuggestionIndex:
           this.state.activeSuggestionIndex !== -1
             ? this.state.activeSuggestionIndex - 1
             : -1,
       });
-    } else if (this.state.suggestions.length !== 0 && e.keyCode === 40) {
+    } else if (suggestions.length !== 0 && e.keyCode === 40) {
       this.setState({
         activeSuggestionIndex:
-          this.state.activeSuggestionIndex !== this.state.suggestions.length - 1
+          this.state.activeSuggestionIndex !== suggestions.length - 1
             ? this.state.activeSuggestionIndex + 1
-            : this.state.suggestions.length - 1,
+            : suggestions.length - 1,
       });
     } else if (e.keyCode === 13) {
       const filter =
         this.state.activeSuggestionIndex > -1
-          ? this.state.suggestions[[this.state.activeSuggestionIndex]].value
+          ? suggestions[[this.state.activeSuggestionIndex]].value
           : this.state.filter;
       this.onSubmit(filter);
     }
   };
 
   render() {
+    const suggestions = this.props.useCustomFilter
+      ? this.props.suggestions
+      : this.state.suggestions;
     return (
       <div className="molecules-type-ahead-search">
         <i
@@ -179,12 +206,12 @@ class TypeAheadSearch extends React.Component {
           aria-label="filter"
           aria-describedby={this.props.placeholder}
         />
-        {this.state.suggestions.length > 0 && (
+        {suggestions.length > 0 && this.state.filter.length > 1 && (
           <div
             className="molecules-type-ahead-search__type-ahead"
             data-test="type-ahead-dropdown"
           >
-            {this.state.suggestions.map((suggestion, index) => (
+            {suggestions.map((suggestion, index) => (
               <p
                 key={`${suggestion.value}-${suggestion.id}`}
                 role="presentation"
