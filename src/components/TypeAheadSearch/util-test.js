@@ -1,6 +1,22 @@
-import { filterData, sortFilteredData } from './util';
+import PropTypes from 'prop-types';
+import * as util from './util';
+
+// mock out prop types functionality, we can trust that checkPropTypes
+// works the way we expect it to, we just want to test that it is called
+jest.mock('prop-types', () => ({
+  checkPropTypes: jest.fn(),
+  string: { isRequired: true },
+  number: { isRequired: true },
+  func: { isRequired: true },
+  shape: () => null,
+  arrayOf: () => ({ isRequired: true }),
+}));
 
 describe('util', () => {
+  beforeEach(() => {
+    PropTypes.checkPropTypes.mockClear();
+  });
+
   describe('filterData', () => {
     it('correctly filters the data', () => {
       const fakeData = [
@@ -11,7 +27,7 @@ describe('util', () => {
         { value: 'anythingelse' },
       ];
 
-      const filteredData = filterData(fakeData, ' foo ');
+      const filteredData = util.filterData(fakeData, ' foo ');
 
       const expectedData = [
         { value: 'foo bar' },
@@ -35,7 +51,7 @@ describe('util', () => {
         { value: 'bar Foo' },
       ];
 
-      const sortedData = sortFilteredData(fakeData, ' Foo ');
+      const sortedData = util.sortFilteredData(fakeData, ' Foo ');
 
       const expectedData = [
         { value: 'Foo abc' },
@@ -55,10 +71,36 @@ describe('util', () => {
         { value: 'Foo bar', id: 1 },
       ];
 
-      const sortedData = sortFilteredData(fakeData, 'Foo');
+      const sortedData = util.sortFilteredData(fakeData, 'Foo');
 
       const expectedData = [{ value: 'Foo bar', id: 0 }];
       expect(sortedData).toEqual(expectedData);
+    });
+  });
+
+  describe('customOnChangeValidator', () => {
+    it('calls checkPropTypes if useCustomFilter is true', () => {
+      const props = { useCustomFilter: true };
+      util.customOnChangeValidator(props, 'data', 'TypeAheadSearch');
+      expect(PropTypes.checkPropTypes.mock.calls.length).toBe(1);
+    });
+    it('does not call checkPropTypes if useCustomFilter is false', () => {
+      const props = { useCustomFilter: false };
+      util.customOnChangeValidator(props, 'data', 'TypeAheadSearch');
+      expect(PropTypes.checkPropTypes.mock.calls.length).toBe(0);
+    });
+  });
+
+  describe('customSuggestionsValidator', () => {
+    it('calls checkPropTypes if useCustomFilter is true', () => {
+      const props = { useCustomFilter: true };
+      util.customSuggestionsValidator(props, 'data', 'TypeAheadSearch');
+      expect(PropTypes.checkPropTypes.mock.calls.length).toBe(1);
+    });
+    it('does not call checkPropTypes if useCustomFilter is false', () => {
+      const props = { useCustomFilter: false };
+      util.customSuggestionsValidator(props, 'data', 'TypeAheadSearch');
+      expect(PropTypes.checkPropTypes.mock.calls.length).toBe(0);
     });
   });
 });

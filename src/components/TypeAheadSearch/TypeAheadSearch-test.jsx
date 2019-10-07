@@ -7,9 +7,12 @@ jest.mock('./util');
 
 const getProps = (overrides) => ({
   onSubmit: () => null,
-  data: [],
-  placeholder: '',
   initialFilter: '',
+  placeholder: '',
+  useCustomFilter: false,
+  data: [],
+  onChange: () => null,
+  suggestions: [],
   ...overrides,
 });
 
@@ -56,9 +59,23 @@ describe('TypeAheadSearch', () => {
     const wrapper = shallow(<TypeAheadSearch {...getProps()} />);
     expect(wrapper.find('[data-test="type-ahead-dropdown"]').length).toBe(0);
   });
-  it('renders the dropdown if there are suggestions', () => {
+  it('renders the dropdown if there are suggestions in state and the filter length is greater then 1', () => {
     const wrapper = shallow(<TypeAheadSearch {...getProps()} />);
-    wrapper.setState({ suggestions: [{ value: 'test', id: 1 }] });
+    wrapper.setState({
+      suggestions: [{ value: 'test', id: 1 }],
+      filter: 'test',
+    });
+    expect(wrapper.find('[data-test="type-ahead-dropdown"]').length).toBe(1);
+  });
+  it('renders the dropdown if there are suggestions passed as props and the filter length is greater then 1', () => {
+    const props = getProps({
+      suggestions: [{ value: 'test', id: 1 }],
+      useCustomFilter: true,
+    });
+    const wrapper = shallow(<TypeAheadSearch {...props} />);
+    wrapper.setState({
+      filter: 'test',
+    });
     expect(wrapper.find('[data-test="type-ahead-dropdown"]').length).toBe(1);
   });
   it('correctly renders the suggestion text if the matching text is at the beginning of the string', () => {
@@ -97,15 +114,28 @@ describe('TypeAheadSearch', () => {
       '<span data-test="suggestion-text">Maria <b>Eskro</b></span>',
     );
   });
+  it('correctly renders the suggestion text if there is no match (happens as the user types before custom suggestions are returned)', () => {
+    const wrapper = shallow(<TypeAheadSearch {...getProps()} />);
+    wrapper.setState({
+      filter: 'Mariah',
+      suggestions: [{ value: 'Maria Eskro', id: 1 }],
+    });
+    const suggestionText = wrapper.find('[data-test="suggestion-text"]');
+    expect(suggestionText.text()).toBe('Maria Eskro');
+    expect(suggestionText.html()).toBe(
+      '<span data-test="suggestion-text">Maria Eskro</span>',
+    );
+  });
   it('adds the active class to the suggestion with the active selected index', () => {
     const wrapper = shallow(<TypeAheadSearch {...getProps()} />);
     wrapper.setState({
       activeSuggestionIndex: 1,
       suggestions: [
-        { value: 'a', id: 123 },
-        { value: 'ab', id: 124 },
-        { value: 'abc', id: 125 },
+        { value: 'ab', id: 123 },
+        { value: 'abc', id: 124 },
+        { value: 'abcd', id: 125 },
       ],
+      filter: 'ab',
     });
 
     expect(
@@ -259,6 +289,16 @@ describe('TypeAheadSearch', () => {
 
       expect(wrapper.state().activeSuggestionIndex).toEqual(1);
     });
+    it('makes a debounced call to the passed onChange prop if using custom filters', () => {
+      const onChangeSpy = jest.fn();
+      const props = getProps({ onChange: onChangeSpy, useCustomFilter: true });
+      const wrapper = shallow(<TypeAheadSearch {...props} />);
+
+      const input = wrapper.find('[data-test="search-input"]');
+      input.simulate('change', { target: { value: 'test' } });
+
+      expect(onChangeSpy.mock.calls.length[1]);
+    });
   });
 
   describe('onKeyDown', () => {
@@ -307,10 +347,13 @@ describe('TypeAheadSearch', () => {
         expect(wrapper.state().activeSuggestionIndex).toBe(1);
       });
       it('it does nothing if the activeState is on the last suggestion', () => {
-        const wrapper = shallow(<TypeAheadSearch {...getProps()} />);
+        const props = getProps({
+          suggestions: [{ value: 'a', id: 0 }, { value: 'b', id: 0 }],
+          useCustomFilter: true,
+        });
+        const wrapper = shallow(<TypeAheadSearch {...props} />);
         wrapper.setState(
           getState({
-            suggestions: [{ value: 'a', id: 0 }, { value: 'b', id: 0 }],
             activeSuggestionIndex: 1,
           }),
         );
@@ -367,6 +410,17 @@ describe('TypeAheadSearch', () => {
         ]);
       });
     });
+    it('calls props.onSubmit with just the selected filter if using custom filters', () => {
+      const onSubmitSpy = jest.fn();
+      const props = getProps({ onSubmit: onSubmitSpy, useCustomFilter: true });
+      const wrapper = shallow(<TypeAheadSearch {...props} />);
+      wrapper.setState({ filter: 'te' });
+
+      const input = wrapper.find('[data-test="search-input"]');
+      input.simulate('keydown', { keyCode: 13 });
+
+      expect(onSubmitSpy.mock.calls[0]).toEqual(['te']);
+    });
 
     it('does not change anything for other keys', () => {
       const wrapper = shallow(<TypeAheadSearch {...getProps()} />);
@@ -404,6 +458,17 @@ describe('TypeAheadSearch', () => {
         'te',
       ]);
     });
+    it('calls props.onSubmit with just the filter if using custom filters', () => {
+      const onSubmitSpy = jest.fn();
+      const props = getProps({ onSubmit: onSubmitSpy, useCustomFilter: true });
+      const wrapper = shallow(<TypeAheadSearch {...props} />);
+      wrapper.setState({ filter: 'te' });
+
+      const magnifyingGlass = wrapper.find('[data-test="magnifying-glass"]');
+      magnifyingGlass.simulate('click');
+
+      expect(onSubmitSpy.mock.calls[0]).toEqual(['te']);
+    });
   });
 
   describe('on suggestion click', () => {
@@ -431,6 +496,21 @@ describe('TypeAheadSearch', () => {
       suggestion.simulate('click');
 
       expect(onSubmitSpy.mock.calls[0][0]).toEqual([{ value: 'test', id: 42 }]);
+    });
+    it('calls props.onSubmit with just the filter if using custom filters', () => {
+      const onSubmitSpy = jest.fn();
+      const props = getProps({
+        onSubmit: onSubmitSpy,
+        useCustomFilter: true,
+        suggestions: [{ value: 'suggestion', id: 0 }],
+      });
+      const wrapper = shallow(<TypeAheadSearch {...props} />);
+      wrapper.setState({ filter: 'sug' });
+
+      const suggestion = wrapper.find('[data-test="suggestion-0"]');
+      suggestion.simulate('click');
+
+      expect(onSubmitSpy.mock.calls[0]).toEqual(['suggestion']);
     });
   });
 });
