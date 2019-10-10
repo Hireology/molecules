@@ -36,11 +36,11 @@
     left: 0px;
   }
 
+  input[type='checkbox']:checked:not(:disabled) + label:after {
+    color: $hireology-green;
+  }
   input[type='checkbox']:disabled + label:after {
     color: $hireology-disabled-gray;
-  }
-  input[type='checkbox']:checked + label:after {
-    color: $hireology-green;
   }
 
   // Hireology checkbox focused
