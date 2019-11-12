@@ -1,0 +1,35 @@
+@import '../../theme/variables.scss';
+
+.collapsable-box {
+  border: 1px solid $hireology-disabled-gray;
+  border-radius: $base-border-radius;
+  text-align: left;
+  margin-bottom: 20px;
+
+  &__header {
+    background: $hireology-light-gray;
+    border-bottom: 1px solid $hireology-disabled-gray;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+
+    &--closed {
+      border-bottom: 0px;
+    }
+  }
+
+  &__body {
+    padding: 20px;
+
+    &--scrollable {
+      max-height: 200px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      max-height: auto;
+    }
+  }
+
+  &__icon {
+    color: $hireology-green;
+  }
+}
