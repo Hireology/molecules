@@ -8,3 +8,4 @@ export Link from './Link';
 export TypeAheadSearch from './TypeAheadSearch';
 export Tabs from './Tabs';
 export Tooltip from './Tooltip';
+export CollapsableBox from './CollapsableBox';

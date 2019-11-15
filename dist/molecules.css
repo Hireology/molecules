@@ -267,10 +267,10 @@
     font-size: 20px;
     top: -1px;
     left: 0px; }
+  .molecules-checkbox input[type='checkbox']:checked:not(:disabled) + label:after {
+    color: #81af32; }
   .molecules-checkbox input[type='checkbox']:disabled + label:after {
     color: #d6dadc; }
-  .molecules-checkbox input[type='checkbox']:checked + label:after {
-    color: #81af32; }
   .molecules-checkbox input[type='checkbox']:focus + label:before {
     border-color: #81af32; }
   .molecules-checkbox .molecules-checkbox__label {
@@ -595,3 +595,33 @@
     text-align: end; }
   .molecules-tooltip--align-center {
     text-align: center; }
+
+/*
+ * IF THE COLOR YOU NEED IS NOT IN HERE, PLEASE CONSULT
+ * WITH DESIGNER BEFORE ADDING. IT MUST BE WCAG APPROVED
+ * IN ORDER TO BE ADDED!!
+ */
+.collapsable-box {
+  border: 1px solid #d6dadc;
+  border-radius: 4px;
+  text-align: left;
+  margin-bottom: 20px; }
+  .collapsable-box__header {
+    background: #f7f9f9;
+    border-bottom: 1px solid #d6dadc;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: justify;
+            justify-content: space-between;
+    padding: 20px; }
+    .collapsable-box__header--closed {
+      border-bottom: 0px; }
+  .collapsable-box__body {
+    padding: 20px; }
+    .collapsable-box__body--scrollable {
+      max-height: 200px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      max-height: auto; }
+  .collapsable-box__icon {
+    color: #81af32; }
