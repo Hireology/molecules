@@ -22,7 +22,7 @@
     "build": "NODE_ENV=production rm -rf dist && rollup -c",
     "build-storybook": "build-storybook -c .storybook",
     "storybook": "start-storybook",
-    "test": "NODE_ENV=test jest",
+    "test": "NODE_ENV=test jest --verbose",
     "test-coverage": "NODE_ENV=test jest --coverage"
   },
   "dependencies": {

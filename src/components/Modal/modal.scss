@@ -1,0 +1,101 @@
+.modal {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  &.is-open {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 1.2rem;
+    z-index: 1000;
+  }
+
+  &.modal__backdrop {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .modal__dialog {
+    width: 610px;
+    background-color: $white;
+    padding: 1.75em;
+    margin-top: -15%;
+    border-radius: $base-border-radius;
+
+    @include media($tablet) {
+      @include border-top-radius(0);
+      @include border-bottom-radius(0);
+      max-height: 100vh;
+      width: 100%;
+    }
+  }
+
+  .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1em;
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  .modal-header__icon-wrapper {
+    position: relative;
+
+    .fa {
+      font-size: 18px;
+      cursor: pointer;
+    }
+  }
+
+  .modal-body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1em;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-duration: 300ms;
+  animation-name: fadeIn;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.fadeOut {
+  animation-duration: 300ms;
+  animation-name: fadeOut;
+}
