@@ -302,7 +302,7 @@ describe('TypeAheadSearch', () => {
       setTimeout(() => {
         expect(onChangeSpy.mock.calls.length).toBe(1);
         done();
-      }, 1000);
+      }, 500);
     });
   });
 
@@ -439,7 +439,7 @@ describe('TypeAheadSearch', () => {
       setTimeout(() => {
         expect(onChangeSpy.mock.calls.length).toBe(0);
         done();
-      }, 1000);
+      }, 500);
     });
 
     it('does not change anything for other keys', () => {

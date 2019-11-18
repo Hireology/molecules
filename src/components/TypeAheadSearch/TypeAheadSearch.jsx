@@ -141,7 +141,7 @@ class TypeAheadSearch extends React.Component {
     return <span data-test="suggestion-text">{suggestion}</span>;
   };
 
-  delayedOnChange = debounce(this.onChangeHandler, 1000);
+  delayedOnChange = debounce(this.onChangeHandler, 500);
 
   /**
    * Updates the list of suggestions to match new filter
