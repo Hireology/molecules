@@ -20,6 +20,7 @@ const getState = (overrides) => ({
   filter: 'some',
   suggestions: [{ value: 'some suggestion', id: 0 }],
   activeSuggestionIndex: 0,
+  shouldCallOnChange: true,
   ...overrides,
 });
 
@@ -167,6 +168,7 @@ describe('TypeAheadSearch', () => {
         filter: 't',
         suggestions: [],
         activeSuggestionIndex: -1,
+        shouldCallOnChange: true,
       };
       expect(wrapper.state()).toEqual(expectedState);
     });
@@ -289,7 +291,7 @@ describe('TypeAheadSearch', () => {
 
       expect(wrapper.state().activeSuggestionIndex).toEqual(1);
     });
-    it('makes a debounced call to the passed onChange prop if using custom filters', () => {
+    it('makes a debounced call to the passed onChange prop if using custom filters', (done) => {
       const onChangeSpy = jest.fn();
       const props = getProps({ onChange: onChangeSpy, useCustomFilter: true });
       const wrapper = shallow(<TypeAheadSearch {...props} />);
@@ -297,7 +299,10 @@ describe('TypeAheadSearch', () => {
       const input = wrapper.find('[data-test="search-input"]');
       input.simulate('change', { target: { value: 'test' } });
 
-      expect(onChangeSpy.mock.calls.length[1]);
+      setTimeout(() => {
+        expect(onChangeSpy.mock.calls.length).toBe(1);
+        done();
+      }, 1000);
     });
   });
 
@@ -420,6 +425,21 @@ describe('TypeAheadSearch', () => {
       input.simulate('keydown', { keyCode: 13 });
 
       expect(onSubmitSpy.mock.calls[0]).toEqual(['te']);
+    });
+
+    it('does not call props.onChange after props.onSubmit has been called if the input has not changed', (done) => {
+      const onChangeSpy = jest.fn();
+      const props = getProps({ onChange: onChangeSpy, useCustomFilter: true });
+      const wrapper = shallow(<TypeAheadSearch {...props} />);
+
+      const input = wrapper.find('[data-test="search-input"]');
+      input.simulate('change', { target: { value: 'test' } });
+      input.simulate('keydown', { keyCode: 13 });
+
+      setTimeout(() => {
+        expect(onChangeSpy.mock.calls.length).toBe(0);
+        done();
+      }, 1000);
     });
 
     it('does not change anything for other keys', () => {

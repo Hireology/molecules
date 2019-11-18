@@ -33,6 +33,7 @@ class TypeAheadSearch extends React.Component {
     filter: this.props.initialFilter,
     suggestions: [],
     activeSuggestionIndex: -1,
+    shouldCallOnChange: true,
   };
 
   /**
@@ -74,7 +75,23 @@ class TypeAheadSearch extends React.Component {
 
       this.props.onSubmit(filteredOptions, filter);
     } else {
+      this.setState({ shouldCallOnChange: false });
       this.props.onSubmit(filter);
+    }
+  };
+
+  /**
+   * On change handler
+   * @param {string} filter - The string to filter data with
+   * Only call onChange if submit has not been recently clicked
+   * to avoid a dropdown being shown after the user has already
+   * submitted the data
+   */
+  onChangeHandler = (filter) => {
+    if (this.state.shouldCallOnChange) {
+      this.props.onChange(filter);
+    } else {
+      this.setState({ shouldCallOnChange: true });
     }
   };
 
@@ -124,7 +141,7 @@ class TypeAheadSearch extends React.Component {
     return <span data-test="suggestion-text">{suggestion}</span>;
   };
 
-  delayedOnChange = debounce(this.props.onChange, 1000);
+  delayedOnChange = debounce(this.onChangeHandler, 1000);
 
   /**
    * Updates the list of suggestions to match new filter
