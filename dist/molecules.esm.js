@@ -1429,7 +1429,8 @@ function (_React$Component) {
     _defineProperty(_assertThisInitialized(_this), "state", {
       filter: _this.props.initialFilter,
       suggestions: [],
-      activeSuggestionIndex: -1
+      activeSuggestionIndex: -1,
+      shouldCallOnChange: true
     });
 
     _defineProperty(_assertThisInitialized(_this), "onInputChange", function (e) {
@@ -1468,7 +1469,21 @@ function (_React$Component) {
 
         _this.props.onSubmit(filteredOptions, filter);
       } else {
+        _this.setState({
+          shouldCallOnChange: false
+        });
+
         _this.props.onSubmit(filter);
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onChangeHandler", function (filter) {
+      if (_this.state.shouldCallOnChange) {
+        _this.props.onChange(filter);
+      } else {
+        _this.setState({
+          shouldCallOnChange: true
+        });
       }
     });
 
@@ -1493,7 +1508,7 @@ function (_React$Component) {
       }, suggestion);
     });
 
-    _defineProperty(_assertThisInitialized(_this), "delayedOnChange", lodash_debounce(_this.props.onChange, 1000));
+    _defineProperty(_assertThisInitialized(_this), "delayedOnChange", lodash_debounce(_this.onChangeHandler, 500));
 
     _defineProperty(_assertThisInitialized(_this), "updateSuggestions", function (filter) {
       var filteredOptions = filterData(_this.props.data, filter);
