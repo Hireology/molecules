@@ -33,13 +33,16 @@ class TypeAheadSearch extends React.Component {
     filter: this.props.initialFilter,
     suggestions: [],
     activeSuggestionIndex: -1,
+    shouldCallOnChange: true,
   };
 
   /**
    * Input change handler
-   * @param {object} e - event on input change
+   *
    * If we are handling filtering, update the suggestions
    * If we are not handling filtering, callback to parent component
+   *
+   * @param {object} e - event on input change
    */
   onInputChange = (e) => {
     const filter = e.target.value;
@@ -60,9 +63,11 @@ class TypeAheadSearch extends React.Component {
 
   /**
    * On submit handler
-   * @param {string} filter - The string to filter data with
+   *
    * If we are handling filtering, callback with the filtered data and filter string,
    * If we are not handling filtering, callback with the filter string
+   *
+   * @param {string} filter - The string to filter data with
    */
   onSubmit = (filter) => {
     this.setState({ filter, activeSuggestionIndex: -1 });
@@ -74,16 +79,36 @@ class TypeAheadSearch extends React.Component {
 
       this.props.onSubmit(filteredOptions, filter);
     } else {
+      this.setState({ shouldCallOnChange: false });
       this.props.onSubmit(filter);
     }
   };
 
   /**
+   * On change handler
+   *
+   * Only call onChange if submit has not been recently clicked
+   * to avoid a dropdown being shown after the user has already
+   * submitted the data
+   *
+   * @param {string} filter - The string to filter data with
+   */
+  onChangeHandler = (filter) => {
+    if (this.state.shouldCallOnChange) {
+      this.props.onChange(filter);
+    } else {
+      this.setState({ shouldCallOnChange: true });
+    }
+  };
+
+  /**
    * Finds and emphasizes text in suggestion that matches filter
-   * @param {string[]} suggestion - The suggestion text broken into array by word
-   * @returns {jsx} - The jsx element to be displayed as suggestion text
+   *
    * If no match is found, just return the string. This should only be true if the parent
    * component is passing suggestions and hasn't caught up to the input yet
+   *
+   * @param {string[]} suggestion - The suggestion text broken into array by word
+   * @returns {jsx} - The jsx element to be displayed as suggestion text
    */
   getSuggestionText = (suggestion) => {
     let suggestionSection = null;
@@ -124,10 +149,11 @@ class TypeAheadSearch extends React.Component {
     return <span data-test="suggestion-text">{suggestion}</span>;
   };
 
-  delayedOnChange = debounce(this.props.onChange, 1000);
+  delayedOnChange = debounce(this.onChangeHandler, 500);
 
   /**
    * Updates the list of suggestions to match new filter
+   *
    * @param {string} filter - filter to be used to find suggestions
    */
   updateSuggestions = (filter) => {
@@ -152,6 +178,7 @@ class TypeAheadSearch extends React.Component {
    * 38: up arrow - move to the previous suggestion
    * 40: down arrow - move to the next suggestion
    * 13: enter - submit
+   *
    * @param {object} e - event on key down
    */
   handleKeyDown = (e) => {
