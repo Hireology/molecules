@@ -17,16 +17,16 @@ class Drawer extends PureComponent {
   };
 
   render() {
-    const overlayClasses = classNames('drawer__overlay', {
-      'drawer__overlay--hideForDesktop': this.props.hideForDesktop,
+    const overlayClasses = classNames('molecules-drawer__overlay', {
+      'molecules-drawer__overlay--hideForDesktop': this.props.hideForDesktop,
     });
-    const drawerClasses = classNames('drawer', {
-      'drawer--hideForDesktop': this.props.hideForDesktop,
+    const drawerClasses = classNames('molecules-drawer', {
+      'molecules-drawer--hideForDesktop': this.props.hideForDesktop,
     });
     return this.props.isOpen ? (
       <div className={overlayClasses} data-test="drawer-overlay">
         <div className={drawerClasses} data-test="drawer">
-          <div className="drawer__header">
+          <div className="molecules-drawer__header">
             <i
               role="button"
               tabIndex="0"
@@ -34,11 +34,11 @@ class Drawer extends PureComponent {
               onClick={this.props.onExitClick}
               data-test="exit-icon"
             />
-            <div className="drawer__title" data-test="title">
+            <div className="molecules-drawer__title" data-test="title">
               {this.props.title}
             </div>
           </div>
-          <div className="drawer__body">{this.props.children}</div>
+          <div className="molecules-drawer__body">{this.props.children}</div>
         </div>
       </div>
     ) : null;
