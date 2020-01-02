@@ -1,0 +1,59 @@
+@import '../../theme/variables.scss';
+
+.molecules-drawer {
+  font-family: $font-family;
+  color: $hireology-text-gray;
+  height: 100vh;
+  position: fixed;
+  width: 87.5vw;
+  right: 0;
+  opacity: 1;
+  background-color: white;
+
+  &--hideForDesktop {
+    @media only screen and (min-width: $mobile-breakpoint) {
+      display: none;
+    }
+  }
+
+  &__overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 999;
+
+    &--hideForDesktop {
+      @media only screen and (min-width: $mobile-breakpoint) {
+        display: none;
+      }
+    }
+  }
+
+  &__header {
+    padding: 15px 20px;
+    border-bottom: $base-border;
+  }
+
+  &__exit-icon {
+    font-size: 18px;
+  }
+
+  &__title {
+    font-size: 20px;
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100% - 56px);
+  }
+
+  &__body {
+    padding: 15px 20px;
+  }
+}
