@@ -61,27 +61,31 @@ describe('Drawer', () => {
     );
     expect(wrapper.find('[data-test="children"]').length).toBe(1);
   });
-  it('adds the drawer--hideForDesktop class if hideForDesktop is true', () => {
+  it('adds the molecules-drawer--hideForDesktop class if hideForDesktop is true', () => {
     const wrapper = shallow(
       <Drawer {...getProps()}>
         <div />
       </Drawer>,
     );
     expect(
-      wrapper.find('[data-test="drawer"]').hasClass('drawer--hideForDesktop'),
+      wrapper
+        .find('[data-test="drawer"]')
+        .hasClass('molecules-drawer--hideForDesktop'),
     ).toBe(true);
   });
-  it('does not add the drawer--hideForDesktop class if hideForDesktop is false', () => {
+  it('does not add the molecules-drawer--hideForDesktop class if hideForDesktop is false', () => {
     const wrapper = shallow(
       <Drawer {...getProps({ hideForDesktop: false })}>
         <div />
       </Drawer>,
     );
     expect(
-      wrapper.find('[data-test="drawer"]').hasClass('drawer--hideForDesktop'),
+      wrapper
+        .find('[data-test="drawer"]')
+        .hasClass('molecules-drawer--hideForDesktop'),
     ).toBe(false);
   });
-  it('adds the drawer__overlay--hideForDesktop class if hideForDesktop is true', () => {
+  it('adds the molecules-drawer__overlay--hideForDesktop class if hideForDesktop is true', () => {
     const wrapper = shallow(
       <Drawer {...getProps()}>
         <div />
@@ -90,10 +94,10 @@ describe('Drawer', () => {
     expect(
       wrapper
         .find('[data-test="drawer-overlay"]')
-        .hasClass('drawer__overlay--hideForDesktop'),
+        .hasClass('molecules-drawer__overlay--hideForDesktop'),
     ).toBe(true);
   });
-  it('does not add the drawer__overlay--hideForDesktop class if hideForDesktop is false', () => {
+  it('does not add the molecules-drawer__overlay--hideForDesktop class if hideForDesktop is false', () => {
     const wrapper = shallow(
       <Drawer {...getProps({ hideForDesktop: false })}>
         <div />
@@ -102,7 +106,7 @@ describe('Drawer', () => {
     expect(
       wrapper
         .find('[data-test="drawer-overlay"]')
-        .hasClass('drawer__overlay--hideForDesktop'),
+        .hasClass('molecules-drawer__overlay--hideForDesktop'),
     ).toBe(false);
   });
 });
