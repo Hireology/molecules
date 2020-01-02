@@ -625,3 +625,50 @@
       max-height: auto; }
   .collapsable-box__icon {
     color: #81af32; }
+
+/*
+ * IF THE COLOR YOU NEED IS NOT IN HERE, PLEASE CONSULT
+ * WITH DESIGNER BEFORE ADDING. IT MUST BE WCAG APPROVED
+ * IN ORDER TO BE ADDED!!
+ */
+.molecules-drawer {
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+  color: #677078;
+  height: 100vh;
+  position: fixed;
+  width: 87.5vw;
+  right: 0;
+  opacity: 1;
+  background-color: white; }
+  @media only screen and (min-width: 667px) {
+    .molecules-drawer--hideForDesktop {
+      display: none; } }
+  .molecules-drawer__overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 999; }
+    @media only screen and (min-width: 667px) {
+      .molecules-drawer__overlay--hideForDesktop {
+        display: none; } }
+  .molecules-drawer__header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd; }
+  .molecules-drawer__exit-icon {
+    font-size: 18px; }
+  .molecules-drawer__title {
+    font-size: 20px;
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100% - 56px); }
+  .molecules-drawer__body {
+    padding: 15px 20px; }

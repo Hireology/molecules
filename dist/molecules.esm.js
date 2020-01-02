@@ -1836,5 +1836,60 @@ _defineProperty(CandidateSearchFilter, "defaultProps", {
   scrollable: false
 });
 
-export { Button, ButtonGroup, Checkbox, CandidateSearchFilter as CollapsableBox, Link, Loader, RadioButton, Tabs, Tooltip, TypeAheadSearch };
+var Drawer =
+/*#__PURE__*/
+function (_PureComponent) {
+  _inheritsLoose(Drawer, _PureComponent);
+
+  function Drawer() {
+    return _PureComponent.apply(this, arguments) || this;
+  }
+
+  var _proto = Drawer.prototype;
+
+  _proto.render = function render() {
+    var overlayClasses = classNames('molecules-drawer__overlay', {
+      'molecules-drawer__overlay--hideForDesktop': this.props.hideForDesktop
+    });
+    var drawerClasses = classNames('molecules-drawer', {
+      'molecules-drawer--hideForDesktop': this.props.hideForDesktop
+    });
+    return this.props.isOpen ? React.createElement("div", {
+      className: overlayClasses,
+      "data-test": "drawer-overlay"
+    }, React.createElement("div", {
+      className: drawerClasses,
+      "data-test": "drawer"
+    }, React.createElement("div", {
+      className: "molecules-drawer__header"
+    }, React.createElement("i", {
+      role: "button",
+      tabIndex: "0",
+      className: "fa fa-close drawer__exit-icon",
+      onClick: this.props.onExitClick,
+      "data-test": "exit-icon"
+    }), React.createElement("div", {
+      className: "molecules-drawer__title",
+      "data-test": "title"
+    }, this.props.title)), React.createElement("div", {
+      className: "molecules-drawer__body"
+    }, this.props.children))) : null;
+  };
+
+  return Drawer;
+}(PureComponent);
+
+_defineProperty(Drawer, "defaultProps", {
+  hideForDesktop: true
+});
+
+_defineProperty(Drawer, "propTypes", {
+  title: PropTypes.string.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  children: PropTypes.node.isRequired,
+  onExitClick: PropTypes.func.isRequired,
+  hideForDesktop: PropTypes.bool
+});
+
+export { Button, ButtonGroup, Checkbox, CandidateSearchFilter as CollapsableBox, Drawer, Link, Loader, RadioButton, Tabs, Tooltip, TypeAheadSearch };
 //# sourceMappingURL=molecules.esm.js.map

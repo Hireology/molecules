@@ -1842,10 +1842,66 @@
     scrollable: false
   });
 
+  var Drawer =
+  /*#__PURE__*/
+  function (_PureComponent) {
+    _inheritsLoose(Drawer, _PureComponent);
+
+    function Drawer() {
+      return _PureComponent.apply(this, arguments) || this;
+    }
+
+    var _proto = Drawer.prototype;
+
+    _proto.render = function render() {
+      var overlayClasses = classNames('molecules-drawer__overlay', {
+        'molecules-drawer__overlay--hideForDesktop': this.props.hideForDesktop
+      });
+      var drawerClasses = classNames('molecules-drawer', {
+        'molecules-drawer--hideForDesktop': this.props.hideForDesktop
+      });
+      return this.props.isOpen ? React__default.createElement("div", {
+        className: overlayClasses,
+        "data-test": "drawer-overlay"
+      }, React__default.createElement("div", {
+        className: drawerClasses,
+        "data-test": "drawer"
+      }, React__default.createElement("div", {
+        className: "molecules-drawer__header"
+      }, React__default.createElement("i", {
+        role: "button",
+        tabIndex: "0",
+        className: "fa fa-close drawer__exit-icon",
+        onClick: this.props.onExitClick,
+        "data-test": "exit-icon"
+      }), React__default.createElement("div", {
+        className: "molecules-drawer__title",
+        "data-test": "title"
+      }, this.props.title)), React__default.createElement("div", {
+        className: "molecules-drawer__body"
+      }, this.props.children))) : null;
+    };
+
+    return Drawer;
+  }(React.PureComponent);
+
+  _defineProperty(Drawer, "defaultProps", {
+    hideForDesktop: true
+  });
+
+  _defineProperty(Drawer, "propTypes", {
+    title: PropTypes.string.isRequired,
+    isOpen: PropTypes.bool.isRequired,
+    children: PropTypes.node.isRequired,
+    onExitClick: PropTypes.func.isRequired,
+    hideForDesktop: PropTypes.bool
+  });
+
   exports.Button = Button;
   exports.ButtonGroup = ButtonGroup;
   exports.Checkbox = Checkbox;
   exports.CollapsableBox = CandidateSearchFilter;
+  exports.Drawer = Drawer;
   exports.Link = Link;
   exports.Loader = Loader;
   exports.RadioButton = RadioButton;
