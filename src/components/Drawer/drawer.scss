@@ -9,6 +9,7 @@
   right: 0;
   opacity: 1;
   background-color: white;
+  overflow: auto;
 
   &--hideForDesktop {
     @media only screen and (min-width: $mobile-breakpoint) {
