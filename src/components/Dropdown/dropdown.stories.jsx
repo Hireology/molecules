@@ -5,7 +5,7 @@ import { storiesOf } from '@storybook/react';
 import Dropdown from './Dropdown';
 
 const objectDefinition =
-  'Array of objects where each object has the attributes "display" of type string, and "onClick" of type function';
+  'Array of objects where each object has the attributes "display" of type string, an "id" of type number, and "onClick" of type function';
 
 const notes = {
   notes: {
