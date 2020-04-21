@@ -7,41 +7,36 @@ import './dropdown.scss';
 class Dropdown extends PureComponent {
   static propTypes = {
     placeholderText: PropTypes.string,
-    // Array of actions displayed before options
-    actions: PropTypes.arrayOf(
-      PropTypes.shape({
-        name: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-        onClick: PropTypes.func,
-      }),
-    ),
+    // Option to be selected  by default
+    selectedOptionId: PropTypes.number,
     // Array of options displayed after actions
     options: PropTypes.arrayOf(
       PropTypes.shape({
-        name: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+        display: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
         onClick: PropTypes.func,
+        id: PropTypes.number,
       }),
     ).isRequired,
   };
 
   static defaultProps = {
     placeholderText: 'Select an option',
+    selectedOptionId: null,
     showDropdown: false,
-    actions: [],
   };
 
   state = {
     activeSuggestionIndex: -1,
-    selectedText: null,
   };
 
   /**
-   * 38: up arrow - move to the previous suggestion
-   * 40: down arrow - move to the next suggestion
+   * 38: up arrow - move to the previous option
+   * 40: down arrow - move to the next option
    * 13: enter - 'click' the selected option
    *
    * @param {object} e - event on key down
    */
-  handleKeyDown = (e, dropdownOptions) => {
+  handleKeyDown = (e) => {
     if (e.keyCode === 38) {
       this.setState({
         activeSuggestionIndex:
@@ -52,13 +47,13 @@ class Dropdown extends PureComponent {
     } else if (e.keyCode === 40) {
       this.setState({
         activeSuggestionIndex:
-          this.state.activeSuggestionIndex !== dropdownOptions.length - 1
+          this.state.activeSuggestionIndex !== this.props.options.length - 1
             ? this.state.activeSuggestionIndex + 1
-            : dropdownOptions.length - 1,
+            : this.props.options.length - 1,
       });
     } else if (e.keyCode === 13) {
       if (this.state.activeSuggestionIndex > -1) {
-        this.handleClick(dropdownOptions[this.state.activeSuggestionIndex]);
+        this.handleClick(this.props.options[this.state.activeSuggestionIndex]);
       } else {
         this.toggleDropdown();
       }
@@ -76,7 +71,6 @@ class Dropdown extends PureComponent {
   handleClick = (item, e) => {
     if (e) e.preventDefault();
     this.setState({
-      selectedText: item.isOption ? item.name : null,
       activeSuggestionIndex: -1,
       showDropdown: false,
     });
@@ -101,17 +95,6 @@ class Dropdown extends PureComponent {
   };
 
   render() {
-    const actions = this.props.actions.map((action, id) => ({
-      ...action,
-      isOption: false,
-      key: `action-${id}`,
-    }));
-    const options = this.props.options.map((option, id) => ({
-      ...option,
-      isOption: true,
-      key: `option-${id}`,
-    }));
-    const dropdownItems = [...actions, ...options];
     return (
       <div className="molecules-dropdown">
         <div
@@ -119,13 +102,19 @@ class Dropdown extends PureComponent {
           tabIndex={0}
           onClick={this.toggleDropdown}
           className="molecules-dropdown__selection"
-          onKeyDown={(e) => this.handleKeyDown(e, dropdownItems)}
+          onKeyDown={(e) => this.handleKeyDown(e)}
           data-test="dropdown-toggle"
         >
-          {this.state.selectedText && (
-            <span data-test="selected-text">{this.state.selectedText}</span>
+          {this.props.selectedOptionId && (
+            <span data-test="selected-text">
+              {
+                this.props.options.find(
+                  (option) => option.id === this.props.selectedOptionId,
+                ).display
+              }
+            </span>
           )}
-          {!this.state.selectedText && (
+          {!this.props.selectedOptionId && (
             <span
               className="molecules-dropdown__placeholder"
               data-test="placeholder"
@@ -142,20 +131,19 @@ class Dropdown extends PureComponent {
         </div>
         {this.state.showDropdown && (
           <div className="molecules-dropdown__items" data-test="dropdown">
-            {dropdownItems.map((item, index) => (
+            {this.props.options.map((item, index) => (
               <p
-                key={item.key}
+                key={item.id}
                 role="presentation"
                 onClick={(e) => this.handleClick(item, e)}
                 className={classNames('molecules-dropdown__item', {
                   'molecules-dropdown__item--active':
                     this.state.activeSuggestionIndex === index,
-                  'molecules-dropdown__item--action': !item.isOption,
                 })}
                 data-test="dropdown-item"
-                data-value={item.name}
+                data-value={item.display}
               >
-                {item.name}
+                {item.display}
               </p>
             ))}
           </div>

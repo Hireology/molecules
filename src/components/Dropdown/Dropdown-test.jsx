@@ -4,7 +4,7 @@ import { UnwrappedDropdown as Dropdown } from './Dropdown';
 
 const getProps = (overrides) => ({
   placeholderText: '',
-  actions: [],
+  selectedOptionId: null,
   options: [],
   ...overrides,
 });
@@ -29,7 +29,7 @@ describe('Dropdown', () => {
     expect(wrapper.find('[data-test="dropdown"]').length).toBe(0);
   });
   it('should close the dropdown if a user hits enter after going down and then up', () => {
-    const actions = [{ name: 'action', onClick: () => null }];
+    const actions = [{ display: 'action', onClick: () => null }];
     const wrapper = shallow(<Dropdown {...getProps({ actions })} />);
 
     // open the dropdown
@@ -54,32 +54,28 @@ describe('Dropdown', () => {
 
     expect(wrapper.find('[data-test="dropdown"]').length).toBe(0);
   });
-  it('should render a dropdown item for each action and option passed', () => {
-    const actions = [{ name: 'action', onClick: () => null }];
+  it('should render a dropdown item for option passed', () => {
     const options = [
-      { name: 'option1', onClick: () => null },
-      { name: 'option2', onClick: () => null },
+      { display: 'option1', onClick: () => null, id: 1 },
+      { display: 'option2', onClick: () => null, id: 2 },
+      { display: 'option3', onClick: () => null, id: 3 },
     ];
 
-    const wrapper = shallow(<Dropdown {...getProps({ actions, options })} />);
+    const wrapper = shallow(<Dropdown {...getProps({ options })} />);
     wrapper.find('[data-test="dropdown-toggle"]').simulate('click');
     expect(wrapper.find('[data-test="dropdown-item"]').length).toEqual(3);
   });
-  it('should render the selected text and call the callback after an option is clicked', () => {
+  it('should call the callback after an option is clicked', () => {
     const onClickSpy = jest.fn();
-    const options = [{ name: 'option1', onClick: onClickSpy }];
+    const options = [{ display: 'option1', onClick: onClickSpy, id: 1 }];
     const wrapper = shallow(<Dropdown {...getProps({ options })} />);
     wrapper.find('[data-test="dropdown-toggle"]').simulate('click');
     wrapper.find('[data-value="option1"]').simulate('click');
-    expect(wrapper.find('[data-test="placeholder"]').length).toBe(0);
-    expect(wrapper.find('[data-test="selected-text"]').text()).toEqual(
-      'option1',
-    );
     expect(onClickSpy.mock.calls.length).toBe(1);
   });
-  it('should render the selected text and call the callback after an option is navigated to and selected by keyboard', () => {
+  it('should call the callback after an option is navigated to and selected by keyboard', () => {
     const onClickSpy = jest.fn();
-    const options = [{ name: 'option1', onClick: onClickSpy }];
+    const options = [{ display: 'option1', onClick: onClickSpy, id: 1 }];
     const wrapper = shallow(<Dropdown {...getProps({ options })} />);
     // open the dropdown
     wrapper
@@ -93,40 +89,20 @@ describe('Dropdown', () => {
     wrapper
       .find('[data-test="dropdown-toggle"]')
       .simulate('keydown', { keyCode: 13 });
+    expect(onClickSpy.mock.calls.length).toBe(1);
+  });
+  it('should display the selected item instead of the placeholder text if an item is selected', () => {
+    const options = [
+      { display: 'option1', onClick: () => null, id: 1 },
+      { display: 'option2', onClick: () => null, id: 2 },
+    ];
+
+    const wrapper = shallow(
+      <Dropdown {...getProps({ options, selectedOptionId: 2 })} />,
+    );
     expect(wrapper.find('[data-test="placeholder"]').length).toBe(0);
     expect(wrapper.find('[data-test="selected-text"]').text()).toEqual(
-      'option1',
+      'option2',
     );
-    expect(onClickSpy.mock.calls.length).toBe(1);
-  });
-  it('should continue to render placeholder text and call the callback after an action is clicked', () => {
-    const onClickSpy = jest.fn();
-    const actions = [{ name: 'action', onClick: onClickSpy }];
-    const wrapper = shallow(<Dropdown {...getProps({ actions })} />);
-    wrapper.find('[data-test="dropdown-toggle"]').simulate('click');
-    wrapper.find('[data-value="action"]').simulate('click');
-    expect(wrapper.find('[data-test="placeholder"]').length).toBe(1);
-    expect(wrapper.find('[data-test="selected-text"]').length).toBe(0);
-    expect(onClickSpy.mock.calls.length).toBe(1);
-  });
-  it('should continue to render placeholder text and call the callback after an action is clicked', () => {
-    const onClickSpy = jest.fn();
-    const actions = [{ name: 'action', onClick: onClickSpy }];
-    const wrapper = shallow(<Dropdown {...getProps({ actions })} />);
-    // open the dropdown
-    wrapper
-      .find('[data-test="dropdown-toggle"]')
-      .simulate('keydown', { keyCode: 13 });
-    // highlight the first item
-    wrapper
-      .find('[data-test="dropdown-toggle"]')
-      .simulate('keydown', { keyCode: 40 });
-    // select the first item
-    wrapper
-      .find('[data-test="dropdown-toggle"]')
-      .simulate('keydown', { keyCode: 13 });
-    expect(wrapper.find('[data-test="placeholder"]').length).toBe(1);
-    expect(wrapper.find('[data-test="selected-text"]').length).toBe(0);
-    expect(onClickSpy.mock.calls.length).toBe(1);
   });
 });

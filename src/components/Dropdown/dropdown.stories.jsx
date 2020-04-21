@@ -5,51 +5,109 @@ import { storiesOf } from '@storybook/react';
 import Dropdown from './Dropdown';
 
 const objectDefinition =
-  'Array of objects where each object has the attributes "name" of type string, and "onClick" of type function';
+  'Array of objects where each object has the attributes "display" of type string, and "onClick" of type function';
 
 const notes = {
   notes: {
     markdown: `
       #Dropdown
       ## Props
-      | prop name       | prop type           | required | default value      | description |
-      | --------------- | ------------------- | -------- | ------------------ | ----------- |
-      | placeholderText | String              | false    | 'Select an option' | Placeholder to be displayed before an option has been selected |
-      | actions         | ${objectDefinition} | false    | []                 | Any actions that should be included in the dropdown, an action will not be shown as selected after it has been clicked, and will always appear first in the dropdown list |
-      | options         | ${objectDefinition} | true     | -                  | Any options that should be included in the dropdown, an option will be shown as selected after it has been clicked, and will always appear after any actions in the dropdown list |
+      | prop name             | prop type            | required | default value      | description |
+      | --------------------- | -------------------- | -------- | ------------------ | ----------- |
+      | placeholderText       | String               | false    | 'Select an option' | Placeholder to be displayed before an option has been selected |
+      | selectedOptionId      | Number               | false    | null               | The currently selected option, if undefined we'll display the placeholder text |
+      | options               | ${objectDefinition}  | true     | -                  | Any options that should be included in the dropdown, an option will be shown as selected after it has been clicked, and will always appear after any actions in the dropdown list |
     `,
   },
 };
 
-const actions = [
+class InteractiveDropdown extends React.Component {
+  state = {
+    selectedOptionId: null,
+    options: ['option one', 'option two', 'option three'],
+  };
+
+  getActionDisplay = () => (
+    <span style={{ color: '#81af32' }}>
+      <i className="fa fa-fw fa-plus" />
+      Add new option
+    </span>
+  );
+
+  addNewOption = () => {
+    this.setState({ options: [...this.state.options, 'new option'] });
+  };
+
+  selectOption = (id) => {
+    console.log(id);
+    this.setState({ selectedOptionId: id });
+  };
+
+  render() {
+    const action = {
+      display: this.getActionDisplay(),
+      onClick: () => this.addNewOption(),
+      id: -1,
+    };
+    const dropdownOptions = [
+      action,
+      ...this.state.options.map((option, id) => ({
+        display: option,
+        id: id + 1,
+        onClick: () => this.selectOption(id + 1),
+      })),
+    ];
+    return (
+      <div style={{ width: 300 }}>
+        <Dropdown
+          options={dropdownOptions}
+          selectedOptionId={this.state.selectedOptionId}
+        />
+      </div>
+    );
+  }
+}
+
+const OPTIONS = [
   {
-    name: (
-      <span>
-        <i className="fa fa-fw fa-plus" />
-        This is an action
-      </span>
-    ),
-    value: 'action',
-    // eslint-disable-next-line no-undef
-    onClick: () => window.alert('you triggered the action'),
+    display: 'Option 1',
+    onClick: null,
+    id: 2,
   },
-];
-const options = [
-  { name: 'Regular option 1', value: '1', onClick: () => console.log('1') },
-  { name: 'Regular option 2', value: '2', onClick: () => console.log('2') },
   {
-    name: 'Regular option 3 but with a really really long title',
-    value: '3',
-    onClick: () => console.log('3'),
+    display: 'Option 2',
+    onClick: null,
+    id: 3,
+  },
+  {
+    display: 'Option 3 but with a really really long title',
+    onClick: () => null,
+    id: 4,
   },
 ];
 
-storiesOf('Dropdown', module).add(
-  'default',
-  () => (
-    <div style={{ width: 300 }}>
-      <Dropdown options={options} actions={actions} />
-    </div>
-  ),
-  notes,
-);
+storiesOf('Dropdown', module)
+  .add(
+    'default',
+    () => (
+      <div style={{ display: 'flex', flexDirection: 'row' }}>
+        <div style={{ width: 300, marginRight: 50 }}>
+          <h3>Default dropdown</h3>
+          <Dropdown options={OPTIONS} />
+        </div>
+        <div style={{ width: 300, marginRight: 50 }}>
+          <h3>Custom placeholder text</h3>
+          <Dropdown
+            options={OPTIONS}
+            placeholderText="Custom placeholder text"
+          />
+        </div>
+        <div style={{ width: 300, marginRight: 50 }}>
+          <h3>After item has been selected text</h3>
+          <Dropdown options={OPTIONS} selectedOptionId={2} />
+        </div>
+      </div>
+    ),
+    notes,
+  )
+  .add('interactive', () => <InteractiveDropdown />, notes);
