@@ -14,7 +14,7 @@ const notes = {
       | --------------------- | -------------------- | -------- | ------------------ | ----------- |
       | placeholderText       | String               | false    | 'Select an option' | Placeholder to be displayed before an option has been selected |
       | selectedOptionId      | Number               | false    | null               | The currently selected option, if undefined we'll display the placeholder text |
-      | options               | ${objectDefinition}  | true     | -                  | Any options that should be included in the dropdown, an option will be shown as selected after it has been clicked, and will always appear after any actions in the dropdown list |
+      | options               | ${objectDefinition}  | true     | -                  | Any options that should be included in the dropdown |
     `,
   },
 };
