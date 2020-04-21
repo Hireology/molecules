@@ -7,9 +7,7 @@ import './dropdown.scss';
 class Dropdown extends PureComponent {
   static propTypes = {
     placeholderText: PropTypes.string,
-    // Option to be selected  by default
     selectedOptionId: PropTypes.number,
-    // Array of options displayed after actions
     options: PropTypes.arrayOf(
       PropTypes.shape({
         display: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
