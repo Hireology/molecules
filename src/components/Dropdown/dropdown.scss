@@ -1,0 +1,57 @@
+@import '../../theme/variables.scss';
+
+.molecules-dropdown {
+  font-family: $font-family;
+  font-size: 1rem;
+  color: $hireology-text-gray;
+
+  &__selection {
+    border: $base-border;
+    border-radius: $base-border-radius;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5rem;
+
+    .fa-chevron-up {
+      color: $hireology-green;
+    }
+
+    &:focus {
+      border-color: $hireology-green;
+      outline: none;
+    }
+  }
+
+  &__placeholder {
+    color: $hireology-disabled-gray;
+  }
+
+  &__items {
+    border: $base-border;
+    border-radius: $base-border-radius;
+  }
+
+  &__item {
+    margin: 0px;
+    padding: 0.5rem 1rem;
+
+    &:first-of-type {
+      padding-top: 0.5rem;
+    }
+
+    &:last-of-type {
+      padding-bottom: 0.5rem;
+    }
+
+    &:hover,
+    &--active {
+      color: $hireology-green;
+      background-color: $hireology-light-gray;
+    }
+
+    &--action {
+      color: $hireology-green;
+    }
+  }
+}
