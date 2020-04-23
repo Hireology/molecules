@@ -32,7 +32,8 @@
     "lodash.debounce": "^4.0.8",
     "prop-types": "^15.7.2",
     "react": "15.6.2",
-    "react-dom": "15.6.2"
+    "react-dom": "15.6.2",
+    "react-onclickoutside": "6.7.0"
   },
   "peerDependencies": {
     "react": "15.6.2",

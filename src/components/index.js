@@ -9,3 +9,4 @@ export Tabs from './Tabs';
 export Tooltip from './Tooltip';
 export CollapsableBox from './CollapsableBox';
 export Drawer from './Drawer';
+export Dropdown from './Dropdown';

@@ -2,29 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import CollapsableBox from './CollapsableBox';
 
-/*
-CandidateSearchFilter.defaultProps = {
-  nonScrollableContent: null,
-  defaultExpanded: true,
-  scrollable: false,
-};
-
-CandidateSearchFilter.propTypes = {
-  nonScrollableContent: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]),
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]).isRequired,
-  defaultExpanded: PropTypes.bool,
-  title: PropTypes.string.isRequired,
-  scrollable: PropTypes.bool,
-};
-
-*/
-
 const notes = {
   notes: {
     markdown: `
