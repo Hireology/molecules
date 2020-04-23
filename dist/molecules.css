@@ -673,3 +673,44 @@
     max-width: calc(100% - 56px); }
   .molecules-drawer__body {
     padding: 15px 20px; }
+
+/*
+ * IF THE COLOR YOU NEED IS NOT IN HERE, PLEASE CONSULT
+ * WITH DESIGNER BEFORE ADDING. IT MUST BE WCAG APPROVED
+ * IN ORDER TO BE ADDED!!
+ */
+.molecules-dropdown {
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+  font-size: 1rem;
+  color: #677078; }
+  .molecules-dropdown__selection {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+            justify-content: space-between;
+    padding: 0.5rem; }
+    .molecules-dropdown__selection .fa-chevron-up {
+      color: #81af32; }
+    .molecules-dropdown__selection:focus {
+      border-color: #81af32;
+      outline: none; }
+  .molecules-dropdown__placeholder {
+    color: #d6dadc; }
+  .molecules-dropdown__items {
+    border: 1px solid #ddd;
+    border-radius: 4px; }
+  .molecules-dropdown__item {
+    margin: 0px;
+    padding: 0.5rem 1rem; }
+    .molecules-dropdown__item:first-of-type {
+      padding-top: 0.5rem; }
+    .molecules-dropdown__item:last-of-type {
+      padding-bottom: 0.5rem; }
+    .molecules-dropdown__item:hover, .molecules-dropdown__item--active {
+      color: #81af32;
+      background-color: #f7f9f9; }
