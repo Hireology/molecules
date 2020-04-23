@@ -682,7 +682,8 @@
 .molecules-dropdown {
   font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
   font-size: 1rem;
-  color: #677078; }
+  color: #677078;
+  position: relative; }
   .molecules-dropdown__selection {
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -703,7 +704,11 @@
     color: #d6dadc; }
   .molecules-dropdown__items {
     border: 1px solid #ddd;
-    border-radius: 4px; }
+    border-radius: 4px;
+    position: absolute;
+    background-color: white;
+    z-index: 5;
+    width: 100%; }
   .molecules-dropdown__item {
     margin: 0px;
     padding: 0.5rem 1rem; }

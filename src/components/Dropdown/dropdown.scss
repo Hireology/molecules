@@ -4,6 +4,7 @@
   font-family: $font-family;
   font-size: 1rem;
   color: $hireology-text-gray;
+  position: relative;
 
   &__selection {
     border: $base-border;
@@ -30,6 +31,10 @@
   &__items {
     border: $base-border;
     border-radius: $base-border-radius;
+    position: absolute;
+    background-color: white;
+    z-index: 5;
+    width: 100%;
   }
 
   &__item {
