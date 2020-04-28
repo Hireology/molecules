@@ -27,13 +27,15 @@
   },
   "dependencies": {
     "classnames": "2.2.5",
-    "lodash.startswith": "^4.2.1",
-    "lodash.pullall": "^4.2.0",
     "lodash.debounce": "^4.0.8",
+    "lodash.pullall": "^4.2.0",
+    "lodash.startswith": "^4.2.1",
     "prop-types": "^15.7.2",
     "react": "15.6.2",
     "react-dom": "15.6.2",
-    "react-onclickoutside": "6.7.0"
+    "react-motion": "0.4.8",
+    "react-onclickoutside": "6.7.0",
+    "react-portal": "4.2.1"
   },
   "peerDependencies": {
     "react": "15.6.2",
