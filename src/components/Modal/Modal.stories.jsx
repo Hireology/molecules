@@ -201,8 +201,18 @@ class AdvancedModalStory extends React.Component {
               </div>
             </ModalBody>
             <ModalFooter>
-              <Button type="outline">Cancel</Button>
-              <Button type="secondary">Add Applicant</Button>
+              <Button
+                onClick={() => this.setState({ isOpen: !this.state.isOpen })}
+                type="outline"
+              >
+                Cancel
+              </Button>
+              <Button
+                onClick={() => this.setState({ isOpen: !this.state.isOpen })}
+                type="secondary"
+              >
+                Add Applicant
+              </Button>
             </ModalFooter>
           </Modal>
         </div>

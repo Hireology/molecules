@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Portal } from 'react-portal';
 import classNames from 'classnames';
-import onClickOutside from 'react-onclickoutside';
 import Loader from '../Loader';
 
 import './modal.scss';
@@ -47,18 +46,19 @@ class Modal extends Component {
 
   componentDidMount() {
     if (this.props.closeOnEsc) {
-      // eslint-disable-next-line no-undef
       window.addEventListener('keydown', this.onEscKeyDown, false);
     }
   }
 
   componentWillUnmount() {
     if (this.props.closeOnEsc) {
-      // eslint-disable-next-line no-undef
       window.removeEventListener('keydown', this.onEscKeyDown, false);
     }
   }
 
+  /**
+   * Function thats responsible for "closeOnEsc"
+   */
   onEscKeyDown = (e) => {
     if (e.key === 'Escape' || e.key === 'Esc' || e.keyCode === 27) {
       this.props.onClose();
@@ -93,13 +93,12 @@ class Modal extends Component {
 
     if (isOpen) {
       return (
-        <Portal>
+        <Portal data-test="modal">
           <div
             id="backdrop"
             className={classes}
             role="dialog"
             onClick={this.onBackdropClick}
-            data-test="modal"
           >
             <div
               id="dialog"
@@ -118,4 +117,4 @@ class Modal extends Component {
   }
 }
 
-export default onClickOutside(Modal);
+export default Modal;
