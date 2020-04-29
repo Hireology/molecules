@@ -82,21 +82,26 @@ describe('Modal', () => {
    */
   it('only fires the onClose function on esc key press when closeOnEsc is true', () => {
     const onCloseMock = jest.fn();
-    window.addEventListener = jest.fn();
+    const map = {};
+    window.addEventListener = jest.fn((event, callback) => {
+      map[event] = callback;
+    });
     const props = getProps({ isOpen: true, onClose: onCloseMock });
-    const wrapper = shallow(<Modal {...props}>foo</Modal>);
+    shallow(<Modal {...props}>foo</Modal>);
 
-    // With default props, the event listener fires
-    wrapper.find('#backdrop').simulate('keydown', { keyCode: 27 });
-    expect(window.addEventListener).toHaveBeenCalledTimes(1);
-    // @TODO make the following function testable if keydown event is fired.
-    // expect(onCloseMock).toHaveBeenCalledTimes(1);
+    map.keydown({ keyCode: 27 });
+    expect(onCloseMock).toHaveBeenCalledTimes(1);
+  });
 
-    // When closeOnEsc is false, no new events are fired.
-    wrapper
-      .setProps({ closeOnEsc: false })
-      .simulate('keydown', { keyCode: 27 });
-    expect(window.addEventListener).toHaveBeenCalledTimes(1);
+  /**
+   * Verify that the closeOnEsc prop works as it should by watching
+   * that the event listener is never added if closeOnEsc is false
+   */
+  it('does not add even listener when closeOnEsc is false', () => {
+    window.addEventListener = jest.fn();
+    const props = getProps({ isOpen: true, closeOnEsc: false });
+    shallow(<Modal {...props}>foo</Modal>);
+    expect(window.addEventListener).toHaveBeenCalledTimes(0);
   });
 
   /**
