@@ -33,6 +33,9 @@ class Modal extends Component {
 
     // Whether or not to show the modal overlay
     showOverlay: PropTypes.bool,
+
+    // The size of the modal
+    variant: PropTypes.oneOf(['default', 'wide', 'full']),
   };
 
   static defaultProps = {
@@ -42,6 +45,7 @@ class Modal extends Component {
     isLoadingContent: false,
     isOpen: false,
     showOverlay: true,
+    variant: 'default',
   };
 
   componentDidMount() {
@@ -65,6 +69,10 @@ class Modal extends Component {
     }
   };
 
+  /**
+   * Handles the clicking of the backdrop by verifying the id and Modal
+   * props before firing the onClose prop
+   */
   onBackdropClick = (e) => {
     const { showOverlay, closeOnOverlayClick } = this.props;
     const { id } = e.target;
@@ -74,13 +82,25 @@ class Modal extends Component {
   };
 
   render() {
-    const { isOpen, onClose, showOverlay, isLoadingContent } = this.props;
+    const {
+      isOpen,
+      onClose,
+      showOverlay,
+      isLoadingContent,
+      variant,
+    } = this.props;
 
-    const classes = classNames({
+    const backdropClasses = classNames({
       'molecules-modal': true,
       modal__backdrop: showOverlay,
       'is-open': isOpen,
       fadeIn: isOpen,
+    });
+
+    const dialogClasses = classNames({
+      modal__dialog: true,
+      'modal__dialog--wide': variant === 'wide',
+      'modal__dialog--full': variant === 'full',
     });
 
     const childrenWithProps = !isLoadingContent ? (
@@ -96,17 +116,17 @@ class Modal extends Component {
         <Portal data-test="modal">
           <div
             id="backdrop"
-            className={classes}
+            className={backdropClasses}
             role="dialog"
             onClick={this.onBackdropClick}
           >
             <div
               id="dialog"
-              className="modal__dialog"
+              className={dialogClasses}
               tabIndex="-1"
               aria-labelledby={this.props.aria}
             >
-              {childrenWithProps}
+              <div className="dialog-container">{childrenWithProps}</div>
             </div>
           </div>
         </Portal>

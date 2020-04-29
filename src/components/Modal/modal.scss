@@ -20,7 +20,7 @@
   }
 
   &.modal__backdrop {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.5);
   }
 
   .modal__dialog {
@@ -28,6 +28,34 @@
     background-color: $white;
     padding: 1.75em;
     border-radius: $base-border-radius;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    margin-left: calc(-305px - 1.75em);
+    margin-bottom: 2em;
+
+    &--wide {
+      width: 750px;
+      margin-left: calc(-375px - 1.75em);
+    }
+
+    &--full {
+      display: flex;
+      justify-content: center;
+      padding: 0em;
+      border-radius: 0px;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      right: 0;
+      left: 0;
+      margin: 0 auto;
+
+      .dialog-container {
+        width: 90%;
+        padding: 1em;
+      }
+    }
   }
 
   .modal-header {
@@ -60,6 +88,28 @@
     align-items: center;
     justify-content: space-between;
     margin-top: 1em;
+  }
+}
+
+@media only screen and (max-width: $mobile-breakpoint) {
+  .molecules-modal {
+    .modal__dialog {
+      display: flex;
+      justify-content: center;
+      padding: 0em;
+      border-radius: 0px;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      right: 0;
+      left: 0;
+      margin: 0 auto;
+
+      .dialog-container {
+        width: 90%;
+        padding: 1em;
+      }
+    }
   }
 }
 

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
@@ -41,6 +42,16 @@ const styles = {
     marginBottom: '0.6em',
     padding: '0.6em',
     width: '100%',
+  },
+  code: {
+    backgroundColor: '#fafafa',
+    padding: '0.5rem',
+    marginBottom: '1rem',
+  },
+  gif: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 };
 
@@ -92,6 +103,13 @@ class BasicModalStory extends React.Component {
     isOpen: false,
   };
 
+  toggleModal = (variant = 'default') => {
+    this.setState({
+      isOpen: true,
+      variant,
+    });
+  };
+
   render() {
     return (
       <div style={styles.wrapper}>
@@ -106,15 +124,21 @@ class BasicModalStory extends React.Component {
             This example is simply placing text in each on of the Modals nested
             components
           </p>
-          <Button
-            type="primary"
-            onClick={() => this.setState({ isOpen: !this.state.isOpen })}
-          >
-            Launch Modal
+          <Button type="primary" onClick={() => this.toggleModal()}>
+            Launch Default Modal
+          </Button>
+          <br />
+          <Button type="primary" onClick={() => this.toggleModal('wide')}>
+            Launch Wide Modal
+          </Button>
+          <br />
+          <Button type="primary" onClick={() => this.toggleModal('full')}>
+            Launch Full Modal
           </Button>
 
           <Modal
             isOpen={this.state.isOpen}
+            variant={this.state.variant}
             onClose={() => this.setState({ isOpen: !this.state.isOpen })}
           >
             <ModalHeader
@@ -134,6 +158,52 @@ class BasicModalStory extends React.Component {
 class AdvancedModalStory extends React.Component {
   state = {
     isOpen: false,
+    isLoading: false,
+    form: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+    },
+  };
+
+  handleChange = (e) => {
+    const { id, value } = e.target;
+    this.setState({
+      form: {
+        ...this.state.form,
+        [id]: value,
+      },
+    });
+  };
+
+  submitApplicant = () => {
+    this.setState({ isLoading: true });
+
+    setTimeout(() => {
+      this.setState({
+        isLoading: false,
+        isOpen: false,
+      });
+    }, 2000);
+  };
+
+  resetForm = () => {
+    this.setState({
+      form: {
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+      },
+    });
+  };
+
+  openModal = () => {
+    this.setState({
+      form: {},
+      isOpen: true,
+    });
   };
 
   render() {
@@ -152,16 +222,19 @@ class AdvancedModalStory extends React.Component {
             and requires anything state related to be sent into the component
             via children or props.
           </p>
-          <Button
-            type="primary"
-            onClick={() => this.setState({ isOpen: !this.state.isOpen })}
-          >
+          <div style={styles.code}>
+            <pre>
+              <code>{JSON.stringify(this.state.form, null, 2)}</code>
+            </pre>
+          </div>
+          <Button type="primary" onClick={() => this.openModal()}>
             Launch Modal
           </Button>
 
           <Modal
             isOpen={this.state.isOpen}
             onClose={() => this.setState({ isOpen: !this.state.isOpen })}
+            isLoadingContent={this.state.isLoading}
           >
             <ModalHeader
               onClose={() => this.setState({ isOpen: !this.state.isOpen })}
@@ -169,18 +242,53 @@ class AdvancedModalStory extends React.Component {
               Add New Applicant
             </ModalHeader>
             <ModalBody>
+              <p>
+                We're no strangers to love; you know the rules and so do I. A
+                full commitment's what I'm thinking of; you wouldn't get this
+                from any other guy.
+              </p>
+              <p>
+                I just wanna tell you how I'm feeling; gotta make you
+                understand.
+              </p>
+              <p>
+                Never gonna give you up, never gonna let you down; never gonna
+                run around and desert you. Never gonna make you cry, never gonna
+                say goodbye, never gonna tell a lie and hurt you
+              </p>
+              <div style={styles.gif}>
+                <img
+                  src="https://media3.giphy.com/media/ZE5DmCqNMr3yDXq1Zu/source.gif"
+                  alt="Never gonna give you up!"
+                  height="300px"
+                  width="300px"
+                />
+              </div>
+              <hr />
               <div style={styles.formGroup}>
                 <div style={styles.formControl}>
                   <label htmlFor="firstName" style={styles.label}>
                     First Name
                   </label>
-                  <input id="firstName" style={styles.input} type="text" />
+                  <input
+                    id="firstName"
+                    style={styles.input}
+                    type="text"
+                    onChange={this.handleChange}
+                    value={this.state.form.firstName}
+                  />
                 </div>
                 <div style={styles.formControl}>
                   <label htmlFor="lastName" style={styles.label}>
                     Last Name
                   </label>
-                  <input id="lastName" style={styles.input} type="text" />
+                  <input
+                    id="lastName"
+                    style={styles.input}
+                    type="text"
+                    onChange={this.handleChange}
+                    value={this.state.form.lastName}
+                  />
                 </div>
               </div>
               <div style={styles.formGroup}>
@@ -188,7 +296,13 @@ class AdvancedModalStory extends React.Component {
                   <label htmlFor="email" style={styles.label}>
                     Email Address
                   </label>
-                  <input id="email" style={styles.input} type="email" />
+                  <input
+                    id="email"
+                    style={styles.input}
+                    type="email"
+                    onChange={this.handleChange}
+                    value={this.state.form.email}
+                  />
                 </div>
               </div>
               <div style={styles.formGroup}>
@@ -196,7 +310,13 @@ class AdvancedModalStory extends React.Component {
                   <label htmlFor="phone" style={styles.label}>
                     Phone Number
                   </label>
-                  <input id="phone" style={styles.input} type="text" />
+                  <input
+                    id="phone"
+                    style={styles.input}
+                    type="text"
+                    onChange={this.handleChange}
+                    value={this.state.form.phone}
+                  />
                 </div>
               </div>
             </ModalBody>
@@ -207,11 +327,8 @@ class AdvancedModalStory extends React.Component {
               >
                 Cancel
               </Button>
-              <Button
-                onClick={() => this.setState({ isOpen: !this.state.isOpen })}
-                type="secondary"
-              >
-                Add Applicant
+              <Button onClick={() => this.submitApplicant()} type="secondary">
+                Add Applicant!
               </Button>
             </ModalFooter>
           </Modal>
@@ -224,6 +341,15 @@ class AdvancedModalStory extends React.Component {
 class LoadingModalStory extends React.Component {
   state = {
     isOpen: true,
+    isLoading: false,
+  };
+
+  onLoadingClick = () => {
+    this.setState({ isLoading: true });
+
+    setTimeout(() => {
+      this.setState({ isLoading: false });
+    }, 2000);
   };
 
   render() {
@@ -232,13 +358,10 @@ class LoadingModalStory extends React.Component {
         <div style={styles.wrapper}>
           <h2>Basic Modal</h2>
           <p>
-            The modal component exports 4 components: The Modal, ModalHeader,
-            ModalBody, and ModalFooter. Of these 4, just the Modal is required,
-            but the use of the other Modal components is encouraged.
-          </p>
-          <p>
-            This example is simply placing text in each on of the Modals nested
-            components
+            Showing a loading state in a modal dialog is perfect for situations
+            that require a user's input and backend validation. It allows us to
+            keep state injected into the modal and wait for a response before
+            clearing.
           </p>
           <Button
             type="primary"
@@ -248,7 +371,7 @@ class LoadingModalStory extends React.Component {
           </Button>
 
           <Modal
-            isLoadingContent
+            isLoadingContent={this.state.isLoading}
             isOpen={this.state.isOpen}
             onClose={() => this.setState({ isOpen: !this.state.isOpen })}
           >
@@ -257,8 +380,16 @@ class LoadingModalStory extends React.Component {
             >
               Modal Header
             </ModalHeader>
-            <ModalBody>Modal Body</ModalBody>
-            <ModalFooter>Modal Footer</ModalFooter>
+            <ModalBody>
+              Click the button below to get an idea of what it would look like
+              to submit a form and wait for a response BEFORE closing a modal...
+              Imagine the form state saved and a much better UX!
+            </ModalBody>
+            <ModalFooter>
+              <Button onClick={() => this.onLoadingClick()} type="outline">
+                Toggle Loading!!!
+              </Button>
+            </ModalFooter>
           </Modal>
         </div>
       </div>
