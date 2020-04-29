@@ -221,6 +221,52 @@ class AdvancedModalStory extends React.Component {
   }
 }
 
+class LoadingModalStory extends React.Component {
+  state = {
+    isOpen: true,
+  };
+
+  render() {
+    return (
+      <div style={styles.wrapper}>
+        <div style={styles.wrapper}>
+          <h2>Basic Modal</h2>
+          <p>
+            The modal component exports 4 components: The Modal, ModalHeader,
+            ModalBody, and ModalFooter. Of these 4, just the Modal is required,
+            but the use of the other Modal components is encouraged.
+          </p>
+          <p>
+            This example is simply placing text in each on of the Modals nested
+            components
+          </p>
+          <Button
+            type="primary"
+            onClick={() => this.setState({ isOpen: !this.state.isOpen })}
+          >
+            Launch Modal
+          </Button>
+
+          <Modal
+            isLoadingContent
+            isOpen={this.state.isOpen}
+            onClose={() => this.setState({ isOpen: !this.state.isOpen })}
+          >
+            <ModalHeader
+              onClose={() => this.setState({ isOpen: !this.state.isOpen })}
+            >
+              Modal Header
+            </ModalHeader>
+            <ModalBody>Modal Body</ModalBody>
+            <ModalFooter>Modal Footer</ModalFooter>
+          </Modal>
+        </div>
+      </div>
+    );
+  }
+}
+
 storiesOf('Modal', module)
   .add('Basic', () => <BasicModalStory />, notes)
-  .add('Advanced', () => <AdvancedModalStory />, notes);
+  .add('Advanced', () => <AdvancedModalStory />, notes)
+  .add('Loading', () => <LoadingModalStory />, notes);
