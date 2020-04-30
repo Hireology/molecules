@@ -340,7 +340,7 @@ class AdvancedModalStory extends React.Component {
 
 class LoadingModalStory extends React.Component {
   state = {
-    isOpen: true,
+    isOpen: false,
     isLoading: false,
   };
 

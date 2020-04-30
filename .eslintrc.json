@@ -6,6 +6,9 @@
     "jest": true,
     "browser": true
   },
+  "globals": {
+    "__DEV__": "readonly"
+  },
   "rules": {
     "arrow-body-style": 0,
     "comma-dangle": 1,

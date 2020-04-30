@@ -46,6 +46,32 @@ describe('Modal', () => {
   });
 
   /**
+   * Verify that the showOverlay prop works when active and hides when set
+   * to false
+   */
+  it('correctly uses the variant options', () => {
+    const props = getProps({ isOpen: true });
+    const wrapper = shallow(<Modal {...props}>foo</Modal>);
+
+    // Default value
+    expect(wrapper.find('.modal__dialog').length).toBe(1);
+    expect(wrapper.find('.modal__dialog--wide').length).toBe(0);
+    expect(wrapper.find('.modal__dialog--full').length).toBe(0);
+
+    // Default value
+    wrapper.setProps({ variant: 'wide' });
+    expect(wrapper.find('.modal__dialog').length).toBe(1);
+    expect(wrapper.find('.modal__dialog--wide').length).toBe(1);
+    expect(wrapper.find('.modal__dialog--full').length).toBe(0);
+
+    // Default value
+    wrapper.setProps({ variant: 'full' });
+    expect(wrapper.find('.modal__dialog').length).toBe(1);
+    expect(wrapper.find('.modal__dialog--wide').length).toBe(0);
+    expect(wrapper.find('.modal__dialog--full').length).toBe(1);
+  });
+
+  /**
    * Verify that the isLoadingContent prop works as intended and displayed when
    * true
    */

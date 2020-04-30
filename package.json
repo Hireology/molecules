@@ -33,7 +33,6 @@
     "prop-types": "^15.7.2",
     "react": "15.6.2",
     "react-dom": "15.6.2",
-    "react-motion": "0.4.8",
     "react-onclickoutside": "6.7.0",
     "react-portal": "4.2.1"
   },
@@ -89,6 +88,9 @@
     "setupFiles": [
       "<rootDir>/test_env.setup.js"
     ],
+    "globals": {
+      "__DEV__": "boolean"
+    },
     "testRegex": "(.*)(-test).(js|jsx)$",
     "transform": {
       ".*": "<rootDir>/node_modules/babel-jest"
