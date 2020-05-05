@@ -708,7 +708,10 @@
     position: absolute;
     background-color: white;
     z-index: 5;
-    width: 100%; }
+    width: 100%;
+    max-height: 300px;
+    padding-bottom: 0.5rem;
+    overflow: scroll; }
   .molecules-dropdown__item {
     margin: 0px;
     padding: 0.5rem 1rem; }
