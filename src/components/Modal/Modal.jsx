@@ -13,8 +13,7 @@ class Modal extends Component {
     aria: PropTypes.string,
 
     // React components rendered inside the modal
-    // eslint-disable-next-line react/require-default-props
-    children: PropTypes.node,
+    children: PropTypes.node.isRequired,
 
     // Whether or not we should close the modal when the "ESC" key is hit.
     closeOnEsc: PropTypes.bool,
