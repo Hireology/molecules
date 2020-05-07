@@ -3,7 +3,11 @@
   "parser": "babel-eslint",
   "plugins": ["react", "prettier"],
   "env": {
-    "jest": true
+    "jest": true,
+    "browser": true
+  },
+  "globals": {
+    "__DEV__": "readonly"
   },
   "rules": {
     "arrow-body-style": 0,

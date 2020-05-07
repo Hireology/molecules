@@ -10,3 +10,7 @@ export Tooltip from './Tooltip';
 export CollapsableBox from './CollapsableBox';
 export Drawer from './Drawer';
 export Dropdown from './Dropdown';
+export Modal from './Modal/Modal';
+export ModalBody from './Modal/ModalBody';
+export ModalHeader from './Modal/ModalHeader';
+export ModalFooter from './Modal/ModalFooter';
