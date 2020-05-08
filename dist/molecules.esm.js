@@ -1,7 +1,7 @@
 import React, { PureComponent, createElement, Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { findDOMNode } from 'react-dom';
+import ReactDOM, { findDOMNode } from 'react-dom';
 
 function _defineProperty(obj, key, value) {
   if (key in obj) {
@@ -2358,5 +2358,389 @@ _defineProperty(Dropdown, "defaultProps", {
 });
 var Dropdown$1 = onClickOutsideHOC(Dropdown);
 
-export { Button, ButtonGroup, Checkbox, CandidateSearchFilter as CollapsableBox, Drawer, Dropdown$1 as Dropdown, Link, Loader, RadioButton, Tabs, Tooltip, TypeAheadSearch };
+var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Portal = function (_React$Component) {
+  _inherits(Portal, _React$Component);
+
+  function Portal() {
+    _classCallCheck(this, Portal);
+
+    return _possibleConstructorReturn(this, (Portal.__proto__ || Object.getPrototypeOf(Portal)).apply(this, arguments));
+  }
+
+  _createClass(Portal, [{
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      if (this.defaultNode) {
+        document.body.removeChild(this.defaultNode);
+      }
+      this.defaultNode = null;
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      if (!canUseDOM) {
+        return null;
+      }
+      if (!this.props.node && !this.defaultNode) {
+        this.defaultNode = document.createElement('div');
+        document.body.appendChild(this.defaultNode);
+      }
+      return ReactDOM.createPortal(this.props.children, this.props.node || this.defaultNode);
+    }
+  }]);
+
+  return Portal;
+}(React.Component);
+
+Portal.propTypes = {
+  children: PropTypes.node.isRequired,
+  node: PropTypes.any
+};
+
+var _createClass$1 = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck$1(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn$1(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits$1(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Portal$1 = function (_React$Component) {
+  _inherits$1(Portal, _React$Component);
+
+  function Portal() {
+    _classCallCheck$1(this, Portal);
+
+    return _possibleConstructorReturn$1(this, (Portal.__proto__ || Object.getPrototypeOf(Portal)).apply(this, arguments));
+  }
+
+  _createClass$1(Portal, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.renderPortal();
+    }
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate(props) {
+      this.renderPortal();
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      ReactDOM.unmountComponentAtNode(this.defaultNode || this.props.node);
+      if (this.defaultNode) {
+        document.body.removeChild(this.defaultNode);
+      }
+      this.defaultNode = null;
+      this.portal = null;
+    }
+  }, {
+    key: 'renderPortal',
+    value: function renderPortal(props) {
+      if (!this.props.node && !this.defaultNode) {
+        this.defaultNode = document.createElement('div');
+        document.body.appendChild(this.defaultNode);
+      }
+
+      var children = this.props.children;
+      // https://gist.github.com/jimfb/d99e0678e9da715ccf6454961ef04d1b
+      if (typeof this.props.children.type === 'function') {
+        children = React.cloneElement(this.props.children);
+      }
+
+      this.portal = ReactDOM.unstable_renderSubtreeIntoContainer(this, children, this.props.node || this.defaultNode);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return null;
+    }
+  }]);
+
+  return Portal;
+}(React.Component);
+
+
+Portal$1.propTypes = {
+  children: PropTypes.node.isRequired,
+  node: PropTypes.any
+};
+
+var Portal$2 = void 0;
+
+if (ReactDOM.createPortal) {
+  Portal$2 = Portal;
+} else {
+  Portal$2 = Portal$1;
+}
+
+var Portal$3 = Portal$2;
+
+var Modal =
+/*#__PURE__*/
+function (_Component) {
+  _inheritsLoose(Modal, _Component);
+
+  function Modal() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+    _defineProperty(_assertThisInitialized(_this), "onEscKeyDown", function (e) {
+      if (e.key === 'Escape' || e.key === 'Esc' || e.keyCode === 27) {
+        _this.props.onClose();
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onBackdropClick", function (e) {
+      var _this$props = _this.props,
+          showOverlay = _this$props.showOverlay,
+          closeOnOverlayClick = _this$props.closeOnOverlayClick;
+      var id = e.target.id;
+
+      if (showOverlay && closeOnOverlayClick && id === 'backdrop') {
+        _this.props.onClose();
+      }
+    });
+
+    return _this;
+  }
+
+  var _proto = Modal.prototype;
+
+  _proto.componentDidMount = function componentDidMount() {
+    if (this.props.closeOnEsc) {
+      window.addEventListener('keydown', this.onEscKeyDown, false);
+    }
+  };
+
+  _proto.componentWillUnmount = function componentWillUnmount() {
+    if (this.props.closeOnEsc) {
+      window.removeEventListener('keydown', this.onEscKeyDown, false);
+    }
+  }
+  /**
+   * Function thats responsible for "closeOnEsc"
+   */
+  ;
+
+  _proto.render = function render() {
+    var _this$props2 = this.props,
+        isOpen = _this$props2.isOpen,
+        onClose = _this$props2.onClose,
+        showOverlay = _this$props2.showOverlay,
+        isLoadingContent = _this$props2.isLoadingContent,
+        variant = _this$props2.variant;
+    var backdropClasses = classNames({
+      'molecules-modal': true,
+      modal__backdrop: showOverlay,
+      'is-open': isOpen,
+      fadeIn: isOpen
+    });
+    var dialogClasses = classNames({
+      modal__dialog: true,
+      'modal__dialog--wide': variant === 'wide',
+      'modal__dialog--full': variant === 'full'
+    });
+    var childrenWithProps = !isLoadingContent ? React.Children.map(this.props.children, function (child) {
+      return React.cloneElement(child, {
+        onClose: onClose
+      });
+    }) : React.createElement(Loader, {
+      inline: true
+    });
+
+    if (isOpen) {
+      return React.createElement(Portal$3, {
+        "data-test": "modal"
+      }, React.createElement("div", {
+        id: "backdrop",
+        className: backdropClasses,
+        role: "dialog",
+        onClick: this.onBackdropClick
+      }, React.createElement("div", {
+        id: "dialog",
+        className: dialogClasses,
+        tabIndex: "-1",
+        "aria-labelledby": this.props.aria
+      }, React.createElement("div", {
+        className: "dialog-container"
+      }, childrenWithProps))));
+    }
+
+    return null;
+  };
+
+  return Modal;
+}(Component);
+
+_defineProperty(Modal, "propTypes", {
+  // String for the "aria-labeledby" attribute of the modal
+  aria: PropTypes.string,
+  // React components rendered inside the modal
+  children: PropTypes.node.isRequired,
+  // Whether or not we should close the modal when the "ESC" key is hit.
+  closeOnEsc: PropTypes.bool,
+  // Whether or not we should close them modal when the modal overlay is clicked.
+  closeOnOverlayClick: PropTypes.bool,
+  // If we're loading content, we can display a generic loading icon here.
+  isLoadingContent: PropTypes.bool,
+  // REQUIRED. When or not the modal is open.
+  isOpen: PropTypes.bool.isRequired,
+  // REQUIRED. Function to close the modal.
+  onClose: PropTypes.func.isRequired,
+  // Whether or not to show the modal overlay
+  showOverlay: PropTypes.bool,
+  // The size of the modal
+  variant: PropTypes.oneOf(['default', 'wide', 'full'])
+});
+
+_defineProperty(Modal, "defaultProps", {
+  aria: 'Modal Dialog',
+  closeOnEsc: true,
+  closeOnOverlayClick: true,
+  isLoadingContent: false,
+  isOpen: false,
+  showOverlay: true,
+  variant: 'default'
+});
+
+var ModalBody =
+/*#__PURE__*/
+function (_PureComponent) {
+  _inheritsLoose(ModalBody, _PureComponent);
+
+  function ModalBody() {
+    return _PureComponent.apply(this, arguments) || this;
+  }
+
+  var _proto = ModalBody.prototype;
+
+  _proto.render = function render() {
+    var children = this.props.children;
+    return React.createElement("div", {
+      className: "modal-body",
+      "data-test": "modal-body"
+    }, children);
+  };
+
+  return ModalBody;
+}(PureComponent);
+
+_defineProperty(ModalBody, "propTypes", {
+  // React components rendered inside the modal
+  // eslint-disable-next-line react/require-default-props
+  children: PropTypes.node
+});
+
+var ModalHeader =
+/*#__PURE__*/
+function (_PureComponent) {
+  _inheritsLoose(ModalHeader, _PureComponent);
+
+  function ModalHeader() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _PureComponent.call.apply(_PureComponent, [this].concat(args)) || this;
+
+    _defineProperty(_assertThisInitialized(_this), "renderTitle", function () {
+      var children = _this.props.children;
+
+      if (typeof children === 'string') {
+        return React.createElement("h2", null, children);
+      }
+
+      return children;
+    });
+
+    return _this;
+  }
+
+  var _proto = ModalHeader.prototype;
+
+  _proto.render = function render() {
+    var _this$props = this.props,
+        hideCloseIcon = _this$props.hideCloseIcon,
+        onClose = _this$props.onClose;
+    return React.createElement("div", {
+      className: "modal-header",
+      "data-test": "modal-header"
+    }, this.renderTitle(), !hideCloseIcon && React.createElement("div", {
+      className: "modal-header__icon-wrapper"
+    }, React.createElement("i", {
+      role: "link",
+      tabIndex: 0,
+      className: "fa fa-close",
+      onClick: onClose
+    })));
+  };
+
+  return ModalHeader;
+}(PureComponent);
+
+_defineProperty(ModalHeader, "propTypes", {
+  // Optional prop for showing the modal "x" for closing it
+  hideCloseIcon: PropTypes.bool,
+  // Function to close the modal - used by close icon
+  // eslint-disable-next-line react/require-default-props
+  onClose: function onClose(props, propName, componentName) {
+    if (!props.hideCloseIcon && typeof props.onClose !== 'function') {
+      throw new Error(componentName + " must recieve a valid function for " + propName + " when hideCloseIcon is false");
+    }
+  },
+  // React components rendered inside the modal header
+  children: PropTypes.node
+});
+
+_defineProperty(ModalHeader, "defaultProps", {
+  hideCloseIcon: false
+});
+
+var ModalFooter =
+/*#__PURE__*/
+function (_PureComponent) {
+  _inheritsLoose(ModalFooter, _PureComponent);
+
+  function ModalFooter() {
+    return _PureComponent.apply(this, arguments) || this;
+  }
+
+  var _proto = ModalFooter.prototype;
+
+  _proto.render = function render() {
+    var children = this.props.children;
+    return React.createElement("div", {
+      className: "modal-footer",
+      "data-test": "modal-footer"
+    }, children);
+  };
+
+  return ModalFooter;
+}(PureComponent);
+
+_defineProperty(ModalFooter, "propTypes", {
+  // React components rendered inside the modal
+  // eslint-disable-next-line react/require-default-props
+  children: PropTypes.node
+});
+
+export { Button, ButtonGroup, Checkbox, CandidateSearchFilter as CollapsableBox, Drawer, Dropdown$1 as Dropdown, Link, Loader, Modal, ModalBody, ModalFooter, ModalHeader, RadioButton, Tabs, Tooltip, TypeAheadSearch };
 //# sourceMappingURL=molecules.esm.js.map
