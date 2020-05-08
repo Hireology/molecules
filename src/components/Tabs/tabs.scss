@@ -18,6 +18,10 @@
     outline: none;
   }
 
+  &:hover {
+    cursor: pointer;
+  }
+
   &--active {
     padding: 12px 20px;
   }
