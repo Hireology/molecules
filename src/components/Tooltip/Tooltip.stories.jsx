@@ -178,7 +178,7 @@ const widthProps = "'small', 'medium', 'large' or width value in em/px";
 const notes = {
   notes: {
     markdown: `
-      #TypeAheadSearch
+      # Tooltip
       ## Props
       | prop name      | prop type      | required | default value | description |
       | -------------- | -------------- | -------- | ------------- | ----------- |
