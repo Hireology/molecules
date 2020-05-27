@@ -82,6 +82,8 @@ storiesOf('Checkbox', module)
         <Checkbox id="1" label="Selected" checked />
         <Checkbox id="2" label="Unselected" />
         <Checkbox id="3" label="Disabled" disabled />
+        <Checkbox id="3" label="Disabled" disabled />
+        <Checkbox id="3" label="Disabled & Checked" disabled checked />
       </div>
     );
   })
