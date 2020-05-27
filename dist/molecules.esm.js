@@ -184,7 +184,8 @@ function (_PureComponent) {
       checked: this.props.checked,
       onChange: this.props.onChange,
       "data-test": "checkbox",
-      disabled: this.props.disabled
+      disabled: this.props.disabled,
+      value: this.props.value
     }), React.createElement("label", {
       htmlFor: this.props.id
     }, React.createElement("span", {
@@ -201,13 +202,15 @@ _defineProperty(Checkbox, "propTypes", {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  value: PropTypes.string
 });
 
 _defineProperty(Checkbox, "defaultProps", {
   checked: false,
   disabled: false,
-  onChange: null
+  onChange: null,
+  value: ''
 });
 
 var RadioButton =
