@@ -14,6 +14,7 @@ const notes = {
       | checked     | Boolean      | false    | false         | Whether or not box should be checked |
       | disabled    | Boolean      | false    | false         | Whether or not box should be disabled |
       | onChange    | Function     | false    | null          | Function to call on change |
+      | value       | String       | false    | ''            | Checkbox value returned when checked |
     `,
   },
 };
@@ -25,6 +26,8 @@ class StorybookCheckboxes extends React.Component {
       optionOneChecked: false,
       optionTwoChecked: true,
       optionThreeChecked: false,
+      optionFourChecked: true,
+      optionFiveChecked: false,
     };
   }
 
@@ -52,6 +55,20 @@ class StorybookCheckboxes extends React.Component {
           label="Option 3"
           checked={this.state.optionThreeChecked}
           onChange={() => this.toggleCheckbox('optionThreeChecked')}
+        />
+        <Checkbox
+          id="4"
+          label="Disabled & Checked"
+          disabled
+          checked={this.state.optionFourChecked}
+          onChange={() => this.toggleCheckbox('optionFourChecked')}
+        />
+        <Checkbox
+          id="5"
+          label="Disabled & Unchecked"
+          disabled
+          checked={this.state.optionFiveChecked}
+          onChange={() => this.toggleCheckbox('optionFiveChecked')}
         />
       </div>
     );

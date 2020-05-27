@@ -26,7 +26,6 @@
   }
 
   // Hireology checkbox checked
-  input[type='checkbox']:disabled + label:after,
   input[type='checkbox']:checked + label:after {
     font-family: FontAwesome;
     content: '\f00c';
