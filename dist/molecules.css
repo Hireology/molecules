@@ -1853,7 +1853,8 @@ cite {
   top: 0;
   bottom: 0;
   left: 0;
-  right: 0; }
+  right: 0;
+  box-sizing: border-box; }
   .molecules-modal.is-open {
     display: -webkit-box;
     display: flex;
@@ -1866,19 +1867,54 @@ cite {
     z-index: 10001; }
   .molecules-modal.modal__backdrop {
     background: rgba(0, 0, 0, 0.5); }
-  .molecules-modal .modal__dialog {
-    width: 610px;
-    background-color: #fff;
-    padding: 1.75em;
-    border-radius: 4px;
+  .molecules-modal .modal__dialog, .molecules-modal .modal__dialog--default, .molecules-modal .modal__dialog--wide, .molecules-modal .modal__dialog--full {
     position: absolute;
-    top: 10%;
-    left: 50%;
-    margin-left: calc(-305px - 1.75em);
-    margin-bottom: 2em; }
+    background-color: #fff;
+    border-radius: 4px; }
+    .molecules-modal .modal__dialog--default {
+      width: 610px;
+      padding: 1.75em;
+      top: 10%;
+      left: 50%;
+      margin-left: calc(-305px - 1.75em);
+      margin-bottom: 2em; }
+      @media screen and (max-width: 667px) {
+        .molecules-modal .modal__dialog--default {
+          display: -webkit-box;
+          display: flex;
+          -webkit-box-pack: center;
+                  justify-content: center;
+          padding: 0em;
+          height: 90%;
+          width: 90%;
+          margin: 0 auto;
+          top: unset;
+          left: unset; }
+          .molecules-modal .modal__dialog--default .dialog-container {
+            width: 90%;
+            padding: 1em; } }
     .molecules-modal .modal__dialog--wide {
       width: 750px;
-      margin-left: calc(-375px - 1.75em); }
+      margin-left: calc(-375px - 1.75em);
+      padding: 1.75em;
+      top: 10%;
+      left: 50%;
+      margin-bottom: 2em; }
+      @media screen and (max-width: 800px) {
+        .molecules-modal .modal__dialog--wide {
+          display: -webkit-box;
+          display: flex;
+          -webkit-box-pack: center;
+                  justify-content: center;
+          padding: 0em;
+          height: 90%;
+          width: 90%;
+          margin: 0 auto;
+          top: unset;
+          left: unset; }
+          .molecules-modal .modal__dialog--wide .dialog-container {
+            width: 90%;
+            padding: 1em; } }
     .molecules-modal .modal__dialog--full {
       display: -webkit-box;
       display: flex;
@@ -1903,10 +1939,15 @@ cite {
     -webkit-box-pack: justify;
             justify-content: space-between;
     margin-bottom: 1em; }
+    .molecules-modal .modal-header--centered {
+      -webkit-box-pack: center;
+              justify-content: center; }
     .molecules-modal .modal-header h2 {
       margin: 0; }
   .molecules-modal .modal-header__icon-wrapper {
-    position: relative; }
+    position: absolute;
+    top: 15px;
+    right: 15px; }
     .molecules-modal .modal-header__icon-wrapper .fa {
       font-size: 18px;
       cursor: pointer; }
@@ -1924,24 +1965,6 @@ cite {
     -webkit-box-pack: justify;
             justify-content: space-between;
     margin-top: 1em; }
-
-@media only screen and (max-width: 667px) {
-  .molecules-modal .modal__dialog {
-    display: -webkit-box;
-    display: flex;
-    -webkit-box-pack: center;
-            justify-content: center;
-    padding: 0em;
-    border-radius: 0px;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    right: 0;
-    left: 0;
-    margin: 0 auto; }
-    .molecules-modal .modal__dialog .dialog-container {
-      width: 90%;
-      padding: 1em; } }
 
 @-webkit-keyframes fadeIn {
   from {

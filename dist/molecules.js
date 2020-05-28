@@ -2562,6 +2562,7 @@
       });
       var dialogClasses = classNames({
         modal__dialog: true,
+        'modal__dialog--default': variant === 'default',
         'modal__dialog--wide': variant === 'wide',
         'modal__dialog--full': variant === 'full'
       });
@@ -2688,9 +2689,13 @@
     _proto.render = function render() {
       var _this$props = this.props,
           hideCloseIcon = _this$props.hideCloseIcon,
-          onClose = _this$props.onClose;
+          onClose = _this$props.onClose,
+          centered = _this$props.centered;
+      var modalHeaderClasses = classNames('modal-header', {
+        'modal-header--centered': centered
+      });
       return React__default.createElement("div", {
-        className: "modal-header",
+        className: modalHeaderClasses,
         "data-test": "modal-header"
       }, this.renderTitle(), !hideCloseIcon && React__default.createElement("div", {
         className: "modal-header__icon-wrapper"
@@ -2708,6 +2713,8 @@
   _defineProperty(ModalHeader, "propTypes", {
     // Optional prop for showing the modal "x" for closing it
     hideCloseIcon: PropTypes.bool,
+    // Center the title in the modal
+    centered: PropTypes.bool,
     // Function to close the modal - used by close icon
     // eslint-disable-next-line react/require-default-props
     onClose: function onClose(props, propName, componentName) {
@@ -2720,7 +2727,8 @@
   });
 
   _defineProperty(ModalHeader, "defaultProps", {
-    hideCloseIcon: false
+    hideCloseIcon: false,
+    centered: false
   });
 
   var ModalFooter =
