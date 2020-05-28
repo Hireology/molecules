@@ -92,6 +92,7 @@ const notes = {
       | prop name     | prop type   | required | default value | description |
       | -----------   | ----------- | -------- | ------------- | ----------- |
       | children      | node/string | false    | -             | React component rendered inside the modal header or a string title |
+      | centered      | bool        | false    | false         | Center the title within the modal header |
       | hideCloseIcon | bool        | false    | false         | Optional prop for showing the modal "x" for closing it |
       | onClose       | func        | true     | -             | Function to close the modal - used by close icon (required if the icon isn't hid) |
     `,
