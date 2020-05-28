@@ -34,7 +34,7 @@ $hireology-yellow: #f7cf2f;
 
 // Helper Colors
 $light-red: #fbe3e4;
-$light-yellow: #fff6Bf;
+$light-yellow: #fff6bf;
 $light-green: #e6efc2;
 $hireology-lightgreen-hover: #f4fef4;
 $hireology-gray-hover: #808285;
@@ -64,7 +64,6 @@ $base-border-color: $hireology-border-gray;
 $base-border: 1px solid $base-border-color;
 $nav-border-color: #eee;
 
-
 // TYPOGRAPHY
 // ==============================
 $font-family: 'Lato', 'Helvetica Neue', 'Helvetica', sans-serif;
@@ -80,8 +79,8 @@ $h1-font-size: $base-font-size * 1.75;
 $h2-font-size: $base-font-size * 1.5;
 $h3-font-size: $base-font-size * 1.3;
 $h4-font-size: $base-font-size * 1.125;
-$h5-font-size: $base-font-size * .95;
-$h6-font-size: $base-font-size * .9;
+$h5-font-size: $base-font-size * 0.95;
+$h6-font-size: $base-font-size * 0.9;
 
 // Line Height
 $base-line-height: 1.5;
@@ -94,6 +93,7 @@ $large-border-radius: 20px;
 // Spacing
 $base-spacing: $base-line-height * 1em;
 
+$dropdown-z-index: 500;
 
 // BREAKPOINTS
 // ==============================
