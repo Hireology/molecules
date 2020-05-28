@@ -1,11 +1,15 @@
 /* eslint-disable react/require-default-props */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 class ModalHeader extends PureComponent {
   static propTypes = {
     // Optional prop for showing the modal "x" for closing it
     hideCloseIcon: PropTypes.bool,
+
+    // Center the title in the modal
+    centered: PropTypes.bool,
 
     // Function to close the modal - used by close icon
     // eslint-disable-next-line react/require-default-props
@@ -23,6 +27,7 @@ class ModalHeader extends PureComponent {
 
   static defaultProps = {
     hideCloseIcon: false,
+    centered: false,
   };
 
   renderTitle = () => {
@@ -36,10 +41,14 @@ class ModalHeader extends PureComponent {
   };
 
   render() {
-    const { hideCloseIcon, onClose } = this.props;
+    const { hideCloseIcon, onClose, centered } = this.props;
+
+    const modalHeaderClasses = classNames('modal-header', {
+      'modal-header--centered': centered,
+    });
 
     return (
-      <div className="modal-header" data-test="modal-header">
+      <div className={modalHeaderClasses} data-test="modal-header">
         {this.renderTitle()}
 
         {!hideCloseIcon && (
