@@ -97,7 +97,7 @@ class BasicNestedDropdown extends React.Component {
   };
 
   handleItemClick = (item) => {
-    console.log('Clicked...', item);
+    alert('Clicked...', item);
   };
 
   render() {
@@ -108,6 +108,7 @@ class BasicNestedDropdown extends React.Component {
           onClose={this.toggleDropdown}
           items={CARS}
           onItemClick={this.handleItemClick}
+          showFilter
         >
           <button onClick={this.toggleDropdown}>Open Dropdown</button>
         </NestedDropdownMenu>

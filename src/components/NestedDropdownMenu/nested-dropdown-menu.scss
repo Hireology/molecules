@@ -1,6 +1,6 @@
 @import '../../theme/index.scss';
 
-.nested-dropdown-menu {
+.molecules-nested-dropdown-menu {
   background-color: $white;
   border-radius: $base-border-radius;
   border: $base-border;
@@ -108,6 +108,9 @@
   }
 }
 
+/*
+ * PANEL LEVELING 
+ */
 .panels {
   white-space: nowrap;
   transform: translateX(0);

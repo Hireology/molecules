@@ -2,17 +2,19 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 class NestedDropdownMenuFilter extends PureComponent {
-  static propTypes = {};
+  static propTypes = {
+    filterValue: PropTypes.string.isRequired,
+    handleFilterChange: PropTypes.func.isRequired,
+  };
 
   static defaultProps = {};
 
   render() {
+    const { filterValue, handleFilterChange } = this.props;
+
     return (
-      <div className="nested-dropdown-menu__filter-wrapper">
-        <input
-          onChange={this.props.handleValueChange}
-          value={this.props.filterValue}
-        />
+      <div className="molecules-nested-dropdown-menu__filter-wrapper">
+        <input value={filterValue} onChange={handleFilterChange} />
       </div>
     );
   }
