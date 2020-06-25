@@ -1570,7 +1570,7 @@ cite {
   opacity: 1;
   background-color: white;
   overflow: auto; }
-  @media only screen and (min-width: 1024px) {
+  @media only screen and (min-width: 1025px) {
     .molecules-drawer--hideForDesktop {
       display: none; } }
   .molecules-drawer__overlay {
@@ -1581,7 +1581,7 @@ cite {
     height: 100%;
     width: 100%;
     z-index: 999; }
-    @media only screen and (min-width: 1024px) {
+    @media only screen and (min-width: 1025px) {
       .molecules-drawer__overlay--hideForDesktop {
         display: none; } }
   .molecules-drawer__header {
