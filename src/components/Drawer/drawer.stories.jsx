@@ -19,7 +19,7 @@ const notes = {
       | isOpen          | Boolean       | true     | -                  | Whether radio button is disabled or not |
       | children        | Node          | true     | -                  | Radio button id |
       | onExitClick     | Function      | true     | -                  | Whether to make radio button inline or not |
-      | hideForDesktop  | Boolean       | false    | true               | Whether the drawer should automatically hidden for screens larger > 667px  |
+      | hideForDesktop  | Boolean       | false    | true               | Whether the drawer should be automatically hidden for screens larger than 1024px  |
     `,
   },
 };
