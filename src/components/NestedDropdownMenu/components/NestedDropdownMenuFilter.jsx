@@ -5,16 +5,22 @@ class NestedDropdownMenuFilter extends PureComponent {
   static propTypes = {
     filterValue: PropTypes.string.isRequired,
     handleFilterChange: PropTypes.func.isRequired,
+    placeholder: PropTypes.string.isRequired,
   };
 
   static defaultProps = {};
 
   render() {
-    const { filterValue, handleFilterChange } = this.props;
+    const { filterValue, handleFilterChange, placeholder } = this.props;
 
     return (
       <div className="molecules-nested-dropdown-menu__filter-wrapper">
-        <input value={filterValue} onChange={handleFilterChange} />
+        <i className="fa fa-search" />
+        <input
+          value={filterValue}
+          onChange={handleFilterChange}
+          placeholder={placeholder}
+        />
       </div>
     );
   }

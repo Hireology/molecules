@@ -12,6 +12,7 @@ $black: #000;
 $hireology-darkest-gray: #3f4144;
 $hireology-text-gray: #677078;
 $hireology-medium-gray: #9da3a8;
+$hireology-placeholder-text: #bdc1c4;
 $hireology-disabled-gray: #d6dadc;
 $hireology-light-gray: #f7f9f9;
 $hireology-border-gray: #ddd;
@@ -63,6 +64,10 @@ $success-color: $light-green;
 $base-border-color: $hireology-border-gray;
 $base-border: 1px solid $base-border-color;
 $nav-border-color: #eee;
+
+// Forms
+$form-border-color-focus: $hireology-green-hover;
+$form-placeholder-color: $hireology-placeholder-text;
 
 // TYPOGRAPHY
 // ==============================

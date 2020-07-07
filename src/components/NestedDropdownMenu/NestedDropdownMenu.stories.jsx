@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
@@ -7,8 +8,19 @@ const CARS = [
   {
     label: 'Honda',
     value: 'honda',
+    allowAddNew: true,
     children: [
-      { label: 'Accord', value: 'accord' },
+      {
+        label: 'Accord',
+        value: 'accord',
+        allowAddNew: true,
+        onAddNewClick: () => alert('Im a nested function in the array!'),
+        children: [
+          { label: 'Red', value: 'red' },
+          { label: 'Green', value: 'green' },
+          { label: 'Blue', value: 'blue' },
+        ],
+      },
       { label: 'Civic', value: 'civic' },
       { label: 'Pilot', value: 'pilot' },
       { label: 'Ridgeline', value: 'ridgeline' },
@@ -22,6 +34,12 @@ const CARS = [
       { label: 'Tacoma', value: 'tacoma' },
       { label: 'Tundra', value: 'tundra' },
     ],
+  },
+  {
+    label: 'Ford',
+    value: 'ford',
+    allowAddNew: true,
+    children: [],
   },
 ];
 
@@ -79,8 +97,6 @@ const notes = {
       ## Props
       | prop name   | prop type | required | default value | description |
       | ----------- | --------- | -------- | ------------- | ----------- |
-      | inline      | Boolean   | false    | false         | Wether to make the loader full screen or inline with the page |
-      | message     | String    | false    | 'Loading...'  | Message to be read by screen readers, is not visible on screen |
     `,
   },
 };
@@ -90,14 +106,18 @@ class BasicNestedDropdown extends React.Component {
     isOpen: false,
   };
 
-  toggleDropdown = () => {
-    this.setState({
-      isOpen: !this.state.isOpen,
-    });
+  onAddNewClick = (params) => {
+    alert(JSON.stringify(params, null, 2));
   };
 
   handleItemClick = (item) => {
     alert('Clicked...', item);
+  };
+
+  toggleDropdown = () => {
+    this.setState({
+      isOpen: !this.state.isOpen,
+    });
   };
 
   render() {
@@ -108,6 +128,7 @@ class BasicNestedDropdown extends React.Component {
           onClose={this.toggleDropdown}
           items={CARS}
           onItemClick={this.handleItemClick}
+          onAddNewClick={this.onAddNewClick}
           showFilter
         >
           <button onClick={this.toggleDropdown}>Open Dropdown</button>
