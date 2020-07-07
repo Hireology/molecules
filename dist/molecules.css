@@ -3,6 +3,99 @@
  * WITH DESIGNER BEFORE ADDING. IT MUST BE WCAG APPROVED
  * IN ORDER TO BE ADDED!!
  */
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background-color: #fff;
+  color: #677078;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: #677078;
+  font-weight: normal;
+  line-height: 1.25;
+  margin: 0; }
+
+h1 {
+  color: #3f4144;
+  margin: 0 0 .8em 0;
+  font-size: 1.75em;
+  font-weight: normal; }
+
+h2 {
+  color: #677078;
+  margin: 0 0 0.4em;
+  font-size: 1.5em;
+  font-weight: normal; }
+
+h3 {
+  margin: 0 0 0.4em;
+  font-size: 1.3em;
+  font-weight: bold; }
+
+h4 {
+  margin: 0 0 0.4em;
+  font-size: 1.125em; }
+
+h5 {
+  color: #677078;
+  margin: 0 0 0.4em;
+  font-size: 0.95em; }
+
+h6 {
+  margin: 0 0 0.4em;
+  font-size: 0.9em;
+  font-weight: bold; }
+
+p {
+  margin: 0 0 1.8em; }
+
+pre {
+  color: #677078; }
+
+a {
+  -webkit-transition: color 0.1s linear;
+  transition: color 0.1s linear;
+  color: #81af32;
+  cursor: pointer;
+  text-decoration: none; }
+  a:hover {
+    color: #6a9f11; }
+  a:active, a:focus {
+    color: #6a9f11;
+    outline: none; }
+  a.white {
+    color: #fff; }
+    a.white:hover {
+      text-decoration: underline; }
+
+hr {
+  border-bottom: 1px solid #ddd;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-color: #ddd;
+  margin: 1.5em 0; }
+
+img,
+picture {
+  margin: 0;
+  max-width: 100%; }
+
+blockquote {
+  border-left: 2px solid #ddd;
+  color: #8e969e;
+  margin: 1.5em 0;
+  padding-left: 0.75em; }
+
+cite {
+  color: #a9b0b5;
+  font-style: italic; }
+  cite:before {
+    content: "\2014 \00A0"; }
+
 .molecules-button {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -141,6 +234,99 @@
  * WITH DESIGNER BEFORE ADDING. IT MUST BE WCAG APPROVED
  * IN ORDER TO BE ADDED!!
  */
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background-color: #fff;
+  color: #677078;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: #677078;
+  font-weight: normal;
+  line-height: 1.25;
+  margin: 0; }
+
+h1 {
+  color: #3f4144;
+  margin: 0 0 .8em 0;
+  font-size: 1.75em;
+  font-weight: normal; }
+
+h2 {
+  color: #677078;
+  margin: 0 0 0.4em;
+  font-size: 1.5em;
+  font-weight: normal; }
+
+h3 {
+  margin: 0 0 0.4em;
+  font-size: 1.3em;
+  font-weight: bold; }
+
+h4 {
+  margin: 0 0 0.4em;
+  font-size: 1.125em; }
+
+h5 {
+  color: #677078;
+  margin: 0 0 0.4em;
+  font-size: 0.95em; }
+
+h6 {
+  margin: 0 0 0.4em;
+  font-size: 0.9em;
+  font-weight: bold; }
+
+p {
+  margin: 0 0 1.8em; }
+
+pre {
+  color: #677078; }
+
+a {
+  -webkit-transition: color 0.1s linear;
+  transition: color 0.1s linear;
+  color: #81af32;
+  cursor: pointer;
+  text-decoration: none; }
+  a:hover {
+    color: #6a9f11; }
+  a:active, a:focus {
+    color: #6a9f11;
+    outline: none; }
+  a.white {
+    color: #fff; }
+    a.white:hover {
+      text-decoration: underline; }
+
+hr {
+  border-bottom: 1px solid #ddd;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-color: #ddd;
+  margin: 1.5em 0; }
+
+img,
+picture {
+  margin: 0;
+  max-width: 100%; }
+
+blockquote {
+  border-left: 2px solid #ddd;
+  color: #8e969e;
+  margin: 1.5em 0;
+  padding-left: 0.75em; }
+
+cite {
+  color: #a9b0b5;
+  font-style: italic; }
+  cite:before {
+    content: "\2014 \00A0"; }
+
 .molecules-loader {
   /* Styles for old versions of IE */
   /* :not(:required) hides this rule from IE9 and below */ }
@@ -241,6 +427,99 @@
  * WITH DESIGNER BEFORE ADDING. IT MUST BE WCAG APPROVED
  * IN ORDER TO BE ADDED!!
  */
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background-color: #fff;
+  color: #677078;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: #677078;
+  font-weight: normal;
+  line-height: 1.25;
+  margin: 0; }
+
+h1 {
+  color: #3f4144;
+  margin: 0 0 .8em 0;
+  font-size: 1.75em;
+  font-weight: normal; }
+
+h2 {
+  color: #677078;
+  margin: 0 0 0.4em;
+  font-size: 1.5em;
+  font-weight: normal; }
+
+h3 {
+  margin: 0 0 0.4em;
+  font-size: 1.3em;
+  font-weight: bold; }
+
+h4 {
+  margin: 0 0 0.4em;
+  font-size: 1.125em; }
+
+h5 {
+  color: #677078;
+  margin: 0 0 0.4em;
+  font-size: 0.95em; }
+
+h6 {
+  margin: 0 0 0.4em;
+  font-size: 0.9em;
+  font-weight: bold; }
+
+p {
+  margin: 0 0 1.8em; }
+
+pre {
+  color: #677078; }
+
+a {
+  -webkit-transition: color 0.1s linear;
+  transition: color 0.1s linear;
+  color: #81af32;
+  cursor: pointer;
+  text-decoration: none; }
+  a:hover {
+    color: #6a9f11; }
+  a:active, a:focus {
+    color: #6a9f11;
+    outline: none; }
+  a.white {
+    color: #fff; }
+    a.white:hover {
+      text-decoration: underline; }
+
+hr {
+  border-bottom: 1px solid #ddd;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-color: #ddd;
+  margin: 1.5em 0; }
+
+img,
+picture {
+  margin: 0;
+  max-width: 100%; }
+
+blockquote {
+  border-left: 2px solid #ddd;
+  color: #8e969e;
+  margin: 1.5em 0;
+  padding-left: 0.75em; }
+
+cite {
+  color: #a9b0b5;
+  font-style: italic; }
+  cite:before {
+    content: "\2014 \00A0"; }
+
 .molecules-checkbox {
   position: relative;
   font-weight: normal;
@@ -259,7 +538,6 @@
     content: '';
     border: 1px solid #d6dadc;
     background: #fff; }
-  .molecules-checkbox input[type='checkbox']:disabled + label:after,
   .molecules-checkbox input[type='checkbox']:checked + label:after {
     font-family: FontAwesome;
     content: '\f00c';
@@ -289,6 +567,99 @@
  * WITH DESIGNER BEFORE ADDING. IT MUST BE WCAG APPROVED
  * IN ORDER TO BE ADDED!!
  */
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background-color: #fff;
+  color: #677078;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: #677078;
+  font-weight: normal;
+  line-height: 1.25;
+  margin: 0; }
+
+h1 {
+  color: #3f4144;
+  margin: 0 0 .8em 0;
+  font-size: 1.75em;
+  font-weight: normal; }
+
+h2 {
+  color: #677078;
+  margin: 0 0 0.4em;
+  font-size: 1.5em;
+  font-weight: normal; }
+
+h3 {
+  margin: 0 0 0.4em;
+  font-size: 1.3em;
+  font-weight: bold; }
+
+h4 {
+  margin: 0 0 0.4em;
+  font-size: 1.125em; }
+
+h5 {
+  color: #677078;
+  margin: 0 0 0.4em;
+  font-size: 0.95em; }
+
+h6 {
+  margin: 0 0 0.4em;
+  font-size: 0.9em;
+  font-weight: bold; }
+
+p {
+  margin: 0 0 1.8em; }
+
+pre {
+  color: #677078; }
+
+a {
+  -webkit-transition: color 0.1s linear;
+  transition: color 0.1s linear;
+  color: #81af32;
+  cursor: pointer;
+  text-decoration: none; }
+  a:hover {
+    color: #6a9f11; }
+  a:active, a:focus {
+    color: #6a9f11;
+    outline: none; }
+  a.white {
+    color: #fff; }
+    a.white:hover {
+      text-decoration: underline; }
+
+hr {
+  border-bottom: 1px solid #ddd;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-color: #ddd;
+  margin: 1.5em 0; }
+
+img,
+picture {
+  margin: 0;
+  max-width: 100%; }
+
+blockquote {
+  border-left: 2px solid #ddd;
+  color: #8e969e;
+  margin: 1.5em 0;
+  padding-left: 0.75em; }
+
+cite {
+  color: #a9b0b5;
+  font-style: italic; }
+  cite:before {
+    content: "\2014 \00A0"; }
+
 .molecules-radio-button {
   font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
   color: #677078;
@@ -334,6 +705,99 @@
  * WITH DESIGNER BEFORE ADDING. IT MUST BE WCAG APPROVED
  * IN ORDER TO BE ADDED!!
  */
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background-color: #fff;
+  color: #677078;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: #677078;
+  font-weight: normal;
+  line-height: 1.25;
+  margin: 0; }
+
+h1 {
+  color: #3f4144;
+  margin: 0 0 .8em 0;
+  font-size: 1.75em;
+  font-weight: normal; }
+
+h2 {
+  color: #677078;
+  margin: 0 0 0.4em;
+  font-size: 1.5em;
+  font-weight: normal; }
+
+h3 {
+  margin: 0 0 0.4em;
+  font-size: 1.3em;
+  font-weight: bold; }
+
+h4 {
+  margin: 0 0 0.4em;
+  font-size: 1.125em; }
+
+h5 {
+  color: #677078;
+  margin: 0 0 0.4em;
+  font-size: 0.95em; }
+
+h6 {
+  margin: 0 0 0.4em;
+  font-size: 0.9em;
+  font-weight: bold; }
+
+p {
+  margin: 0 0 1.8em; }
+
+pre {
+  color: #677078; }
+
+a {
+  -webkit-transition: color 0.1s linear;
+  transition: color 0.1s linear;
+  color: #81af32;
+  cursor: pointer;
+  text-decoration: none; }
+  a:hover {
+    color: #6a9f11; }
+  a:active, a:focus {
+    color: #6a9f11;
+    outline: none; }
+  a.white {
+    color: #fff; }
+    a.white:hover {
+      text-decoration: underline; }
+
+hr {
+  border-bottom: 1px solid #ddd;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-color: #ddd;
+  margin: 1.5em 0; }
+
+img,
+picture {
+  margin: 0;
+  max-width: 100%; }
+
+blockquote {
+  border-left: 2px solid #ddd;
+  color: #8e969e;
+  margin: 1.5em 0;
+  padding-left: 0.75em; }
+
+cite {
+  color: #a9b0b5;
+  font-style: italic; }
+  cite:before {
+    content: "\2014 \00A0"; }
+
 .molecules-link {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -400,6 +864,99 @@
  * WITH DESIGNER BEFORE ADDING. IT MUST BE WCAG APPROVED
  * IN ORDER TO BE ADDED!!
  */
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background-color: #fff;
+  color: #677078;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: #677078;
+  font-weight: normal;
+  line-height: 1.25;
+  margin: 0; }
+
+h1 {
+  color: #3f4144;
+  margin: 0 0 .8em 0;
+  font-size: 1.75em;
+  font-weight: normal; }
+
+h2 {
+  color: #677078;
+  margin: 0 0 0.4em;
+  font-size: 1.5em;
+  font-weight: normal; }
+
+h3 {
+  margin: 0 0 0.4em;
+  font-size: 1.3em;
+  font-weight: bold; }
+
+h4 {
+  margin: 0 0 0.4em;
+  font-size: 1.125em; }
+
+h5 {
+  color: #677078;
+  margin: 0 0 0.4em;
+  font-size: 0.95em; }
+
+h6 {
+  margin: 0 0 0.4em;
+  font-size: 0.9em;
+  font-weight: bold; }
+
+p {
+  margin: 0 0 1.8em; }
+
+pre {
+  color: #677078; }
+
+a {
+  -webkit-transition: color 0.1s linear;
+  transition: color 0.1s linear;
+  color: #81af32;
+  cursor: pointer;
+  text-decoration: none; }
+  a:hover {
+    color: #6a9f11; }
+  a:active, a:focus {
+    color: #6a9f11;
+    outline: none; }
+  a.white {
+    color: #fff; }
+    a.white:hover {
+      text-decoration: underline; }
+
+hr {
+  border-bottom: 1px solid #ddd;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-color: #ddd;
+  margin: 1.5em 0; }
+
+img,
+picture {
+  margin: 0;
+  max-width: 100%; }
+
+blockquote {
+  border-left: 2px solid #ddd;
+  color: #8e969e;
+  margin: 1.5em 0;
+  padding-left: 0.75em; }
+
+cite {
+  color: #a9b0b5;
+  font-style: italic; }
+  cite:before {
+    content: "\2014 \00A0"; }
+
 .molecules-type-ahead-search {
   font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
   font-size: 16px;
@@ -461,6 +1018,99 @@
  * WITH DESIGNER BEFORE ADDING. IT MUST BE WCAG APPROVED
  * IN ORDER TO BE ADDED!!
  */
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background-color: #fff;
+  color: #677078;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: #677078;
+  font-weight: normal;
+  line-height: 1.25;
+  margin: 0; }
+
+h1 {
+  color: #3f4144;
+  margin: 0 0 .8em 0;
+  font-size: 1.75em;
+  font-weight: normal; }
+
+h2 {
+  color: #677078;
+  margin: 0 0 0.4em;
+  font-size: 1.5em;
+  font-weight: normal; }
+
+h3 {
+  margin: 0 0 0.4em;
+  font-size: 1.3em;
+  font-weight: bold; }
+
+h4 {
+  margin: 0 0 0.4em;
+  font-size: 1.125em; }
+
+h5 {
+  color: #677078;
+  margin: 0 0 0.4em;
+  font-size: 0.95em; }
+
+h6 {
+  margin: 0 0 0.4em;
+  font-size: 0.9em;
+  font-weight: bold; }
+
+p {
+  margin: 0 0 1.8em; }
+
+pre {
+  color: #677078; }
+
+a {
+  -webkit-transition: color 0.1s linear;
+  transition: color 0.1s linear;
+  color: #81af32;
+  cursor: pointer;
+  text-decoration: none; }
+  a:hover {
+    color: #6a9f11; }
+  a:active, a:focus {
+    color: #6a9f11;
+    outline: none; }
+  a.white {
+    color: #fff; }
+    a.white:hover {
+      text-decoration: underline; }
+
+hr {
+  border-bottom: 1px solid #ddd;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-color: #ddd;
+  margin: 1.5em 0; }
+
+img,
+picture {
+  margin: 0;
+  max-width: 100%; }
+
+blockquote {
+  border-left: 2px solid #ddd;
+  color: #8e969e;
+  margin: 1.5em 0;
+  padding-left: 0.75em; }
+
+cite {
+  color: #a9b0b5;
+  font-style: italic; }
+  cite:before {
+    content: "\2014 \00A0"; }
+
 .molecules-tab {
   border: none;
   display: inline-block;
@@ -493,6 +1143,99 @@
  * WITH DESIGNER BEFORE ADDING. IT MUST BE WCAG APPROVED
  * IN ORDER TO BE ADDED!!
  */
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background-color: #fff;
+  color: #677078;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: #677078;
+  font-weight: normal;
+  line-height: 1.25;
+  margin: 0; }
+
+h1 {
+  color: #3f4144;
+  margin: 0 0 .8em 0;
+  font-size: 1.75em;
+  font-weight: normal; }
+
+h2 {
+  color: #677078;
+  margin: 0 0 0.4em;
+  font-size: 1.5em;
+  font-weight: normal; }
+
+h3 {
+  margin: 0 0 0.4em;
+  font-size: 1.3em;
+  font-weight: bold; }
+
+h4 {
+  margin: 0 0 0.4em;
+  font-size: 1.125em; }
+
+h5 {
+  color: #677078;
+  margin: 0 0 0.4em;
+  font-size: 0.95em; }
+
+h6 {
+  margin: 0 0 0.4em;
+  font-size: 0.9em;
+  font-weight: bold; }
+
+p {
+  margin: 0 0 1.8em; }
+
+pre {
+  color: #677078; }
+
+a {
+  -webkit-transition: color 0.1s linear;
+  transition: color 0.1s linear;
+  color: #81af32;
+  cursor: pointer;
+  text-decoration: none; }
+  a:hover {
+    color: #6a9f11; }
+  a:active, a:focus {
+    color: #6a9f11;
+    outline: none; }
+  a.white {
+    color: #fff; }
+    a.white:hover {
+      text-decoration: underline; }
+
+hr {
+  border-bottom: 1px solid #ddd;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-color: #ddd;
+  margin: 1.5em 0; }
+
+img,
+picture {
+  margin: 0;
+  max-width: 100%; }
+
+blockquote {
+  border-left: 2px solid #ddd;
+  color: #8e969e;
+  margin: 1.5em 0;
+  padding-left: 0.75em; }
+
+cite {
+  color: #a9b0b5;
+  font-style: italic; }
+  cite:before {
+    content: "\2014 \00A0"; }
+
 .molecules-tooltip-wrapper {
   display: -webkit-inline-box;
   display: inline-flex;
@@ -601,6 +1344,99 @@
  * WITH DESIGNER BEFORE ADDING. IT MUST BE WCAG APPROVED
  * IN ORDER TO BE ADDED!!
  */
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background-color: #fff;
+  color: #677078;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: #677078;
+  font-weight: normal;
+  line-height: 1.25;
+  margin: 0; }
+
+h1 {
+  color: #3f4144;
+  margin: 0 0 .8em 0;
+  font-size: 1.75em;
+  font-weight: normal; }
+
+h2 {
+  color: #677078;
+  margin: 0 0 0.4em;
+  font-size: 1.5em;
+  font-weight: normal; }
+
+h3 {
+  margin: 0 0 0.4em;
+  font-size: 1.3em;
+  font-weight: bold; }
+
+h4 {
+  margin: 0 0 0.4em;
+  font-size: 1.125em; }
+
+h5 {
+  color: #677078;
+  margin: 0 0 0.4em;
+  font-size: 0.95em; }
+
+h6 {
+  margin: 0 0 0.4em;
+  font-size: 0.9em;
+  font-weight: bold; }
+
+p {
+  margin: 0 0 1.8em; }
+
+pre {
+  color: #677078; }
+
+a {
+  -webkit-transition: color 0.1s linear;
+  transition: color 0.1s linear;
+  color: #81af32;
+  cursor: pointer;
+  text-decoration: none; }
+  a:hover {
+    color: #6a9f11; }
+  a:active, a:focus {
+    color: #6a9f11;
+    outline: none; }
+  a.white {
+    color: #fff; }
+    a.white:hover {
+      text-decoration: underline; }
+
+hr {
+  border-bottom: 1px solid #ddd;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-color: #ddd;
+  margin: 1.5em 0; }
+
+img,
+picture {
+  margin: 0;
+  max-width: 100%; }
+
+blockquote {
+  border-left: 2px solid #ddd;
+  color: #8e969e;
+  margin: 1.5em 0;
+  padding-left: 0.75em; }
+
+cite {
+  color: #a9b0b5;
+  font-style: italic; }
+  cite:before {
+    content: "\2014 \00A0"; }
+
 .collapsable-box {
   border: 1px solid #d6dadc;
   border-radius: 4px;
@@ -631,6 +1467,99 @@
  * WITH DESIGNER BEFORE ADDING. IT MUST BE WCAG APPROVED
  * IN ORDER TO BE ADDED!!
  */
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background-color: #fff;
+  color: #677078;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: #677078;
+  font-weight: normal;
+  line-height: 1.25;
+  margin: 0; }
+
+h1 {
+  color: #3f4144;
+  margin: 0 0 .8em 0;
+  font-size: 1.75em;
+  font-weight: normal; }
+
+h2 {
+  color: #677078;
+  margin: 0 0 0.4em;
+  font-size: 1.5em;
+  font-weight: normal; }
+
+h3 {
+  margin: 0 0 0.4em;
+  font-size: 1.3em;
+  font-weight: bold; }
+
+h4 {
+  margin: 0 0 0.4em;
+  font-size: 1.125em; }
+
+h5 {
+  color: #677078;
+  margin: 0 0 0.4em;
+  font-size: 0.95em; }
+
+h6 {
+  margin: 0 0 0.4em;
+  font-size: 0.9em;
+  font-weight: bold; }
+
+p {
+  margin: 0 0 1.8em; }
+
+pre {
+  color: #677078; }
+
+a {
+  -webkit-transition: color 0.1s linear;
+  transition: color 0.1s linear;
+  color: #81af32;
+  cursor: pointer;
+  text-decoration: none; }
+  a:hover {
+    color: #6a9f11; }
+  a:active, a:focus {
+    color: #6a9f11;
+    outline: none; }
+  a.white {
+    color: #fff; }
+    a.white:hover {
+      text-decoration: underline; }
+
+hr {
+  border-bottom: 1px solid #ddd;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-color: #ddd;
+  margin: 1.5em 0; }
+
+img,
+picture {
+  margin: 0;
+  max-width: 100%; }
+
+blockquote {
+  border-left: 2px solid #ddd;
+  color: #8e969e;
+  margin: 1.5em 0;
+  padding-left: 0.75em; }
+
+cite {
+  color: #a9b0b5;
+  font-style: italic; }
+  cite:before {
+    content: "\2014 \00A0"; }
+
 .molecules-drawer {
   font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
   color: #677078;
@@ -641,7 +1570,7 @@
   opacity: 1;
   background-color: white;
   overflow: auto; }
-  @media only screen and (min-width: 667px) {
+  @media only screen and (min-width: 1025px) {
     .molecules-drawer--hideForDesktop {
       display: none; } }
   .molecules-drawer__overlay {
@@ -652,7 +1581,7 @@
     height: 100%;
     width: 100%;
     z-index: 999; }
-    @media only screen and (min-width: 667px) {
+    @media only screen and (min-width: 1025px) {
       .molecules-drawer__overlay--hideForDesktop {
         display: none; } }
   .molecules-drawer__header {
@@ -679,6 +1608,99 @@
  * WITH DESIGNER BEFORE ADDING. IT MUST BE WCAG APPROVED
  * IN ORDER TO BE ADDED!!
  */
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background-color: #fff;
+  color: #677078;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: #677078;
+  font-weight: normal;
+  line-height: 1.25;
+  margin: 0; }
+
+h1 {
+  color: #3f4144;
+  margin: 0 0 .8em 0;
+  font-size: 1.75em;
+  font-weight: normal; }
+
+h2 {
+  color: #677078;
+  margin: 0 0 0.4em;
+  font-size: 1.5em;
+  font-weight: normal; }
+
+h3 {
+  margin: 0 0 0.4em;
+  font-size: 1.3em;
+  font-weight: bold; }
+
+h4 {
+  margin: 0 0 0.4em;
+  font-size: 1.125em; }
+
+h5 {
+  color: #677078;
+  margin: 0 0 0.4em;
+  font-size: 0.95em; }
+
+h6 {
+  margin: 0 0 0.4em;
+  font-size: 0.9em;
+  font-weight: bold; }
+
+p {
+  margin: 0 0 1.8em; }
+
+pre {
+  color: #677078; }
+
+a {
+  -webkit-transition: color 0.1s linear;
+  transition: color 0.1s linear;
+  color: #81af32;
+  cursor: pointer;
+  text-decoration: none; }
+  a:hover {
+    color: #6a9f11; }
+  a:active, a:focus {
+    color: #6a9f11;
+    outline: none; }
+  a.white {
+    color: #fff; }
+    a.white:hover {
+      text-decoration: underline; }
+
+hr {
+  border-bottom: 1px solid #ddd;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-color: #ddd;
+  margin: 1.5em 0; }
+
+img,
+picture {
+  margin: 0;
+  max-width: 100%; }
+
+blockquote {
+  border-left: 2px solid #ddd;
+  color: #8e969e;
+  margin: 1.5em 0;
+  padding-left: 0.75em; }
+
+cite {
+  color: #a9b0b5;
+  font-style: italic; }
+  cite:before {
+    content: "\2014 \00A0"; }
+
 .molecules-dropdown {
   font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
   font-size: 1rem;
@@ -694,6 +1716,8 @@
             flex-direction: row;
     -webkit-box-pack: justify;
             justify-content: space-between;
+    -webkit-box-align: center;
+            align-items: center;
     padding: 0.5rem; }
     .molecules-dropdown__selection .fa-chevron-up {
       color: #81af32; }
@@ -722,3 +1746,258 @@
     .molecules-dropdown__item:hover, .molecules-dropdown__item--active {
       color: #81af32;
       background-color: #f7f9f9; }
+
+/*
+ * IF THE COLOR YOU NEED IS NOT IN HERE, PLEASE CONSULT
+ * WITH DESIGNER BEFORE ADDING. IT MUST BE WCAG APPROVED
+ * IN ORDER TO BE ADDED!!
+ */
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background-color: #fff;
+  color: #677078;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: #677078;
+  font-weight: normal;
+  line-height: 1.25;
+  margin: 0; }
+
+h1 {
+  color: #3f4144;
+  margin: 0 0 .8em 0;
+  font-size: 1.75em;
+  font-weight: normal; }
+
+h2 {
+  color: #677078;
+  margin: 0 0 0.4em;
+  font-size: 1.5em;
+  font-weight: normal; }
+
+h3 {
+  margin: 0 0 0.4em;
+  font-size: 1.3em;
+  font-weight: bold; }
+
+h4 {
+  margin: 0 0 0.4em;
+  font-size: 1.125em; }
+
+h5 {
+  color: #677078;
+  margin: 0 0 0.4em;
+  font-size: 0.95em; }
+
+h6 {
+  margin: 0 0 0.4em;
+  font-size: 0.9em;
+  font-weight: bold; }
+
+p {
+  margin: 0 0 1.8em; }
+
+pre {
+  color: #677078; }
+
+a {
+  -webkit-transition: color 0.1s linear;
+  transition: color 0.1s linear;
+  color: #81af32;
+  cursor: pointer;
+  text-decoration: none; }
+  a:hover {
+    color: #6a9f11; }
+  a:active, a:focus {
+    color: #6a9f11;
+    outline: none; }
+  a.white {
+    color: #fff; }
+    a.white:hover {
+      text-decoration: underline; }
+
+hr {
+  border-bottom: 1px solid #ddd;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-color: #ddd;
+  margin: 1.5em 0; }
+
+img,
+picture {
+  margin: 0;
+  max-width: 100%; }
+
+blockquote {
+  border-left: 2px solid #ddd;
+  color: #8e969e;
+  margin: 1.5em 0;
+  padding-left: 0.75em; }
+
+cite {
+  color: #a9b0b5;
+  font-style: italic; }
+  cite:before {
+    content: "\2014 \00A0"; }
+
+.molecules-modal {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-sizing: border-box; }
+  .molecules-modal.is-open {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+            justify-content: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 10001; }
+  .molecules-modal.modal__backdrop {
+    background: rgba(0, 0, 0, 0.5); }
+  .molecules-modal .modal__dialog, .molecules-modal .modal__dialog--default, .molecules-modal .modal__dialog--wide, .molecules-modal .modal__dialog--full {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 4px; }
+    .molecules-modal .modal__dialog--default {
+      width: 610px;
+      padding: 1.75em;
+      top: 10%;
+      left: 50%;
+      margin-left: calc(-305px - 1.75em);
+      margin-bottom: 2em; }
+      @media screen and (max-width: 667px) {
+        .molecules-modal .modal__dialog--default {
+          display: -webkit-box;
+          display: flex;
+          -webkit-box-pack: center;
+                  justify-content: center;
+          padding: 0em;
+          height: 90%;
+          width: 90%;
+          margin: 0 auto;
+          top: unset;
+          left: unset; }
+          .molecules-modal .modal__dialog--default .dialog-container {
+            width: 90%;
+            padding: 1em; } }
+    .molecules-modal .modal__dialog--wide {
+      width: 750px;
+      margin-left: calc(-375px - 1.75em);
+      padding: 1.75em;
+      top: 10%;
+      left: 50%;
+      margin-bottom: 2em; }
+      @media screen and (max-width: 800px) {
+        .molecules-modal .modal__dialog--wide {
+          display: -webkit-box;
+          display: flex;
+          -webkit-box-pack: center;
+                  justify-content: center;
+          padding: 0em;
+          height: 90%;
+          width: 90%;
+          margin: 0 auto;
+          top: unset;
+          left: unset; }
+          .molecules-modal .modal__dialog--wide .dialog-container {
+            width: 90%;
+            padding: 1em; } }
+    .molecules-modal .modal__dialog--full {
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-pack: center;
+              justify-content: center;
+      padding: 0em;
+      border-radius: 0px;
+      min-height: 100%;
+      width: 100%;
+      top: 0;
+      right: 0;
+      left: 0;
+      margin: 0 auto; }
+      .molecules-modal .modal__dialog--full .dialog-container {
+        width: 90%;
+        padding: 1em; }
+  .molecules-modal .modal-header {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+            justify-content: space-between;
+    margin-bottom: 1em; }
+    .molecules-modal .modal-header--centered {
+      -webkit-box-pack: center;
+              justify-content: center; }
+    .molecules-modal .modal-header h2 {
+      margin: 0; }
+  .molecules-modal .modal-header__icon-wrapper {
+    position: absolute;
+    top: 15px;
+    right: 15px; }
+    .molecules-modal .modal-header__icon-wrapper .fa {
+      font-size: 18px;
+      cursor: pointer; }
+  .molecules-modal .modal-body {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column; }
+  .molecules-modal .modal-footer {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+            justify-content: space-between;
+    margin-top: 1em; }
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+.fadeIn {
+  -webkit-animation-duration: 300ms;
+          animation-duration: 300ms;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn; }
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+
+@keyframes fadeOut {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+
+.fadeOut {
+  -webkit-animation-duration: 300ms;
+          animation-duration: 300ms;
+  -webkit-animation-name: fadeOut;
+          animation-name: fadeOut; }

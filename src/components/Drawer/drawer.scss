@@ -12,7 +12,7 @@
   overflow: auto;
 
   &--hideForDesktop {
-    @media only screen and (min-width: $mobile-breakpoint) {
+    @media only screen and (min-width: $tablet-breakpoint) {
       display: none;
     }
   }
@@ -27,7 +27,7 @@
     z-index: 999;
 
     &--hideForDesktop {
-      @media only screen and (min-width: $mobile-breakpoint) {
+      @media only screen and (min-width: $tablet-breakpoint) {
         display: none;
       }
     }

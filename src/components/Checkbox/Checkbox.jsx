@@ -9,11 +9,13 @@ class Checkbox extends PureComponent {
     disabled: PropTypes.bool,
     label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
     onChange: PropTypes.func,
+    value: PropTypes.string,
   };
   static defaultProps = {
     checked: false,
     disabled: false,
     onChange: null,
+    value: '',
   };
 
   render() {
@@ -26,6 +28,7 @@ class Checkbox extends PureComponent {
           onChange={this.props.onChange}
           data-test="checkbox"
           disabled={this.props.disabled}
+          value={this.props.value}
         />
         <label htmlFor={this.props.id}>
           <span className="molecules-checkbox__label" data-test="label">

@@ -98,6 +98,7 @@ class Modal extends Component {
 
     const dialogClasses = classNames({
       modal__dialog: true,
+      'modal__dialog--default': variant === 'default',
       'modal__dialog--wide': variant === 'wide',
       'modal__dialog--full': variant === 'full',
     });
