@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import './checkbox.scss';
 
 class Checkbox extends PureComponent {
   static propTypes = {

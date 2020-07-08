@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import './buttonGroup.scss';
 
 class ButtonGroup extends PureComponent {
   static propTypes = {

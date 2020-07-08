@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ButtonGroup from '../ButtonGroup';
-import './tabs.scss';
 
 class Tabs extends PureComponent {
   static propTypes = {

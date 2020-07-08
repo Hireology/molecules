@@ -11,8 +11,6 @@ import NestedDropdownMenuHeader from './components/NestedDropdownMenuHeader';
 import NestedDropdownMenuFilter from './components/NestedDropdownMenuFilter';
 import NestedDropdownMenuList from './components/NestedDropdownMenuList';
 
-import './nested-dropdown-menu.scss';
-
 class NestedDropdownMenu extends Component {
   static propTypes = {
     onClose: PropTypes.func.isRequired,
