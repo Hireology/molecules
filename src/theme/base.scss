@@ -8,7 +8,12 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: $base-header-font-color;
   font-weight: normal;
   line-height: $header-line-height;
@@ -17,7 +22,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   color: $hireology-darkest-gray;
-  margin: 0 0 .8em 0;
+  margin: 0 0 0.8em 0;
   font-size: $h1-font-size;
   font-weight: normal;
 }
@@ -70,7 +75,8 @@ a {
     color: $hover-link-color;
   }
 
-  &:active, &:focus {
+  &:active,
+  &:focus {
     color: $hover-link-color;
     outline: none;
   }
@@ -111,6 +117,49 @@ cite {
   font-style: italic;
 
   &:before {
-    content: "\2014 \00A0";
+    content: '\2014 \00A0';
+  }
+}
+
+// Forms
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+label {
+  display: block;
+  font-size: 0.9em;
+  margin-bottom: 0.3em;
+
+  &.optional:after {
+    content: ' (optional)';
+    color: $hireology-medium-gray;
+    margin-left: 0.25em;
+  }
+}
+
+// Inputs
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: white;
+  border-radius: $base-border-radius;
+  border: 1px solid $base-border-color;
+  font-size: 1em;
+  line-height: 1.2;
+  margin-bottom: 0.6em;
+  padding: 0.6em;
+  width: 100%;
+
+  &:focus {
+    border-color: $form-border-color-focus;
+    outline: none;
+  }
+
+  // Validation Error
+  &.error {
+    border: 1px solid $hireology-red;
   }
 }

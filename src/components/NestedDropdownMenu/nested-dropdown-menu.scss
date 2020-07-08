@@ -1,0 +1,211 @@
+@import '../../theme/index.scss';
+
+.molecules-nested-dropdown-menu {
+  box-sizing: border-box;
+  background-color: $white;
+  border-radius: $base-border-radius;
+  border: $base-border;
+  left: calc(50% - 100px);
+  margin-top: 0.5em;
+  position: absolute;
+  text-align: left;
+  width: 350px;
+  z-index: $dropdown-z-index;
+  transition: 0.3s transform ease-in-out;
+  overflow-x: hidden;
+
+  // Dropdown Arrow
+  &:before,
+  &:after {
+    bottom: 100%;
+    content: '';
+    left: 50%;
+    position: absolute;
+  }
+
+  &:before {
+    border: 8px solid transparent;
+    border-bottom-color: $hireology-border-gray;
+    margin-left: -2px;
+  }
+
+  &:after {
+    border: 7px solid transparent;
+    border-bottom-color: $hireology-green;
+    margin-left: -1px;
+  }
+
+  /*
+   * HEADER
+   */
+  &__header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100%;
+    gap: 5px;
+    grid-template-areas: '. . .';
+    overflow: hidden;
+    padding: 0.5em;
+    background-color: $hireology-green;
+    color: $white;
+    transition: height 0.1s linear;
+
+    &--with-title {
+      height: 35px;
+    }
+
+    i {
+      font-size: 1rem;
+    }
+  }
+
+  &__header-item {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    &.header-item--left {
+      justify-content: flex-start;
+    }
+    &.header-item--center {
+      justify-content: center;
+    }
+    &.header-item--right {
+      justify-content: flex-end;
+    }
+  }
+
+  /*
+   * FILTER BAR
+   */
+  &__filter-wrapper {
+    display: flex;
+    padding: 10px 1em;
+    position: relative;
+
+    i {
+      position: absolute;
+      top: 22px;
+      left: 26px;
+      color: $hireology-disabled-gray;
+    }
+
+    input {
+      padding-left: 30px;
+    }
+  }
+
+  /*
+   * CONTENT
+   */
+  &__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 220px;
+    max-height: 220px;
+  }
+
+  &__content-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    i {
+      color: $hireology-green;
+    }
+
+    &__add-new {
+      padding: 10px 1em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.1s linear;
+
+      &:hover {
+        background-color: $hireology-light-gray;
+      }
+
+      a {
+        margin-left: -10px;
+      }
+
+      i {
+        margin-right: 10px;
+      }
+    }
+
+    &__item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 1em;
+      cursor: pointer;
+      color: $hireology-text-gray;
+      transition: background-color 0.1s linear;
+
+      &:hover {
+        background-color: $hireology-light-gray;
+      }
+
+      .fa {
+        font-size: 0.85;
+      }
+    }
+  }
+
+  /*
+   * PANEL LEVELING 
+   */
+  .panels {
+    white-space: nowrap;
+    transform: translateX(0);
+    transition: 0.3s transform ease-in-out;
+
+    .panel {
+      position: absolute;
+      top: 0;
+      transition: 0.3s opacity ease-in;
+      width: 100%;
+      opacity: 0;
+      height: 100%;
+      overflow-y: scroll;
+    }
+
+    &.active-1 {
+      transform: translateX(-100%);
+    }
+    &.active-2 {
+      transform: translateX(-200%);
+    }
+    &.active-3 {
+      transform: translateX(-300%);
+    }
+    &.active-4 {
+      transform: translateX(-400%);
+    }
+    &.active-5 {
+      transform: translateX(-500%);
+    }
+
+    .active {
+      opacity: 1;
+    }
+    .panel-1 {
+      left: 100%;
+    }
+    .panel-2 {
+      left: 200%;
+    }
+    .panel-3 {
+      left: 300%;
+    }
+    .panel-4 {
+      left: 400%;
+    }
+    .panel-5 {
+      left: 500%;
+    }
+  }
+}
