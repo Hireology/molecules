@@ -1,5 +1,5 @@
-import startsWith from 'lodash.startswith';
-import pullAll from 'lodash.pullall';
+import startsWith from 'lodash/startswith';
+import pullAll from 'lodash/pullall';
 import PropTypes from 'prop-types';
 
 /**
