@@ -1,11 +1,10 @@
 /* eslint-disable consistent-return */
 import React from 'react';
 import PropTypes from 'prop-types';
-import startsWith from 'lodash.startswith';
-import debounce from 'lodash.debounce';
+import startsWith from 'lodash/startsWith';
+import debounce from 'lodash/debounce';
 import classNames from 'classnames';
 import * as util from './util';
-import './typeAheadSearch.scss';
 
 class TypeAheadSearch extends React.Component {
   static propTypes = {

@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import onClickOutside from 'react-onclickoutside';
-import './dropdown.scss';
 
 class Dropdown extends PureComponent {
   static propTypes = {

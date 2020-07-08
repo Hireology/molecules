@@ -2,7 +2,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import './tooltip.scss';
 
 class Tooltip extends PureComponent {
   static propTypes = {

@@ -5,8 +5,6 @@ import { Portal } from 'react-portal';
 import classNames from 'classnames';
 import Loader from '../Loader';
 
-import './modal.scss';
-
 class Modal extends Component {
   static propTypes = {
     // String for the "aria-labeledby" attribute of the modal
