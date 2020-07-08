@@ -40,17 +40,28 @@ class NestedDropdownMenuHeader extends PureComponent {
       <div className={headerStyles}>
         <div className="molecules-nested-dropdown-menu__header-item header-item--left">
           {showBackBtn && (
-            <Button type="primary" onClick={onBackClick}>
+            <Button
+              type="primary"
+              onClick={onBackClick}
+              data-test="ndm-back-btn"
+            >
               <i className="fa fa-chevron-left" /> Back
             </Button>
           )}
         </div>
-        <div className="molecules-nested-dropdown-menu__header-item header-item--center">
+        <div
+          className="molecules-nested-dropdown-menu__header-item header-item--center"
+          data-test="ndm-title"
+        >
           {panelTitle}
         </div>
         <div className="molecules-nested-dropdown-menu__header-item header-item--right">
           {showAddNew && (
-            <Button type="primary" onClick={onAddNewClick}>
+            <Button
+              type="primary"
+              onClick={onAddNewClick}
+              data-test="ndm-add-new-btn"
+            >
               <i className="fa fa-plus" /> Add
             </Button>
           )}

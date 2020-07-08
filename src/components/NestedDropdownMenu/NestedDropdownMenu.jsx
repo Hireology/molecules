@@ -1,5 +1,3 @@
-/* eslint-disable no-nested-ternary */
-/* eslint-disable react/require-default-props */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Manager, Reference, Popper } from 'react-popper';
@@ -7,6 +5,7 @@ import classNames from 'classnames';
 import { CSSTransitionGroup } from 'react-transition-group';
 import isFunction from 'lodash/isFunction';
 import isNil from 'lodash/isNil';
+import onClickOutside from 'react-onclickoutside';
 
 import NestedDropdownMenuHeader from './components/NestedDropdownMenuHeader';
 import NestedDropdownMenuFilter from './components/NestedDropdownMenuFilter';
@@ -16,7 +15,7 @@ import './nested-dropdown-menu.scss';
 
 class NestedDropdownMenu extends Component {
   static propTypes = {
-    onClose: PropTypes.func,
+    onClose: PropTypes.func.isRequired,
     isOpen: PropTypes.bool.isRequired,
     closeOnOutsideClick: PropTypes.bool,
     children: PropTypes.element.isRequired,
@@ -31,19 +30,22 @@ class NestedDropdownMenu extends Component {
           PropTypes.shape({
             label: PropTypes.string,
             value: PropTypes.string,
-            onClick: PropTypes.func,
+            onItemClick: PropTypes.func,
           }),
         ),
       }),
     ).isRequired,
     onItemClick: PropTypes.func.isRequired,
     onAddNewClick: PropTypes.func,
+    placement: PropTypes.string,
   };
 
   static defaultProps = {
+    onAddNewClick: undefined,
     isOpen: false,
     closeOnOutsideClick: true,
     allowAddNew: false,
+    placement: 'bottom',
   };
 
   state = {
@@ -67,12 +69,12 @@ class NestedDropdownMenu extends Component {
       const pathItems = newSelectedPath[newSelectedPath.length];
       const currentPath = selectedPath[selectedPath.length - 2];
 
-      const panelTitle =
-        pathItems && pathItems.label
-          ? pathItems.label
-          : !isNil(currentPath) && currentPath.label
-          ? currentPath.label
-          : null;
+      let panelTitle = null;
+      if (pathItems && pathItems.label) {
+        panelTitle = pathItems.label;
+      } else if (!isNil(currentPath) && currentPath.label) {
+        panelTitle = currentPath.label;
+      }
 
       this.setState({
         panelTitle,
@@ -90,11 +92,12 @@ class NestedDropdownMenu extends Component {
    *
    * @item {object} item - the entire item that was clicked/pressed
    */
-  onItemClick = (item) => {
+  handleItemClick = (item) => {
+    const { onItemClick } = this.props;
     const { selectedPath } = this.state;
 
     // If we have children and a populated, nested list
-    if (item.children) {
+    if (item.children || (!item.children && item.allowAddNew)) {
       // Add the new item(s) to the array
       const updatedPath = selectedPath;
       updatedPath.push(item);
@@ -107,13 +110,13 @@ class NestedDropdownMenu extends Component {
     }
 
     // If the item has a function set as the onClick key, it takes priority
-    else if (item.onClick && typeof item.onClick === 'function') {
-      item.onClick(item);
+    else if (item.onItemClick && typeof item.onItemClick === 'function') {
+      item.onItemClick(item);
     }
 
     // If we don't have children
     else {
-      this.props.onItemClick(item);
+      onItemClick(item);
     }
   };
 
@@ -134,10 +137,10 @@ class NestedDropdownMenu extends Component {
    * "react-onclickoutside" requires this function in order to properly
    * close the component on outside click
    */
-  handleOutsideClick() {
-    const { closeOnOutsideClick, onClose } = this.props;
+  handleClickOutside() {
+    const { closeOnOutsideClick, onClose, isOpen } = this.props;
 
-    if (closeOnOutsideClick) {
+    if (closeOnOutsideClick && isOpen) {
       onClose();
     }
   }
@@ -190,14 +193,14 @@ class NestedDropdownMenu extends Component {
     });
 
     return (
-      <div key={depth} className={classes}>
+      <div key={depth} className={classes} data-test="ndm-panel">
         <div className="molecules-nested-dropdown-menu__wrapper">
           <NestedDropdownMenuList
             path={path}
             currentPath={selectedPath[selectedPath.length - 1]}
             items={items}
             filterValue={filterValue}
-            onItemClick={this.onItemClick}
+            handleItemClick={this.handleItemClick}
             onAddNewClick={this.handleAddNewClick}
           />
         </div>
@@ -221,17 +224,23 @@ class NestedDropdownMenu extends Component {
     });
 
     return (
-      <Manager>
+      <Manager data-test="ndm">
         <div>
-          <Reference>
+          <Reference data-test="ndm-trigger">
             {({ ref }) => React.cloneElement(this.props.children, { ref })}
           </Reference>
           {isOpen && (
-            <Popper placement="bottom">
+            <Popper placement={this.props.placement}>
               {({ ref, style, placement, arrowProps }) => (
-                <div ref={ref} style={style} data-placement={placement}>
+                <div
+                  ref={ref}
+                  style={style}
+                  data-placement={placement}
+                  data-test="ndm-placement"
+                >
                   <div className="molecules-nested-dropdown-menu">
                     <NestedDropdownMenuHeader
+                      data-test="ndm-header"
                       path={selectedPath}
                       currentPath={selectedPath[selectedPath.length - 1]}
                       showBackBtn={showBackBtn}
@@ -245,6 +254,7 @@ class NestedDropdownMenu extends Component {
                         filterValue={this.state.filterValue}
                         handleFilterChange={this.handleFilterChange}
                         placeholder={`Seach ${panelTitle.toLowerCase()}`}
+                        data-test="ndm-filter"
                       />
                     )}
                     <div className={classes}>
@@ -270,4 +280,4 @@ class NestedDropdownMenu extends Component {
   }
 }
 
-export default NestedDropdownMenu;
+export default onClickOutside(NestedDropdownMenu);

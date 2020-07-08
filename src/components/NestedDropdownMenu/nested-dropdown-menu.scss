@@ -116,6 +116,26 @@
       color: $hireology-green;
     }
 
+    &__add-new {
+      padding: 10px 1em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.1s linear;
+
+      &:hover {
+        background-color: $hireology-light-gray;
+      }
+
+      a {
+        margin-left: -10px;
+      }
+
+      i {
+        margin-right: 10px;
+      }
+    }
+
     &__item {
       display: flex;
       align-items: center;
@@ -123,7 +143,7 @@
       padding: 10px 1em;
       cursor: pointer;
       color: $hireology-text-gray;
-      transition: color 0.1s linear;
+      transition: background-color 0.1s linear;
 
       &:hover {
         background-color: $hireology-light-gray;
