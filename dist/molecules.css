@@ -697,18 +697,7 @@ input {
           animation-name: fadeOut; }
 
 .molecules-nested-dropdown-menu {
-  box-sizing: border-box;
-  background-color: #fff;
-  border-radius: 4px;
-  border: 1px solid #ddd;
-  left: calc(50% - 100px);
-  margin-top: 0.5em;
-  position: absolute;
-  text-align: left;
-  width: 350px;
   z-index: 500;
-  transition: 0.3s transform ease-in-out;
-  overflow-x: hidden;
   /*
    * HEADER
    */
@@ -721,19 +710,32 @@ input {
   /*
    * PANEL LEVELING 
    */ }
-  .molecules-nested-dropdown-menu:before, .molecules-nested-dropdown-menu:after {
-    bottom: 100%;
-    content: '';
-    left: 50%;
-    position: absolute; }
-  .molecules-nested-dropdown-menu:before {
-    border: 8px solid transparent;
-    border-bottom-color: #ddd;
-    margin-left: -2px; }
-  .molecules-nested-dropdown-menu:after {
-    border: 7px solid transparent;
-    border-bottom-color: #81af32;
-    margin-left: -1px; }
+  .molecules-nested-dropdown-menu__container {
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    left: calc(50% - 175px);
+    margin-top: 0.5em;
+    position: absolute;
+    text-align: left;
+    width: 350px;
+    z-index: 500;
+    transition: 0.3s transform ease-in-out;
+    overflow-x: hidden; }
+    .molecules-nested-dropdown-menu__container:before, .molecules-nested-dropdown-menu__container:after {
+      bottom: 100%;
+      content: '';
+      left: 50%;
+      position: absolute; }
+    .molecules-nested-dropdown-menu__container:before {
+      border: 8px solid transparent;
+      border-bottom-color: #ddd;
+      margin-left: -2px; }
+    .molecules-nested-dropdown-menu__container:after {
+      border: 7px solid transparent;
+      border-bottom-color: #81af32;
+      margin-left: -1px; }
   .molecules-nested-dropdown-menu__header {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -746,7 +748,7 @@ input {
     color: #fff;
     transition: height 0.1s linear; }
     .molecules-nested-dropdown-menu__header--with-title {
-      height: 35px; }
+      min-height: 35px; }
     .molecules-nested-dropdown-menu__header i {
       font-size: 1rem; }
   .molecules-nested-dropdown-menu__header-item {
@@ -808,7 +810,7 @@ input {
       .molecules-nested-dropdown-menu__content-list__item .fa {
         font-size: 0.85; }
   .molecules-nested-dropdown-menu .panels {
-    white-space: nowrap;
+    white-space: normal;
     transform: translateX(0);
     transition: 0.3s transform ease-in-out; }
     .molecules-nested-dropdown-menu .panels .panel {

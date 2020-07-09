@@ -8070,7 +8070,7 @@ var NestedDropdownMenuHeader = /*#__PURE__*/function (_PureComponent) {
     var headerStyles = classNames('molecules-nested-dropdown-menu__header', {
       'molecules-nested-dropdown-menu__header--with-title': !isNil_1(panelTitle)
     });
-    var showAddNew = !isNil_1(currentPath.children) && currentPath.children.length !== 0 && currentPath.allowAddNew;
+    var showAddNew = !isNil_1(currentPath.children) && currentPath.children.length > 0 && currentPath.allowAddNew;
     return /*#__PURE__*/React__default.createElement("div", {
       className: headerStyles
     }, /*#__PURE__*/React__default.createElement("div", {
@@ -8192,7 +8192,7 @@ var NestedDropdownMenuList = /*#__PURE__*/function (_Component) {
         onClick: function onClick() {
           return handleItemClick(item);
         }
-      }, /*#__PURE__*/React__default.createElement("span", null, item.label), item.children && item.children.length > 0 && /*#__PURE__*/React__default.createElement("i", {
+      }, item.label, item.children && item.children.length > 0 && /*#__PURE__*/React__default.createElement("i", {
         className: "fa fa-chevron-right"
       })));
     }), items.length === 0 && currentPath.allowAddNew && /*#__PURE__*/React__default.createElement("li", {
@@ -8422,9 +8422,10 @@ var NestedDropdownMenu = /*#__PURE__*/function (_Component) {
         ref: ref,
         style: style,
         "data-placement": placement,
-        "data-test": "ndm-placement"
-      }, /*#__PURE__*/React__default.createElement("div", {
+        "data-test": "ndm-placement",
         className: "molecules-nested-dropdown-menu"
+      }, /*#__PURE__*/React__default.createElement("div", {
+        className: "molecules-nested-dropdown-menu__container"
       }, /*#__PURE__*/React__default.createElement(NestedDropdownMenuHeader, {
         "data-test": "ndm-header",
         path: selectedPath,
@@ -8461,7 +8462,7 @@ _defineProperty(NestedDropdownMenu, "propTypes", {
   children: PropTypes$1.element.isRequired,
   items: PropTypes$1.arrayOf(PropTypes$1.shape({
     label: PropTypes$1.string,
-    value: PropTypes$1.string,
+    value: PropTypes$1.oneOfType([PropTypes$1.string, PropTypes$1.number]),
     allowAddNew: PropTypes$1.bool,
     onAddNewClick: PropTypes$1.func,
     onClick: PropTypes$1.func,
