@@ -41,7 +41,7 @@ class NestedDropdownMenuList extends Component {
                 className="molecules-nested-dropdown-menu__content-list__item"
                 onClick={() => handleItemClick(item)}
               >
-                <span>{item.label}</span>
+                {item.label}
                 {item.children && item.children.length > 0 && (
                   <i className="fa fa-chevron-right" />
                 )}

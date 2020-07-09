@@ -1,36 +1,39 @@
 .molecules-nested-dropdown-menu {
-  box-sizing: border-box;
-  background-color: $white;
-  border-radius: $base-border-radius;
-  border: $base-border;
-  left: calc(50% - 100px);
-  margin-top: 0.5em;
-  position: absolute;
-  text-align: left;
-  width: 350px;
   z-index: $dropdown-z-index;
-  transition: 0.3s transform ease-in-out;
-  overflow-x: hidden;
 
-  // Dropdown Arrow
-  &:before,
-  &:after {
-    bottom: 100%;
-    content: '';
-    left: 50%;
+  &__container {
+    box-sizing: border-box;
+    background-color: $white;
+    border-radius: $base-border-radius;
+    border: $base-border;
+    left: calc(50% - 175px);
+    margin-top: 0.5em;
     position: absolute;
-  }
-
-  &:before {
-    border: 8px solid transparent;
-    border-bottom-color: $hireology-border-gray;
-    margin-left: -2px;
-  }
-
-  &:after {
-    border: 7px solid transparent;
-    border-bottom-color: $hireology-green;
-    margin-left: -1px;
+    text-align: left;
+    width: 350px;
+    z-index: $dropdown-z-index;
+    transition: 0.3s transform ease-in-out;
+    overflow-x: hidden;
+      // Dropdown Arrow
+    &:before,
+    &:after {
+      bottom: 100%;
+      content: '';
+      left: 50%;
+      position: absolute;
+    }
+  
+    &:before {
+      border: 8px solid transparent;
+      border-bottom-color: $hireology-border-gray;
+      margin-left: -2px;
+    }
+  
+    &:after {
+      border: 7px solid transparent;
+      border-bottom-color: $hireology-green;
+      margin-left: -1px;
+    }
   }
 
   /*
@@ -49,7 +52,7 @@
     transition: height 0.1s linear;
 
     &--with-title {
-      height: 35px;
+      min-height: 35px;
     }
 
     i {
@@ -157,7 +160,7 @@
    * PANEL LEVELING 
    */
   .panels {
-    white-space: nowrap;
+    white-space: normal;
     transform: translateX(0);
     transition: 0.3s transform ease-in-out;
 

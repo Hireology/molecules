@@ -33,7 +33,7 @@ class NestedDropdownMenuHeader extends PureComponent {
 
     const showAddNew =
       !isNil(currentPath.children) &&
-      currentPath.children.length !== 0 &&
+      currentPath.children.length > 0 &&
       currentPath.allowAddNew;
 
     return (
