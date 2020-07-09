@@ -27,11 +27,13 @@ const CARS = [
       { label: 'Civic', value: 'civic' },
       { label: 'Pilot', value: 'pilot' },
       { label: 'Ridgeline', value: 'ridgeline' },
+      { label: 'Super Cool and Super Long Text Like Lorem Ipsum but Different huh!?', value: 'lol' },
     ],
   },
   {
     label: 'Toyota',
     value: 'toyota',
+    allowAddNew: true,
     children: [
       { label: 'Camry', value: 'camry' },
       { label: 'Tacoma', value: 'tacoma' },
@@ -41,7 +43,6 @@ const CARS = [
   {
     label: 'Volkswagen',
     value: 'volkswagen',
-    allowAddNew: true,
     children: [
       { label: 'Beetle', value: 'beetle' },
       { label: 'Golf', value: 'golf' },
@@ -145,7 +146,7 @@ class BasicNestedDropdown extends React.Component {
 
   render() {
     return (
-      <div style={styles.wrapper}>
+      <div style={styles.wrapper, { textAlign: 'center' }}>
         <div>
           <NestedDropdownMenu
             isOpen={this.state.isOpen}

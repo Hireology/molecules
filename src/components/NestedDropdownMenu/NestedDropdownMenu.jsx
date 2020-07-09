@@ -20,7 +20,7 @@ class NestedDropdownMenu extends Component {
     items: PropTypes.arrayOf(
       PropTypes.shape({
         label: PropTypes.string,
-        value: PropTypes.string,
+        value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
         allowAddNew: PropTypes.bool,
         onAddNewClick: PropTypes.func,
         onClick: PropTypes.func,
@@ -235,8 +235,9 @@ class NestedDropdownMenu extends Component {
                   style={style}
                   data-placement={placement}
                   data-test="ndm-placement"
+                  className="molecules-nested-dropdown-menu"
                 >
-                  <div className="molecules-nested-dropdown-menu">
+                  <div className="molecules-nested-dropdown-menu__container">
                     <NestedDropdownMenuHeader
                       data-test="ndm-header"
                       path={selectedPath}
