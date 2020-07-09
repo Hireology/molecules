@@ -16,4 +16,4 @@ export { default as Modal } from './Modal/Modal';
 export { default as ModalBody } from './Modal/ModalBody';
 export { default as ModalHeader } from './Modal/ModalHeader';
 export { default as ModalFooter } from './Modal/ModalFooter';
-export { default as NestedDropdownMenu } from './Modal/NestedDropdownMenu';
+export { default as NestedDropdownMenu } from './NestedDropdownMenu';
