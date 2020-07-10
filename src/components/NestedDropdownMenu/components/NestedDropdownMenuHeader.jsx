@@ -11,6 +11,7 @@ class NestedDropdownMenuHeader extends PureComponent {
     onBackClick: PropTypes.func.isRequired,
     currentPath: PropTypes.shape({}),
     onAddNewClick: PropTypes.func.isRequired,
+    addNewHeaderText: PropTypes.string.isRequired,
   };
 
   static defaultProps = {
@@ -25,6 +26,7 @@ class NestedDropdownMenuHeader extends PureComponent {
       panelTitle,
       currentPath,
       onAddNewClick,
+      addNewHeaderText,
     } = this.props;
 
     const headerStyles = classNames('molecules-nested-dropdown-menu__header', {
@@ -62,7 +64,7 @@ class NestedDropdownMenuHeader extends PureComponent {
               onClick={onAddNewClick}
               data-test="ndm-add-new-btn"
             >
-              <i className="fa fa-plus" /> Add
+              <i className="fa fa-plus" /> {addNewHeaderText}
             </Button>
           )}
         </div>
