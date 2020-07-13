@@ -17,6 +17,7 @@ class NestedDropdownMenuFilter extends PureComponent {
       <div className="molecules-nested-dropdown-menu__filter-wrapper">
         <i className="fa fa-search" />
         <input
+          data-test="ndm-search-input"
           value={filterValue}
           onChange={handleFilterChange}
           placeholder={placeholder}
