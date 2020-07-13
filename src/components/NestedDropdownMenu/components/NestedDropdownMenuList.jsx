@@ -38,6 +38,7 @@ class NestedDropdownMenuList extends Component {
                 id={item.value}
                 role="button"
                 tabIndex={0}
+                data-test="ndm-list-item"
                 className="molecules-nested-dropdown-menu__content-list__item"
                 onClick={() => handleItemClick(item)}
               >

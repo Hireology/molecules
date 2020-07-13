@@ -24,18 +24,13 @@ class NestedDropdownMenu extends Component {
         allowAddNew: PropTypes.bool,
         onAddNewClick: PropTypes.func,
         onClick: PropTypes.func,
-        children: PropTypes.arrayOf(
-          PropTypes.shape({
-            label: PropTypes.string,
-            value: PropTypes.string,
-            onItemClick: PropTypes.func,
-          }),
-        ),
+        children: PropTypes.arrayOf(PropTypes.shape({})),
       }),
     ).isRequired,
     onItemClick: PropTypes.func.isRequired,
     onAddNewClick: PropTypes.func,
     placement: PropTypes.string,
+    addNewHeaderText: PropTypes.string,
   };
 
   static defaultProps = {
@@ -44,6 +39,7 @@ class NestedDropdownMenu extends Component {
     closeOnOutsideClick: true,
     allowAddNew: false,
     placement: 'bottom',
+    addNewHeaderText: 'New',
   };
 
   state = {
@@ -207,7 +203,7 @@ class NestedDropdownMenu extends Component {
   }
 
   render() {
-    const { isOpen } = this.props;
+    const { isOpen, addNewHeaderText } = this.props;
     const { selectedPath, showBackBtn, panelTitle } = this.state;
 
     const selectedPanel = `active-${selectedPath.length}`;
@@ -246,6 +242,7 @@ class NestedDropdownMenu extends Component {
                       onBackClick={this.onBackClick}
                       panelTitle={panelTitle}
                       onAddNewClick={this.handleAddNewClick}
+                      addNewHeaderText={addNewHeaderText}
                     />
 
                     {panelTitle && (
