@@ -8072,7 +8072,8 @@
           showBackBtn = _this$props.showBackBtn,
           panelTitle = _this$props.panelTitle,
           currentPath = _this$props.currentPath,
-          onAddNewClick = _this$props.onAddNewClick;
+          onAddNewClick = _this$props.onAddNewClick,
+          addNewHeaderText = _this$props.addNewHeaderText;
       var headerStyles = classNames('molecules-nested-dropdown-menu__header', {
         'molecules-nested-dropdown-menu__header--with-title': !isNil_1(panelTitle)
       });
@@ -8098,7 +8099,7 @@
         "data-test": "ndm-add-new-btn"
       }, /*#__PURE__*/React__default.createElement("i", {
         className: "fa fa-plus"
-      }), " Add")));
+      }), " ", addNewHeaderText)));
     };
 
     return NestedDropdownMenuHeader;
@@ -8109,7 +8110,8 @@
     panelTitle: PropTypes$1.string,
     onBackClick: PropTypes$1.func.isRequired,
     currentPath: PropTypes$1.shape({}),
-    onAddNewClick: PropTypes$1.func.isRequired
+    onAddNewClick: PropTypes$1.func.isRequired,
+    addNewHeaderText: PropTypes$1.string.isRequired
   });
 
   _defineProperty(NestedDropdownMenuHeader, "defaultProps", {
@@ -8136,6 +8138,7 @@
       }, /*#__PURE__*/React__default.createElement("i", {
         className: "fa fa-search"
       }), /*#__PURE__*/React__default.createElement("input", {
+        "data-test": "ndm-search-input",
         value: filterValue,
         onChange: handleFilterChange,
         placeholder: placeholder
@@ -8194,6 +8197,7 @@
           id: item.value,
           role: "button",
           tabIndex: 0,
+          "data-test": "ndm-list-item",
           className: "molecules-nested-dropdown-menu__content-list__item",
           onClick: function onClick() {
             return handleItemClick(item);
@@ -8270,8 +8274,25 @@
         }
       });
 
+      _defineProperty(_assertThisInitialized(_this), "handleOnClose", function () {
+        var _this$props = _this.props,
+            isOpen = _this$props.isOpen,
+            onClose = _this$props.onClose,
+            resetOnClose = _this$props.resetOnClose;
+
+        if (isOpen) {
+          if (resetOnClose) {
+            _this.resetState();
+          }
+
+          onClose();
+        }
+      });
+
       _defineProperty(_assertThisInitialized(_this), "handleItemClick", function (item) {
-        var onItemClick = _this.props.onItemClick;
+        var _this$props2 = _this.props,
+            onItemClick = _this$props2.onItemClick,
+            resetOnClick = _this$props2.resetOnClick;
         var selectedPath = _this.state.selectedPath; // If we have children and a populated, nested list
 
         if (item.children || !item.children && item.allowAddNew) {
@@ -8287,9 +8308,17 @@
         } // If the item has a function set as the onClick key, it takes priority
         else if (item.onItemClick && typeof item.onItemClick === 'function') {
             item.onItemClick(item);
+
+            if (resetOnClick) {
+              _this.resetState();
+            }
           } // If we don't have children
           else {
               onItemClick(item);
+
+              if (resetOnClick) {
+                _this.resetState();
+              }
             }
       });
 
@@ -8325,18 +8354,24 @@
 
     var _proto = NestedDropdownMenu.prototype;
 
+    _proto.resetState = function resetState() {
+      this.setState({
+        selectedPath: [],
+        showBackBtn: false,
+        panelTitle: null,
+        filterValue: ''
+      });
+    };
+
     /**
      * "react-onclickoutside" requires this function in order to properly
      * close the component on outside click
      */
     _proto.handleClickOutside = function handleClickOutside() {
-      var _this$props = this.props,
-          closeOnOutsideClick = _this$props.closeOnOutsideClick,
-          onClose = _this$props.onClose,
-          isOpen = _this$props.isOpen;
+      var closeOnOutsideClick = this.props.closeOnOutsideClick;
 
-      if (closeOnOutsideClick && isOpen) {
-        onClose();
+      if (closeOnOutsideClick) {
+        this.handleOnClose();
       }
     }
     /**
@@ -8395,7 +8430,9 @@
     _proto.render = function render() {
       var _this2 = this;
 
-      var isOpen = this.props.isOpen;
+      var _this$props3 = this.props,
+          isOpen = _this$props3.isOpen,
+          addNewHeaderText = _this$props3.addNewHeaderText;
       var _this$state2 = this.state,
           selectedPath = _this$state2.selectedPath,
           showBackBtn = _this$state2.showBackBtn,
@@ -8439,7 +8476,8 @@
           showBackBtn: showBackBtn,
           onBackClick: _this2.onBackClick,
           panelTitle: panelTitle,
-          onAddNewClick: _this2.handleAddNewClick
+          onAddNewClick: _this2.handleAddNewClick,
+          addNewHeaderText: addNewHeaderText
         }), panelTitle && /*#__PURE__*/React__default.createElement(NestedDropdownMenuFilter, {
           filterValue: _this2.state.filterValue,
           handleFilterChange: _this2.handleFilterChange,
@@ -8472,15 +8510,14 @@
       allowAddNew: PropTypes$1.bool,
       onAddNewClick: PropTypes$1.func,
       onClick: PropTypes$1.func,
-      children: PropTypes$1.arrayOf(PropTypes$1.shape({
-        label: PropTypes$1.string,
-        value: PropTypes$1.string,
-        onItemClick: PropTypes$1.func
-      }))
+      children: PropTypes$1.arrayOf(PropTypes$1.shape({}))
     })).isRequired,
     onItemClick: PropTypes$1.func.isRequired,
     onAddNewClick: PropTypes$1.func,
-    placement: PropTypes$1.string
+    placement: PropTypes$1.string,
+    addNewHeaderText: PropTypes$1.string,
+    resetOnClose: PropTypes$1.bool,
+    resetOnClick: PropTypes$1.bool
   });
 
   _defineProperty(NestedDropdownMenu, "defaultProps", {
@@ -8488,7 +8525,10 @@
     isOpen: false,
     closeOnOutsideClick: true,
     allowAddNew: false,
-    placement: 'bottom'
+    placement: 'bottom',
+    addNewHeaderText: 'New',
+    resetOnClose: true,
+    resetOnClick: true
   });
 
   var NestedDropdownMenu$1 = onClickOutsideHOC(NestedDropdownMenu);
