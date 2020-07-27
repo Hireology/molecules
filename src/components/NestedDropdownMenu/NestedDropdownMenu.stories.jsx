@@ -27,7 +27,11 @@ const CARS = [
       { label: 'Civic', value: 'civic' },
       { label: 'Pilot', value: 'pilot' },
       { label: 'Ridgeline', value: 'ridgeline' },
-      { label: 'Super Cool and Super Long Text Like Lorem Ipsum but Different huh!?', value: 'lol' },
+      {
+        label:
+          'Super Cool and Super Long Text Like Lorem Ipsum but Different huh!?',
+        value: 'lol',
+      },
     ],
   },
   {
@@ -146,7 +150,7 @@ class BasicNestedDropdown extends React.Component {
 
   render() {
     return (
-      <div style={styles.wrapper, { textAlign: 'center' }}>
+      <div style={(styles.wrapper, { textAlign: 'center' })}>
         <div>
           <NestedDropdownMenu
             isOpen={this.state.isOpen}
