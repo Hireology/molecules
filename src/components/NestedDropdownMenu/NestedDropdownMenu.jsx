@@ -31,6 +31,8 @@ class NestedDropdownMenu extends Component {
     onAddNewClick: PropTypes.func,
     placement: PropTypes.string,
     addNewHeaderText: PropTypes.string,
+    resetOnClose: PropTypes.bool,
+    resetOnClick: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -40,6 +42,8 @@ class NestedDropdownMenu extends Component {
     allowAddNew: false,
     placement: 'bottom',
     addNewHeaderText: 'New',
+    resetOnClose: true,
+    resetOnClick: true,
   };
 
   state = {
@@ -78,6 +82,26 @@ class NestedDropdownMenu extends Component {
     }
   };
 
+  resetState() {
+    this.setState({
+      selectedPath: [],
+      showBackBtn: false,
+      panelTitle: null,
+      filterValue: '',
+    });
+  }
+
+  handleOnClose = () => {
+    const { isOpen, onClose, resetOnClose } = this.props;
+
+    if (isOpen) {
+      if (resetOnClose) {
+        this.resetState();
+      }
+      onClose();
+    }
+  };
+
   /**
    * Handles clicking on any item row in the dropdown.
    *
@@ -87,7 +111,7 @@ class NestedDropdownMenu extends Component {
    * @item {object} item - the entire item that was clicked/pressed
    */
   handleItemClick = (item) => {
-    const { onItemClick } = this.props;
+    const { onItemClick, resetOnClick } = this.props;
     const { selectedPath } = this.state;
 
     // If we have children and a populated, nested list
@@ -106,11 +130,19 @@ class NestedDropdownMenu extends Component {
     // If the item has a function set as the onClick key, it takes priority
     else if (item.onItemClick && typeof item.onItemClick === 'function') {
       item.onItemClick(item);
+
+      if (resetOnClick) {
+        this.resetState();
+      }
     }
 
     // If we don't have children
     else {
       onItemClick(item);
+
+      if (resetOnClick) {
+        this.resetState();
+      }
     }
   };
 
@@ -132,10 +164,10 @@ class NestedDropdownMenu extends Component {
    * close the component on outside click
    */
   handleClickOutside() {
-    const { closeOnOutsideClick, onClose, isOpen } = this.props;
+    const { closeOnOutsideClick } = this.props;
 
-    if (closeOnOutsideClick && isOpen) {
-      onClose();
+    if (closeOnOutsideClick) {
+      this.handleOnClose();
     }
   }
 
