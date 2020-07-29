@@ -14,7 +14,7 @@
     z-index: $dropdown-z-index;
     transition: 0.3s transform ease-in-out;
     overflow-x: hidden;
-      // Dropdown Arrow
+    // Dropdown Arrow
     &:before,
     &:after {
       bottom: 100%;
@@ -22,13 +22,13 @@
       left: 50%;
       position: absolute;
     }
-  
+
     &:before {
       border: 8px solid transparent;
       border-bottom-color: $hireology-border-gray;
       margin-left: -2px;
     }
-  
+
     &:after {
       border: 7px solid transparent;
       border-bottom-color: $hireology-green;
@@ -94,6 +94,7 @@
 
     input {
       padding-left: 30px;
+      width: 100%;
     }
   }
 

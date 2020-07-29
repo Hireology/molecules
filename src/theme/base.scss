@@ -142,8 +142,6 @@ label {
 
 // Inputs
 input {
-  -webkit-appearance: none;
-  -moz-appearance: none;
   background-color: white;
   border-radius: $base-border-radius;
   border: 1px solid $base-border-color;
@@ -151,7 +149,6 @@ input {
   line-height: 1.2;
   margin-bottom: 0.6em;
   padding: 0.6em;
-  width: 100%;
 
   &:focus {
     border-color: $form-border-color-focus;
