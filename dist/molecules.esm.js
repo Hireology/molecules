@@ -32,7 +32,9 @@ function _assertThisInitialized(self) {
   return self;
 }
 
-var Button = /*#__PURE__*/function (_PureComponent) {
+var Button =
+/*#__PURE__*/
+function (_PureComponent) {
   _inheritsLoose(Button, _PureComponent);
 
   function Button() {
@@ -45,7 +47,7 @@ var Button = /*#__PURE__*/function (_PureComponent) {
     var _classNames;
 
     var classes = classNames(this.props.additionalClasses, 'molecules-button btn', "molecules-button--" + this.props.size, (_classNames = {}, _classNames["molecules-button--" + this.props.type] = !this.props.disabled && this.props.type, _classNames));
-    return /*#__PURE__*/React__default.createElement("button", {
+    return React__default.createElement("button", {
       id: this.props.id,
       disabled: this.props.disabled,
       onClick: this.props.onClick,
@@ -86,7 +88,9 @@ _defineProperty(Button, "propTypes", {
   type: PropTypes$1.oneOf(['danger', 'gray', 'outline', 'outlineWhite', 'primary', 'secondary', 'unselected'])
 });
 
-var ButtonGroup = /*#__PURE__*/function (_PureComponent) {
+var ButtonGroup =
+/*#__PURE__*/
+function (_PureComponent) {
   _inheritsLoose(ButtonGroup, _PureComponent);
 
   function ButtonGroup() {
@@ -99,7 +103,7 @@ var ButtonGroup = /*#__PURE__*/function (_PureComponent) {
     var _classNames;
 
     var classes = classNames('molecules-button-group', this.props.extraClassNames, (_classNames = {}, _classNames["molecules-button-group--" + this.props.align] = this.props.align, _classNames["molecules-button-group--" + this.props.size] = this.props.size, _classNames));
-    return /*#__PURE__*/React__default.createElement("div", {
+    return React__default.createElement("div", {
       className: classes,
       "data-test": "button-group"
     }, this.props.children);
@@ -121,7 +125,9 @@ _defineProperty(ButtonGroup, "defaultProps", {
   extraClassNames: ''
 });
 
-var Loader = /*#__PURE__*/function (_PureComponent) {
+var Loader =
+/*#__PURE__*/
+function (_PureComponent) {
   _inheritsLoose(Loader, _PureComponent);
 
   function Loader() {
@@ -134,12 +140,12 @@ var Loader = /*#__PURE__*/function (_PureComponent) {
     var classes = classNames('molecules-loader', {
       'molecules-loader--inline': this.props.inline
     });
-    return /*#__PURE__*/React__default.createElement("div", {
+    return React__default.createElement("div", {
       className: classes,
       "data-test": "loader"
-    }, /*#__PURE__*/React__default.createElement("div", {
+    }, React__default.createElement("div", {
       className: "molecules-loader__dots-container"
-    }, /*#__PURE__*/React__default.createElement("div", {
+    }, React__default.createElement("div", {
       className: "molecules-loader__dots",
       "data-test": "message"
     }, this.props.message)));
@@ -158,7 +164,9 @@ _defineProperty(Loader, "defaultProps", {
   message: 'Loading...'
 });
 
-var Checkbox = /*#__PURE__*/function (_PureComponent) {
+var Checkbox =
+/*#__PURE__*/
+function (_PureComponent) {
   _inheritsLoose(Checkbox, _PureComponent);
 
   function Checkbox() {
@@ -168,9 +176,9 @@ var Checkbox = /*#__PURE__*/function (_PureComponent) {
   var _proto = Checkbox.prototype;
 
   _proto.render = function render() {
-    return /*#__PURE__*/React__default.createElement("div", {
+    return React__default.createElement("div", {
       className: "molecules-checkbox"
-    }, /*#__PURE__*/React__default.createElement("input", {
+    }, React__default.createElement("input", {
       type: "checkbox",
       id: this.props.id,
       checked: this.props.checked,
@@ -178,9 +186,9 @@ var Checkbox = /*#__PURE__*/function (_PureComponent) {
       "data-test": "checkbox",
       disabled: this.props.disabled,
       value: this.props.value
-    }), /*#__PURE__*/React__default.createElement("label", {
+    }), React__default.createElement("label", {
       htmlFor: this.props.id
-    }, /*#__PURE__*/React__default.createElement("span", {
+    }, React__default.createElement("span", {
       className: "molecules-checkbox__label",
       "data-test": "label"
     }, this.props.label)));
@@ -205,7 +213,9 @@ _defineProperty(Checkbox, "defaultProps", {
   value: ''
 });
 
-var RadioButton = /*#__PURE__*/function (_PureComponent) {
+var RadioButton =
+/*#__PURE__*/
+function (_PureComponent) {
   _inheritsLoose(RadioButton, _PureComponent);
 
   function RadioButton() {
@@ -219,10 +229,10 @@ var RadioButton = /*#__PURE__*/function (_PureComponent) {
       'molecules-radio-button--inline': this.props.inline,
       'molecules-radio-button--error': this.props.error
     });
-    return /*#__PURE__*/React__default.createElement("div", {
+    return React__default.createElement("div", {
       className: classes,
       "data-test": "wrapper"
-    }, /*#__PURE__*/React__default.createElement("input", {
+    }, React__default.createElement("input", {
       id: this.props.id,
       checked: this.props.checked,
       className: "molecules-radio-button__input",
@@ -233,11 +243,11 @@ var RadioButton = /*#__PURE__*/function (_PureComponent) {
       value: this.props.value,
       tabIndex: 0,
       "data-test": "radio-button"
-    }), /*#__PURE__*/React__default.createElement("label", {
+    }), React__default.createElement("label", {
       className: "molecules-radio-button__label",
       htmlFor: this.props.id,
       "data-test": "label"
-    }, /*#__PURE__*/React__default.createElement("div", {
+    }, React__default.createElement("div", {
       className: "molecules-radio-button__indicator"
     }), this.props.label));
   };
@@ -266,7 +276,9 @@ _defineProperty(RadioButton, "defaultProps", {
   name: 'radioButtonGroup'
 });
 
-var Link = /*#__PURE__*/function (_PureComponent) {
+var Link =
+/*#__PURE__*/
+function (_PureComponent) {
   _inheritsLoose(Link, _PureComponent);
 
   function Link() {
@@ -279,7 +291,7 @@ var Link = /*#__PURE__*/function (_PureComponent) {
     var _classNames;
 
     var classes = classNames('molecules-link', this.props.additionalClasses, (_classNames = {}, _classNames["molecules-link--" + this.props.type] = this.props.type, _classNames));
-    return /*#__PURE__*/React__default.createElement("button", {
+    return React__default.createElement("button", {
       className: classes,
       id: this.props.id,
       disabled: this.props.disabled,
@@ -356,9 +368,9 @@ var root = _freeGlobal || freeSelf || Function('return this')();
 var _root = root;
 
 /** Built-in value references. */
-var Symbol$1 = _root.Symbol;
+var Symbol = _root.Symbol;
 
-var _Symbol = Symbol$1;
+var _Symbol = Symbol;
 
 /**
  * A specialized version of `_.map` for arrays without support for iteratee
@@ -1403,7 +1415,9 @@ var customSuggestionsValidator = function customSuggestionsValidator(props, prop
   }
 };
 
-var TypeAheadSearch = /*#__PURE__*/function (_React$Component) {
+var TypeAheadSearch =
+/*#__PURE__*/
+function (_React$Component) {
   _inheritsLoose(TypeAheadSearch, _React$Component);
 
   function TypeAheadSearch() {
@@ -1486,13 +1500,13 @@ var TypeAheadSearch = /*#__PURE__*/function (_React$Component) {
           var preBoldText = suggestion.split(' ').slice(0, wordIteration).join(' ');
           var boldText = suggestion.split(' ').slice(wordIteration).join(' ').slice(0, _this.state.filter.length);
           var postBoldText = suggestion.split(' ').slice(wordIteration).join(' ').slice(_this.state.filter.length);
-          return /*#__PURE__*/React__default.createElement("span", {
+          return React__default.createElement("span", {
             "data-test": "suggestion-text"
-          }, preBoldText !== '' && preBoldText + " ", /*#__PURE__*/React__default.createElement("b", null, boldText), postBoldText !== '' && postBoldText);
+          }, preBoldText !== '' && preBoldText + " ", React__default.createElement("b", null, boldText), postBoldText !== '' && postBoldText);
         }
       }
 
-      return /*#__PURE__*/React__default.createElement("span", {
+      return React__default.createElement("span", {
         "data-test": "suggestion-text"
       }, suggestion);
     });
@@ -1539,9 +1553,9 @@ var TypeAheadSearch = /*#__PURE__*/function (_React$Component) {
     var _this2 = this;
 
     var suggestions = this.props.useCustomFilter ? this.props.suggestions : this.state.suggestions;
-    return /*#__PURE__*/React__default.createElement("div", {
+    return React__default.createElement("div", {
       className: "molecules-type-ahead-search"
-    }, /*#__PURE__*/React__default.createElement("i", {
+    }, React__default.createElement("i", {
       role: "button",
       tabIndex: 0,
       onClick: function onClick() {
@@ -1550,7 +1564,7 @@ var TypeAheadSearch = /*#__PURE__*/function (_React$Component) {
       className: "fa fa-search fa-fw molecules-type-ahead-search__magnifying-glass",
       "data-test": "magnifying-glass",
       "aria-label": "search"
-    }), /*#__PURE__*/React__default.createElement("input", {
+    }), React__default.createElement("input", {
       type: "text",
       className: "molecules-type-ahead-search__search",
       "data-test": "search-input",
@@ -1560,11 +1574,11 @@ var TypeAheadSearch = /*#__PURE__*/function (_React$Component) {
       onKeyDown: this.handleKeyDown,
       "aria-label": "filter",
       "aria-describedby": this.props.placeholder
-    }), suggestions.length > 0 && this.state.filter.length > 1 && /*#__PURE__*/React__default.createElement("div", {
+    }), suggestions.length > 0 && this.state.filter.length > 1 && React__default.createElement("div", {
       className: "molecules-type-ahead-search__type-ahead",
       "data-test": "type-ahead-dropdown"
     }, suggestions.map(function (suggestion, index) {
-      return /*#__PURE__*/React__default.createElement("p", {
+      return React__default.createElement("p", {
         key: suggestion.value + "-" + suggestion.id,
         role: "presentation",
         onClick: function onClick() {
@@ -1606,7 +1620,9 @@ _defineProperty(TypeAheadSearch, "defaultProps", {
   }
 });
 
-var Tabs = /*#__PURE__*/function (_PureComponent) {
+var Tabs =
+/*#__PURE__*/
+function (_PureComponent) {
   _inheritsLoose(Tabs, _PureComponent);
 
   function Tabs() {
@@ -1618,13 +1634,13 @@ var Tabs = /*#__PURE__*/function (_PureComponent) {
   _proto.render = function render() {
     var _this = this;
 
-    return /*#__PURE__*/React__default.createElement(ButtonGroup, null, this.props.tabs.map(function (tab, index) {
+    return React__default.createElement(ButtonGroup, null, this.props.tabs.map(function (tab, index) {
       var className = classNames('molecules-tab', {
         'molecules-tab--primary': _this.props.type === 'primary',
         'molecules-tab--secondary': _this.props.type === 'secondary',
         'molecules-tab--active': _this.props.activeIndex === index
       });
-      return /*#__PURE__*/React__default.createElement("button", {
+      return React__default.createElement("button", {
         className: className,
         onClick: function onClick() {
           return _this.props.onClick(index);
@@ -1650,7 +1666,9 @@ _defineProperty(Tabs, "defaultProps", {
   type: 'primary'
 });
 
-var Tooltip = /*#__PURE__*/function (_PureComponent) {
+var Tooltip =
+/*#__PURE__*/
+function (_PureComponent) {
   _inheritsLoose(Tooltip, _PureComponent);
 
   function Tooltip() {
@@ -1688,15 +1706,15 @@ var Tooltip = /*#__PURE__*/function (_PureComponent) {
     var tooltipStyle = this.useWidthValue() ? {
       width: this.props.width
     } : null;
-    return /*#__PURE__*/React__default.createElement("div", {
+    return React__default.createElement("div", {
       className: tooltipWrapperStyles
-    }, /*#__PURE__*/React__default.createElement("span", {
+    }, React__default.createElement("span", {
       className: tooltipHoverStyle,
       tabIndex: this.props.hover ? 0 : -1
-    }, this.props.children || /*#__PURE__*/React__default.createElement("i", {
+    }, this.props.children || React__default.createElement("i", {
       className: "fa fa-fw fa-question-circle molecules-tooltip-wrapper__icon",
       "data-test": "tooltip-icon"
-    })), !this.props.hide && /*#__PURE__*/React__default.createElement("div", {
+    })), !this.props.hide && React__default.createElement("div", {
       className: tooltipClasses,
       style: tooltipStyle,
       "data-test": "tooltip"
@@ -1733,7 +1751,9 @@ _defineProperty(Tooltip, "defaultProps", {
   width: 'medium'
 });
 
-var CandidateSearchFilter = /*#__PURE__*/function (_PureComponent) {
+var CandidateSearchFilter =
+/*#__PURE__*/
+function (_PureComponent) {
   _inheritsLoose(CandidateSearchFilter, _PureComponent);
 
   function CandidateSearchFilter() {
@@ -1777,26 +1797,26 @@ var CandidateSearchFilter = /*#__PURE__*/function (_PureComponent) {
       'fa-minus-square': this.state.expanded,
       'fa-plus-square': !this.state.expanded
     });
-    return /*#__PURE__*/React__default.createElement("div", {
+    return React__default.createElement("div", {
       className: "collapsable-box"
-    }, /*#__PURE__*/React__default.createElement("div", {
+    }, React__default.createElement("div", {
       className: headerClasses,
       "data-test": "collapsable-box-header"
-    }, this.props.title, /*#__PURE__*/React__default.createElement("div", {
+    }, this.props.title, React__default.createElement("div", {
       role: "button",
       tabIndex: 0,
       onClick: this.toggleExpanded,
       onKeyDown: this.handleKeyDown,
       "data-test": "collapsable-box-icon-button"
-    }, /*#__PURE__*/React__default.createElement("i", {
+    }, React__default.createElement("i", {
       className: iconClasses,
       "data-test": "collapsable-box-icon"
-    }))), this.state.expanded && /*#__PURE__*/React__default.createElement("div", {
+    }))), this.state.expanded && React__default.createElement("div", {
       className: "collapsable-box__body",
       "data-test": "collapsable-box-body"
-    }, this.props.nonScrollableContent && /*#__PURE__*/React__default.createElement("span", {
+    }, this.props.nonScrollableContent && React__default.createElement("span", {
       "data-test": "collapsable-box-non-scrollable-content"
-    }, this.props.nonScrollableContent), /*#__PURE__*/React__default.createElement("div", {
+    }, this.props.nonScrollableContent), React__default.createElement("div", {
       className: scrollableClass,
       "data-test": "collapsable-box-children-container"
     }, this.props.children)));
@@ -1819,7 +1839,9 @@ _defineProperty(CandidateSearchFilter, "defaultProps", {
   scrollable: false
 });
 
-var Drawer = /*#__PURE__*/function (_PureComponent) {
+var Drawer =
+/*#__PURE__*/
+function (_PureComponent) {
   _inheritsLoose(Drawer, _PureComponent);
 
   function Drawer() {
@@ -1835,24 +1857,24 @@ var Drawer = /*#__PURE__*/function (_PureComponent) {
     var drawerClasses = classNames('molecules-drawer', {
       'molecules-drawer--hideForDesktop': this.props.hideForDesktop
     });
-    return this.props.isOpen ? /*#__PURE__*/React__default.createElement("div", {
+    return this.props.isOpen ? React__default.createElement("div", {
       className: overlayClasses,
       "data-test": "drawer-overlay"
-    }, /*#__PURE__*/React__default.createElement("div", {
+    }, React__default.createElement("div", {
       className: drawerClasses,
       "data-test": "drawer"
-    }, /*#__PURE__*/React__default.createElement("div", {
+    }, React__default.createElement("div", {
       className: "molecules-drawer__header"
-    }, /*#__PURE__*/React__default.createElement("i", {
+    }, React__default.createElement("i", {
       role: "button",
       tabIndex: "0",
       className: "fa fa-close drawer__exit-icon",
       onClick: this.props.onExitClick,
       "data-test": "exit-icon"
-    }), /*#__PURE__*/React__default.createElement("div", {
+    }), React__default.createElement("div", {
       className: "molecules-drawer__title",
       "data-test": "title"
-    }, this.props.title)), /*#__PURE__*/React__default.createElement("div", {
+    }, this.props.title)), React__default.createElement("div", {
       className: "molecules-drawer__body"
     }, this.props.children))) : null;
   };
@@ -2206,7 +2228,9 @@ function onClickOutsideHOC(WrappedComponent, config) {
   }, _temp;
 }
 
-var Dropdown = /*#__PURE__*/function (_PureComponent) {
+var Dropdown =
+/*#__PURE__*/
+function (_PureComponent) {
   _inheritsLoose(Dropdown, _PureComponent);
 
   function Dropdown() {
@@ -2273,9 +2297,9 @@ var Dropdown = /*#__PURE__*/function (_PureComponent) {
   _proto.render = function render() {
     var _this2 = this;
 
-    return /*#__PURE__*/React__default.createElement("div", {
+    return React__default.createElement("div", {
       className: "molecules-dropdown"
-    }, /*#__PURE__*/React__default.createElement("div", {
+    }, React__default.createElement("div", {
       role: "button",
       tabIndex: 0,
       onClick: this.toggleDropdown,
@@ -2284,23 +2308,23 @@ var Dropdown = /*#__PURE__*/function (_PureComponent) {
         return _this2.handleKeyDown(e);
       },
       "data-test": "dropdown-toggle"
-    }, this.props.selectedOptionId && /*#__PURE__*/React__default.createElement("span", {
+    }, this.props.selectedOptionId && React__default.createElement("span", {
       "data-test": "selected-text"
     }, this.props.options.find(function (option) {
       return option.id === _this2.props.selectedOptionId;
-    }).display), !this.props.selectedOptionId && /*#__PURE__*/React__default.createElement("span", {
+    }).display), !this.props.selectedOptionId && React__default.createElement("span", {
       className: "molecules-dropdown__placeholder",
       "data-test": "placeholder"
-    }, this.props.placeholderText), /*#__PURE__*/React__default.createElement("i", {
+    }, this.props.placeholderText), React__default.createElement("i", {
       className: classNames('fa fa-fw', {
         'fa-chevron-down': !this.state.showDropdown,
         'fa-chevron-up': this.state.showDropdown
       })
-    })), this.state.showDropdown && /*#__PURE__*/React__default.createElement("div", {
+    })), this.state.showDropdown && React__default.createElement("div", {
       className: "molecules-dropdown__items",
       "data-test": "dropdown"
     }, this.props.options.map(function (item, index) {
-      return /*#__PURE__*/React__default.createElement("p", {
+      return React__default.createElement("p", {
         key: item.id,
         role: "presentation",
         onClick: function onClick(e) {
@@ -2464,7 +2488,9 @@ if (ReactDOM.createPortal) {
 
 var Portal$3 = Portal$2;
 
-var Modal = /*#__PURE__*/function (_Component) {
+var Modal =
+/*#__PURE__*/
+function (_Component) {
   _inheritsLoose(Modal, _Component);
 
   function Modal() {
@@ -2534,27 +2560,27 @@ var Modal = /*#__PURE__*/function (_Component) {
       'modal__dialog--full': variant === 'full'
     });
     var childrenWithProps = !isLoadingContent ? React__default.Children.map(this.props.children, function (child) {
-      return /*#__PURE__*/React__default.cloneElement(child, {
+      return React__default.cloneElement(child, {
         onClose: onClose
       });
-    }) : /*#__PURE__*/React__default.createElement(Loader, {
+    }) : React__default.createElement(Loader, {
       inline: true
     });
 
     if (isOpen) {
-      return /*#__PURE__*/React__default.createElement(Portal$3, {
+      return React__default.createElement(Portal$3, {
         "data-test": "modal"
-      }, /*#__PURE__*/React__default.createElement("div", {
+      }, React__default.createElement("div", {
         id: "backdrop",
         className: backdropClasses,
         role: "dialog",
         onClick: this.onBackdropClick
-      }, /*#__PURE__*/React__default.createElement("div", {
+      }, React__default.createElement("div", {
         id: "dialog",
         className: dialogClasses,
         tabIndex: "-1",
         "aria-labelledby": this.props.aria
-      }, /*#__PURE__*/React__default.createElement("div", {
+      }, React__default.createElement("div", {
         className: "dialog-container"
       }, childrenWithProps))));
     }
@@ -2596,7 +2622,9 @@ _defineProperty(Modal, "defaultProps", {
   variant: 'default'
 });
 
-var ModalBody = /*#__PURE__*/function (_PureComponent) {
+var ModalBody =
+/*#__PURE__*/
+function (_PureComponent) {
   _inheritsLoose(ModalBody, _PureComponent);
 
   function ModalBody() {
@@ -2607,7 +2635,7 @@ var ModalBody = /*#__PURE__*/function (_PureComponent) {
 
   _proto.render = function render() {
     var children = this.props.children;
-    return /*#__PURE__*/React__default.createElement("div", {
+    return React__default.createElement("div", {
       className: "modal-body",
       "data-test": "modal-body"
     }, children);
@@ -2622,7 +2650,9 @@ _defineProperty(ModalBody, "propTypes", {
   children: PropTypes$1.node
 });
 
-var ModalHeader = /*#__PURE__*/function (_PureComponent) {
+var ModalHeader =
+/*#__PURE__*/
+function (_PureComponent) {
   _inheritsLoose(ModalHeader, _PureComponent);
 
   function ModalHeader() {
@@ -2638,7 +2668,7 @@ var ModalHeader = /*#__PURE__*/function (_PureComponent) {
       var children = _this.props.children;
 
       if (typeof children === 'string') {
-        return /*#__PURE__*/React__default.createElement("h2", null, children);
+        return React__default.createElement("h2", null, children);
       }
 
       return children;
@@ -2657,12 +2687,12 @@ var ModalHeader = /*#__PURE__*/function (_PureComponent) {
     var modalHeaderClasses = classNames('modal-header', {
       'modal-header--centered': centered
     });
-    return /*#__PURE__*/React__default.createElement("div", {
+    return React__default.createElement("div", {
       className: modalHeaderClasses,
       "data-test": "modal-header"
-    }, this.renderTitle(), !hideCloseIcon && /*#__PURE__*/React__default.createElement("div", {
+    }, this.renderTitle(), !hideCloseIcon && React__default.createElement("div", {
       className: "modal-header__icon-wrapper"
-    }, /*#__PURE__*/React__default.createElement("i", {
+    }, React__default.createElement("i", {
       role: "link",
       tabIndex: 0,
       className: "fa fa-close",
@@ -2694,7 +2724,9 @@ _defineProperty(ModalHeader, "defaultProps", {
   centered: false
 });
 
-var ModalFooter = /*#__PURE__*/function (_PureComponent) {
+var ModalFooter =
+/*#__PURE__*/
+function (_PureComponent) {
   _inheritsLoose(ModalFooter, _PureComponent);
 
   function ModalFooter() {
@@ -2705,7 +2737,7 @@ var ModalFooter = /*#__PURE__*/function (_PureComponent) {
 
   _proto.render = function render() {
     var children = this.props.children;
-    return /*#__PURE__*/React__default.createElement("div", {
+    return React__default.createElement("div", {
       className: "modal-footer",
       "data-test": "modal-footer"
     }, children);
@@ -2794,891 +2826,9 @@ function _defineProperty$1(obj, key, value) {
 
 var defineProperty = _defineProperty$1;
 
-var toStr = Object.prototype.toString;
-
-var isArguments = function isArguments(value) {
-	var str = toStr.call(value);
-	var isArgs = str === '[object Arguments]';
-	if (!isArgs) {
-		isArgs = str !== '[object Array]' &&
-			value !== null &&
-			typeof value === 'object' &&
-			typeof value.length === 'number' &&
-			value.length >= 0 &&
-			toStr.call(value.callee) === '[object Function]';
-	}
-	return isArgs;
-};
-
-var keysShim;
-if (!Object.keys) {
-	// modified from https://github.com/es-shims/es5-shim
-	var has = Object.prototype.hasOwnProperty;
-	var toStr$1 = Object.prototype.toString;
-	var isArgs = isArguments; // eslint-disable-line global-require
-	var isEnumerable = Object.prototype.propertyIsEnumerable;
-	var hasDontEnumBug = !isEnumerable.call({ toString: null }, 'toString');
-	var hasProtoEnumBug = isEnumerable.call(function () {}, 'prototype');
-	var dontEnums = [
-		'toString',
-		'toLocaleString',
-		'valueOf',
-		'hasOwnProperty',
-		'isPrototypeOf',
-		'propertyIsEnumerable',
-		'constructor'
-	];
-	var equalsConstructorPrototype = function (o) {
-		var ctor = o.constructor;
-		return ctor && ctor.prototype === o;
-	};
-	var excludedKeys = {
-		$applicationCache: true,
-		$console: true,
-		$external: true,
-		$frame: true,
-		$frameElement: true,
-		$frames: true,
-		$innerHeight: true,
-		$innerWidth: true,
-		$onmozfullscreenchange: true,
-		$onmozfullscreenerror: true,
-		$outerHeight: true,
-		$outerWidth: true,
-		$pageXOffset: true,
-		$pageYOffset: true,
-		$parent: true,
-		$scrollLeft: true,
-		$scrollTop: true,
-		$scrollX: true,
-		$scrollY: true,
-		$self: true,
-		$webkitIndexedDB: true,
-		$webkitStorageInfo: true,
-		$window: true
-	};
-	var hasAutomationEqualityBug = (function () {
-		/* global window */
-		if (typeof window === 'undefined') { return false; }
-		for (var k in window) {
-			try {
-				if (!excludedKeys['$' + k] && has.call(window, k) && window[k] !== null && typeof window[k] === 'object') {
-					try {
-						equalsConstructorPrototype(window[k]);
-					} catch (e) {
-						return true;
-					}
-				}
-			} catch (e) {
-				return true;
-			}
-		}
-		return false;
-	}());
-	var equalsConstructorPrototypeIfNotBuggy = function (o) {
-		/* global window */
-		if (typeof window === 'undefined' || !hasAutomationEqualityBug) {
-			return equalsConstructorPrototype(o);
-		}
-		try {
-			return equalsConstructorPrototype(o);
-		} catch (e) {
-			return false;
-		}
-	};
-
-	keysShim = function keys(object) {
-		var isObject = object !== null && typeof object === 'object';
-		var isFunction = toStr$1.call(object) === '[object Function]';
-		var isArguments = isArgs(object);
-		var isString = isObject && toStr$1.call(object) === '[object String]';
-		var theKeys = [];
-
-		if (!isObject && !isFunction && !isArguments) {
-			throw new TypeError('Object.keys called on a non-object');
-		}
-
-		var skipProto = hasProtoEnumBug && isFunction;
-		if (isString && object.length > 0 && !has.call(object, 0)) {
-			for (var i = 0; i < object.length; ++i) {
-				theKeys.push(String(i));
-			}
-		}
-
-		if (isArguments && object.length > 0) {
-			for (var j = 0; j < object.length; ++j) {
-				theKeys.push(String(j));
-			}
-		} else {
-			for (var name in object) {
-				if (!(skipProto && name === 'prototype') && has.call(object, name)) {
-					theKeys.push(String(name));
-				}
-			}
-		}
-
-		if (hasDontEnumBug) {
-			var skipConstructor = equalsConstructorPrototypeIfNotBuggy(object);
-
-			for (var k = 0; k < dontEnums.length; ++k) {
-				if (!(skipConstructor && dontEnums[k] === 'constructor') && has.call(object, dontEnums[k])) {
-					theKeys.push(dontEnums[k]);
-				}
-			}
-		}
-		return theKeys;
-	};
-}
-var implementation = keysShim;
-
-var slice = Array.prototype.slice;
-
-
-var origKeys = Object.keys;
-var keysShim$1 = origKeys ? function keys(o) { return origKeys(o); } : implementation;
-
-var originalKeys = Object.keys;
-
-keysShim$1.shim = function shimObjectKeys() {
-	if (Object.keys) {
-		var keysWorksWithArguments = (function () {
-			// Safari 5.0 bug
-			var args = Object.keys(arguments);
-			return args && args.length === arguments.length;
-		}(1, 2));
-		if (!keysWorksWithArguments) {
-			Object.keys = function keys(object) { // eslint-disable-line func-name-matching
-				if (isArguments(object)) {
-					return originalKeys(slice.call(object));
-				}
-				return originalKeys(object);
-			};
-		}
-	} else {
-		Object.keys = keysShim$1;
-	}
-	return Object.keys || keysShim$1;
-};
-
-var objectKeys = keysShim$1;
-
-var hasToStringTag = typeof Symbol === 'function' && typeof Symbol.toStringTag === 'symbol';
-var toStr$2 = Object.prototype.toString;
-
-var isStandardArguments = function isArguments(value) {
-	if (hasToStringTag && value && typeof value === 'object' && Symbol.toStringTag in value) {
-		return false;
-	}
-	return toStr$2.call(value) === '[object Arguments]';
-};
-
-var isLegacyArguments = function isArguments(value) {
-	if (isStandardArguments(value)) {
-		return true;
-	}
-	return value !== null &&
-		typeof value === 'object' &&
-		typeof value.length === 'number' &&
-		value.length >= 0 &&
-		toStr$2.call(value) !== '[object Array]' &&
-		toStr$2.call(value.callee) === '[object Function]';
-};
-
-var supportsStandardArguments = (function () {
-	return isStandardArguments(arguments);
-}());
-
-isStandardArguments.isLegacyArguments = isLegacyArguments; // for tests
-
-var isArguments$1 = supportsStandardArguments ? isStandardArguments : isLegacyArguments;
-
-var hasSymbols = typeof Symbol === 'function' && typeof Symbol('foo') === 'symbol';
-
-var toStr$3 = Object.prototype.toString;
-var concat = Array.prototype.concat;
-var origDefineProperty = Object.defineProperty;
-
-var isFunction = function (fn) {
-	return typeof fn === 'function' && toStr$3.call(fn) === '[object Function]';
-};
-
-var arePropertyDescriptorsSupported = function () {
-	var obj = {};
-	try {
-		origDefineProperty(obj, 'x', { enumerable: false, value: obj });
-		// eslint-disable-next-line no-unused-vars, no-restricted-syntax
-		for (var _ in obj) { // jscs:ignore disallowUnusedVariables
-			return false;
-		}
-		return obj.x === obj;
-	} catch (e) { /* this is IE 8. */
-		return false;
-	}
-};
-var supportsDescriptors = origDefineProperty && arePropertyDescriptorsSupported();
-
-var defineProperty$1 = function (object, name, value, predicate) {
-	if (name in object && (!isFunction(predicate) || !predicate())) {
-		return;
-	}
-	if (supportsDescriptors) {
-		origDefineProperty(object, name, {
-			configurable: true,
-			enumerable: false,
-			value: value,
-			writable: true
-		});
-	} else {
-		object[name] = value;
-	}
-};
-
-var defineProperties = function (object, map) {
-	var predicates = arguments.length > 2 ? arguments[2] : {};
-	var props = objectKeys(map);
-	if (hasSymbols) {
-		props = concat.call(props, Object.getOwnPropertySymbols(map));
-	}
-	for (var i = 0; i < props.length; i += 1) {
-		defineProperty$1(object, props[i], map[props[i]], predicates[props[i]]);
-	}
-};
-
-defineProperties.supportsDescriptors = !!supportsDescriptors;
-
-var defineProperties_1 = defineProperties;
-
-/* eslint no-invalid-this: 1 */
-
-var ERROR_MESSAGE = 'Function.prototype.bind called on incompatible ';
-var slice$1 = Array.prototype.slice;
-var toStr$4 = Object.prototype.toString;
-var funcType = '[object Function]';
-
-var implementation$1 = function bind(that) {
-    var target = this;
-    if (typeof target !== 'function' || toStr$4.call(target) !== funcType) {
-        throw new TypeError(ERROR_MESSAGE + target);
-    }
-    var args = slice$1.call(arguments, 1);
-
-    var bound;
-    var binder = function () {
-        if (this instanceof bound) {
-            var result = target.apply(
-                this,
-                args.concat(slice$1.call(arguments))
-            );
-            if (Object(result) === result) {
-                return result;
-            }
-            return this;
-        } else {
-            return target.apply(
-                that,
-                args.concat(slice$1.call(arguments))
-            );
-        }
-    };
-
-    var boundLength = Math.max(0, target.length - args.length);
-    var boundArgs = [];
-    for (var i = 0; i < boundLength; i++) {
-        boundArgs.push('$' + i);
-    }
-
-    bound = Function('binder', 'return function (' + boundArgs.join(',') + '){ return binder.apply(this,arguments); }')(binder);
-
-    if (target.prototype) {
-        var Empty = function Empty() {};
-        Empty.prototype = target.prototype;
-        bound.prototype = new Empty();
-        Empty.prototype = null;
-    }
-
-    return bound;
-};
-
-var functionBind = Function.prototype.bind || implementation$1;
-
-/* eslint complexity: [2, 18], max-statements: [2, 33] */
-var shams = function hasSymbols() {
-	if (typeof Symbol !== 'function' || typeof Object.getOwnPropertySymbols !== 'function') { return false; }
-	if (typeof Symbol.iterator === 'symbol') { return true; }
-
-	var obj = {};
-	var sym = Symbol('test');
-	var symObj = Object(sym);
-	if (typeof sym === 'string') { return false; }
-
-	if (Object.prototype.toString.call(sym) !== '[object Symbol]') { return false; }
-	if (Object.prototype.toString.call(symObj) !== '[object Symbol]') { return false; }
-
-	// temp disabled per https://github.com/ljharb/object.assign/issues/17
-	// if (sym instanceof Symbol) { return false; }
-	// temp disabled per https://github.com/WebReflection/get-own-property-symbols/issues/4
-	// if (!(symObj instanceof Symbol)) { return false; }
-
-	// if (typeof Symbol.prototype.toString !== 'function') { return false; }
-	// if (String(sym) !== Symbol.prototype.toString.call(sym)) { return false; }
-
-	var symVal = 42;
-	obj[sym] = symVal;
-	for (sym in obj) { return false; } // eslint-disable-line no-restricted-syntax
-	if (typeof Object.keys === 'function' && Object.keys(obj).length !== 0) { return false; }
-
-	if (typeof Object.getOwnPropertyNames === 'function' && Object.getOwnPropertyNames(obj).length !== 0) { return false; }
-
-	var syms = Object.getOwnPropertySymbols(obj);
-	if (syms.length !== 1 || syms[0] !== sym) { return false; }
-
-	if (!Object.prototype.propertyIsEnumerable.call(obj, sym)) { return false; }
-
-	if (typeof Object.getOwnPropertyDescriptor === 'function') {
-		var descriptor = Object.getOwnPropertyDescriptor(obj, sym);
-		if (descriptor.value !== symVal || descriptor.enumerable !== true) { return false; }
-	}
-
-	return true;
-};
-
-var origSymbol = commonjsGlobal.Symbol;
-
-
-var hasSymbols$1 = function hasNativeSymbols() {
-	if (typeof origSymbol !== 'function') { return false; }
-	if (typeof Symbol !== 'function') { return false; }
-	if (typeof origSymbol('foo') !== 'symbol') { return false; }
-	if (typeof Symbol('bar') !== 'symbol') { return false; }
-
-	return shams();
-};
-
-/* globals
-	Atomics,
-	SharedArrayBuffer,
-*/
-
-var undefined$1;
-
-var $TypeError = TypeError;
-
-var $gOPD = Object.getOwnPropertyDescriptor;
-if ($gOPD) {
-	try {
-		$gOPD({}, '');
-	} catch (e) {
-		$gOPD = null; // this is IE 8, which has a broken gOPD
-	}
-}
-
-var throwTypeError = function () { throw new $TypeError(); };
-var ThrowTypeError = $gOPD
-	? (function () {
-		try {
-			// eslint-disable-next-line no-unused-expressions, no-caller, no-restricted-properties
-			arguments.callee; // IE 8 does not throw here
-			return throwTypeError;
-		} catch (calleeThrows) {
-			try {
-				// IE 8 throws on Object.getOwnPropertyDescriptor(arguments, '')
-				return $gOPD(arguments, 'callee').get;
-			} catch (gOPDthrows) {
-				return throwTypeError;
-			}
-		}
-	}())
-	: throwTypeError;
-
-var hasSymbols$2 = hasSymbols$1();
-
-var getProto = Object.getPrototypeOf || function (x) { return x.__proto__; }; // eslint-disable-line no-proto
-var generatorFunction =  undefined$1;
-var asyncFunction =  undefined$1;
-var asyncGenFunction =  undefined$1;
-
-var TypedArray = typeof Uint8Array === 'undefined' ? undefined$1 : getProto(Uint8Array);
-
-var INTRINSICS = {
-	'%Array%': Array,
-	'%ArrayBuffer%': typeof ArrayBuffer === 'undefined' ? undefined$1 : ArrayBuffer,
-	'%ArrayBufferPrototype%': typeof ArrayBuffer === 'undefined' ? undefined$1 : ArrayBuffer.prototype,
-	'%ArrayIteratorPrototype%': hasSymbols$2 ? getProto([][Symbol.iterator]()) : undefined$1,
-	'%ArrayPrototype%': Array.prototype,
-	'%ArrayProto_entries%': Array.prototype.entries,
-	'%ArrayProto_forEach%': Array.prototype.forEach,
-	'%ArrayProto_keys%': Array.prototype.keys,
-	'%ArrayProto_values%': Array.prototype.values,
-	'%AsyncFromSyncIteratorPrototype%': undefined$1,
-	'%AsyncFunction%': asyncFunction,
-	'%AsyncFunctionPrototype%':  undefined$1,
-	'%AsyncGenerator%':  undefined$1,
-	'%AsyncGeneratorFunction%': asyncGenFunction,
-	'%AsyncGeneratorPrototype%':  undefined$1,
-	'%AsyncIteratorPrototype%':  undefined$1,
-	'%Atomics%': typeof Atomics === 'undefined' ? undefined$1 : Atomics,
-	'%Boolean%': Boolean,
-	'%BooleanPrototype%': Boolean.prototype,
-	'%DataView%': typeof DataView === 'undefined' ? undefined$1 : DataView,
-	'%DataViewPrototype%': typeof DataView === 'undefined' ? undefined$1 : DataView.prototype,
-	'%Date%': Date,
-	'%DatePrototype%': Date.prototype,
-	'%decodeURI%': decodeURI,
-	'%decodeURIComponent%': decodeURIComponent,
-	'%encodeURI%': encodeURI,
-	'%encodeURIComponent%': encodeURIComponent,
-	'%Error%': Error,
-	'%ErrorPrototype%': Error.prototype,
-	'%eval%': eval, // eslint-disable-line no-eval
-	'%EvalError%': EvalError,
-	'%EvalErrorPrototype%': EvalError.prototype,
-	'%Float32Array%': typeof Float32Array === 'undefined' ? undefined$1 : Float32Array,
-	'%Float32ArrayPrototype%': typeof Float32Array === 'undefined' ? undefined$1 : Float32Array.prototype,
-	'%Float64Array%': typeof Float64Array === 'undefined' ? undefined$1 : Float64Array,
-	'%Float64ArrayPrototype%': typeof Float64Array === 'undefined' ? undefined$1 : Float64Array.prototype,
-	'%Function%': Function,
-	'%FunctionPrototype%': Function.prototype,
-	'%Generator%':  undefined$1,
-	'%GeneratorFunction%': generatorFunction,
-	'%GeneratorPrototype%':  undefined$1,
-	'%Int8Array%': typeof Int8Array === 'undefined' ? undefined$1 : Int8Array,
-	'%Int8ArrayPrototype%': typeof Int8Array === 'undefined' ? undefined$1 : Int8Array.prototype,
-	'%Int16Array%': typeof Int16Array === 'undefined' ? undefined$1 : Int16Array,
-	'%Int16ArrayPrototype%': typeof Int16Array === 'undefined' ? undefined$1 : Int8Array.prototype,
-	'%Int32Array%': typeof Int32Array === 'undefined' ? undefined$1 : Int32Array,
-	'%Int32ArrayPrototype%': typeof Int32Array === 'undefined' ? undefined$1 : Int32Array.prototype,
-	'%isFinite%': isFinite,
-	'%isNaN%': isNaN,
-	'%IteratorPrototype%': hasSymbols$2 ? getProto(getProto([][Symbol.iterator]())) : undefined$1,
-	'%JSON%': typeof JSON === 'object' ? JSON : undefined$1,
-	'%JSONParse%': typeof JSON === 'object' ? JSON.parse : undefined$1,
-	'%Map%': typeof Map === 'undefined' ? undefined$1 : Map,
-	'%MapIteratorPrototype%': typeof Map === 'undefined' || !hasSymbols$2 ? undefined$1 : getProto(new Map()[Symbol.iterator]()),
-	'%MapPrototype%': typeof Map === 'undefined' ? undefined$1 : Map.prototype,
-	'%Math%': Math,
-	'%Number%': Number,
-	'%NumberPrototype%': Number.prototype,
-	'%Object%': Object,
-	'%ObjectPrototype%': Object.prototype,
-	'%ObjProto_toString%': Object.prototype.toString,
-	'%ObjProto_valueOf%': Object.prototype.valueOf,
-	'%parseFloat%': parseFloat,
-	'%parseInt%': parseInt,
-	'%Promise%': typeof Promise === 'undefined' ? undefined$1 : Promise,
-	'%PromisePrototype%': typeof Promise === 'undefined' ? undefined$1 : Promise.prototype,
-	'%PromiseProto_then%': typeof Promise === 'undefined' ? undefined$1 : Promise.prototype.then,
-	'%Promise_all%': typeof Promise === 'undefined' ? undefined$1 : Promise.all,
-	'%Promise_reject%': typeof Promise === 'undefined' ? undefined$1 : Promise.reject,
-	'%Promise_resolve%': typeof Promise === 'undefined' ? undefined$1 : Promise.resolve,
-	'%Proxy%': typeof Proxy === 'undefined' ? undefined$1 : Proxy,
-	'%RangeError%': RangeError,
-	'%RangeErrorPrototype%': RangeError.prototype,
-	'%ReferenceError%': ReferenceError,
-	'%ReferenceErrorPrototype%': ReferenceError.prototype,
-	'%Reflect%': typeof Reflect === 'undefined' ? undefined$1 : Reflect,
-	'%RegExp%': RegExp,
-	'%RegExpPrototype%': RegExp.prototype,
-	'%Set%': typeof Set === 'undefined' ? undefined$1 : Set,
-	'%SetIteratorPrototype%': typeof Set === 'undefined' || !hasSymbols$2 ? undefined$1 : getProto(new Set()[Symbol.iterator]()),
-	'%SetPrototype%': typeof Set === 'undefined' ? undefined$1 : Set.prototype,
-	'%SharedArrayBuffer%': typeof SharedArrayBuffer === 'undefined' ? undefined$1 : SharedArrayBuffer,
-	'%SharedArrayBufferPrototype%': typeof SharedArrayBuffer === 'undefined' ? undefined$1 : SharedArrayBuffer.prototype,
-	'%String%': String,
-	'%StringIteratorPrototype%': hasSymbols$2 ? getProto(''[Symbol.iterator]()) : undefined$1,
-	'%StringPrototype%': String.prototype,
-	'%Symbol%': hasSymbols$2 ? Symbol : undefined$1,
-	'%SymbolPrototype%': hasSymbols$2 ? Symbol.prototype : undefined$1,
-	'%SyntaxError%': SyntaxError,
-	'%SyntaxErrorPrototype%': SyntaxError.prototype,
-	'%ThrowTypeError%': ThrowTypeError,
-	'%TypedArray%': TypedArray,
-	'%TypedArrayPrototype%': TypedArray ? TypedArray.prototype : undefined$1,
-	'%TypeError%': $TypeError,
-	'%TypeErrorPrototype%': $TypeError.prototype,
-	'%Uint8Array%': typeof Uint8Array === 'undefined' ? undefined$1 : Uint8Array,
-	'%Uint8ArrayPrototype%': typeof Uint8Array === 'undefined' ? undefined$1 : Uint8Array.prototype,
-	'%Uint8ClampedArray%': typeof Uint8ClampedArray === 'undefined' ? undefined$1 : Uint8ClampedArray,
-	'%Uint8ClampedArrayPrototype%': typeof Uint8ClampedArray === 'undefined' ? undefined$1 : Uint8ClampedArray.prototype,
-	'%Uint16Array%': typeof Uint16Array === 'undefined' ? undefined$1 : Uint16Array,
-	'%Uint16ArrayPrototype%': typeof Uint16Array === 'undefined' ? undefined$1 : Uint16Array.prototype,
-	'%Uint32Array%': typeof Uint32Array === 'undefined' ? undefined$1 : Uint32Array,
-	'%Uint32ArrayPrototype%': typeof Uint32Array === 'undefined' ? undefined$1 : Uint32Array.prototype,
-	'%URIError%': URIError,
-	'%URIErrorPrototype%': URIError.prototype,
-	'%WeakMap%': typeof WeakMap === 'undefined' ? undefined$1 : WeakMap,
-	'%WeakMapPrototype%': typeof WeakMap === 'undefined' ? undefined$1 : WeakMap.prototype,
-	'%WeakSet%': typeof WeakSet === 'undefined' ? undefined$1 : WeakSet,
-	'%WeakSetPrototype%': typeof WeakSet === 'undefined' ? undefined$1 : WeakSet.prototype
-};
-
-
-var $replace = functionBind.call(Function.call, String.prototype.replace);
-
-/* adapted from https://github.com/lodash/lodash/blob/4.17.15/dist/lodash.js#L6735-L6744 */
-var rePropName = /[^%.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|%$))/g;
-var reEscapeChar = /\\(\\)?/g; /** Used to match backslashes in property paths. */
-var stringToPath = function stringToPath(string) {
-	var result = [];
-	$replace(string, rePropName, function (match, number, quote, subString) {
-		result[result.length] = quote ? $replace(subString, reEscapeChar, '$1') : (number || match);
-	});
-	return result;
-};
-/* end adaptation */
-
-var getBaseIntrinsic = function getBaseIntrinsic(name, allowMissing) {
-	if (!(name in INTRINSICS)) {
-		throw new SyntaxError('intrinsic ' + name + ' does not exist!');
-	}
-
-	// istanbul ignore if // hopefully this is impossible to test :-)
-	if (typeof INTRINSICS[name] === 'undefined' && !allowMissing) {
-		throw new $TypeError('intrinsic ' + name + ' exists, but is not available. Please file an issue!');
-	}
-
-	return INTRINSICS[name];
-};
-
-var GetIntrinsic = function GetIntrinsic(name, allowMissing) {
-	if (typeof name !== 'string' || name.length === 0) {
-		throw new TypeError('intrinsic name must be a non-empty string');
-	}
-	if (arguments.length > 1 && typeof allowMissing !== 'boolean') {
-		throw new TypeError('"allowMissing" argument must be a boolean');
-	}
-
-	var parts = stringToPath(name);
-
-	var value = getBaseIntrinsic('%' + (parts.length > 0 ? parts[0] : '') + '%', allowMissing);
-	for (var i = 1; i < parts.length; i += 1) {
-		if (value != null) {
-			if ($gOPD && (i + 1) >= parts.length) {
-				var desc = $gOPD(value, parts[i]);
-				if (!allowMissing && !(parts[i] in value)) {
-					throw new $TypeError('base intrinsic for ' + name + ' exists, but the property is not available.');
-				}
-				value = desc ? (desc.get || desc.value) : value[parts[i]];
-			} else {
-				value = value[parts[i]];
-			}
-		}
-	}
-	return value;
-};
-
-var $apply = GetIntrinsic('%Function.prototype.apply%');
-var $call = GetIntrinsic('%Function.prototype.call%');
-var $reflectApply = GetIntrinsic('%Reflect.apply%', true) || functionBind.call($call, $apply);
-
-var callBind = function callBind() {
-	return $reflectApply(functionBind, $call, arguments);
-};
-
-var apply = function applyBind() {
-	return $reflectApply(functionBind, $apply, arguments);
-};
-callBind.apply = apply;
-
-var numberIsNaN = function (value) {
-	return value !== value;
-};
-
-var implementation$2 = function is(a, b) {
-	if (a === 0 && b === 0) {
-		return 1 / a === 1 / b;
-	}
-	if (a === b) {
-		return true;
-	}
-	if (numberIsNaN(a) && numberIsNaN(b)) {
-		return true;
-	}
-	return false;
-};
-
-var polyfill = function getPolyfill() {
-	return typeof Object.is === 'function' ? Object.is : implementation$2;
-};
-
-var shim = function shimObjectIs() {
-	var polyfill$1 = polyfill();
-	defineProperties_1(Object, { is: polyfill$1 }, {
-		is: function testObjectIs() {
-			return Object.is !== polyfill$1;
-		}
-	});
-	return polyfill$1;
-};
-
-var polyfill$1 = callBind(polyfill(), Object);
-
-defineProperties_1(polyfill$1, {
-	getPolyfill: polyfill,
-	implementation: implementation$2,
-	shim: shim
-});
-
-var objectIs = polyfill$1;
-
-var hasSymbols$3 = hasSymbols$1();
-var hasToStringTag$1 = hasSymbols$3 && typeof Symbol.toStringTag === 'symbol';
-var regexExec;
-var isRegexMarker;
-var badStringifier;
-
-if (hasToStringTag$1) {
-	regexExec = Function.call.bind(RegExp.prototype.exec);
-	isRegexMarker = {};
-
-	var throwRegexMarker = function () {
-		throw isRegexMarker;
-	};
-	badStringifier = {
-		toString: throwRegexMarker,
-		valueOf: throwRegexMarker
-	};
-
-	if (typeof Symbol.toPrimitive === 'symbol') {
-		badStringifier[Symbol.toPrimitive] = throwRegexMarker;
-	}
-}
-
-var toStr$5 = Object.prototype.toString;
-var regexClass = '[object RegExp]';
-
-var isRegex = hasToStringTag$1
-	// eslint-disable-next-line consistent-return
-	? function isRegex(value) {
-		if (!value || typeof value !== 'object') {
-			return false;
-		}
-
-		try {
-			regexExec(value, badStringifier);
-		} catch (e) {
-			return e === isRegexMarker;
-		}
-	}
-	: function isRegex(value) {
-		// In older browsers, typeof regex incorrectly returns 'function'
-		if (!value || (typeof value !== 'object' && typeof value !== 'function')) {
-			return false;
-		}
-
-		return toStr$5.call(value) === regexClass;
-	};
-
-var $Object = Object;
-var $TypeError$1 = TypeError;
-
-var implementation$3 = function flags() {
-	if (this != null && this !== $Object(this)) {
-		throw new $TypeError$1('RegExp.prototype.flags getter called on non-object');
-	}
-	var result = '';
-	if (this.global) {
-		result += 'g';
-	}
-	if (this.ignoreCase) {
-		result += 'i';
-	}
-	if (this.multiline) {
-		result += 'm';
-	}
-	if (this.dotAll) {
-		result += 's';
-	}
-	if (this.unicode) {
-		result += 'u';
-	}
-	if (this.sticky) {
-		result += 'y';
-	}
-	return result;
-};
-
-var supportsDescriptors$1 = defineProperties_1.supportsDescriptors;
-var $gOPD$1 = Object.getOwnPropertyDescriptor;
-var $TypeError$2 = TypeError;
-
-var polyfill$2 = function getPolyfill() {
-	if (!supportsDescriptors$1) {
-		throw new $TypeError$2('RegExp.prototype.flags requires a true ES5 environment that supports property descriptors');
-	}
-	if ((/a/mig).flags === 'gim') {
-		var descriptor = $gOPD$1(RegExp.prototype, 'flags');
-		if (descriptor && typeof descriptor.get === 'function' && typeof (/a/).dotAll === 'boolean') {
-			return descriptor.get;
-		}
-	}
-	return implementation$3;
-};
-
-var supportsDescriptors$2 = defineProperties_1.supportsDescriptors;
-
-var gOPD = Object.getOwnPropertyDescriptor;
-var defineProperty$2 = Object.defineProperty;
-var TypeErr = TypeError;
-var getProto$1 = Object.getPrototypeOf;
-var regex = /a/;
-
-var shim$1 = function shimFlags() {
-	if (!supportsDescriptors$2 || !getProto$1) {
-		throw new TypeErr('RegExp.prototype.flags requires a true ES5 environment that supports property descriptors');
-	}
-	var polyfill = polyfill$2();
-	var proto = getProto$1(regex);
-	var descriptor = gOPD(proto, 'flags');
-	if (!descriptor || descriptor.get !== polyfill) {
-		defineProperty$2(proto, 'flags', {
-			configurable: true,
-			enumerable: false,
-			get: polyfill
-		});
-	}
-	return polyfill;
-};
-
-var flagsBound = callBind(implementation$3);
-
-defineProperties_1(flagsBound, {
-	getPolyfill: polyfill$2,
-	implementation: implementation$3,
-	shim: shim$1
-});
-
-var regexp_prototype_flags = flagsBound;
-
-var getDay = Date.prototype.getDay;
-var tryDateObject = function tryDateGetDayCall(value) {
-	try {
-		getDay.call(value);
-		return true;
-	} catch (e) {
-		return false;
-	}
-};
-
-var toStr$6 = Object.prototype.toString;
-var dateClass = '[object Date]';
-var hasToStringTag$2 = typeof Symbol === 'function' && typeof Symbol.toStringTag === 'symbol';
-
-var isDateObject = function isDateObject(value) {
-	if (typeof value !== 'object' || value === null) {
-		return false;
-	}
-	return hasToStringTag$2 ? tryDateObject(value) : toStr$6.call(value) === dateClass;
-};
-
-var getTime = Date.prototype.getTime;
-
-function deepEqual(actual, expected, options) {
-  var opts = options || {};
-
-  // 7.1. All identical values are equivalent, as determined by ===.
-  if (opts.strict ? objectIs(actual, expected) : actual === expected) {
-    return true;
-  }
-
-  // 7.3. Other pairs that do not both pass typeof value == 'object', equivalence is determined by ==.
-  if (!actual || !expected || (typeof actual !== 'object' && typeof expected !== 'object')) {
-    return opts.strict ? objectIs(actual, expected) : actual == expected;
-  }
-
-  /*
-   * 7.4. For all other Object pairs, including Array objects, equivalence is
-   * determined by having the same number of owned properties (as verified
-   * with Object.prototype.hasOwnProperty.call), the same set of keys
-   * (although not necessarily the same order), equivalent values for every
-   * corresponding key, and an identical 'prototype' property. Note: this
-   * accounts for both named and indexed properties on Arrays.
-   */
-  // eslint-disable-next-line no-use-before-define
-  return objEquiv(actual, expected, opts);
-}
-
-function isUndefinedOrNull(value) {
-  return value === null || value === undefined;
-}
-
-function isBuffer(x) {
-  if (!x || typeof x !== 'object' || typeof x.length !== 'number') {
-    return false;
-  }
-  if (typeof x.copy !== 'function' || typeof x.slice !== 'function') {
-    return false;
-  }
-  if (x.length > 0 && typeof x[0] !== 'number') {
-    return false;
-  }
-  return true;
-}
-
-function objEquiv(a, b, opts) {
-  /* eslint max-statements: [2, 50] */
-  var i, key;
-  if (typeof a !== typeof b) { return false; }
-  if (isUndefinedOrNull(a) || isUndefinedOrNull(b)) { return false; }
-
-  // an identical 'prototype' property.
-  if (a.prototype !== b.prototype) { return false; }
-
-  if (isArguments$1(a) !== isArguments$1(b)) { return false; }
-
-  var aIsRegex = isRegex(a);
-  var bIsRegex = isRegex(b);
-  if (aIsRegex !== bIsRegex) { return false; }
-  if (aIsRegex || bIsRegex) {
-    return a.source === b.source && regexp_prototype_flags(a) === regexp_prototype_flags(b);
-  }
-
-  if (isDateObject(a) && isDateObject(b)) {
-    return getTime.call(a) === getTime.call(b);
-  }
-
-  var aIsBuffer = isBuffer(a);
-  var bIsBuffer = isBuffer(b);
-  if (aIsBuffer !== bIsBuffer) { return false; }
-  if (aIsBuffer || bIsBuffer) { // && would work too, because both are true or both false here
-    if (a.length !== b.length) { return false; }
-    for (i = 0; i < a.length; i++) {
-      if (a[i] !== b[i]) { return false; }
-    }
-    return true;
-  }
-
-  if (typeof a !== typeof b) { return false; }
-
-  try {
-    var ka = objectKeys(a);
-    var kb = objectKeys(b);
-  } catch (e) { // happens when one is a string literal and the other isn't
-    return false;
-  }
-  // having the same number of owned properties (keys incorporates hasOwnProperty)
-  if (ka.length !== kb.length) { return false; }
-
-  // the same set of keys (although not necessarily the same order),
-  ka.sort();
-  kb.sort();
-  // ~~~cheap key test
-  for (i = ka.length - 1; i >= 0; i--) {
-    if (ka[i] != kb[i]) { return false; }
-  }
-  // equivalent values for every corresponding key, and ~~~possibly expensive deep test
-  for (i = ka.length - 1; i >= 0; i--) {
-    key = ka[i];
-    if (!deepEqual(a[key], b[key], opts)) { return false; }
-  }
-
-  return true;
-}
-
-var deepEqual_1 = deepEqual;
-
 /**!
  * @fileOverview Kickass library to create and place poppers near their reference elements.
- * @version 1.16.1
+ * @version 1.15.0
  * @license
  * Copyright (c) 2016 Federico Zivolo and contributors
  *
@@ -3700,17 +2850,16 @@ var deepEqual_1 = deepEqual;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-var isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined' && typeof navigator !== 'undefined';
+var isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined';
 
-var timeoutDuration = function () {
-  var longerTimeoutBrowsers = ['Edge', 'Trident', 'Firefox'];
-  for (var i = 0; i < longerTimeoutBrowsers.length; i += 1) {
-    if (isBrowser && navigator.userAgent.indexOf(longerTimeoutBrowsers[i]) >= 0) {
-      return 1;
-    }
+var longerTimeoutBrowsers = ['Edge', 'Trident', 'Firefox'];
+var timeoutDuration = 0;
+for (var i = 0; i < longerTimeoutBrowsers.length; i += 1) {
+  if (isBrowser && navigator.userAgent.indexOf(longerTimeoutBrowsers[i]) >= 0) {
+    timeoutDuration = 1;
+    break;
   }
-  return 0;
-}();
+}
 
 function microtaskDebounce(fn) {
   var called = false;
@@ -3759,7 +2908,7 @@ var debounce$1 = supportsMicroTasks ? microtaskDebounce : taskDebounce;
  * @argument {Any} functionToCheck - variable to check
  * @returns {Boolean} answer to: is a function?
  */
-function isFunction$1(functionToCheck) {
+function isFunction(functionToCheck) {
   var getType = {};
   return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]';
 }
@@ -3828,17 +2977,6 @@ function getScrollParent(element) {
   }
 
   return getScrollParent(getParentNode(element));
-}
-
-/**
- * Returns the reference node of the reference object, or the reference object itself.
- * @method
- * @memberof Popper.Utils
- * @param {Element|Object} reference - the reference element (the popper will be relative to this)
- * @returns {Element} parent
- */
-function getReferenceNode(reference) {
-  return reference && reference.referenceNode ? reference.referenceNode : reference;
 }
 
 var isIE11 = isBrowser && !!(window.MSInputMethodContext && document.documentMode);
@@ -4024,7 +3162,7 @@ function getBordersSize(styles, axis) {
   var sideA = axis === 'x' ? 'Left' : 'Top';
   var sideB = sideA === 'Left' ? 'Right' : 'Bottom';
 
-  return parseFloat(styles['border' + sideA + 'Width']) + parseFloat(styles['border' + sideB + 'Width']);
+  return parseFloat(styles['border' + sideA + 'Width'], 10) + parseFloat(styles['border' + sideB + 'Width'], 10);
 }
 
 function getSize(axis, body, html, computedStyle) {
@@ -4070,7 +3208,7 @@ var createClass = function () {
 
 
 
-var defineProperty$3 = function (obj, key, value) {
+var defineProperty$1 = function (obj, key, value) {
   if (key in obj) {
     Object.defineProperty(obj, key, {
       value: value,
@@ -4149,8 +3287,8 @@ function getBoundingClientRect(element) {
 
   // subtract scrollbar size from sizes
   var sizes = element.nodeName === 'HTML' ? getWindowSizes(element.ownerDocument) : {};
-  var width = sizes.width || element.clientWidth || result.width;
-  var height = sizes.height || element.clientHeight || result.height;
+  var width = sizes.width || element.clientWidth || result.right - result.left;
+  var height = sizes.height || element.clientHeight || result.bottom - result.top;
 
   var horizScrollbar = element.offsetWidth - width;
   var vertScrollbar = element.offsetHeight - height;
@@ -4179,8 +3317,8 @@ function getOffsetRectRelativeToArbitraryNode(children, parent) {
   var scrollParent = getScrollParent(children);
 
   var styles = getStyleComputedProperty(parent);
-  var borderTopWidth = parseFloat(styles.borderTopWidth);
-  var borderLeftWidth = parseFloat(styles.borderLeftWidth);
+  var borderTopWidth = parseFloat(styles.borderTopWidth, 10);
+  var borderLeftWidth = parseFloat(styles.borderLeftWidth, 10);
 
   // In cases where the parent is fixed, we must ignore negative scroll in offset calc
   if (fixedPosition && isHTML) {
@@ -4201,8 +3339,8 @@ function getOffsetRectRelativeToArbitraryNode(children, parent) {
   // differently when margins are applied to it. The margins are included in
   // the box of the documentElement, in the other cases not.
   if (!isIE10 && isHTML) {
-    var marginTop = parseFloat(styles.marginTop);
-    var marginLeft = parseFloat(styles.marginLeft);
+    var marginTop = parseFloat(styles.marginTop, 10);
+    var marginLeft = parseFloat(styles.marginLeft, 10);
 
     offsets.top -= borderTopWidth - marginTop;
     offsets.bottom -= borderTopWidth - marginTop;
@@ -4302,7 +3440,7 @@ function getBoundaries(popper, reference, padding, boundariesElement) {
   // NOTE: 1 DOM access here
 
   var boundaries = { top: 0, left: 0 };
-  var offsetParent = fixedPosition ? getFixedPositionOffsetParent(popper) : findCommonOffsetParent(popper, getReferenceNode(reference));
+  var offsetParent = fixedPosition ? getFixedPositionOffsetParent(popper) : findCommonOffsetParent(popper, reference);
 
   // Handle viewport case
   if (boundariesElement === 'viewport') {
@@ -4430,7 +3568,7 @@ function computeAutoPlacement(placement, refRect, popper, reference, boundariesE
 function getReferenceOffsets(state, popper, reference) {
   var fixedPosition = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
 
-  var commonOffsetParent = fixedPosition ? getFixedPositionOffsetParent(popper) : findCommonOffsetParent(popper, getReferenceNode(reference));
+  var commonOffsetParent = fixedPosition ? getFixedPositionOffsetParent(popper) : findCommonOffsetParent(popper, reference);
   return getOffsetRectRelativeToArbitraryNode(reference, commonOffsetParent, fixedPosition);
 }
 
@@ -4568,7 +3706,7 @@ function runModifiers(modifiers, data, ends) {
       console.warn('`modifier.function` is deprecated, use `modifier.fn`!');
     }
     var fn = modifier['function'] || modifier.fn; // eslint-disable-line dot-notation
-    if (modifier.enabled && isFunction$1(fn)) {
+    if (modifier.enabled && isFunction(fn)) {
       // Add properties to offsets to make them a complete clientRect object
       // we do this before each modifier to make sure the previous one doesn't
       // mess with these values
@@ -4692,7 +3830,7 @@ function destroy() {
 
   this.disableEventListeners();
 
-  // remove the popper if user explicitly asked for the deletion on destroy
+  // remove the popper if user explicity asked for the deletion on destroy
   // do not use `remove` because IE11 doesn't support it
   if (this.options.removeOnDestroy) {
     this.popper.parentNode.removeChild(this.popper);
@@ -5141,15 +4279,15 @@ function arrow(data, options) {
   // Compute the sideValue using the updated popper offsets
   // take popper margin in account because we don't have this info available
   var css = getStyleComputedProperty(data.instance.popper);
-  var popperMarginSide = parseFloat(css['margin' + sideCapitalized]);
-  var popperBorderSide = parseFloat(css['border' + sideCapitalized + 'Width']);
+  var popperMarginSide = parseFloat(css['margin' + sideCapitalized], 10);
+  var popperBorderSide = parseFloat(css['border' + sideCapitalized + 'Width'], 10);
   var sideValue = center - data.offsets.popper[side] - popperMarginSide - popperBorderSide;
 
   // prevent arrowElement from being placed not contiguously to its popper
   sideValue = Math.max(Math.min(popper[len] - arrowElementSize, sideValue), 0);
 
   data.arrowElement = arrowElement;
-  data.offsets.arrow = (_data$offsets$arrow = {}, defineProperty$3(_data$offsets$arrow, side, Math.round(sideValue)), defineProperty$3(_data$offsets$arrow, altSide, ''), _data$offsets$arrow);
+  data.offsets.arrow = (_data$offsets$arrow = {}, defineProperty$1(_data$offsets$arrow, side, Math.round(sideValue)), defineProperty$1(_data$offsets$arrow, altSide, ''), _data$offsets$arrow);
 
   return data;
 }
@@ -5579,7 +4717,7 @@ function preventOverflow(data, options) {
       if (popper[placement] < boundaries[placement] && !options.escapeWithReference) {
         value = Math.max(popper[placement], boundaries[placement]);
       }
-      return defineProperty$3({}, placement, value);
+      return defineProperty$1({}, placement, value);
     },
     secondary: function secondary(placement) {
       var mainSide = placement === 'right' ? 'left' : 'top';
@@ -5587,7 +4725,7 @@ function preventOverflow(data, options) {
       if (popper[placement] > boundaries[placement] && !options.escapeWithReference) {
         value = Math.min(popper[mainSide], boundaries[placement] - (placement === 'right' ? popper.width : popper.height));
       }
-      return defineProperty$3({}, mainSide, value);
+      return defineProperty$1({}, mainSide, value);
     }
   };
 
@@ -5624,8 +4762,8 @@ function shift(data) {
     var measurement = isVertical ? 'width' : 'height';
 
     var shiftOffsets = {
-      start: defineProperty$3({}, side, reference[side]),
-      end: defineProperty$3({}, side, reference[side] + reference[measurement] - popper[measurement])
+      start: defineProperty$1({}, side, reference[side]),
+      end: defineProperty$1({}, side, reference[side] + reference[measurement] - popper[measurement])
     };
 
     data.offsets.popper = _extends({}, popper, shiftOffsets[shiftvariation]);
@@ -6195,7 +5333,7 @@ var Popper = function () {
     // they could add new properties to their options configuration
     // BE AWARE: don't add options to `options.modifiers.name` but to `modifierOptions`!
     this.modifiers.forEach(function (modifierOptions) {
-      if (modifierOptions.enabled && isFunction$1(modifierOptions.onLoad)) {
+      if (modifierOptions.enabled && isFunction(modifierOptions.onLoad)) {
         modifierOptions.onLoad(_this.reference, _this.popper, _this.options, modifierOptions, _this.state);
       }
     });
@@ -6348,7 +5486,7 @@ var warning = function() {};
 
 var warning_1 = warning;
 
-var implementation$4 = createCommonjsModule(function (module, exports) {
+var implementation = createCommonjsModule(function (module, exports) {
 
 exports.__esModule = true;
 
@@ -6546,7 +5684,7 @@ exports.default = createReactContext;
 module.exports = exports['default'];
 });
 
-unwrapExports(implementation$4);
+unwrapExports(implementation);
 
 var lib = createCommonjsModule(function (module, exports) {
 
@@ -6558,7 +5696,7 @@ var _react2 = _interopRequireDefault(React__default);
 
 
 
-var _implementation2 = _interopRequireDefault(implementation$4);
+var _implementation2 = _interopRequireDefault(implementation);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6801,9 +5939,7 @@ function (_React$Component) {
 
   _proto.componentDidUpdate = function componentDidUpdate(prevProps, prevState) {
     // If the Popper.js options have changed, update the instance (destroy + create)
-    if (this.props.placement !== prevProps.placement || this.props.referenceElement !== prevProps.referenceElement || this.props.positionFixed !== prevProps.positionFixed || !deepEqual_1(this.props.modifiers, prevProps.modifiers, {
-      strict: true
-    })) {
+    if (this.props.placement !== prevProps.placement || this.props.referenceElement !== prevProps.referenceElement || this.props.positionFixed !== prevProps.positionFixed || this.props.modifiers !== prevProps.modifiers) {
       // develop only check that modifiers isn't being updated needlessly
       {
         if (this.props.modifiers !== prevProps.modifiers && this.props.modifiers != null && prevProps.modifiers != null && shallowEqual(this.props.modifiers, prevProps.modifiers)) {
@@ -8013,7 +7149,7 @@ var asyncTag = '[object AsyncFunction]',
  * _.isFunction(/abc/);
  * // => false
  */
-function isFunction$2(value) {
+function isFunction$1(value) {
   if (!isObject_1(value)) {
     return false;
   }
@@ -8023,7 +7159,7 @@ function isFunction$2(value) {
   return tag == funcTag || tag == genTag || tag == asyncTag || tag == proxyTag;
 }
 
-var isFunction_1 = isFunction$2;
+var isFunction_1 = isFunction$1;
 
 /**
  * Checks if `value` is `null` or `undefined`.
@@ -8051,7 +7187,9 @@ function isNil(value) {
 
 var isNil_1 = isNil;
 
-var NestedDropdownMenuHeader = /*#__PURE__*/function (_PureComponent) {
+var NestedDropdownMenuHeader =
+/*#__PURE__*/
+function (_PureComponent) {
   _inheritsLoose(NestedDropdownMenuHeader, _PureComponent);
 
   function NestedDropdownMenuHeader() {
@@ -8072,26 +7210,26 @@ var NestedDropdownMenuHeader = /*#__PURE__*/function (_PureComponent) {
       'molecules-nested-dropdown-menu__header--with-title': !isNil_1(panelTitle)
     });
     var showAddNew = !isNil_1(currentPath.children) && currentPath.children.length > 0 && currentPath.allowAddNew;
-    return /*#__PURE__*/React__default.createElement("div", {
+    return React__default.createElement("div", {
       className: headerStyles
-    }, /*#__PURE__*/React__default.createElement("div", {
+    }, React__default.createElement("div", {
       className: "molecules-nested-dropdown-menu__header-item header-item--left"
-    }, showBackBtn && /*#__PURE__*/React__default.createElement(Button, {
+    }, showBackBtn && React__default.createElement(Button, {
       type: "primary",
       onClick: onBackClick,
       "data-test": "ndm-back-btn"
-    }, /*#__PURE__*/React__default.createElement("i", {
+    }, React__default.createElement("i", {
       className: "fa fa-chevron-left"
-    }), " Back")), /*#__PURE__*/React__default.createElement("div", {
+    }), " Back")), React__default.createElement("div", {
       className: "molecules-nested-dropdown-menu__header-item header-item--center",
       "data-test": "ndm-title"
-    }, panelTitle), /*#__PURE__*/React__default.createElement("div", {
+    }, panelTitle), React__default.createElement("div", {
       className: "molecules-nested-dropdown-menu__header-item header-item--right"
-    }, showAddNew && /*#__PURE__*/React__default.createElement(Button, {
+    }, showAddNew && React__default.createElement(Button, {
       type: "primary",
       onClick: onAddNewClick,
       "data-test": "ndm-add-new-btn"
-    }, /*#__PURE__*/React__default.createElement("i", {
+    }, React__default.createElement("i", {
       className: "fa fa-plus"
     }), " ", addNewHeaderText)));
   };
@@ -8113,7 +7251,9 @@ _defineProperty(NestedDropdownMenuHeader, "defaultProps", {
   currentPath: {}
 });
 
-var NestedDropdownMenuFilter = /*#__PURE__*/function (_PureComponent) {
+var NestedDropdownMenuFilter =
+/*#__PURE__*/
+function (_PureComponent) {
   _inheritsLoose(NestedDropdownMenuFilter, _PureComponent);
 
   function NestedDropdownMenuFilter() {
@@ -8127,11 +7267,11 @@ var NestedDropdownMenuFilter = /*#__PURE__*/function (_PureComponent) {
         filterValue = _this$props.filterValue,
         handleFilterChange = _this$props.handleFilterChange,
         placeholder = _this$props.placeholder;
-    return /*#__PURE__*/React__default.createElement("div", {
+    return React__default.createElement("div", {
       className: "molecules-nested-dropdown-menu__filter-wrapper"
-    }, /*#__PURE__*/React__default.createElement("i", {
+    }, React__default.createElement("i", {
       className: "fa fa-search"
-    }), /*#__PURE__*/React__default.createElement("input", {
+    }), React__default.createElement("input", {
       "data-test": "ndm-search-input",
       value: filterValue,
       onChange: handleFilterChange,
@@ -8150,7 +7290,9 @@ _defineProperty(NestedDropdownMenuFilter, "propTypes", {
 
 _defineProperty(NestedDropdownMenuFilter, "defaultProps", {});
 
-var NestedDropdownMenuList = /*#__PURE__*/function (_Component) {
+var NestedDropdownMenuList =
+/*#__PURE__*/
+function (_Component) {
   _inheritsLoose(NestedDropdownMenuList, _Component);
 
   function NestedDropdownMenuList() {
@@ -8180,14 +7322,14 @@ var NestedDropdownMenuList = /*#__PURE__*/function (_Component) {
         handleItemClick = _this$props.handleItemClick,
         currentPath = _this$props.currentPath,
         onAddNewClick = _this$props.onAddNewClick;
-    return /*#__PURE__*/React__default.createElement("div", {
+    return React__default.createElement("div", {
       className: "molecules-nested-dropdown-menu__content"
-    }, /*#__PURE__*/React__default.createElement("ul", {
+    }, React__default.createElement("ul", {
       className: "molecules-nested-dropdown-menu__content-list"
     }, items.filter(this.filterValues).map(function (item) {
-      return /*#__PURE__*/React__default.createElement("li", {
+      return React__default.createElement("li", {
         key: item.value
-      }, /*#__PURE__*/React__default.createElement("a", {
+      }, React__default.createElement("a", {
         id: item.value,
         role: "button",
         tabIndex: 0,
@@ -8196,17 +7338,17 @@ var NestedDropdownMenuList = /*#__PURE__*/function (_Component) {
         onClick: function onClick() {
           return handleItemClick(item);
         }
-      }, item.label, item.children && item.children.length > 0 && /*#__PURE__*/React__default.createElement("i", {
+      }, item.label, item.children && item.children.length > 0 && React__default.createElement("i", {
         className: "fa fa-chevron-right"
       })));
-    }), items.length === 0 && currentPath.allowAddNew && /*#__PURE__*/React__default.createElement("li", {
+    }), items.length === 0 && currentPath.allowAddNew && React__default.createElement("li", {
       className: "molecules-nested-dropdown-menu__content-list__add-new"
-    }, /*#__PURE__*/React__default.createElement("a", {
+    }, React__default.createElement("a", {
       role: "button",
       tabIndex: 0,
       onClick: onAddNewClick,
       "data-test": "ndm-add-new-row"
-    }, /*#__PURE__*/React__default.createElement("i", {
+    }, React__default.createElement("i", {
       className: "fa fa-plus"
     }), "Create new " + currentPath.label.toLowerCase()))));
   };
@@ -8226,7 +7368,9 @@ _defineProperty(NestedDropdownMenuList, "defaultProps", {
   currentPath: {}
 });
 
-var NestedDropdownMenu = /*#__PURE__*/function (_Component) {
+var NestedDropdownMenu =
+/*#__PURE__*/
+function (_Component) {
   _inheritsLoose(NestedDropdownMenu, _Component);
 
   function NestedDropdownMenu() {
@@ -8405,13 +7549,13 @@ var NestedDropdownMenu = /*#__PURE__*/function (_Component) {
     }, panelClass, {
       active: isActive
     });
-    return /*#__PURE__*/React__default.createElement("div", {
+    return React__default.createElement("div", {
       key: depth,
       className: classes,
       "data-test": "ndm-panel"
-    }, /*#__PURE__*/React__default.createElement("div", {
+    }, React__default.createElement("div", {
       className: "molecules-nested-dropdown-menu__wrapper"
-    }, /*#__PURE__*/React__default.createElement(NestedDropdownMenuList, {
+    }, React__default.createElement(NestedDropdownMenuList, {
       path: path,
       currentPath: selectedPath[selectedPath.length - 1],
       items: items,
@@ -8439,31 +7583,31 @@ var NestedDropdownMenu = /*#__PURE__*/function (_Component) {
       var items = item.children || [];
       return _this2.renderPanel(items, path);
     });
-    return /*#__PURE__*/React__default.createElement(Manager, {
+    return React__default.createElement(Manager, {
       "data-test": "ndm"
-    }, /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement(Reference, {
+    }, React__default.createElement("div", null, React__default.createElement(Reference, {
       "data-test": "ndm-trigger"
     }, function (_ref) {
       var ref = _ref.ref;
-      return /*#__PURE__*/React__default.cloneElement(_this2.props.children, {
+      return React__default.cloneElement(_this2.props.children, {
         ref: ref
       });
-    }), isOpen && /*#__PURE__*/React__default.createElement(Popper$1, {
+    }), isOpen && React__default.createElement(Popper$1, {
       placement: this.props.placement
     }, function (_ref2) {
       var ref = _ref2.ref,
           style = _ref2.style,
           placement = _ref2.placement,
           arrowProps = _ref2.arrowProps;
-      return /*#__PURE__*/React__default.createElement("div", {
+      return React__default.createElement("div", {
         ref: ref,
         style: style,
         "data-placement": placement,
         "data-test": "ndm-placement",
         className: "molecules-nested-dropdown-menu"
-      }, /*#__PURE__*/React__default.createElement("div", {
+      }, React__default.createElement("div", {
         className: "molecules-nested-dropdown-menu__container"
-      }, /*#__PURE__*/React__default.createElement(NestedDropdownMenuHeader, {
+      }, React__default.createElement(NestedDropdownMenuHeader, {
         "data-test": "ndm-header",
         path: selectedPath,
         currentPath: selectedPath[selectedPath.length - 1],
@@ -8472,18 +7616,18 @@ var NestedDropdownMenu = /*#__PURE__*/function (_Component) {
         panelTitle: panelTitle,
         onAddNewClick: _this2.handleAddNewClick,
         addNewHeaderText: addNewHeaderText
-      }), panelTitle && /*#__PURE__*/React__default.createElement(NestedDropdownMenuFilter, {
+      }), panelTitle && React__default.createElement(NestedDropdownMenuFilter, {
         filterValue: _this2.state.filterValue,
         handleFilterChange: _this2.handleFilterChange,
         placeholder: "Seach " + panelTitle.toLowerCase(),
         "data-test": "ndm-filter"
-      }), /*#__PURE__*/React__default.createElement("div", {
+      }), React__default.createElement("div", {
         className: classes
-      }, _this2.renderPanel(), /*#__PURE__*/React__default.createElement(reactTransitionGroup_2, {
+      }, _this2.renderPanel(), React__default.createElement(reactTransitionGroup_2, {
         transitionName: "molecules-nested-dropdown-menu-transitioning",
         transitionEnterTimeout: 500,
         transitionLeaveTimeout: 300
-      }, nestedPanels))), /*#__PURE__*/React__default.createElement("div", {
+      }, nestedPanels))), React__default.createElement("div", {
         ref: arrowProps.ref,
         style: arrowProps.style
       }));
