@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import throttle from 'lodash/throttle';
 
 class Button extends PureComponent {
   static defaultProps = {
@@ -36,6 +37,17 @@ class Button extends PureComponent {
     ]),
   };
 
+  constructor(props) {
+    super(props);
+    this.throttledClick = throttle(this.handleClick, 1000);
+  }
+
+  handleClick = (event) => {
+    if (this.props.onClick) {
+      this.props.onClick(event);
+    }
+  };
+
   render() {
     const classes = classNames(
       this.props.additionalClasses,
@@ -51,7 +63,7 @@ class Button extends PureComponent {
       <button
         id={this.props.id}
         disabled={this.props.disabled}
-        onClick={this.props.onClick}
+        onClick={this.handleClick}
         onMouseOver={this.props.onMouseOver}
         onMouseOut={this.props.onMouseOut}
         onMouseDown={this.props.onMouseDown}
