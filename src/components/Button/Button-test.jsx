@@ -80,4 +80,13 @@ describe('button', () => {
     wrapper.simulate('mouseDown');
     expect(onMouseDownSpy.mock.calls.length).toBe(1);
   });
+
+  it('throttles clicks', () => {
+    const onClickSpy = jest.fn();
+    const props = getProps({ onClick: onClickSpy });
+    const wrapper = shallow(<Button {...props}>Button</Button>);
+    wrapper.simulate('click');
+    wrapper.simulate('click');
+    expect(onClickSpy.mock.calls.length).toBe(1);
+  });
 });
