@@ -63,7 +63,7 @@ class Button extends PureComponent {
       <button
         id={this.props.id}
         disabled={this.props.disabled}
-        onClick={this.handleClick}
+        onClick={this.throttledClick}
         onMouseOver={this.props.onMouseOver}
         onMouseOut={this.props.onMouseOut}
         onMouseDown={this.props.onMouseDown}
