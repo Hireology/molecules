@@ -81,12 +81,17 @@ describe('button', () => {
     expect(onMouseDownSpy.mock.calls.length).toBe(1);
   });
 
-  it('throttles clicks', () => {
+  it('only allows a single click when button is clicked more than once in a second', (done) => {
     const onClickSpy = jest.fn();
     const props = getProps({ onClick: onClickSpy });
     const wrapper = shallow(<Button {...props}>Button</Button>);
     wrapper.simulate('click');
-    wrapper.simulate('click');
-    expect(onClickSpy.mock.calls.length).toBe(1);
+    setTimeout(() => {
+      wrapper.simulate('click');
+    }, 500);
+    setTimeout(() => {
+      expect(onClickSpy.mock.calls.length).toBe(1);
+      done();
+    }, 1200);
   });
 });
