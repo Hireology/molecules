@@ -61,7 +61,6 @@ pre {
   color: #677078; }
 
 a {
-  -webkit-transition: color 0.1s linear;
   transition: color 0.1s linear;
   color: #81af32;
   cursor: pointer;
@@ -154,7 +153,6 @@ input {
           user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-  -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
   position: relative;
   min-width: 33px; }
@@ -224,7 +222,6 @@ input {
     padding: 0.5em; }
 
 .molecules-button-group {
-  display: -webkit-box;
   display: flex; }
   .molecules-button-group > * {
     margin: 0 3px; }
@@ -233,22 +230,16 @@ input {
   .molecules-button-group > *:last-child {
     margin-right: 0px; }
   .molecules-button-group--left {
-    -webkit-box-pack: start;
-            justify-content: flex-start; }
+    justify-content: flex-start; }
   .molecules-button-group--right {
-    -webkit-box-pack: end;
-            justify-content: flex-end; }
+    justify-content: flex-end; }
   .molecules-button-group--center {
-    -webkit-box-pack: center;
-            justify-content: center; }
+    justify-content: center; }
   .molecules-button-group--justified {
-    -webkit-box-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-            align-items: center; }
+    justify-content: space-between;
+    align-items: center; }
   .molecules-button-group--small {
-    -webkit-box-align: center;
-            align-items: center; }
+    align-items: center; }
     .molecules-button-group--small > * {
       border-radius: 3px;
       font-size: 0.8rem;
@@ -259,8 +250,7 @@ input {
     font-size: 0.85em;
     padding: 0.5em 1em; }
   .molecules-button-group--full > * {
-    -webkit-box-flex: 1;
-            flex-grow: 1; }
+    flex-grow: 1; }
 
 .molecules-checkbox {
   position: relative;
@@ -312,10 +302,8 @@ input {
   .collapsable-box__header {
     background: #f7f9f9;
     border-bottom: 1px solid #d6dadc;
-    display: -webkit-box;
     display: flex;
-    -webkit-box-pack: justify;
-            justify-content: space-between;
+    justify-content: space-between;
     padding: 20px; }
     .collapsable-box__header--closed {
       border-bottom: 0px; }
@@ -363,8 +351,7 @@ input {
     display: inline-block;
     position: absolute;
     left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    transform: translateX(-50%);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -380,15 +367,10 @@ input {
   .molecules-dropdown__selection {
     border: 1px solid #ddd;
     border-radius: 4px;
-    display: -webkit-box;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-            flex-direction: row;
-    -webkit-box-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-            align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     padding: 0.5rem; }
     .molecules-dropdown__selection .fa-chevron-up {
       color: #81af32; }
@@ -438,7 +420,6 @@ input {
           user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-  -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
   position: relative;
   background: transparent;
@@ -585,12 +566,9 @@ input {
   right: 0;
   box-sizing: border-box; }
   .molecules-modal.is-open {
-    display: -webkit-box;
     display: flex;
-    -webkit-box-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-            justify-content: center;
+    align-items: center;
+    justify-content: center;
     overflow-y: auto;
     overflow-x: hidden;
     z-index: 10001; }
@@ -609,10 +587,8 @@ input {
       margin-bottom: 2em; }
       @media screen and (max-width: 667px) {
         .molecules-modal .modal__dialog--default {
-          display: -webkit-box;
           display: flex;
-          -webkit-box-pack: center;
-                  justify-content: center;
+          justify-content: center;
           padding: 0em;
           height: 90%;
           width: 90%;
@@ -631,10 +607,8 @@ input {
       margin-bottom: 2em; }
       @media screen and (max-width: 800px) {
         .molecules-modal .modal__dialog--wide {
-          display: -webkit-box;
           display: flex;
-          -webkit-box-pack: center;
-                  justify-content: center;
+          justify-content: center;
           padding: 0em;
           height: 90%;
           width: 90%;
@@ -645,10 +619,8 @@ input {
             width: 90%;
             padding: 1em; } }
     .molecules-modal .modal__dialog--full {
-      display: -webkit-box;
       display: flex;
-      -webkit-box-pack: center;
-              justify-content: center;
+      justify-content: center;
       padding: 0em;
       border-radius: 0px;
       min-height: 100%;
@@ -661,16 +633,12 @@ input {
         width: 90%;
         padding: 1em; }
   .molecules-modal .modal-header {
-    display: -webkit-box;
     display: flex;
-    -webkit-box-align: center;
-            align-items: center;
-    -webkit-box-pack: justify;
-            justify-content: space-between;
+    align-items: center;
+    justify-content: space-between;
     margin-bottom: 1em; }
     .molecules-modal .modal-header--centered {
-      -webkit-box-pack: center;
-              justify-content: center; }
+      justify-content: center; }
     .molecules-modal .modal-header h2 {
       margin: 0; }
   .molecules-modal .modal-header__icon-wrapper {
@@ -681,18 +649,12 @@ input {
       font-size: 18px;
       cursor: pointer; }
   .molecules-modal .modal-body {
-    display: -webkit-box;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-            flex-direction: column; }
+    flex-direction: column; }
   .molecules-modal .modal-footer {
-    display: -webkit-box;
     display: flex;
-    -webkit-box-align: center;
-            align-items: center;
-    -webkit-box-pack: justify;
-            justify-content: space-between;
+    align-items: center;
+    justify-content: space-between;
     margin-top: 1em; }
 
 @-webkit-keyframes fadeIn {
@@ -756,10 +718,7 @@ input {
     text-align: left;
     width: 350px;
     z-index: 500;
-    -webkit-transition: 0.3s -webkit-transform ease-in-out;
-    transition: 0.3s -webkit-transform ease-in-out;
     transition: 0.3s transform ease-in-out;
-    transition: 0.3s transform ease-in-out, 0.3s -webkit-transform ease-in-out;
     overflow-x: hidden; }
     .molecules-nested-dropdown-menu__container:before, .molecules-nested-dropdown-menu__container:after {
       bottom: 100%;
@@ -784,7 +743,6 @@ input {
     padding: 0.5em;
     background-color: #81af32;
     color: #fff;
-    -webkit-transition: height 0.1s linear;
     transition: height 0.1s linear; }
     .molecules-nested-dropdown-menu__header--with-title {
       min-height: 35px; }
@@ -793,21 +751,15 @@ input {
   .molecules-nested-dropdown-menu__header-item {
     height: 100%;
     width: 100%;
-    display: -webkit-box;
     display: flex;
-    -webkit-box-align: center;
-            align-items: center; }
+    align-items: center; }
     .molecules-nested-dropdown-menu__header-item.header-item--left {
-      -webkit-box-pack: start;
-              justify-content: flex-start; }
+      justify-content: flex-start; }
     .molecules-nested-dropdown-menu__header-item.header-item--center {
-      -webkit-box-pack: center;
-              justify-content: center; }
+      justify-content: center; }
     .molecules-nested-dropdown-menu__header-item.header-item--right {
-      -webkit-box-pack: end;
-              justify-content: flex-end; }
+      justify-content: flex-end; }
   .molecules-nested-dropdown-menu__filter-wrapper {
-    display: -webkit-box;
     display: flex;
     padding: 10px 1em;
     position: relative; }
@@ -820,11 +772,8 @@ input {
       padding-left: 30px;
       width: 100%; }
   .molecules-nested-dropdown-menu__content {
-    display: -webkit-box;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-            flex-direction: column;
+    flex-direction: column;
     height: 100%;
     min-height: 220px;
     max-height: 220px; }
@@ -836,13 +785,9 @@ input {
       color: #81af32; }
     .molecules-nested-dropdown-menu__content-list__add-new {
       padding: 10px 1em;
-      display: -webkit-box;
       display: flex;
-      -webkit-box-align: center;
-              align-items: center;
-      -webkit-box-pack: center;
-              justify-content: center;
-      -webkit-transition: background-color 0.1s linear;
+      align-items: center;
+      justify-content: center;
       transition: background-color 0.1s linear; }
       .molecules-nested-dropdown-menu__content-list__add-new:hover {
         background-color: #f7f9f9; }
@@ -851,16 +796,12 @@ input {
       .molecules-nested-dropdown-menu__content-list__add-new i {
         margin-right: 10px; }
     .molecules-nested-dropdown-menu__content-list__item {
-      display: -webkit-box;
       display: flex;
-      -webkit-box-align: center;
-              align-items: center;
-      -webkit-box-pack: justify;
-              justify-content: space-between;
+      align-items: center;
+      justify-content: space-between;
       padding: 10px 1em;
       cursor: pointer;
       color: #677078;
-      -webkit-transition: background-color 0.1s linear;
       transition: background-color 0.1s linear; }
       .molecules-nested-dropdown-menu__content-list__item:hover {
         background-color: #f7f9f9; }
@@ -868,36 +809,26 @@ input {
         font-size: 0.85; }
   .molecules-nested-dropdown-menu .panels {
     white-space: normal;
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-    -webkit-transition: 0.3s -webkit-transform ease-in-out;
-    transition: 0.3s -webkit-transform ease-in-out;
-    transition: 0.3s transform ease-in-out;
-    transition: 0.3s transform ease-in-out, 0.3s -webkit-transform ease-in-out; }
+    transform: translateX(0);
+    transition: 0.3s transform ease-in-out; }
     .molecules-nested-dropdown-menu .panels .panel {
       position: absolute;
       top: 0;
-      -webkit-transition: 0.3s opacity ease-in;
       transition: 0.3s opacity ease-in;
       width: 100%;
       opacity: 0;
       height: 100%;
       overflow-y: scroll; }
     .molecules-nested-dropdown-menu .panels.active-1 {
-      -webkit-transform: translateX(-100%);
-              transform: translateX(-100%); }
+      transform: translateX(-100%); }
     .molecules-nested-dropdown-menu .panels.active-2 {
-      -webkit-transform: translateX(-200%);
-              transform: translateX(-200%); }
+      transform: translateX(-200%); }
     .molecules-nested-dropdown-menu .panels.active-3 {
-      -webkit-transform: translateX(-300%);
-              transform: translateX(-300%); }
+      transform: translateX(-300%); }
     .molecules-nested-dropdown-menu .panels.active-4 {
-      -webkit-transform: translateX(-400%);
-              transform: translateX(-400%); }
+      transform: translateX(-400%); }
     .molecules-nested-dropdown-menu .panels.active-5 {
-      -webkit-transform: translateX(-500%);
-              transform: translateX(-500%); }
+      transform: translateX(-500%); }
     .molecules-nested-dropdown-menu .panels .active {
       opacity: 1; }
     .molecules-nested-dropdown-menu .panels .panel-1 {
@@ -957,7 +888,6 @@ input {
   font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
   font-size: 1em;
   color: #677078;
-  -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
   text-align: center;
   overflow: visible;
@@ -978,10 +908,8 @@ input {
       border-bottom-color: #2a5769; }
 
 .molecules-tooltip-wrapper {
-  display: -webkit-inline-box;
   display: inline-flex;
-  -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   position: relative;
   vertical-align: top;
   margin: 0 4px; }
@@ -1037,42 +965,34 @@ input {
   .molecules-tooltip--top {
     top: 0;
     left: 50%;
-    -webkit-transform: translate(-50%, calc(-100% - 10px));
-            transform: translate(-50%, calc(-100% - 10px)); }
+    transform: translate(-50%, calc(-100% - 10px)); }
     .molecules-tooltip--top:before {
       top: 100%;
       left: 50%;
-      -webkit-transform: rotate(45deg);
-              transform: rotate(45deg); }
+      transform: rotate(45deg); }
   .molecules-tooltip--right {
     right: 0;
-    -webkit-transform: translateX(calc(100% + 10px));
-            transform: translateX(calc(100% + 10px)); }
+    transform: translateX(calc(100% + 10px)); }
     .molecules-tooltip--right:before {
       top: 50%;
       left: 0%;
       margin-left: -6px;
-      -webkit-transform: rotate(135deg);
-              transform: rotate(135deg); }
+      transform: rotate(135deg); }
   .molecules-tooltip--bottom {
     bottom: 0;
     left: 50%;
-    -webkit-transform: translate(-50%, calc(100% + 10px));
-            transform: translate(-50%, calc(100% + 10px)); }
+    transform: translate(-50%, calc(100% + 10px)); }
     .molecules-tooltip--bottom:before {
       top: 0%;
       left: 50%;
       margin-top: -6px;
-      -webkit-transform: rotate(-135deg);
-              transform: rotate(-135deg); }
+      transform: rotate(-135deg); }
   .molecules-tooltip--left {
-    -webkit-transform: translateX(calc(-100% - 10px));
-            transform: translateX(calc(-100% - 10px)); }
+    transform: translateX(calc(-100% - 10px)); }
     .molecules-tooltip--left:before {
       top: 50%;
       left: 100%;
-      -webkit-transform: rotate(-45deg);
-              transform: rotate(-45deg); }
+      transform: rotate(-45deg); }
   .molecules-tooltip--align-left {
     text-align: start; }
   .molecules-tooltip--align-right {
@@ -1084,11 +1004,8 @@ input {
   font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
   font-size: 16px;
   color: #677078;
-  display: -webkit-box;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
+  flex-direction: column;
   position: relative; }
   .molecules-type-ahead-search__search {
     font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
@@ -1100,8 +1017,6 @@ input {
     .molecules-type-ahead-search__search:focus {
       outline: none;
       border-color: #81af32; }
-    .molecules-type-ahead-search__search::-webkit-input-placeholder {
-      color: #9da3a8; }
     .molecules-type-ahead-search__search::-moz-placeholder {
       color: #9da3a8; }
     .molecules-type-ahead-search__search:-ms-input-placeholder {
