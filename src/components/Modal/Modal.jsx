@@ -51,6 +51,13 @@ class Modal extends Component {
     }
   }
 
+  componentDidUpdate(oldProps) {
+    if (oldProps.isOpen !== this.props.isOpen) {
+      // Prevent the body of the page from scrolling if the modal is open
+      document.body.style.overflowY = this.props.isOpen ? 'hidden' : 'unset';
+    }
+  }
+
   componentWillUnmount() {
     if (this.props.closeOnEsc) {
       window.removeEventListener('keydown', this.onEscKeyDown, false);
