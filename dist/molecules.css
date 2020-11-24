@@ -1021,8 +1021,6 @@ input {
       color: #9da3a8; }
     .molecules-type-ahead-search__search:-ms-input-placeholder {
       color: #9da3a8; }
-    .molecules-type-ahead-search__search::-ms-input-placeholder {
-      color: #9da3a8; }
     .molecules-type-ahead-search__search::placeholder {
       color: #9da3a8; }
   .molecules-type-ahead-search__type-ahead {
