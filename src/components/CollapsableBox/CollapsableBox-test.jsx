@@ -62,19 +62,19 @@ describe('CollapsableBox', () => {
     expect(wrapper.find('[data-test="collapsable-box-body"]').length).toBe(1);
   });
   it('should call handleToggle on icon button click', () => {
-    const mockHandleToggle = jest.fn();
-    const props = getProps({ handleToggle: mockHandleToggle });
+    const handleToggleSpy = jest.fn();
+    const props = getProps({ handleToggle: handleToggleSpy });
     const wrapper = shallow(
       <CollapsableBox {...props}>
         <div />
       </CollapsableBox>,
     );
     wrapper.find('[data-test="collapsable-box-icon-button"]').simulate('click');
-    expect(mockHandleToggle).toHaveBeenCalled();
+    expect(handleToggleSpy).toHaveBeenCalled();
   });
   it('should call handleToggle on icon button focus and return', () => {
-    const mockHandleToggle = jest.fn();
-    const props = getProps({ handleToggle: mockHandleToggle });
+    const handleToggleSpy = jest.fn();
+    const props = getProps({ handleToggle: handleToggleSpy });
     const wrapper = shallow(
       <CollapsableBox {...props}>
         <div />
@@ -83,11 +83,11 @@ describe('CollapsableBox', () => {
     wrapper
       .find('[data-test="collapsable-box-icon-button"]')
       .simulate('keydown', { keyCode: 13 });
-    expect(mockHandleToggle).toHaveBeenCalled();
+    expect(handleToggleSpy).toHaveBeenCalled();
   });
   it('should call handleToggle on icon button focus and space', () => {
-    const mockHandleToggle = jest.fn();
-    const props = getProps({ handleToggle: mockHandleToggle });
+    const handleToggleSpy = jest.fn();
+    const props = getProps({ handleToggle: handleToggleSpy });
     const wrapper = shallow(
       <CollapsableBox {...props}>
         <div />
@@ -96,7 +96,7 @@ describe('CollapsableBox', () => {
     wrapper
       .find('[data-test="collapsable-box-icon-button"]')
       .simulate('keydown', { keyCode: 32 });
-    expect(mockHandleToggle).toHaveBeenCalled();
+    expect(handleToggleSpy).toHaveBeenCalled();
   });
   it('should render non scrollable content if passed', () => {
     const props = getProps({ nonScrollableContent: <h1>Does not Scroll</h1> });

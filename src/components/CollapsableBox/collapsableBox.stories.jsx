@@ -141,9 +141,6 @@ export default class CollapsableBoxStory extends React.Component {
                 nulla pariatur. Excepteur sint occaecat cupidatat non proident,
                 sunt in culpa qui officia deserunt mollit anim id est laborum.
               </div>
-              <button onClick={() => this.handleToggle(false, 'box2')}>
-                CLOSE BOX 2
-              </button>
             </CollapsableBox>
           </div>
           <div style={{ width: '300px', display: 'inline-block' }}>
