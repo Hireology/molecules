@@ -8,7 +8,6 @@ export default class CandidateSearchFilter extends PureComponent {
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node,
     ]).isRequired,
-    defaultExpanded: PropTypes.bool,
     isExpanded: PropTypes.bool,
     nonScrollableContent: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
@@ -21,18 +20,12 @@ export default class CandidateSearchFilter extends PureComponent {
   };
 
   static defaultProps = {
-    defaultExpanded: true,
     isExpanded: true,
     nonScrollableContent: null,
     scrollable: false,
   };
 
-  // state = {
-  //   expanded: this.props.isExpanded || this.props.defaultExpanded,
-  // };
-
   toggleExpanded = () => {
-    // this.setState({ expanded: !this.props.isExpanded });
     this.props.handleToggle(!this.props.isExpanded, this.props.name);
   };
 

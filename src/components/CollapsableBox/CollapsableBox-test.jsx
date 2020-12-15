@@ -1,11 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import CollapsableBox from '../CollapsableBox';
+import { wrap } from 'module';
 
-// TO DO: Update to include new props
 const getProps = (overrides) => ({
   nonScrollableContent: null,
-  defaultExpanded: true,
+  isExpanded: true,
+  handleToggle: () => null,
   title: 'Title',
   scrollable: false,
   ...overrides,
@@ -20,11 +21,8 @@ describe('CollapsableBox', () => {
     );
     expect(wrapper.find('[data-test="collapsable-box-header"]').length).toBe(1);
   });
-  // TO DO for the following 2 tests:
-  // Use the overrides prop in the getProps function to create
-  // the component props you need for this test pass
   it('should render an plus icon if the box is collapsed', () => {
-    const props = getProps(/* add overrides here */);
+    const props = getProps({ isExpanded: false });
     const wrapper = shallow(
       <CollapsableBox {...props}>
         <div />
@@ -35,7 +33,7 @@ describe('CollapsableBox', () => {
     ).toContain('fa-plus-square');
   });
   it('should not render the body if the box is collapsed', () => {
-    const props = getProps(/* add overrides here */);
+    const props = getProps({ isExpanded: false });
     const wrapper = shallow(
       <CollapsableBox {...props}>
         <div />
@@ -63,23 +61,42 @@ describe('CollapsableBox', () => {
     );
     expect(wrapper.find('[data-test="collapsable-box-body"]').length).toBe(1);
   });
-  // TO DO for the following 3 tests:
-  // make the handleToggle prop a spy (aka: jest.fn(); ), then validate it has been called
-  // after each simulated event
   it('should call handleToggle on icon button click', () => {
-    // wrapper.find('[data-test="collapsable-box-icon-button"]').simulate('click');
+    const mockHandleToggle = jest.fn();
+    const props = getProps({ handleToggle: mockHandleToggle });
+    const wrapper = shallow(
+      <CollapsableBox {...props}>
+        <div />
+      </CollapsableBox>,
+    );
+    wrapper.find('[data-test="collapsable-box-icon-button"]').simulate('click');
+    expect(mockHandleToggle).toHaveBeenCalled();
   });
   it('should call handleToggle on icon button focus and return', () => {
-    /* wrapper
+    const mockHandleToggle = jest.fn();
+    const props = getProps({ handleToggle: mockHandleToggle });
+    const wrapper = shallow(
+      <CollapsableBox {...props}>
+        <div />
+      </CollapsableBox>,
+    );
+    wrapper
       .find('[data-test="collapsable-box-icon-button"]')
       .simulate('keydown', { keyCode: 13 });
-    */
+    expect(mockHandleToggle).toHaveBeenCalled();
   });
   it('should call handleToggle on icon button focus and space', () => {
-    /* wrapper
+    const mockHandleToggle = jest.fn();
+    const props = getProps({ handleToggle: mockHandleToggle });
+    const wrapper = shallow(
+      <CollapsableBox {...props}>
+        <div />
+      </CollapsableBox>,
+    );
+    wrapper
       .find('[data-test="collapsable-box-icon-button"]')
       .simulate('keydown', { keyCode: 32 });
-      */
+    expect(mockHandleToggle).toHaveBeenCalled();
   });
   it('should render non scrollable content if passed', () => {
     const props = getProps({ nonScrollableContent: <h1>Does not Scroll</h1> });
