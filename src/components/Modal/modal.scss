@@ -40,10 +40,10 @@
         display: flex;
         justify-content: center;
         padding: 0em;
-        height: 90%;
+        min-height: 90%;
         width: 90%;
         margin: 0 auto;
-        top: unset;
+        top: 20px;
         left: unset;
 
         .dialog-container {
