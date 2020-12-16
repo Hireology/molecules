@@ -13,7 +13,6 @@ export default class CandidateSearchFilter extends PureComponent {
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node,
     ]),
-    name: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     scrollable: PropTypes.bool,
     handleToggle: PropTypes.func.isRequired,
@@ -25,13 +24,9 @@ export default class CandidateSearchFilter extends PureComponent {
     scrollable: false,
   };
 
-  toggleExpanded = () => {
-    this.props.handleToggle(!this.props.isExpanded, this.props.name);
-  };
-
   handleKeyDown = (e) => {
     if (e.keyCode === 13 || e.keyCode === 32) {
-      this.toggleExpanded();
+      this.props.handleToggle();
     }
   };
 
@@ -54,7 +49,7 @@ export default class CandidateSearchFilter extends PureComponent {
           <div
             role="button"
             tabIndex={0}
-            onClick={this.toggleExpanded}
+            onClick={this.props.handleToggle}
             onKeyDown={this.handleKeyDown}
             data-test="collapsable-box-icon-button"
           >

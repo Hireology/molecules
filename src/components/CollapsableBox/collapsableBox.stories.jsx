@@ -21,28 +21,27 @@ const notes = {
     `,
   },
 };
+const buttons = ['box1', 'box2', 'box3', 'box4'];
 
 export default class CollapsableBoxStory extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      box1: false,
-      box2: true,
-      box3: false,
+      box1: true,
+      box2: false,
+      box3: true,
       box4: true,
     };
-    this.buttons = ['box1', 'box2', 'box3', 'box4'];
   }
 
-  handleToggle = (value, boxName) => {
-    console.log(`handle ${boxName} collapse fired`, value);
+  handleToggle = (boxName) => {
     this.setState({
-      [boxName]: value,
+      [boxName]: !this.state[boxName],
     });
   };
 
   handleToggleAll = (toggleTo) => {
-    this.buttons.map((button) => {
+    buttons.map((button) => {
       this.setState({
         [button]: toggleTo,
       });
@@ -58,14 +57,12 @@ export default class CollapsableBoxStory extends React.Component {
         >
           <div className="buttonGroup" style={{ margin: '5px' }}>
             <ButtonGroup align="center">
-              {this.buttons.map((buttonName, idx) => {
+              {buttons.map((buttonName, idx) => {
                 return (
                   <Button
                     type="primary"
                     style={{ margin: '5px' }}
-                    onClick={() =>
-                      this.handleToggle(!this.state[buttonName], buttonName)
-                    }
+                    onClick={() => this.handleToggle(buttonName)}
                   >
                     {this.state[buttonName]
                       ? `Collapse Box ${idx + 1}`
@@ -108,10 +105,9 @@ export default class CollapsableBoxStory extends React.Component {
         <div style={{ display: 'flex' }}>
           <div style={{ width: '300px', display: 'inline-block' }}>
             <CollapsableBox
-              name="box1"
               title="Default Box"
               isExpanded={this.state.box1}
-              handleToggle={this.handleToggle}
+              handleToggle={() => this.handleToggle('box1')}
             >
               <div>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -126,11 +122,10 @@ export default class CollapsableBoxStory extends React.Component {
           </div>
           <div style={{ width: '300px', display: 'inline-block' }}>
             <CollapsableBox
-              name="box2"
               title="Initially Collapsed Box"
               defaultExpanded={false}
               isExpanded={this.state.box2}
-              handleToggle={this.handleToggle}
+              handleToggle={() => this.handleToggle('box2')}
             >
               <div>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -145,10 +140,9 @@ export default class CollapsableBoxStory extends React.Component {
           </div>
           <div style={{ width: '300px', display: 'inline-block' }}>
             <CollapsableBox
-              name="box3"
               title="Scrollable Box"
               isExpanded={this.state.box3}
-              handleToggle={this.handleToggle}
+              handleToggle={() => this.handleToggle('box3')}
               scrollable
             >
               <div>
@@ -164,10 +158,9 @@ export default class CollapsableBoxStory extends React.Component {
           </div>
           <div style={{ width: '300px', display: 'inline-block' }}>
             <CollapsableBox
-              name="box4"
               title="Partially Scrollable Box"
               isExpanded={this.state.box4}
-              handleToggle={this.handleToggle}
+              handleToggle={() => this.handleToggle('box4')}
               scrollable
               nonScrollableContent={
                 <div style={{ paddingBottom: 10 }}>
