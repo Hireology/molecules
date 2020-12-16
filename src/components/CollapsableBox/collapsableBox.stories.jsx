@@ -14,7 +14,6 @@ const notes = {
       | children             | Node or array of nodes | true     | -             | Content to be displayed in body of box |
       | isExpanded           | Boolean                | false    | true          | Whether or not the body of the box should be expanded |
       | nonScrollableContent | Node or array of nodes | false    | null          | Any content that should not scroll inside a scrollable box |
-      | name                 | String                 | true     | false         | Name of box |
       | title                | String                 | true     | -             | Title of box |
       | scrollable           | Boolean                | false    | false         | Whether or not the body of the box should be scrollable after 200px |
       | handleToggle         | Function               | true     | -             | Function to handle toggle |
