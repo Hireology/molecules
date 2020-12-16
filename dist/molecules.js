@@ -3181,29 +3181,14 @@
   	return shams();
   };
 
-  var src = functionBind.call(Function.call, Object.prototype.hasOwnProperty);
-
   /* globals
-  	AggregateError,
   	Atomics,
-  	FinalizationRegistry,
   	SharedArrayBuffer,
-  	WeakRef,
   */
 
   var undefined$1;
 
-  var $SyntaxError = SyntaxError;
-  var $Function = Function;
   var $TypeError = TypeError;
-
-  // eslint-disable-next-line consistent-return
-  var getEvalledConstructor = function (expressionSyntax) {
-  	try {
-  		// eslint-disable-next-line no-new-func
-  		return Function('"use strict"; return (' + expressionSyntax + ').constructor;')();
-  	} catch (e) {}
-  };
 
   var $gOPD = Object.getOwnPropertyDescriptor;
   if ($gOPD) {
@@ -3235,138 +3220,125 @@
   var hasSymbols$2 = hasSymbols$1();
 
   var getProto = Object.getPrototypeOf || function (x) { return x.__proto__; }; // eslint-disable-line no-proto
-
-  var asyncGenFunction = getEvalledConstructor('async function* () {}');
-  var asyncGenFunctionPrototype = asyncGenFunction ? asyncGenFunction.prototype : undefined$1;
-  var asyncGenPrototype = asyncGenFunctionPrototype ? asyncGenFunctionPrototype.prototype : undefined$1;
+  var generatorFunction =  undefined$1;
+  var asyncFunction =  undefined$1;
+  var asyncGenFunction =  undefined$1;
 
   var TypedArray = typeof Uint8Array === 'undefined' ? undefined$1 : getProto(Uint8Array);
 
   var INTRINSICS = {
-  	'%AggregateError%': typeof AggregateError === 'undefined' ? undefined$1 : AggregateError,
   	'%Array%': Array,
   	'%ArrayBuffer%': typeof ArrayBuffer === 'undefined' ? undefined$1 : ArrayBuffer,
+  	'%ArrayBufferPrototype%': typeof ArrayBuffer === 'undefined' ? undefined$1 : ArrayBuffer.prototype,
   	'%ArrayIteratorPrototype%': hasSymbols$2 ? getProto([][Symbol.iterator]()) : undefined$1,
+  	'%ArrayPrototype%': Array.prototype,
+  	'%ArrayProto_entries%': Array.prototype.entries,
+  	'%ArrayProto_forEach%': Array.prototype.forEach,
+  	'%ArrayProto_keys%': Array.prototype.keys,
+  	'%ArrayProto_values%': Array.prototype.values,
   	'%AsyncFromSyncIteratorPrototype%': undefined$1,
-  	'%AsyncFunction%': getEvalledConstructor('async function () {}'),
-  	'%AsyncGenerator%': asyncGenFunctionPrototype,
+  	'%AsyncFunction%': asyncFunction,
+  	'%AsyncFunctionPrototype%':  undefined$1,
+  	'%AsyncGenerator%':  undefined$1,
   	'%AsyncGeneratorFunction%': asyncGenFunction,
-  	'%AsyncIteratorPrototype%': asyncGenPrototype ? getProto(asyncGenPrototype) : undefined$1,
+  	'%AsyncGeneratorPrototype%':  undefined$1,
+  	'%AsyncIteratorPrototype%':  undefined$1,
   	'%Atomics%': typeof Atomics === 'undefined' ? undefined$1 : Atomics,
-  	'%BigInt%': typeof BigInt === 'undefined' ? undefined$1 : BigInt,
   	'%Boolean%': Boolean,
+  	'%BooleanPrototype%': Boolean.prototype,
   	'%DataView%': typeof DataView === 'undefined' ? undefined$1 : DataView,
+  	'%DataViewPrototype%': typeof DataView === 'undefined' ? undefined$1 : DataView.prototype,
   	'%Date%': Date,
+  	'%DatePrototype%': Date.prototype,
   	'%decodeURI%': decodeURI,
   	'%decodeURIComponent%': decodeURIComponent,
   	'%encodeURI%': encodeURI,
   	'%encodeURIComponent%': encodeURIComponent,
   	'%Error%': Error,
+  	'%ErrorPrototype%': Error.prototype,
   	'%eval%': eval, // eslint-disable-line no-eval
   	'%EvalError%': EvalError,
+  	'%EvalErrorPrototype%': EvalError.prototype,
   	'%Float32Array%': typeof Float32Array === 'undefined' ? undefined$1 : Float32Array,
+  	'%Float32ArrayPrototype%': typeof Float32Array === 'undefined' ? undefined$1 : Float32Array.prototype,
   	'%Float64Array%': typeof Float64Array === 'undefined' ? undefined$1 : Float64Array,
-  	'%FinalizationRegistry%': typeof FinalizationRegistry === 'undefined' ? undefined$1 : FinalizationRegistry,
-  	'%Function%': $Function,
-  	'%GeneratorFunction%': getEvalledConstructor('function* () {}'),
+  	'%Float64ArrayPrototype%': typeof Float64Array === 'undefined' ? undefined$1 : Float64Array.prototype,
+  	'%Function%': Function,
+  	'%FunctionPrototype%': Function.prototype,
+  	'%Generator%':  undefined$1,
+  	'%GeneratorFunction%': generatorFunction,
+  	'%GeneratorPrototype%':  undefined$1,
   	'%Int8Array%': typeof Int8Array === 'undefined' ? undefined$1 : Int8Array,
+  	'%Int8ArrayPrototype%': typeof Int8Array === 'undefined' ? undefined$1 : Int8Array.prototype,
   	'%Int16Array%': typeof Int16Array === 'undefined' ? undefined$1 : Int16Array,
+  	'%Int16ArrayPrototype%': typeof Int16Array === 'undefined' ? undefined$1 : Int8Array.prototype,
   	'%Int32Array%': typeof Int32Array === 'undefined' ? undefined$1 : Int32Array,
+  	'%Int32ArrayPrototype%': typeof Int32Array === 'undefined' ? undefined$1 : Int32Array.prototype,
   	'%isFinite%': isFinite,
   	'%isNaN%': isNaN,
   	'%IteratorPrototype%': hasSymbols$2 ? getProto(getProto([][Symbol.iterator]())) : undefined$1,
   	'%JSON%': typeof JSON === 'object' ? JSON : undefined$1,
+  	'%JSONParse%': typeof JSON === 'object' ? JSON.parse : undefined$1,
   	'%Map%': typeof Map === 'undefined' ? undefined$1 : Map,
   	'%MapIteratorPrototype%': typeof Map === 'undefined' || !hasSymbols$2 ? undefined$1 : getProto(new Map()[Symbol.iterator]()),
+  	'%MapPrototype%': typeof Map === 'undefined' ? undefined$1 : Map.prototype,
   	'%Math%': Math,
   	'%Number%': Number,
+  	'%NumberPrototype%': Number.prototype,
   	'%Object%': Object,
+  	'%ObjectPrototype%': Object.prototype,
+  	'%ObjProto_toString%': Object.prototype.toString,
+  	'%ObjProto_valueOf%': Object.prototype.valueOf,
   	'%parseFloat%': parseFloat,
   	'%parseInt%': parseInt,
   	'%Promise%': typeof Promise === 'undefined' ? undefined$1 : Promise,
+  	'%PromisePrototype%': typeof Promise === 'undefined' ? undefined$1 : Promise.prototype,
+  	'%PromiseProto_then%': typeof Promise === 'undefined' ? undefined$1 : Promise.prototype.then,
+  	'%Promise_all%': typeof Promise === 'undefined' ? undefined$1 : Promise.all,
+  	'%Promise_reject%': typeof Promise === 'undefined' ? undefined$1 : Promise.reject,
+  	'%Promise_resolve%': typeof Promise === 'undefined' ? undefined$1 : Promise.resolve,
   	'%Proxy%': typeof Proxy === 'undefined' ? undefined$1 : Proxy,
   	'%RangeError%': RangeError,
+  	'%RangeErrorPrototype%': RangeError.prototype,
   	'%ReferenceError%': ReferenceError,
+  	'%ReferenceErrorPrototype%': ReferenceError.prototype,
   	'%Reflect%': typeof Reflect === 'undefined' ? undefined$1 : Reflect,
   	'%RegExp%': RegExp,
+  	'%RegExpPrototype%': RegExp.prototype,
   	'%Set%': typeof Set === 'undefined' ? undefined$1 : Set,
   	'%SetIteratorPrototype%': typeof Set === 'undefined' || !hasSymbols$2 ? undefined$1 : getProto(new Set()[Symbol.iterator]()),
+  	'%SetPrototype%': typeof Set === 'undefined' ? undefined$1 : Set.prototype,
   	'%SharedArrayBuffer%': typeof SharedArrayBuffer === 'undefined' ? undefined$1 : SharedArrayBuffer,
+  	'%SharedArrayBufferPrototype%': typeof SharedArrayBuffer === 'undefined' ? undefined$1 : SharedArrayBuffer.prototype,
   	'%String%': String,
   	'%StringIteratorPrototype%': hasSymbols$2 ? getProto(''[Symbol.iterator]()) : undefined$1,
+  	'%StringPrototype%': String.prototype,
   	'%Symbol%': hasSymbols$2 ? Symbol : undefined$1,
-  	'%SyntaxError%': $SyntaxError,
+  	'%SymbolPrototype%': hasSymbols$2 ? Symbol.prototype : undefined$1,
+  	'%SyntaxError%': SyntaxError,
+  	'%SyntaxErrorPrototype%': SyntaxError.prototype,
   	'%ThrowTypeError%': ThrowTypeError,
   	'%TypedArray%': TypedArray,
+  	'%TypedArrayPrototype%': TypedArray ? TypedArray.prototype : undefined$1,
   	'%TypeError%': $TypeError,
+  	'%TypeErrorPrototype%': $TypeError.prototype,
   	'%Uint8Array%': typeof Uint8Array === 'undefined' ? undefined$1 : Uint8Array,
+  	'%Uint8ArrayPrototype%': typeof Uint8Array === 'undefined' ? undefined$1 : Uint8Array.prototype,
   	'%Uint8ClampedArray%': typeof Uint8ClampedArray === 'undefined' ? undefined$1 : Uint8ClampedArray,
+  	'%Uint8ClampedArrayPrototype%': typeof Uint8ClampedArray === 'undefined' ? undefined$1 : Uint8ClampedArray.prototype,
   	'%Uint16Array%': typeof Uint16Array === 'undefined' ? undefined$1 : Uint16Array,
+  	'%Uint16ArrayPrototype%': typeof Uint16Array === 'undefined' ? undefined$1 : Uint16Array.prototype,
   	'%Uint32Array%': typeof Uint32Array === 'undefined' ? undefined$1 : Uint32Array,
+  	'%Uint32ArrayPrototype%': typeof Uint32Array === 'undefined' ? undefined$1 : Uint32Array.prototype,
   	'%URIError%': URIError,
+  	'%URIErrorPrototype%': URIError.prototype,
   	'%WeakMap%': typeof WeakMap === 'undefined' ? undefined$1 : WeakMap,
-  	'%WeakRef%': typeof WeakRef === 'undefined' ? undefined$1 : WeakRef,
-  	'%WeakSet%': typeof WeakSet === 'undefined' ? undefined$1 : WeakSet
-  };
-
-  var LEGACY_ALIASES = {
-  	'%ArrayBufferPrototype%': ['ArrayBuffer', 'prototype'],
-  	'%ArrayPrototype%': ['Array', 'prototype'],
-  	'%ArrayProto_entries%': ['Array', 'prototype', 'entries'],
-  	'%ArrayProto_forEach%': ['Array', 'prototype', 'forEach'],
-  	'%ArrayProto_keys%': ['Array', 'prototype', 'keys'],
-  	'%ArrayProto_values%': ['Array', 'prototype', 'values'],
-  	'%AsyncFunctionPrototype%': ['AsyncFunction', 'prototype'],
-  	'%AsyncGenerator%': ['AsyncGeneratorFunction', 'prototype'],
-  	'%AsyncGeneratorPrototype%': ['AsyncGeneratorFunction', 'prototype', 'prototype'],
-  	'%BooleanPrototype%': ['Boolean', 'prototype'],
-  	'%DataViewPrototype%': ['DataView', 'prototype'],
-  	'%DatePrototype%': ['Date', 'prototype'],
-  	'%ErrorPrototype%': ['Error', 'prototype'],
-  	'%EvalErrorPrototype%': ['EvalError', 'prototype'],
-  	'%Float32ArrayPrototype%': ['Float32Array', 'prototype'],
-  	'%Float64ArrayPrototype%': ['Float64Array', 'prototype'],
-  	'%FunctionPrototype%': ['Function', 'prototype'],
-  	'%Generator%': ['GeneratorFunction', 'prototype'],
-  	'%GeneratorPrototype%': ['GeneratorFunction', 'prototype', 'prototype'],
-  	'%Int8ArrayPrototype%': ['Int8Array', 'prototype'],
-  	'%Int16ArrayPrototype%': ['Int16Array', 'prototype'],
-  	'%Int32ArrayPrototype%': ['Int32Array', 'prototype'],
-  	'%JSONParse%': ['JSON', 'parse'],
-  	'%JSONStringify%': ['JSON', 'stringify'],
-  	'%MapPrototype%': ['Map', 'prototype'],
-  	'%NumberPrototype%': ['Number', 'prototype'],
-  	'%ObjectPrototype%': ['Object', 'prototype'],
-  	'%ObjProto_toString%': ['Object', 'prototype', 'toString'],
-  	'%ObjProto_valueOf%': ['Object', 'prototype', 'valueOf'],
-  	'%PromisePrototype%': ['Promise', 'prototype'],
-  	'%PromiseProto_then%': ['Promise', 'prototype', 'then'],
-  	'%Promise_all%': ['Promise', 'all'],
-  	'%Promise_reject%': ['Promise', 'reject'],
-  	'%Promise_resolve%': ['Promise', 'resolve'],
-  	'%RangeErrorPrototype%': ['RangeError', 'prototype'],
-  	'%ReferenceErrorPrototype%': ['ReferenceError', 'prototype'],
-  	'%RegExpPrototype%': ['RegExp', 'prototype'],
-  	'%SetPrototype%': ['Set', 'prototype'],
-  	'%SharedArrayBufferPrototype%': ['SharedArrayBuffer', 'prototype'],
-  	'%StringPrototype%': ['String', 'prototype'],
-  	'%SymbolPrototype%': ['Symbol', 'prototype'],
-  	'%SyntaxErrorPrototype%': ['SyntaxError', 'prototype'],
-  	'%TypedArrayPrototype%': ['TypedArray', 'prototype'],
-  	'%TypeErrorPrototype%': ['TypeError', 'prototype'],
-  	'%Uint8ArrayPrototype%': ['Uint8Array', 'prototype'],
-  	'%Uint8ClampedArrayPrototype%': ['Uint8ClampedArray', 'prototype'],
-  	'%Uint16ArrayPrototype%': ['Uint16Array', 'prototype'],
-  	'%Uint32ArrayPrototype%': ['Uint32Array', 'prototype'],
-  	'%URIErrorPrototype%': ['URIError', 'prototype'],
-  	'%WeakMapPrototype%': ['WeakMap', 'prototype'],
-  	'%WeakSetPrototype%': ['WeakSet', 'prototype']
+  	'%WeakMapPrototype%': typeof WeakMap === 'undefined' ? undefined$1 : WeakMap.prototype,
+  	'%WeakSet%': typeof WeakSet === 'undefined' ? undefined$1 : WeakSet,
+  	'%WeakSetPrototype%': typeof WeakSet === 'undefined' ? undefined$1 : WeakSet.prototype
   };
 
 
-
-  var $concat = functionBind.call(Function.call, Array.prototype.concat);
-  var $spliceApply = functionBind.call(Function.apply, Array.prototype.splice);
   var $replace = functionBind.call(Function.call, String.prototype.replace);
 
   /* adapted from https://github.com/lodash/lodash/blob/4.17.15/dist/lodash.js#L6735-L6744 */
@@ -3375,138 +3347,64 @@
   var stringToPath = function stringToPath(string) {
   	var result = [];
   	$replace(string, rePropName, function (match, number, quote, subString) {
-  		result[result.length] = quote ? $replace(subString, reEscapeChar, '$1') : number || match;
+  		result[result.length] = quote ? $replace(subString, reEscapeChar, '$1') : (number || match);
   	});
   	return result;
   };
   /* end adaptation */
 
   var getBaseIntrinsic = function getBaseIntrinsic(name, allowMissing) {
-  	var intrinsicName = name;
-  	var alias;
-  	if (src(LEGACY_ALIASES, intrinsicName)) {
-  		alias = LEGACY_ALIASES[intrinsicName];
-  		intrinsicName = '%' + alias[0] + '%';
+  	if (!(name in INTRINSICS)) {
+  		throw new SyntaxError('intrinsic ' + name + ' does not exist!');
   	}
 
-  	if (src(INTRINSICS, intrinsicName)) {
-  		var value = INTRINSICS[intrinsicName];
-  		if (typeof value === 'undefined' && !allowMissing) {
-  			throw new $TypeError('intrinsic ' + name + ' exists, but is not available. Please file an issue!');
-  		}
-
-  		return {
-  			alias: alias,
-  			name: intrinsicName,
-  			value: value
-  		};
+  	// istanbul ignore if // hopefully this is impossible to test :-)
+  	if (typeof INTRINSICS[name] === 'undefined' && !allowMissing) {
+  		throw new $TypeError('intrinsic ' + name + ' exists, but is not available. Please file an issue!');
   	}
 
-  	throw new $SyntaxError('intrinsic ' + name + ' does not exist!');
+  	return INTRINSICS[name];
   };
 
   var GetIntrinsic = function GetIntrinsic(name, allowMissing) {
   	if (typeof name !== 'string' || name.length === 0) {
-  		throw new $TypeError('intrinsic name must be a non-empty string');
+  		throw new TypeError('intrinsic name must be a non-empty string');
   	}
   	if (arguments.length > 1 && typeof allowMissing !== 'boolean') {
-  		throw new $TypeError('"allowMissing" argument must be a boolean');
+  		throw new TypeError('"allowMissing" argument must be a boolean');
   	}
 
   	var parts = stringToPath(name);
-  	var intrinsicBaseName = parts.length > 0 ? parts[0] : '';
 
-  	var intrinsic = getBaseIntrinsic('%' + intrinsicBaseName + '%', allowMissing);
-  	var intrinsicRealName = intrinsic.name;
-  	var value = intrinsic.value;
-  	var skipFurtherCaching = false;
-
-  	var alias = intrinsic.alias;
-  	if (alias) {
-  		intrinsicBaseName = alias[0];
-  		$spliceApply(parts, $concat([0, 1], alias));
-  	}
-
-  	for (var i = 1, isOwn = true; i < parts.length; i += 1) {
-  		var part = parts[i];
-  		if (part === 'constructor' || !isOwn) {
-  			skipFurtherCaching = true;
-  		}
-
-  		intrinsicBaseName += '.' + part;
-  		intrinsicRealName = '%' + intrinsicBaseName + '%';
-
-  		if (src(INTRINSICS, intrinsicRealName)) {
-  			value = INTRINSICS[intrinsicRealName];
-  		} else if (value != null) {
+  	var value = getBaseIntrinsic('%' + (parts.length > 0 ? parts[0] : '') + '%', allowMissing);
+  	for (var i = 1; i < parts.length; i += 1) {
+  		if (value != null) {
   			if ($gOPD && (i + 1) >= parts.length) {
-  				var desc = $gOPD(value, part);
-  				isOwn = !!desc;
-
-  				if (!allowMissing && !(part in value)) {
+  				var desc = $gOPD(value, parts[i]);
+  				if (!allowMissing && !(parts[i] in value)) {
   					throw new $TypeError('base intrinsic for ' + name + ' exists, but the property is not available.');
   				}
-  				// By convention, when a data property is converted to an accessor
-  				// property to emulate a data property that does not suffer from
-  				// the override mistake, that accessor's getter is marked with
-  				// an `originalValue` property. Here, when we detect this, we
-  				// uphold the illusion by pretending to see that original data
-  				// property, i.e., returning the value rather than the getter
-  				// itself.
-  				if (isOwn && 'get' in desc && !('originalValue' in desc.get)) {
-  					value = desc.get;
-  				} else {
-  					value = value[part];
-  				}
+  				value = desc ? (desc.get || desc.value) : value[parts[i]];
   			} else {
-  				isOwn = src(value, part);
-  				value = value[part];
-  			}
-
-  			if (isOwn && !skipFurtherCaching) {
-  				INTRINSICS[intrinsicRealName] = value;
+  				value = value[parts[i]];
   			}
   		}
   	}
   	return value;
   };
 
-  var callBind = createCommonjsModule(function (module) {
-
-
-
-
-
   var $apply = GetIntrinsic('%Function.prototype.apply%');
   var $call = GetIntrinsic('%Function.prototype.call%');
   var $reflectApply = GetIntrinsic('%Reflect.apply%', true) || functionBind.call($call, $apply);
 
-  var $defineProperty = GetIntrinsic('%Object.defineProperty%', true);
-
-  if ($defineProperty) {
-  	try {
-  		$defineProperty({}, 'a', { value: 1 });
-  	} catch (e) {
-  		// IE 8 has a broken defineProperty
-  		$defineProperty = null;
-  	}
-  }
-
-  module.exports = function callBind() {
+  var callBind = function callBind() {
   	return $reflectApply(functionBind, $call, arguments);
   };
 
-  var applyBind = function applyBind() {
+  var apply = function applyBind() {
   	return $reflectApply(functionBind, $apply, arguments);
   };
-
-  if ($defineProperty) {
-  	$defineProperty(module.exports, 'apply', { value: applyBind });
-  } else {
-  	module.exports.apply = applyBind;
-  }
-  });
-  var callBind_1 = callBind.apply;
+  callBind.apply = apply;
 
   var numberIsNaN = function (value) {
   	return value !== value;
@@ -3551,13 +3449,11 @@
 
   var hasSymbols$3 = hasSymbols$1();
   var hasToStringTag$1 = hasSymbols$3 && typeof Symbol.toStringTag === 'symbol';
-  var hasOwnProperty$1;
   var regexExec;
   var isRegexMarker;
   var badStringifier;
 
   if (hasToStringTag$1) {
-  	hasOwnProperty$1 = Function.call.bind(Object.prototype.hasOwnProperty);
   	regexExec = Function.call.bind(RegExp.prototype.exec);
   	isRegexMarker = {};
 
@@ -3575,19 +3471,12 @@
   }
 
   var toStr$5 = Object.prototype.toString;
-  var gOPD = Object.getOwnPropertyDescriptor;
   var regexClass = '[object RegExp]';
 
   var isRegex = hasToStringTag$1
   	// eslint-disable-next-line consistent-return
   	? function isRegex(value) {
   		if (!value || typeof value !== 'object') {
-  			return false;
-  		}
-
-  		var descriptor = gOPD(value, 'lastIndex');
-  		var hasLastIndexDataProperty = descriptor && hasOwnProperty$1(descriptor, 'value');
-  		if (!hasLastIndexDataProperty) {
   			return false;
   		}
 
@@ -3606,268 +3495,12 @@
   		return toStr$5.call(value) === regexClass;
   	};
 
-  /* globals
-  	Atomics,
-  	SharedArrayBuffer,
-  */
-
-  var undefined$2;
-
-  var $TypeError$1 = TypeError;
-
-  var $gOPD$1 = Object.getOwnPropertyDescriptor;
-  if ($gOPD$1) {
-  	try {
-  		$gOPD$1({}, '');
-  	} catch (e) {
-  		$gOPD$1 = null; // this is IE 8, which has a broken gOPD
-  	}
-  }
-
-  var throwTypeError$1 = function () { throw new $TypeError$1(); };
-  var ThrowTypeError$1 = $gOPD$1
-  	? (function () {
-  		try {
-  			// eslint-disable-next-line no-unused-expressions, no-caller, no-restricted-properties
-  			arguments.callee; // IE 8 does not throw here
-  			return throwTypeError$1;
-  		} catch (calleeThrows) {
-  			try {
-  				// IE 8 throws on Object.getOwnPropertyDescriptor(arguments, '')
-  				return $gOPD$1(arguments, 'callee').get;
-  			} catch (gOPDthrows) {
-  				return throwTypeError$1;
-  			}
-  		}
-  	}())
-  	: throwTypeError$1;
-
-  var hasSymbols$4 = hasSymbols$1();
-
-  var getProto$1 = Object.getPrototypeOf || function (x) { return x.__proto__; }; // eslint-disable-line no-proto
-  var generatorFunction =  undefined$2;
-  var asyncFunction =  undefined$2;
-  var asyncGenFunction$1 =  undefined$2;
-
-  var TypedArray$1 = typeof Uint8Array === 'undefined' ? undefined$2 : getProto$1(Uint8Array);
-
-  var INTRINSICS$1 = {
-  	'%Array%': Array,
-  	'%ArrayBuffer%': typeof ArrayBuffer === 'undefined' ? undefined$2 : ArrayBuffer,
-  	'%ArrayBufferPrototype%': typeof ArrayBuffer === 'undefined' ? undefined$2 : ArrayBuffer.prototype,
-  	'%ArrayIteratorPrototype%': hasSymbols$4 ? getProto$1([][Symbol.iterator]()) : undefined$2,
-  	'%ArrayPrototype%': Array.prototype,
-  	'%ArrayProto_entries%': Array.prototype.entries,
-  	'%ArrayProto_forEach%': Array.prototype.forEach,
-  	'%ArrayProto_keys%': Array.prototype.keys,
-  	'%ArrayProto_values%': Array.prototype.values,
-  	'%AsyncFromSyncIteratorPrototype%': undefined$2,
-  	'%AsyncFunction%': asyncFunction,
-  	'%AsyncFunctionPrototype%':  undefined$2,
-  	'%AsyncGenerator%':  undefined$2,
-  	'%AsyncGeneratorFunction%': asyncGenFunction$1,
-  	'%AsyncGeneratorPrototype%':  undefined$2,
-  	'%AsyncIteratorPrototype%':  undefined$2,
-  	'%Atomics%': typeof Atomics === 'undefined' ? undefined$2 : Atomics,
-  	'%Boolean%': Boolean,
-  	'%BooleanPrototype%': Boolean.prototype,
-  	'%DataView%': typeof DataView === 'undefined' ? undefined$2 : DataView,
-  	'%DataViewPrototype%': typeof DataView === 'undefined' ? undefined$2 : DataView.prototype,
-  	'%Date%': Date,
-  	'%DatePrototype%': Date.prototype,
-  	'%decodeURI%': decodeURI,
-  	'%decodeURIComponent%': decodeURIComponent,
-  	'%encodeURI%': encodeURI,
-  	'%encodeURIComponent%': encodeURIComponent,
-  	'%Error%': Error,
-  	'%ErrorPrototype%': Error.prototype,
-  	'%eval%': eval, // eslint-disable-line no-eval
-  	'%EvalError%': EvalError,
-  	'%EvalErrorPrototype%': EvalError.prototype,
-  	'%Float32Array%': typeof Float32Array === 'undefined' ? undefined$2 : Float32Array,
-  	'%Float32ArrayPrototype%': typeof Float32Array === 'undefined' ? undefined$2 : Float32Array.prototype,
-  	'%Float64Array%': typeof Float64Array === 'undefined' ? undefined$2 : Float64Array,
-  	'%Float64ArrayPrototype%': typeof Float64Array === 'undefined' ? undefined$2 : Float64Array.prototype,
-  	'%Function%': Function,
-  	'%FunctionPrototype%': Function.prototype,
-  	'%Generator%':  undefined$2,
-  	'%GeneratorFunction%': generatorFunction,
-  	'%GeneratorPrototype%':  undefined$2,
-  	'%Int8Array%': typeof Int8Array === 'undefined' ? undefined$2 : Int8Array,
-  	'%Int8ArrayPrototype%': typeof Int8Array === 'undefined' ? undefined$2 : Int8Array.prototype,
-  	'%Int16Array%': typeof Int16Array === 'undefined' ? undefined$2 : Int16Array,
-  	'%Int16ArrayPrototype%': typeof Int16Array === 'undefined' ? undefined$2 : Int8Array.prototype,
-  	'%Int32Array%': typeof Int32Array === 'undefined' ? undefined$2 : Int32Array,
-  	'%Int32ArrayPrototype%': typeof Int32Array === 'undefined' ? undefined$2 : Int32Array.prototype,
-  	'%isFinite%': isFinite,
-  	'%isNaN%': isNaN,
-  	'%IteratorPrototype%': hasSymbols$4 ? getProto$1(getProto$1([][Symbol.iterator]())) : undefined$2,
-  	'%JSON%': typeof JSON === 'object' ? JSON : undefined$2,
-  	'%JSONParse%': typeof JSON === 'object' ? JSON.parse : undefined$2,
-  	'%Map%': typeof Map === 'undefined' ? undefined$2 : Map,
-  	'%MapIteratorPrototype%': typeof Map === 'undefined' || !hasSymbols$4 ? undefined$2 : getProto$1(new Map()[Symbol.iterator]()),
-  	'%MapPrototype%': typeof Map === 'undefined' ? undefined$2 : Map.prototype,
-  	'%Math%': Math,
-  	'%Number%': Number,
-  	'%NumberPrototype%': Number.prototype,
-  	'%Object%': Object,
-  	'%ObjectPrototype%': Object.prototype,
-  	'%ObjProto_toString%': Object.prototype.toString,
-  	'%ObjProto_valueOf%': Object.prototype.valueOf,
-  	'%parseFloat%': parseFloat,
-  	'%parseInt%': parseInt,
-  	'%Promise%': typeof Promise === 'undefined' ? undefined$2 : Promise,
-  	'%PromisePrototype%': typeof Promise === 'undefined' ? undefined$2 : Promise.prototype,
-  	'%PromiseProto_then%': typeof Promise === 'undefined' ? undefined$2 : Promise.prototype.then,
-  	'%Promise_all%': typeof Promise === 'undefined' ? undefined$2 : Promise.all,
-  	'%Promise_reject%': typeof Promise === 'undefined' ? undefined$2 : Promise.reject,
-  	'%Promise_resolve%': typeof Promise === 'undefined' ? undefined$2 : Promise.resolve,
-  	'%Proxy%': typeof Proxy === 'undefined' ? undefined$2 : Proxy,
-  	'%RangeError%': RangeError,
-  	'%RangeErrorPrototype%': RangeError.prototype,
-  	'%ReferenceError%': ReferenceError,
-  	'%ReferenceErrorPrototype%': ReferenceError.prototype,
-  	'%Reflect%': typeof Reflect === 'undefined' ? undefined$2 : Reflect,
-  	'%RegExp%': RegExp,
-  	'%RegExpPrototype%': RegExp.prototype,
-  	'%Set%': typeof Set === 'undefined' ? undefined$2 : Set,
-  	'%SetIteratorPrototype%': typeof Set === 'undefined' || !hasSymbols$4 ? undefined$2 : getProto$1(new Set()[Symbol.iterator]()),
-  	'%SetPrototype%': typeof Set === 'undefined' ? undefined$2 : Set.prototype,
-  	'%SharedArrayBuffer%': typeof SharedArrayBuffer === 'undefined' ? undefined$2 : SharedArrayBuffer,
-  	'%SharedArrayBufferPrototype%': typeof SharedArrayBuffer === 'undefined' ? undefined$2 : SharedArrayBuffer.prototype,
-  	'%String%': String,
-  	'%StringIteratorPrototype%': hasSymbols$4 ? getProto$1(''[Symbol.iterator]()) : undefined$2,
-  	'%StringPrototype%': String.prototype,
-  	'%Symbol%': hasSymbols$4 ? Symbol : undefined$2,
-  	'%SymbolPrototype%': hasSymbols$4 ? Symbol.prototype : undefined$2,
-  	'%SyntaxError%': SyntaxError,
-  	'%SyntaxErrorPrototype%': SyntaxError.prototype,
-  	'%ThrowTypeError%': ThrowTypeError$1,
-  	'%TypedArray%': TypedArray$1,
-  	'%TypedArrayPrototype%': TypedArray$1 ? TypedArray$1.prototype : undefined$2,
-  	'%TypeError%': $TypeError$1,
-  	'%TypeErrorPrototype%': $TypeError$1.prototype,
-  	'%Uint8Array%': typeof Uint8Array === 'undefined' ? undefined$2 : Uint8Array,
-  	'%Uint8ArrayPrototype%': typeof Uint8Array === 'undefined' ? undefined$2 : Uint8Array.prototype,
-  	'%Uint8ClampedArray%': typeof Uint8ClampedArray === 'undefined' ? undefined$2 : Uint8ClampedArray,
-  	'%Uint8ClampedArrayPrototype%': typeof Uint8ClampedArray === 'undefined' ? undefined$2 : Uint8ClampedArray.prototype,
-  	'%Uint16Array%': typeof Uint16Array === 'undefined' ? undefined$2 : Uint16Array,
-  	'%Uint16ArrayPrototype%': typeof Uint16Array === 'undefined' ? undefined$2 : Uint16Array.prototype,
-  	'%Uint32Array%': typeof Uint32Array === 'undefined' ? undefined$2 : Uint32Array,
-  	'%Uint32ArrayPrototype%': typeof Uint32Array === 'undefined' ? undefined$2 : Uint32Array.prototype,
-  	'%URIError%': URIError,
-  	'%URIErrorPrototype%': URIError.prototype,
-  	'%WeakMap%': typeof WeakMap === 'undefined' ? undefined$2 : WeakMap,
-  	'%WeakMapPrototype%': typeof WeakMap === 'undefined' ? undefined$2 : WeakMap.prototype,
-  	'%WeakSet%': typeof WeakSet === 'undefined' ? undefined$2 : WeakSet,
-  	'%WeakSetPrototype%': typeof WeakSet === 'undefined' ? undefined$2 : WeakSet.prototype
-  };
-
-
-  var $replace$1 = functionBind.call(Function.call, String.prototype.replace);
-
-  /* adapted from https://github.com/lodash/lodash/blob/4.17.15/dist/lodash.js#L6735-L6744 */
-  var rePropName$1 = /[^%.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|%$))/g;
-  var reEscapeChar$1 = /\\(\\)?/g; /** Used to match backslashes in property paths. */
-  var stringToPath$1 = function stringToPath(string) {
-  	var result = [];
-  	$replace$1(string, rePropName$1, function (match, number, quote, subString) {
-  		result[result.length] = quote ? $replace$1(subString, reEscapeChar$1, '$1') : (number || match);
-  	});
-  	return result;
-  };
-  /* end adaptation */
-
-  var getBaseIntrinsic$1 = function getBaseIntrinsic(name, allowMissing) {
-  	if (!(name in INTRINSICS$1)) {
-  		throw new SyntaxError('intrinsic ' + name + ' does not exist!');
-  	}
-
-  	// istanbul ignore if // hopefully this is impossible to test :-)
-  	if (typeof INTRINSICS$1[name] === 'undefined' && !allowMissing) {
-  		throw new $TypeError$1('intrinsic ' + name + ' exists, but is not available. Please file an issue!');
-  	}
-
-  	return INTRINSICS$1[name];
-  };
-
-  var GetIntrinsic$1 = function GetIntrinsic(name, allowMissing) {
-  	if (typeof name !== 'string' || name.length === 0) {
-  		throw new TypeError('intrinsic name must be a non-empty string');
-  	}
-  	if (arguments.length > 1 && typeof allowMissing !== 'boolean') {
-  		throw new TypeError('"allowMissing" argument must be a boolean');
-  	}
-
-  	var parts = stringToPath$1(name);
-
-  	var value = getBaseIntrinsic$1('%' + (parts.length > 0 ? parts[0] : '') + '%', allowMissing);
-  	for (var i = 1; i < parts.length; i += 1) {
-  		if (value != null) {
-  			if ($gOPD$1 && (i + 1) >= parts.length) {
-  				var desc = $gOPD$1(value, parts[i]);
-  				if (!allowMissing && !(parts[i] in value)) {
-  					throw new $TypeError$1('base intrinsic for ' + name + ' exists, but the property is not available.');
-  				}
-  				// By convention, when a data property is converted to an accessor
-  				// property to emulate a data property that does not suffer from
-  				// the override mistake, that accessor's getter is marked with
-  				// an `originalValue` property. Here, when we detect this, we
-  				// uphold the illusion by pretending to see that original data
-  				// property, i.e., returning the value rather than the getter
-  				// itself.
-  				value = desc && 'get' in desc && !('originalValue' in desc.get) ? desc.get : value[parts[i]];
-  			} else {
-  				value = value[parts[i]];
-  			}
-  		}
-  	}
-  	return value;
-  };
-
-  var callBind$1 = createCommonjsModule(function (module) {
-
-
-
-
-
-  var $apply = GetIntrinsic$1('%Function.prototype.apply%');
-  var $call = GetIntrinsic$1('%Function.prototype.call%');
-  var $reflectApply = GetIntrinsic$1('%Reflect.apply%', true) || functionBind.call($call, $apply);
-
-  var $defineProperty = GetIntrinsic$1('%Object.defineProperty%', true);
-
-  if ($defineProperty) {
-  	try {
-  		$defineProperty({}, 'a', { value: 1 });
-  	} catch (e) {
-  		// IE 8 has a broken defineProperty
-  		$defineProperty = null;
-  	}
-  }
-
-  module.exports = function callBind() {
-  	return $reflectApply(functionBind, $call, arguments);
-  };
-
-  var applyBind = function applyBind() {
-  	return $reflectApply(functionBind, $apply, arguments);
-  };
-
-  if ($defineProperty) {
-  	$defineProperty(module.exports, 'apply', { value: applyBind });
-  } else {
-  	module.exports.apply = applyBind;
-  }
-  });
-  var callBind_1$1 = callBind$1.apply;
-
   var $Object = Object;
-  var $TypeError$2 = TypeError;
+  var $TypeError$1 = TypeError;
 
   var implementation$3 = function flags() {
   	if (this != null && this !== $Object(this)) {
-  		throw new $TypeError$2('RegExp.prototype.flags getter called on non-object');
+  		throw new $TypeError$1('RegExp.prototype.flags getter called on non-object');
   	}
   	var result = '';
   	if (this.global) {
@@ -3892,15 +3525,15 @@
   };
 
   var supportsDescriptors$1 = defineProperties_1.supportsDescriptors;
-  var $gOPD$2 = Object.getOwnPropertyDescriptor;
-  var $TypeError$3 = TypeError;
+  var $gOPD$1 = Object.getOwnPropertyDescriptor;
+  var $TypeError$2 = TypeError;
 
   var polyfill$2 = function getPolyfill() {
   	if (!supportsDescriptors$1) {
-  		throw new $TypeError$3('RegExp.prototype.flags requires a true ES5 environment that supports property descriptors');
+  		throw new $TypeError$2('RegExp.prototype.flags requires a true ES5 environment that supports property descriptors');
   	}
   	if ((/a/mig).flags === 'gim') {
-  		var descriptor = $gOPD$2(RegExp.prototype, 'flags');
+  		var descriptor = $gOPD$1(RegExp.prototype, 'flags');
   		if (descriptor && typeof descriptor.get === 'function' && typeof (/a/).dotAll === 'boolean') {
   			return descriptor.get;
   		}
@@ -3910,19 +3543,19 @@
 
   var supportsDescriptors$2 = defineProperties_1.supportsDescriptors;
 
-  var gOPD$1 = Object.getOwnPropertyDescriptor;
+  var gOPD = Object.getOwnPropertyDescriptor;
   var defineProperty$2 = Object.defineProperty;
   var TypeErr = TypeError;
-  var getProto$2 = Object.getPrototypeOf;
+  var getProto$1 = Object.getPrototypeOf;
   var regex = /a/;
 
   var shim$1 = function shimFlags() {
-  	if (!supportsDescriptors$2 || !getProto$2) {
+  	if (!supportsDescriptors$2 || !getProto$1) {
   		throw new TypeErr('RegExp.prototype.flags requires a true ES5 environment that supports property descriptors');
   	}
   	var polyfill = polyfill$2();
-  	var proto = getProto$2(regex);
-  	var descriptor = gOPD$1(proto, 'flags');
+  	var proto = getProto$1(regex);
+  	var descriptor = gOPD(proto, 'flags');
   	if (!descriptor || descriptor.get !== polyfill) {
   		defineProperty$2(proto, 'flags', {
   			configurable: true,
@@ -3933,7 +3566,7 @@
   	return polyfill;
   };
 
-  var flagsBound = callBind$1(implementation$3);
+  var flagsBound = callBind(implementation$3);
 
   defineProperties_1(flagsBound, {
   	getPolyfill: polyfill$2,

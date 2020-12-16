@@ -590,10 +590,10 @@ input {
           display: flex;
           justify-content: center;
           padding: 0em;
-          height: 90%;
+          min-height: 90%;
           width: 90%;
           margin: 0 auto;
-          top: unset;
+          top: 20px;
           left: unset; }
           .molecules-modal .modal__dialog--default .dialog-container {
             width: 90%;
@@ -1020,6 +1020,8 @@ input {
     .molecules-type-ahead-search__search::-moz-placeholder {
       color: #9da3a8; }
     .molecules-type-ahead-search__search:-ms-input-placeholder {
+      color: #9da3a8; }
+    .molecules-type-ahead-search__search::-ms-input-placeholder {
       color: #9da3a8; }
     .molecules-type-ahead-search__search::placeholder {
       color: #9da3a8; }
