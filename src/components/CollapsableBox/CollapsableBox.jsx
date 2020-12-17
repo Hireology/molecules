@@ -8,45 +8,38 @@ export default class CandidateSearchFilter extends PureComponent {
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node,
     ]).isRequired,
-    defaultExpanded: PropTypes.bool,
+    isExpanded: PropTypes.bool,
     nonScrollableContent: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node,
     ]),
     title: PropTypes.string.isRequired,
     scrollable: PropTypes.bool,
+    handleToggle: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
-    defaultExpanded: true,
+    isExpanded: true,
     nonScrollableContent: null,
     scrollable: false,
   };
 
-  state = {
-    expanded: this.props.defaultExpanded,
-  };
-
-  toggleExpanded = () => {
-    this.setState({ expanded: !this.state.expanded });
-  };
-
   handleKeyDown = (e) => {
     if (e.keyCode === 13 || e.keyCode === 32) {
-      this.toggleExpanded();
+      this.props.handleToggle();
     }
   };
 
   render() {
     const headerClasses = classNames('collapsable-box__header', {
-      'collapsable-box__header--closed': !this.state.expanded,
+      'collapsable-box__header--closed': !this.props.isExpanded,
     });
     const scrollableClass = classNames({
       'collapsable-box__body--scrollable': this.props.scrollable,
     });
     const iconClasses = classNames('fa collapsable-box__icon', {
-      'fa-minus-square': this.state.expanded,
-      'fa-plus-square': !this.state.expanded,
+      'fa-minus-square': this.props.isExpanded,
+      'fa-plus-square': !this.props.isExpanded,
     });
 
     return (
@@ -56,14 +49,14 @@ export default class CandidateSearchFilter extends PureComponent {
           <div
             role="button"
             tabIndex={0}
-            onClick={this.toggleExpanded}
+            onClick={this.props.handleToggle}
             onKeyDown={this.handleKeyDown}
             data-test="collapsable-box-icon-button"
           >
             <i className={iconClasses} data-test="collapsable-box-icon" />
           </div>
         </div>
-        {this.state.expanded && (
+        {this.props.isExpanded && (
           <div
             className="collapsable-box__body"
             data-test="collapsable-box-body"
