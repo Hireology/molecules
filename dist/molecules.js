@@ -1765,19 +1765,9 @@
 
       _this = _PureComponent.call.apply(_PureComponent, [this].concat(args)) || this;
 
-      _defineProperty(_assertThisInitialized(_this), "state", {
-        expanded: _this.props.defaultExpanded
-      });
-
-      _defineProperty(_assertThisInitialized(_this), "toggleExpanded", function () {
-        _this.setState({
-          expanded: !_this.state.expanded
-        });
-      });
-
       _defineProperty(_assertThisInitialized(_this), "handleKeyDown", function (e) {
         if (e.keyCode === 13 || e.keyCode === 32) {
-          _this.toggleExpanded();
+          _this.props.handleToggle();
         }
       });
 
@@ -1788,14 +1778,14 @@
 
     _proto.render = function render() {
       var headerClasses = classNames('collapsable-box__header', {
-        'collapsable-box__header--closed': !this.state.expanded
+        'collapsable-box__header--closed': !this.props.isExpanded
       });
       var scrollableClass = classNames({
         'collapsable-box__body--scrollable': this.props.scrollable
       });
       var iconClasses = classNames('fa collapsable-box__icon', {
-        'fa-minus-square': this.state.expanded,
-        'fa-plus-square': !this.state.expanded
+        'fa-minus-square': this.props.isExpanded,
+        'fa-plus-square': !this.props.isExpanded
       });
       return /*#__PURE__*/React__default.createElement("div", {
         className: "collapsable-box"
@@ -1805,13 +1795,13 @@
       }, this.props.title, /*#__PURE__*/React__default.createElement("div", {
         role: "button",
         tabIndex: 0,
-        onClick: this.toggleExpanded,
+        onClick: this.props.handleToggle,
         onKeyDown: this.handleKeyDown,
         "data-test": "collapsable-box-icon-button"
       }, /*#__PURE__*/React__default.createElement("i", {
         className: iconClasses,
         "data-test": "collapsable-box-icon"
-      }))), this.state.expanded && /*#__PURE__*/React__default.createElement("div", {
+      }))), this.props.isExpanded && /*#__PURE__*/React__default.createElement("div", {
         className: "collapsable-box__body",
         "data-test": "collapsable-box-body"
       }, this.props.nonScrollableContent && /*#__PURE__*/React__default.createElement("span", {
@@ -1827,14 +1817,15 @@
 
   _defineProperty(CandidateSearchFilter, "propTypes", {
     children: PropTypes$1.oneOfType([PropTypes$1.arrayOf(PropTypes$1.node), PropTypes$1.node]).isRequired,
-    defaultExpanded: PropTypes$1.bool,
+    isExpanded: PropTypes$1.bool,
     nonScrollableContent: PropTypes$1.oneOfType([PropTypes$1.arrayOf(PropTypes$1.node), PropTypes$1.node]),
     title: PropTypes$1.string.isRequired,
-    scrollable: PropTypes$1.bool
+    scrollable: PropTypes$1.bool,
+    handleToggle: PropTypes$1.func.isRequired
   });
 
   _defineProperty(CandidateSearchFilter, "defaultProps", {
-    defaultExpanded: true,
+    isExpanded: true,
     nonScrollableContent: null,
     scrollable: false
   });
