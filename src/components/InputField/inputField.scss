@@ -1,0 +1,110 @@
+.textInput {
+  position: relative;
+  input {
+    border: none;
+    background: transparent;
+    color: darkslategray;
+    -webkit-appearance: none;
+    font-size: 0.9rem;
+    width: 100%;
+    padding: 0.75rem 0.25rem 0.3125rem;
+    margin: 0 auto 1rem;
+    border-bottom: 0.0625rem solid gray;
+    position: relative;
+    &.disabled {
+      cursor: not-allowed;
+      &::placeholder {
+        color: #9da3a8;
+      }
+    }
+    &::placeholder {
+      color: #8cc924;
+      font-size: 0.9rem;
+    }
+    &:focus {
+      outline: none;
+      border-bottom-color: darkslategray;
+    }
+    &.error {
+      border-bottom: 0.0625rem solid red;
+    }
+  }
+
+  .error-style {
+    width: 100%;
+    color: red;
+    font-size: 0.8rem;
+    text-align: center;
+    position: relative;
+    bottom: -0.5rem;
+    padding-bottom: 1rem;
+    margin-top: -1rem;
+  }
+  .success {
+    max-width: 1rem;
+    position: absolute;
+    right: 1rem;
+    top: 0.6rem;
+    color: #8cc924;
+  }
+}
+> label {
+  position: absolute;
+  display: block;
+  text-align: right;
+  left: 0.25rem;
+  top: 0.75rem;
+  color: #8cc924;
+  z-index: 10;
+  transition: transform 150ms ease-out, font-size 150ms ease-out;
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+> .focused {
+  transform: translateY(-135%);
+  font-size: 0.75rem;
+  color: purple;
+}
+
+// form {
+//   margin: 100px;
+// }
+// .input-field {
+//   position: relative;
+//   width: 250px;
+//   height: 44px;
+//   line-height: 44px;
+// }
+// label {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   color: #d3d3d3;
+//   transition: 0.2s all;
+//   cursor: text;
+// }
+// input {
+//   width: 100%;
+//   border: 0;
+//   outline: 0;
+//   padding: 0.5rem 0;
+//   border-bottom: 2px solid #d3d3d3;
+//   box-shadow: none;
+//   color: #111;
+// }
+// input:invalid {
+//   outline: 0;
+//   // color: #ff2300;
+//   //   border-color: #ff2300;
+// }
+// input:focus,
+// input:valid {
+//   border-color: #00dd22;
+// }
+// input:focus ~ label,
+// input:valid ~ label {
+//   font-size: 14px;
+//   top: -24px;
+//   color: #00dd22;
+// }
