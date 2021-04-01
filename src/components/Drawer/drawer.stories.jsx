@@ -11,14 +11,14 @@ title: PropTypes.string.isRequired,
 const notes = {
   notes: {
     markdown: `
-      #Drawer
+      #RadioButton
       ## Props
       | prop name       | prop type     | required | default value      | description |
       | --------------- | ------------- | -------- | ------------------ | ----------- |
-      | title           | String        | true     | -                  | Drawer title |
-      | isOpen          | Boolean       | true     | -                  | Whether the drawer is open or not |
-      | children        | Node          | true     | -                  | Drawer content |
-      | onExitClick     | Function      | true     | -                  | Handling the click of the close button |
+      | title           | String        | true     | -                  | Whether radio button is checked or not |
+      | isOpen          | Boolean       | true     | -                  | Whether radio button is disabled or not |
+      | children        | Node          | true     | -                  | Radio button id |
+      | onExitClick     | Function      | true     | -                  | Whether to make radio button inline or not |
       | hideForDesktop  | Boolean       | false    | true               | Whether the drawer should be automatically hidden for screens larger than 1024px  |
     `,
   },
