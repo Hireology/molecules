@@ -38,7 +38,7 @@ class Modal extends Component {
   static defaultProps = {
     aria: 'Modal Dialog',
     closeOnEsc: true,
-    closeOnOverlayClick: true,
+    closeOnOverlayClick: false,
     isLoadingContent: false,
     isOpen: false,
     showOverlay: true,
